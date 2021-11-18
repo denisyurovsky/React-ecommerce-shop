@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div>
+      <p
+        class="hello"
+        data-testid="title"
+      >
+        Hi team 
+        <img
+          alt="smile"
+          class="smileIcon"
+          src="smile.svg"
+        />
+      </p>
+      <p>
+        Today we are starting our course. This is a component-example describing a general structure of any component in our project. Please look at it, loot at the project structure and the structure of the component App, look at the file naming in JS and CSS code and try to follow these conventions. Also have a look at the App.test.js, it shows the general structure of a test file and basic testing principles.
+      </p>
+      <p>
+        Good luck! :)
+      </p>
+      <a
+        class="appLink"
+        href="https://reactjs.org"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Learn React
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
