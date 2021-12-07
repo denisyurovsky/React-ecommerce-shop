@@ -83,7 +83,7 @@
       "!**/constants/**",
       "!src/index.jsx",
       "!src/api/setup.js",
-      "!src/store/configureStore.js",
+      "!src/store/store.js",
       "!**/*stories.{js,jsx}"
     ]
   },
