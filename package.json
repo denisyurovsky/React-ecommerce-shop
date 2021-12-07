@@ -58,24 +58,26 @@
       "last 1 safari version"
     ]
   },
-  "coverageThreshold": {
-    "global": {
-      "functions": 80,
-      "lines": 80,
-      "statements": 80,
-      "branches": 80
-    }
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "functions": 80,
+        "lines": 80,
+        "statements": 80,
+        "branches": 80
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/__mocks__/**",
+      "!**/__tests__/**",
+      "!**/__snapshots__/**",
+      "!**/constants/**",
+      "!src/index.jsx",
+      "!src/api/setup.js",
+      "!src/store/configureStore.js"
+    ]
   },
-  "collectCoverageFrom": [
-    "src/**/*.{js,jsx}",
-    "!**/__mocks__/**",
-    "!**/__tests__/**",
-    "!**/__snapshots__/**",
-    "!**/constants/**",
-    "!src/index.jsx",
-    "!src/api/setup.js",
-    "!src/store/configureStore.js"
-  ],
   "lint-staged": {
     "src/**/*.{js,jsx}": [
       "eslint --fix",
