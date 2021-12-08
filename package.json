@@ -16,7 +16,9 @@
     "precommit": "lint-staged",
     "prettier:check": "prettier --check src/**/*.{js,jsx,json}",
     "prettier:fix": "prettier --write src/**/*.{js,jsx,json}",
-    "husky:init": "husky install && husky add .husky\\pre-commit \"npm run precommit\""
+    "husky:init": "husky install && husky add .husky\\pre-commit \"npm run precommit\"",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@emotion/react": "^11.7.0",
@@ -38,6 +40,12 @@
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.8",
+    "@storybook/addon-essentials": "^6.4.8",
+    "@storybook/addon-links": "^6.4.8",
+    "@storybook/node-logger": "^6.4.8",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.4.8",
     "eslint-plugin-import": "^2.25.3",
     "husky": "^7.0.4",
     "node-sass": "^6.0.1",
@@ -75,7 +83,8 @@
       "!**/constants/**",
       "!src/index.jsx",
       "!src/api/setup.js",
-      "!src/store/configureStore.js"
+      "!src/store/configureStore.js",
+      "!**/*stories.{js,jsx}"
     ]
   },
   "lint-staged": {
