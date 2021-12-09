@@ -1,0 +1,407 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container MuiBox-root css-0"
+  >
+    <section
+      class="container"
+    >
+      <h2
+        class="header"
+        data-testid="title"
+      >
+        Welcome to Born2Die Market!
+      </h2>
+      <div
+        class="container"
+      >
+        <div
+          class="MuiFormControl-root form css-1nrlq1o-MuiFormControl-root"
+        >
+          <label
+            class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink="false"
+            for="uncontrolled-native"
+          />
+          <div
+            class="MuiFormControl-root MuiTextField-root select css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+          >
+            <label
+              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1kty9di-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="true"
+              for="select-category-input"
+              id="select-category-input-label"
+            >
+              Categories
+            </label>
+            <div
+              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="select-category-input-label select-category-input"
+                class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                id="select-category-input"
+                role="button"
+                tabindex="0"
+              >
+                All categories
+              </div>
+              <input
+                aria-hidden="true"
+                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                tabindex="-1"
+                value="All categories"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+                data-testid="ArrowDropDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-1z7n62"
+                >
+                  <span>
+                    Categories
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd textField css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
+          data-testid="text-search-input"
+        >
+          <input
+            class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+            placeholder="Search by advertisement"
+            type="text"
+            value=""
+          />
+          <button
+            class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root searchButton css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="SearchIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+          <fieldset
+            aria-hidden="true"
+            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="css-nnbavb"
+            >
+              <span
+                class="notranslate"
+              >
+                ​
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg css-1tyumyi-MuiContainer-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+        >
+          Recently added
+        </p>
+        <div
+          class="container"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <img
+              alt="name11"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
+              src="url"
+            />
+            <div
+              class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+            >
+              <h5
+                class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
+              >
+                name11
+              </h5>
+              <span
+                class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
+              >
+                First category
+              </span>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Created:000
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Updated: 111
+              </p>
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+              >
+                300$
+              </p>
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                + add to cart
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <img
+              alt="name1"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
+              src="url"
+            />
+            <div
+              class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+            >
+              <h5
+                class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
+              >
+                name1
+              </h5>
+              <span
+                class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
+              >
+                First category
+              </span>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Created:000
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Updated: 111
+              </p>
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+              >
+                300$
+              </p>
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                + add to cart
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <img
+              alt="name2"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
+              src="url"
+            />
+            <div
+              class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+            >
+              <h5
+                class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
+              >
+                name2
+              </h5>
+              <span
+                class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
+              >
+                Second category
+              </span>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Created:000
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Updated: 111
+              </p>
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+              >
+                300$
+              </p>
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                + add to cart
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <img
+              alt="name3"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
+              src="url"
+            />
+            <div
+              class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+            >
+              <h5
+                class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
+              >
+                name3
+              </h5>
+              <span
+                class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
+              >
+                Third category
+              </span>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Created:000
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Updated: 111
+              </p>
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+              >
+                300$
+              </p>
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                + add to cart
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <img
+              alt="ebyb"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
+              src="url"
+            />
+            <div
+              class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+            >
+              <h5
+                class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
+              >
+                ebyb
+              </h5>
+              <span
+                class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
+              >
+                Third category
+              </span>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Created:000
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+              >
+                Updated: 111
+              </p>
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+              >
+                300$
+              </p>
+              <button
+                class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                + add to cart
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</DocumentFragment>
+`;

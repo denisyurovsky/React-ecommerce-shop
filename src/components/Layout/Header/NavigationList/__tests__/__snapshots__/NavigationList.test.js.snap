@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationList component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="list"
+    data-testid="header-navigation-list"
+  >
+    <li
+      class="item"
+    >
+      HOME
+    </li>
+    <li
+      class="item"
+    >
+      PRODUCTS
+    </li>
+  </ul>
+</DocumentFragment>
+`;

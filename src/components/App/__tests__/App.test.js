@@ -8,7 +8,7 @@ import { App } from '../App';
 describe('App component', () => {
   it('full app rendering/navigating', () => {
     render(<App />, { wrapper: MemoryRouter });
-    expect(screen.getByText(/Home Page/i)).toBeInTheDocument();
+    expect(screen.getByText(/EPAM systems/i)).toBeInTheDocument();
   });
 
   it('landing on a "NotFoundPage"', () => {
@@ -20,7 +20,6 @@ describe('App component', () => {
         <App />
       </Router>
     );
-
     expect(screen.getByText(/Page Not Found/i)).toBeInTheDocument();
   });
 });

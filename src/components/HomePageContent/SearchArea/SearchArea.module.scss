@@ -1,0 +1,71 @@
+@import "../../../assets/styles/colors.scss";
+
+.select {
+  width: 200px;
+}
+
+@media all and (max-width: 700px) {
+  .select {
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+@media all and (max-width: 1500px) {
+  .container {
+    justify-content: flex-start;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.form {
+  display: flex;
+  margin-right: 30px !important;
+  flex-direction: row !important;
+}
+
+@media all and (max-width: 700px) {
+  .form {
+    width: calc(100% - 30px) !important;
+    margin-right: 0 !important;
+  }
+}
+
+.textField {
+  max-width: 700px;
+  width: calc(100vw + 600px);
+}
+
+@media all and (max-width: 1000px) {
+  .textField {
+    width: 100vw;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .textField {
+    width: calc(100% - 30px);
+    margin-top: 10px;
+  }
+}
+
+.searchButton {
+  position: absolute !important;
+  color: $indigo50 !important;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-radius: 0 5px 5px 0 !important;
+  background-color: $primaryMain !important;
+}

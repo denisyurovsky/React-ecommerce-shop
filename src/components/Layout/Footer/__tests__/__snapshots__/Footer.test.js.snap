@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component snapshots renders a valid snapshot when year 2021 1`] = `
+<DocumentFragment>
+  <footer
+    class="appbar"
+  >
+    <div
+      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular toolBar css-1t29gy6-MuiToolbar-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body3 copyright css-37jdci-MuiTypography-root"
+        data-testid="copyright"
+      >
+        EPAM Systems © 2021
+      </span>
+    </div>
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`Footer component snapshots renders a valid snapshot when year 2025 1`] = `
+<DocumentFragment>
+  <footer
+    class="appbar"
+  >
+    <div
+      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular toolBar css-1t29gy6-MuiToolbar-root"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-body3 copyright css-37jdci-MuiTypography-root"
+        data-testid="copyright"
+      >
+        EPAM Systems © 2025
+      </span>
+    </div>
+  </footer>
+</DocumentFragment>
+`;

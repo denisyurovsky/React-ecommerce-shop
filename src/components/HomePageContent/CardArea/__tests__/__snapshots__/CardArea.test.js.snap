@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardArea component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg css-1tyumyi-MuiContainer-root"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+    >
+      Recently added
+    </p>
+  </div>
+</DocumentFragment>
+`;

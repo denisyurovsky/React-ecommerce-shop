@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileNavigation component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="container"
+    data-testid="header-mobile-navigation"
+  >
+    <li
+      class="item"
+    >
+      HOME
+    </li>
+    <li
+      class="item"
+    >
+      PRODUCTS
+    </li>
+  </ul>
+</DocumentFragment>
+`;
