@@ -1,32 +1,26 @@
 import { render, screen } from '@testing-library/react';
+import { createMemoryHistory } from 'history';
 import React from 'react';
+import { Router, MemoryRouter } from 'react-router-dom';
 
 import { App } from '../App';
 
 describe('App component', () => {
-  describe('snapshots', () => {
-    it('renders a valid snapshot', () => {
-      const { asFragment } = render(<App />);
-
-      expect(asFragment()).toMatchSnapshot();
-    });
+  it('full app rendering/navigating', () => {
+    render(<App />, { wrapper: MemoryRouter });
+    expect(screen.getByText(/Home Page/i)).toBeInTheDocument();
   });
 
-  describe('another group of tests', () => {
-    beforeEach(() => {
-      render(<App />);
-    });
+  it('landing on a "NotFoundPage"', () => {
+    const history = createMemoryHistory();
 
-    it('renders title "Hi team"', () => {
-      const title = screen.getByTestId('title');
+    history.push('/some/bad/route');
+    render(
+      <Router location={history.location} navigator={history}>
+        <App />
+      </Router>
+    );
 
-      expect(title.textContent).toContain('Hi team');
-    });
-
-    it('renders "reactjs.org" as a link to the course', () => {
-      const courseLink = screen.getByText(/learn react/i);
-
-      expect(courseLink.getAttribute('href')).toBe('https://reactjs.org');
-    });
+    expect(screen.getByText(/Page Not Found/i)).toBeInTheDocument();
   });
 });
