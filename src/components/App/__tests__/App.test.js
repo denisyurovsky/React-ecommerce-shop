@@ -10,7 +10,6 @@ describe('App component', () => {
     render(<App />, { wrapper: MemoryRouter });
     expect(screen.getByText(/EPAM systems/i)).toBeInTheDocument();
   });
-
   it('landing on a "NotFoundPage"', () => {
     const history = createMemoryHistory();
 

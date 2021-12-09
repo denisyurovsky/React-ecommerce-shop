@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortFilter component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-1mmtv2s"
+  >
+    <div
+      class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
+    >
+      <label
+        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        for="uncontrolled-native"
+      >
+        Filter
+      </label>
+      <div
+        class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiNativeSelect-root css-1480iag-MuiInputBase-root-MuiInput-root"
+      >
+        <select
+          aria-invalid="false"
+          class="MuiNativeSelect-select MuiNativeSelect-outlined MuiInput-input MuiInputBase-input css-19ygod6-MuiNativeSelect-select-MuiInputBase-input-MuiInput-input"
+          id="uncontrolled-native"
+          name="sort"
+        >
+          <option
+            value="new"
+          >
+            From new to old
+          </option>
+          <option
+            value="old"
+          >
+            From old to new
+          </option>
+          <option
+            value="expensive"
+          >
+            From expensive to cheap
+          </option>
+          <option
+            value="cheap"
+          >
+            From cheap to expensive
+          </option>
+        </select>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiNativeSelect-icon MuiNativeSelect-iconOutlined css-1g12qau-MuiSvgIcon-root-MuiNativeSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,348 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardsContainer component snapshots renders a valid snapshot with data 1`] = `
+<DocumentFragment>
+  <div
+    class="container row"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="Intelligent Cotton Pants"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+        src="noImg.jpg"
+      />
+      <div
+        class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          href="/products/0"
+        >
+          Intelligent Cotton Pants
+        </a>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 category css-hav9kw-MuiTypography-root"
+        >
+          HOME
+        </h6>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Created: 10.11.2021
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Updated: 24.11.2021
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          670 $
+        </p>
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-1758frj-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            + ADD TO CART
+          </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="Incredible Plastic Table"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+        src="noImg.jpg"
+      />
+      <div
+        class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          href="/products/1"
+        >
+          Incredible Plastic Table
+        </a>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 category css-hav9kw-MuiTypography-root"
+        >
+          CLOTHING
+        </h6>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Created: 17.4.2021
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Updated: 14.10.2021
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          790 $
+        </p>
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-1758frj-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            + ADD TO CART
+          </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="Incredible Rubber Cheese"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+        src="noImg.jpg"
+      />
+      <div
+        class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          href="/products/2"
+        >
+          Incredible Rubber Cheese
+        </a>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 category css-hav9kw-MuiTypography-root"
+        >
+          HOME
+        </h6>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Created: 9.1.2021
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Updated: 12.5.2021
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          638 $
+        </p>
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-1758frj-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            + ADD TO CART
+          </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="Incredible Metal Shoes"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+        src="noImg.jpg"
+      />
+      <div
+        class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          href="/products/3"
+        >
+          Incredible Metal Shoes
+        </a>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 category css-hav9kw-MuiTypography-root"
+        >
+          HOME
+        </h6>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Created: 18.3.2021
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Updated: 26.11.2021
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          67 $
+        </p>
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-1758frj-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            + ADD TO CART
+          </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="Incredible Metal Chair"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+        src="noImg.jpg"
+      />
+      <div
+        class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          href="/products/4"
+        >
+          Incredible Metal Chair
+        </a>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 category css-hav9kw-MuiTypography-root"
+        >
+          CLOTHING
+        </h6>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Created: 29.3.2021
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Updated: 7.4.2021
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          130 $
+        </p>
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-1758frj-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            + ADD TO CART
+          </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="Fantastic Concrete Computer"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+        src="noImg.jpg"
+      />
+      <div
+        class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          href="/products/5"
+        >
+          Fantastic Concrete Computer
+        </a>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle2 category css-hav9kw-MuiTypography-root"
+        >
+          GAMES
+        </h6>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Created: 16.10.2021
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
+        >
+          Updated: 20.10.2021
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          805 $
+        </p>
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-1758frj-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            + ADD TO CART
+          </span>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CardsContainer component snapshots renders a valid snapshot without data 1`] = `
+<DocumentFragment>
+  <div
+    class="container row"
+  />
+</DocumentFragment>
+`;
