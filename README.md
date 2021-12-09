@@ -5,15 +5,15 @@
 # Perform the next commands in the termanal/cmd
 git config --global user.name "Name Surname"
 git config --global user.email name_surname@epam.com
- 
+
 # Also for Windows based OSes it's important to set the next config:
 git config --global core.autocrlf true
 # For Linux or MacOS set the next config:
 git config --global core.autocrlf input
- 
+
 # For convenience it's also useful to set this config
 git config --global push.default current
- 
+
 # For Windows OSes it's useful to set Notepad as default editor
 # as Vim and Nano has issues on Windows
 git config --global core.editor notepad
@@ -41,7 +41,7 @@ For Unix systems execute:
 ```bash
 # Download NVM installation script:
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
- 
+
 # Reload terminal:
 source ~/.bashrc
 nvm --version
@@ -63,10 +63,10 @@ nvm use 16.13.0
 # Create some project folder and navigate into it:
 mkdir epam
 cd epam
- 
+
 # Clone Client repository:
 git clone git@git.epam.com:epm-lstr/epm-lstr-fei/reactjs-btd.git
- 
+
 # Switch to "develop" branch and install all the dependencies:
 git checkout develop
 npm install
@@ -81,7 +81,7 @@ npm install --global node-gyp
 ```
 
 In some cases it can be necessary to set `PYTHON` environment variable manually.
-    
+
 **P.S.** In case of some issues with `node-gyp` installation follow the [official instructions](https://github.com/nodejs/node-gyp#on-windows).
 
 # 3. The list of available commands
@@ -121,7 +121,31 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run storybook`
 
-Launches app components in the storybook.  
-Open [http://localhost:6006](http://localhost:6006) to view it in the browser.  
-See the storybook [documentation](https://storybook.js.org/docs/react/get-started/introduction) for more information.  
+Launches app components in the storybook.
+Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
+See the storybook [documentation](https://storybook.js.org/docs/react/get-started/introduction) for more information.
+
+<br>
+
+# 4. How to make a request to the json-server
+
+### Create file *.env.local* with following structure:
+:exclamation: Important notice: Make sure to place the file in the `root` directory
+```
+REACT_APP_API_HOST = 'http://localhost:5000/'
+```
+
+<em>**.env.local** constants can be accessed with `process.env.REACT_APP_CONST_NAME` anywhere in project.<br>
+This constant is used by **setup.js** in order to automatically add a correct path to a server port.</em>
+
+Steps:
+- Start the json-server (check corresponding <a href='https://git.epam.com/epm-lstr/epm-lstr-fei/btd-rest-api-server/-/tree/develop'>README.md</a> file)
+- Import an instance of axios (path may differ)
+```
+import { http } from './api/setup'
+```
+- Apply standart axios methods to `http` (you're able to write relative paths):
+```
+const response = await http.get( 'products/2' )
+```
 

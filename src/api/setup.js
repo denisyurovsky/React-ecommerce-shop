@@ -9,7 +9,7 @@ const host = process.env.REACT_APP_API_HOST
   : '';
 
 const requestSettings = {
-  baseURL: `${host}/api/v1`,
+  baseURL: host,
   headers: HEADERS,
 };
 
