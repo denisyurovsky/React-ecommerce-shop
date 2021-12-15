@@ -3,7 +3,7 @@
 exports[`CardArea component snapshots renders a valid snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg css-1tyumyi-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg wrapper css-1oqqzyl-MuiContainer-root"
   >
     <p
       class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"

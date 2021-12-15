@@ -5,22 +5,44 @@
 }
 
 .card {
-  width: 30%;
+  width: calc(1 / 3 * 100% - 10px);
+  margin-right: 15px;
   padding: 10px 10px 20px;
-  margin-right: 1%;
   margin-top: 20px;
-  box-sizing: border-box;
 }
 
 @media all and (max-width: 950px) {
   .card {
-    width: 45%;
+    width: calc(50% - 10px);
+    margin-right: 20px;
   }
+
+  .card:nth-of-type(3n) {
+    margin-right: 20px !important;
+  }
+
+  .card:nth-of-type(2n) {
+    margin-right: 0 !important;
+  }
+}
+
+.card:nth-of-type(3n) {
+  margin-right: 0;
 }
 
 @media all and (max-width: 600px) {
   .card {
-    width: 80%;
+    margin: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .card:nth-of-type(3n) {
+    margin-right: 0 !important;
+  }
+
+  .card:nth-of-type(2n) {
+    margin-right: 0 !important;
   }
 }
 
@@ -38,5 +60,6 @@
 }
 
 .button {
+  background-color: $primaryMain;
   text-transform: capitalize;
 }

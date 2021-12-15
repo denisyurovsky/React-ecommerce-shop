@@ -4,13 +4,15 @@
 
 // INDIGO
 $indigo500: #3f51b5;
+$indigo700: #1976d2;
 $indigo50: #e8eaf6;
 
 // GREY
-$greyMain: #9e9e9e;
-$grey50: #fafafa;
+$greyDark: #9e9e9e;
+$greyMain: #eee;
+$greyLight: #fafafa;
 // PRIMARY
-$primaryMain: $indigo500;
+$primaryMain: $indigo700;
 //$primaryLight: ;
 //$primaryDark: ;
 
@@ -18,3 +20,5 @@ $primaryMain: $indigo500;
 //$secondaryMain: ;
 //$secondaryLight: ;
 //$secondaryDark: ;
+
+$white: #fff;

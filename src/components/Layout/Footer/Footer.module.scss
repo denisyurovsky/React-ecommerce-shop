@@ -3,9 +3,14 @@
 .appbar {
   padding: 0;
   background-color: $greyMain;
-  position: relative !important;
   height: min-content;
-  width: 100%;
+  width: calc(100% + 30px);
+}
+
+@media all and (min-width: 1000px) {
+  .appbar {
+    width: calc(100% + 100vw - 1000px);
+  }
 }
 
 .copyright {

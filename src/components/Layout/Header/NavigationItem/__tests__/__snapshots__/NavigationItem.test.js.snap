@@ -5,16 +5,20 @@ exports[`NavigationItem component snapshots renders a valid snapshot 1`] = `
   <li
     class="item"
   >
-    Text in block test
-    <div>
-      Div test
-    </div>
-    <p>
-      Paragraph test
-    </p>
-    <span>
-      Span test
-    </span>
+    <a
+      href="/"
+    >
+      Text in block test
+      <div>
+        Div test
+      </div>
+      <p>
+        Paragraph test
+      </p>
+      <span>
+        Span test
+      </span>
+    </a>
   </li>
 </DocumentFragment>
 `;

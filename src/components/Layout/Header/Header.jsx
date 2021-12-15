@@ -16,23 +16,13 @@ export const Header = () => {
   const size = useWindowSize();
 
   return (
-    <header className={styles.container}>
-      <AppBar className={styles.appBar}>
-        <Toolbar>
-          {size.width > laptopBreakPoint ? (
-            <></>
-          ) : (
-            <BurgerButton> </BurgerButton>
-          )}
-          <img src={logo} alt="logo" className={styles.logo} />
-          {size.width < laptopBreakPoint ? (
-            <></>
-          ) : (
-            <NavigationList> </NavigationList>
-          )}
-          <SignInArea></SignInArea>
-        </Toolbar>
-      </AppBar>
-    </header>
+    <AppBar className={styles.appBar}>
+      <Toolbar className={styles.toolBar}>
+        {size.width <= laptopBreakPoint && <BurgerButton />}
+        <img src={logo} alt="logo" className={styles.logo} />
+        {size.width > laptopBreakPoint && <NavigationList />}
+        <SignInArea />
+      </Toolbar>
+    </AppBar>
   );
 };

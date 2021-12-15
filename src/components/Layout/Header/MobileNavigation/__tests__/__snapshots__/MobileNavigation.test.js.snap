@@ -9,12 +9,20 @@ exports[`MobileNavigation component snapshots renders a valid snapshot 1`] = `
     <li
       class="item"
     >
-      HOME
+      <a
+        href="/"
+      >
+        HOME
+      </a>
     </li>
     <li
       class="item"
     >
-      PRODUCTS
+      <a
+        href="/"
+      >
+        PRODUCTS
+      </a>
     </li>
   </ul>
 </DocumentFragment>

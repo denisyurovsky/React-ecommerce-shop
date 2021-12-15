@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Title } from '../Title/Title';
+
 import { CardArea } from './CardArea/CardArea';
 import { CardsContainer } from './CardsContainer/CardsContainer';
 import { SearchArea } from './SearchArea/SearchArea';
@@ -59,9 +61,7 @@ export const HomePageContent = () => {
 
   return (
     <section className={styles.container}>
-      <h2 data-testid="title" className={styles.header}>
-        Welcome to Born2Die Market!
-      </h2>
+      <Title>Welcome to Born2Die Market!</Title>
       <SearchArea setCards={setCards} initialCards={initialCards}></SearchArea>
       <CardArea>
         <CardsContainer cards={cards}></CardsContainer>

@@ -1,6 +1,7 @@
 @import "../../../assets/styles/colors.scss";
 
 .select {
+  background-color: $greyLight;
   width: 200px;
 }
 
@@ -11,6 +12,7 @@
 }
 
 .container {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -30,32 +32,26 @@
 }
 
 .form {
+  margin-right: 20px !important;
   display: flex;
-  margin-right: 30px !important;
   flex-direction: row !important;
 }
 
 @media all and (max-width: 700px) {
   .form {
-    width: calc(100% - 30px) !important;
-    margin-right: 0 !important;
+    margin: 0 !important;
+    width: 100%;
   }
 }
 
 .textField {
-  max-width: 700px;
-  width: calc(100vw + 600px);
-}
-
-@media all and (max-width: 1000px) {
-  .textField {
-    width: 100vw;
-  }
+  width: calc(100% - 200px) !important;
+  max-width: 800px;
 }
 
 @media all and (max-width: 700px) {
   .textField {
-    width: calc(100% - 30px);
+    width: 100% !important;
     margin-top: 10px;
   }
 }

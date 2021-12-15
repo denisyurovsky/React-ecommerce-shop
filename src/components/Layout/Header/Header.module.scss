@@ -1,16 +1,27 @@
 @import "../../../assets/styles/colors.scss";
 
-.container {
-  position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 .appBar {
-  background-color: $primaryMain !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 60px !important;
+  position: relative;
 }
 
 .logo {
-  width: 100px;
-  height: 80px;
+  height: 100%;
+}
+
+.toolBar {
+  min-height: 60px !important;
+  height: 100%;
+  box-sizing: border-box;
+  max-width: 1280px !important;
+}
+
+@media all and (min-width: 1280px) {
+  .toolBar {
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

@@ -2,7 +2,7 @@
 
 .header {
   position: absolute;
-  right: 15px;
+  right: 24px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,11 +10,11 @@
 }
 
 .headerCart {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .button {
-  border-color: $grey50 !important;
-  color: $grey50 !important;
+  border-color: $greyLight !important;
+  color: $greyLight !important;
   text-transform: capitalize;
 }

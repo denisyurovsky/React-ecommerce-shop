@@ -19,3 +19,9 @@ body {
   height: 100vh;
   display: flex;
 }
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}

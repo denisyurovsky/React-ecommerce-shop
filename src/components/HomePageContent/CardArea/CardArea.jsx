@@ -3,9 +3,11 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import styles from './CardArea.module.scss';
+
 export const CardArea = ({ children }) => {
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container className={styles.wrapper}>
       <Typography variant="body1" color="text.secondary">
         Recently added
       </Typography>
