@@ -1,0 +1,17 @@
+.containerWrapper {
+  position: relative;
+}
+
+.registrationContainer {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  gap: 25px;
+  flex-direction: column;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

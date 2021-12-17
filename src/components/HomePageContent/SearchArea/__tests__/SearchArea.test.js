@@ -8,9 +8,7 @@ import { SearchArea } from '../SearchArea';
 describe('SearchArea component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', async () => {
-      const result = render(
-        <SearchArea initialCards={initialCards} setCards={() => {}} />
-      );
+      render(<SearchArea initialCards={initialCards} setCards={() => {}} />);
 
       let inputElement = screen.getByDisplayValue('All categories');
 
