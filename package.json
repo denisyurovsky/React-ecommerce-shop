@@ -9,6 +9,7 @@
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false --coverage",
     "lint": "npm run stylelint && npm run eslint && npm run prettier:check",
+    "lint:fix": "npm run stylelint:fix && npm run eslint:fix && npm run prettier:fix",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx src/ --color",
     "eslint:fix": "eslint --ext .js,.jsx, src/ --color --fix",
     "stylelint": "stylelint src/**/*.scss",
