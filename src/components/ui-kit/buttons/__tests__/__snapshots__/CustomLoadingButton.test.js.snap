@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomLoadingButton component should render a full width btn with a correct label 1`] = `
+<DocumentFragment>
+  <button
+    class="MuiLoadingButton-root MuiLoadingButton-loading MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root Mui-disabled css-1oylogp-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+    disabled=""
+    id="mui-2"
+    tabindex="-1"
+    type="button"
+  >
+    <span
+      class="MuiLoadingButton-startIconLoadingStart MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="SaveIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiLoadingButton-loadingIndicator MuiLoadingButton-loadingIndicatorStart css-cuggrr-MuiLoadingButton-loadingIndicator"
+    >
+      <span
+        aria-labelledby="mui-2"
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorInherit css-62e83j-MuiCircularProgress-root"
+        role="progressbar"
+        style="width: 16px; height: 16px;"
+      >
+        <svg
+          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </span>
+    </div>
+    testing
+  </button>
+</DocumentFragment>
+`;
+
+exports[`CustomLoadingButton component should render a short button with a correct label 1`] = `
+<DocumentFragment>
+  <button
+    class="MuiLoadingButton-root MuiLoadingButton-loading MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-h4t5eh-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
+    disabled=""
+    id="mui-1"
+    tabindex="-1"
+    type="button"
+  >
+    <span
+      class="MuiLoadingButton-startIconLoadingStart MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="SaveIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
+        />
+      </svg>
+    </span>
+    <div
+      class="MuiLoadingButton-loadingIndicator MuiLoadingButton-loadingIndicatorStart css-17xq7a1-MuiLoadingButton-loadingIndicator"
+    >
+      <span
+        aria-labelledby="mui-1"
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorInherit css-62e83j-MuiCircularProgress-root"
+        role="progressbar"
+        style="width: 16px; height: 16px;"
+      >
+        <svg
+          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </span>
+    </div>
+    testing
+  </button>
+</DocumentFragment>
+`;

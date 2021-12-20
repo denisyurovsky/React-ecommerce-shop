@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthModal snapshot should render a valid snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root button css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+    data-testid="btn-login"
+    tabindex="0"
+    type="button"
+  >
+    Sign in
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+</DocumentFragment>
+`;
