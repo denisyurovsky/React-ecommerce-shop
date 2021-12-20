@@ -2,6 +2,9 @@
 // Put here some global styles
 // ***************************
 
+@import "normalize.css";
+@import "react-toastify/dist/ReactToastify.css";
+
 body {
   font-family: Roboto, sans-serif;
   min-height: 100vh;
