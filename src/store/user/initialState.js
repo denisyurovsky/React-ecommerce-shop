@@ -1,4 +1,5 @@
 import { authStatus } from '../../helpers/constants/authConstants';
+import { USER_ROLE } from '../../helpers/constants/constants';
 
 export default {
   user: {
@@ -8,6 +9,7 @@ export default {
     email: null,
     isAdmin: false,
     amountOfTries: 0,
+    role: USER_ROLE.GUEST,
   },
   loginStatus: authStatus.IDLE,
   registerStatus: authStatus.IDLE,

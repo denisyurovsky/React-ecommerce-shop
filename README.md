@@ -148,4 +148,43 @@ import { http } from './api/setup'
 ```
 const response = await http.get( 'products/2' )
 ```
+# 5. List of predefined users:
 
+```
+  {
+    id: 1,
+    email: "admin@born2die.com",
+    password: "admin",
+    userRole: "admin",
+  },
+  {
+    id: 2,
+    email: "smirnova@gmail.com",
+    password: "123456",
+    userRole: "seller",
+  },
+  {
+    id: 3,
+    email: "ivanov@gmail.com",
+    password: "123456",
+    userRole: "seller",
+  },
+  {
+    id: 4,
+    email: "petrov@gmail.com",
+    password: "123456",
+    userRole: "seller",
+  },
+  {
+    id: 5,
+    email: "fedorov@gmail.com",
+    password: "123456",
+    userRole: "consumer",
+  },
+  {
+    id: 6,
+    email: "sidorova@gmail.com",
+    password: "123456",
+    userRole: "consumer",
+  }
+```
