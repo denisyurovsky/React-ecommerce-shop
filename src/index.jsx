@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -7,6 +8,16 @@ import { ToastContainer } from 'react-toastify';
 import './assets/styles/index.scss';
 import { App } from './components/App/App';
 import { store } from './store/store';
+
+const theme = createTheme({
+  palette: {
+    secondary: {
+      main: '#fff',
+      dark: '#ccc',
+      light: '#fff',
+    },
+  },
+});
 
 const toastConfiguration = {
   position: 'top-right',
@@ -24,12 +35,14 @@ const toastConfiguration = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-      <ToastContainer {...toastConfiguration} />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+        <ToastContainer {...toastConfiguration} />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,6 +1,10 @@
 import React from 'react';
 
+import { authStatus, ERROR } from '../../../../helpers/constants/authConstants';
+
 import SignIn from './SignIn';
+
+const { IDLE, LOCKED, PENDING, REJECTED, FULFILLED } = authStatus;
 
 export default {
   title: 'AuthModal/SignIn',
@@ -12,32 +16,32 @@ const Template = (args) => <SignIn {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  status: 'idle',
-  errorMessage: 'Incorrect login or password',
+  status: IDLE,
+  errorMessage: '',
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  status: 'succeeded',
-  errorMessage: 'Incorrect login or password',
+  status: FULFILLED,
+  errorMessage: '',
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-  status: 'loading',
-  errorMessage: 'Incorrect login or password',
+  status: PENDING,
+  errorMessage: '',
 };
 
 export const Wrong = Template.bind({});
 Wrong.storyName = 'Wrong credentials';
 Wrong.args = {
-  status: 'failed',
-  errorMessage: 'Incorrect login or password',
+  status: REJECTED,
+  errorMessage: ERROR.LOGIN,
 };
 
 export const Locked = Template.bind({});
 Locked.storyName = 'Many attempts';
 Locked.args = {
-  status: 'failed',
-  errorMessage: 'Incorrect login or password',
+  status: LOCKED,
+  errorMessage: ERROR.LOCK,
 };

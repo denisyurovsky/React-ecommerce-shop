@@ -1,11 +1,11 @@
 import SaveIcon from '@mui/icons-material/Save';
-import { LoadingButton } from '@mui/lab';
+import { LoadingButton as HelperButton } from '@mui/lab';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const CustomLoadingButton = ({ label, isFullWidth }) => {
+const LoadingButton = ({ label, isFullWidth }) => {
   return (
-    <LoadingButton
+    <HelperButton
       loading
       loadingPosition="start"
       startIcon={<SaveIcon />}
@@ -13,17 +13,17 @@ const CustomLoadingButton = ({ label, isFullWidth }) => {
       fullWidth={isFullWidth}
     >
       {label}
-    </LoadingButton>
+    </HelperButton>
   );
 };
 
-CustomLoadingButton.defaultProps = {
+LoadingButton.defaultProps = {
   isFullWidth: false,
 };
 
-CustomLoadingButton.propTypes = {
+LoadingButton.propTypes = {
   label: PropTypes.string.isRequired,
   isFullWidth: PropTypes.bool,
 };
 
-export default CustomLoadingButton;
+export default LoadingButton;

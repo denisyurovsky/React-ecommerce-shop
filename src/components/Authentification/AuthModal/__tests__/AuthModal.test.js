@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 
-import { authStatus } from '../../../helpers/constants/authConstants';
+import { authStatus } from '../../../../helpers/constants/authConstants';
 import AuthModal from '../AuthModal';
 
 const { FULFILLED } = authStatus;
@@ -59,7 +59,7 @@ describe('Navigation functionality tests', () => {
 
 describe('Closing functionality', () => {
   it('should close after closeIcon is pressed', () => {
-    const { getByTestId } = render(
+    const { getByTestId, queryByRole } = render(
       <AuthModal
         loginUser={() => {}}
         registerUser={() => {}}
@@ -72,13 +72,11 @@ describe('Closing functionality', () => {
 
     fireEvent.click(cross);
 
-    const profileBtn = getByTestId('btn-login');
-
-    expect(profileBtn).toBeInTheDocument();
+    expect(queryByRole('presentation')).toBeNull();
   });
 
   it('should close after successful login', () => {
-    const { getByTestId } = render(
+    const { queryByRole } = render(
       <AuthModal
         loginUser={() => {}}
         registerUser={() => {}}
@@ -86,13 +84,12 @@ describe('Closing functionality', () => {
         resetError={() => {}}
       />
     );
-    const profileBtn = getByTestId('btn-profile');
 
-    expect(profileBtn).toBeInTheDocument();
+    expect(queryByRole('presentation')).toBeNull();
   });
 
   it('should close after successful registration', () => {
-    const { getByTestId } = render(
+    const { queryByRole } = render(
       <AuthModal
         loginUser={() => {}}
         registerUser={() => {}}
@@ -100,8 +97,7 @@ describe('Closing functionality', () => {
         resetError={() => {}}
       />
     );
-    const profileBtn = getByTestId('btn-profile');
 
-    expect(profileBtn).toBeInTheDocument();
+    expect(queryByRole('presentation')).toBeNull();
   });
 });

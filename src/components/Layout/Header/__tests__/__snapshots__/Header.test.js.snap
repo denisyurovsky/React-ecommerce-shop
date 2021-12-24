@@ -37,11 +37,11 @@ exports[`Header component snapshots renders a valid snapshot 1`] = `
         </li>
       </ul>
       <div
-        class="header"
+        class="header MuiBox-root css-0"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium headerCart css-i4bv87-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yurbhn-MuiSvgIcon-root"
           data-testid="ShoppingBasketIcon"
           focusable="false"
           viewBox="0 0 24 24"
@@ -51,11 +51,12 @@ exports[`Header component snapshots renders a valid snapshot 1`] = `
           />
         </svg>
         <button
-          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root button css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+          class="MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root  css-wnpvqa-MuiButtonBase-root-MuiButton-root"
+          data-testid="btn-login"
           tabindex="0"
           type="button"
         >
-          sign in
+          Sign in
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />

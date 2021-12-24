@@ -2,14 +2,13 @@ import { Container, Box, TextField, Button } from '@mui/material/';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import checkEmailValidity from '../../../helpers/checkEmailValidity.js';
-import checkPasswordValidity from '../../../helpers/checkPasswordValidity.js';
+import checkEmailValidity from '../../../../helpers/checkEmailValidity.js';
+import checkPasswordValidity from '../../../../helpers/checkPasswordValidity.js';
 import {
   MIN_PASSWORD_LENGTH,
   authStatus,
-  ERROR,
-} from '../../../helpers/constants/authConstants.js';
-import CustomLoadingButton from '../../ui-kit/buttons/CustomLoadingButton.jsx';
+} from '../../../../helpers/constants/authConstants.js';
+import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler.js';
 
@@ -149,7 +148,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
         errorMessage={
           !checkValues.isConfirmPasswordValid
             ? "Passwords don't match"
-            : 'Simple password'
+            : 'Should contain upper case letters, special symbols, digits and be at least 8 symbols in length.'
         }
         hidden={!showPassword}
         onHiddenChange={onVisibilityChange}
@@ -165,7 +164,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
       />
       <Box sx={{ mt: 4 }} />
       {isLoading ? (
-        <CustomLoadingButton label="Loading..." isFullWidth={true} />
+        <LoadingButton label="Loading..." isFullWidth={true} />
       ) : (
         <Button
           fullWidth
@@ -182,7 +181,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
 
 Registration.defaultProps = {
   status: IDLE,
-  errorMessage: ERROR.REGISTER,
+  errorMessage: '',
 };
 
 Registration.propTypes = {

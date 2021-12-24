@@ -9,20 +9,19 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import {
-  ERROR,
   MIN_PASSWORD_LENGTH,
   authStatus,
-} from '../../../helpers/constants/authConstants';
-import CustomLoadingButton from '../../ui-kit/buttons/CustomLoadingButton';
+} from '../../../../helpers/constants/authConstants';
+import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler';
 
 const { LOCKED, PENDING, FULFILLED, REJECTED, IDLE } = authStatus;
 
 const SignIn = ({ sendForm, status, errorMessage }) => {
-  const isLoading = status === authStatus.PENDING;
-  const isLocked = status === authStatus.LOCKED;
-  const isFailed = status === authStatus.REJECTED;
+  const isLoading = status === PENDING;
+  const isLocked = status === LOCKED;
+  const isFailed = status === REJECTED;
   const disabled = isLocked || isLoading;
 
   const [email, setEmail] = useState('');
@@ -83,8 +82,9 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
         label="Remember me"
         disabled={disabled}
       />
+
       {isLoading ? (
-        <CustomLoadingButton label="Loading..." isFullWidth={true} />
+        <LoadingButton label="Loading..." isFullWidth={true} />
       ) : (
         <Button
           fullWidth
@@ -100,7 +100,7 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
 };
 
 SignIn.defaulProps = {
-  errorMessage: ERROR.LOGIN,
+  errorMessage: '',
   status: IDLE,
 };
 

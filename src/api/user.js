@@ -1,12 +1,12 @@
 import { http } from './setup';
 
-export const login = (email, password) =>
+export const login = ({ email, password }) =>
   http.post('login', { email, password });
 
-export const register = ({ password, email, firstName, lastName }) =>
+export const register = ({ email, password, firstName, lastName }) =>
   http.post('register', {
-    password,
     email,
+    password,
     firstName,
     lastName,
   });

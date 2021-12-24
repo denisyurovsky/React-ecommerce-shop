@@ -1,13 +1,13 @@
 import React from 'react';
 
-import CustomLoadingButton from './CustomLoadingButton';
+import LoadingButton from './LoadingButton';
 
 export default {
   title: 'UI/BUTTONS/Loading',
-  component: CustomLoadingButton,
+  component: LoadingButton,
 };
 
-const Template = (args) => <CustomLoadingButton {...args} />;
+const Template = (args) => <LoadingButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -1,4 +1,3 @@
-import { configureStore } from '@reduxjs/toolkit';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
@@ -6,12 +5,10 @@ import React from 'react';
 
 import {
   MAX_LOGIN_ATTEMPTS,
-  LOCK_TIMEOUT,
   ERROR,
 } from '../../../helpers/constants/authConstants';
-import userReducer from '../../../store/user/userSlice';
-import render, { screen } from '../../../test-utils/test-utils';
-import AuthModalContainer from '../AuthModalContainer';
+import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
+import Authentification from '../Authentification';
 
 const successfulHandlers = [
   rest.post('/login', (req, res, ctx) => {
@@ -79,11 +76,7 @@ describe('Successfull login and register', () => {
   beforeAll(() => server.listen());
   afterAll(() => server.close());
   beforeEach(() => {
-    const store = configureStore({
-      reducer: { user: userReducer },
-    });
-
-    render(<AuthModalContainer />, store);
+    renderWithStore(<Authentification />);
     localStorage.clear();
   });
 
@@ -114,29 +107,21 @@ describe('Failed server:', () => {
 
   describe('Failed login and register:', () => {
     beforeEach(() => {
-      const store = configureStore({
-        reducer: { user: userReducer },
-      });
-
-      render(<AuthModalContainer />, store);
+      renderWithStore(<Authentification />);
       localStorage.clear();
     });
 
     it('should not allow user to login with wrong data', async () => {
       sendLoginRequest();
 
-      const errorMess = await screen.findAllByText(ERROR.LOGIN);
-
-      expect(errorMess).toHaveLength(2);
+      expect(await screen.findAllByText(ERROR.LOGIN)).toHaveLength(2);
       expect(localStorage.getItem('accessToken')).toBeNull();
     });
 
     it('should be able to detect incorrect data in sign up', async () => {
       sendRegisterRequest();
 
-      const errorMess = await screen.findByText(ERROR.REGISTER);
-
-      expect(errorMess).toBeInTheDocument();
+      expect(await screen.findByText(ERROR.REGISTER)).toBeInTheDocument();
       expect(localStorage.getItem('accessToken')).toBeNull();
     });
   });
@@ -147,38 +132,41 @@ describe('Failed server:', () => {
 
       for (let i = 0; i < MAX_LOGIN_ATTEMPTS - 1; i++) {
         await screen.findAllByText(ERROR.LOGIN);
-
         userEvent.click(screen.getByRole('button', { name: /sign in/i }));
       }
     };
 
+    beforeAll(() => jest.useFakeTimers());
     beforeEach(() => {
-      const store = configureStore({
-        reducer: { user: userReducer },
-      });
-
-      render(<AuthModalContainer />, store);
+      renderWithStore(<Authentification />);
       localStorage.clear();
     });
 
     it('should display error', async () => {
       await createLockedState();
-      expect(await screen.findAllByText(ERROR.LOCK)).toHaveLength(2);
+      await screen.findAllByText(ERROR.LOCK);
 
       expect(localStorage.getItem('accessToken')).toBeNull();
       expect(screen.getByRole('presentation')).toMatchSnapshot();
     });
 
+    it('should display error after switches between tabs', async () => {
+      await createLockedState();
+      await screen.findAllByText(ERROR.LOCK);
+
+      userEvent.click(screen.getByRole('tab', { name: /sign up/i }));
+      userEvent.click(screen.getByRole('tab', { name: /sign in/i }));
+
+      expect(screen.queryAllByText(ERROR.LOCK)).toHaveLength(2);
+    });
+
     it('should unlock forms after delay', async () => {
       await createLockedState();
-      expect(await screen.findAllByText(ERROR.LOCK)).toHaveLength(2);
+      await screen.findAllByText(ERROR.LOCK);
 
-      setTimeout(() => {
-        expect(screen.queryAllByText(ERROR.LOCK)).toHaveLength(0);
-        expect(screen.getByRole('presentation')).toMatchSnapshot();
-      }, LOCK_TIMEOUT);
-
-      jest.advanceTimersByTime(LOCK_TIMEOUT);
+      jest.runOnlyPendingTimers();
+      expect(screen.queryAllByText(ERROR.LOCK)).toHaveLength(0);
+      expect(screen.getByRole('presentation')).toMatchSnapshot();
     });
   });
 });

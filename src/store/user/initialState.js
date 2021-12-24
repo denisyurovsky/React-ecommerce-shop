@@ -1,15 +1,16 @@
-const initialState = {
+import { authStatus } from '../../helpers/constants/authConstants';
+
+export default {
   user: {
     id: null,
     firstName: null,
     lastName: null,
     email: null,
     isAdmin: false,
-    amountOfTries: null,
+    amountOfTries: 0,
   },
-  loginStatus: 'idle',
-  registerStatus: 'idle',
-  error: '',
+  loginStatus: authStatus.IDLE,
+  registerStatus: authStatus.IDLE,
+  loginError: '',
+  registerError: '',
 };
-
-export default initialState;

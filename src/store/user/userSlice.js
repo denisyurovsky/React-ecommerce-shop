@@ -10,16 +10,14 @@ import {
 
 import initialState from './initialState';
 
-const delay = (time) =>
-  new Promise((res) => {
-    setTimeout(res, time);
-  });
+const { LOCKED, FULFILLED, PENDING, REJECTED, IDLE } = authStatus;
 
-export const removeLockAfterTimeout = () => async (dispatch) => {
+export const removeLockAfterTimeout = () => (dispatch) => {
   const { resetBlockedState } = userSlice.actions;
 
-  await delay(LOCK_TIMEOUT);
-  dispatch(resetBlockedState());
+  setTimeout(() => {
+    dispatch(resetBlockedState());
+  }, LOCK_TIMEOUT);
 };
 
 export const loginUser = createAsyncThunk(
@@ -33,8 +31,8 @@ export const loginUser = createAsyncThunk(
 
 export const registerUser = createAsyncThunk(
   'user/registerUser',
-  async ({ password, email, firstName, lastName }) => {
-    const response = await register(email, password, firstName, lastName);
+  async ({ email, password, firstName, lastName }) => {
+    const response = await register({ email, password, firstName, lastName });
 
     return response.data;
   }
@@ -45,17 +43,23 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     resetBlockedState(state) {
-      state.loginStatus = authStatus.IDLE;
+      state.loginStatus = IDLE;
       state.user.amountOfTries = 0;
+    },
+    resetError(state) {
+      if (state.loginStatus !== LOCKED) {
+        state.loginStatus = IDLE;
+      }
+      state.registerStatus = IDLE;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(loginUser.pending, (state) => {
-        state.loginStatus = authStatus.PENDING;
+        state.loginStatus = PENDING;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        state.loginStatus = authStatus.FULFILLED;
+        state.loginStatus = FULFILLED;
         state.user.amountOfTries = 0;
         localStorage.setItem('accessToken', action.payload.accessToken);
       })
@@ -63,30 +67,28 @@ export const userSlice = createSlice({
         state.user.amountOfTries++;
 
         if (state.user.amountOfTries >= MAX_LOGIN_ATTEMPTS) {
-          state.loginStatus = authStatus.LOCKED;
-          state.error = ERROR.LOCK;
+          state.loginStatus = LOCKED;
+          state.loginError = ERROR.LOCK;
         } else {
-          state.loginStatus = authStatus.REJECTED;
-          // state.error = action.error.message
-          state.error = ERROR.LOGIN;
+          state.loginStatus = REJECTED;
+          state.loginError = ERROR.LOGIN;
         }
       })
       .addCase(registerUser.pending, (state) => {
-        state.registerStatus = authStatus.PENDING;
+        state.registerStatus = PENDING;
       })
       .addCase(registerUser.fulfilled, (state, action) => {
-        state.registerStatus = authStatus.FULFILLED;
+        state.registerStatus = FULFILLED;
         localStorage.setItem('accessToken', action.payload.accessToken);
       })
       .addCase(registerUser.rejected, (state) => {
-        state.registerStatus = authStatus.REJECTED;
-        // state.error = action.error.message
-        state.error = ERROR.REGISTER;
+        state.registerStatus = REJECTED;
+        state.registerError = ERROR.REGISTER;
       });
   },
 });
 
-export const { resetBlockedState } = userSlice.actions;
+export const { resetBlockedState, resetError } = userSlice.actions;
 export default userSlice.reducer;
 export const getLoginState = (state) => state.user.loginStatus;
 export const getRegisterState = (state) => state.user.registerStatus;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CustomLoadingButton component should render a full width btn with a correct label 1`] = `
+exports[`LoadingButton component should render a full width btn with a correct label 1`] = `
 <DocumentFragment>
   <button
     class="MuiLoadingButton-root MuiLoadingButton-loading MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root Mui-disabled css-1oylogp-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"
@@ -53,7 +53,7 @@ exports[`CustomLoadingButton component should render a full width btn with a cor
 </DocumentFragment>
 `;
 
-exports[`CustomLoadingButton component should render a short button with a correct label 1`] = `
+exports[`LoadingButton component should render a short button with a correct label 1`] = `
 <DocumentFragment>
   <button
     class="MuiLoadingButton-root MuiLoadingButton-loading MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root Mui-disabled css-h4t5eh-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root"

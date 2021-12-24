@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import { authStatus } from '../../../../helpers/constants/authConstants';
+import { authStatus } from '../../../../../helpers/constants/authConstants';
 import Registration from '../Registration';
 
 const { PENDING, REJECTED } = authStatus;
@@ -121,7 +121,11 @@ describe('Errors in password validation', () => {
     userEvent.type(confirmPasswordInput, 'AbcDefG12');
     userEvent.click(screen.getByRole('button', { name: /sign up/i }));
 
-    expect(screen.getByText('Simple password')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Should contain upper case letters, special symbols, digits and be at least 8 symbols in length.'
+      )
+    ).toBeInTheDocument();
   });
 });
 

@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 
+import renderWithStore, {
+  screen,
+} from '../../../../test-utils/renderWithStore';
 import { Header } from '../Header';
 
 const testWidth = 700;
@@ -24,7 +25,7 @@ afterAll(() => {
 describe('Header component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', () => {
-      const { asFragment } = render(<Header />);
+      const { asFragment } = renderWithStore(<Header />);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -33,17 +34,15 @@ describe('Header component', () => {
   describe('resize tests', () => {
     it('renders correctly under 700px', () => {
       window.innerWidth = 600;
-      act(() => {
-        render(<Header />);
-      });
+      renderWithStore(<Header />);
+
       expect(screen.getByTestId('burger-button')).toBeInTheDocument();
     });
 
     it('renders correctly after 700px', () => {
       window.innerWidth = 800;
-      act(() => {
-        render(<Header />);
-      });
+      renderWithStore(<Header />);
+
       expect(screen.getByTestId('header-navigation-list')).toBeInTheDocument();
     });
   });
