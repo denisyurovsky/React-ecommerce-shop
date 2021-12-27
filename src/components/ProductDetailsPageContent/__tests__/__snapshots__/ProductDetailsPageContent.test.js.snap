@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="title MuiBox-root css-0"
+    >
+      <h5
+        class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+      >
+        Intelligent Cotton Pants
+      </h5>
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+      >
+        date: 24.11.2021
+      </p>
+    </div>
+    <h4
+      class="MuiTypography-root MuiTypography-h4 price css-5lbw0b-MuiTypography-root"
+    >
+      670 $
+    </h4>
+    <div
+      class="images MuiBox-root css-0"
+    >
+      <div
+        class="container single"
+        data-testid="left"
+      >
+        <div
+          aria-live="polite"
+          class="image-gallery"
+        >
+          <div
+            class="image-gallery-content left"
+          >
+            <div
+              class="image-gallery-slide-wrapper left"
+            >
+              <div
+                class="image-gallery-slides"
+              >
+                <div
+                  aria-label="Go to Slide 1"
+                  class="image-gallery-slide  center  single"
+                  role="button"
+                  style="display: inherit; transform: translate3d(0%, 0, 0);"
+                  tabindex="-1"
+                >
+                  <img
+                    alt=""
+                    class="image-gallery-image"
+                    height="400px"
+                    sizes=""
+                    src="../../assets/noImg.png"
+                    srcset=""
+                    title=""
+                    width=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="buy MuiBox-root css-0"
+    >
+      <button
+        class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-sghohy-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        + ADD TO CART
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <div
+        class="seller MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+        >
+          Lindsay Yundt
+        </p>
+        <button
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium personIcon css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="PersonIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="description MuiBox-root css-0"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+      >
+        The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

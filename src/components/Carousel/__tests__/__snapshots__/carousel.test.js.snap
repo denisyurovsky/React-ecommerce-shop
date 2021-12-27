@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel component correct render in dependency on quantity of images snapshots renders a image with empty array 1`] = `
+<DocumentFragment>
+  <div
+    class="container single"
+    data-testid="left"
+  >
+    <div
+      aria-live="polite"
+      class="image-gallery"
+    >
+      <div
+        class="image-gallery-content left"
+      >
+        <div
+          class="image-gallery-slide-wrapper left"
+        >
+          <div
+            class="image-gallery-slides"
+          >
+            <div
+              aria-label="Go to Slide 1"
+              class="image-gallery-slide  center  single"
+              role="button"
+              style="display: inherit; transform: translate3d(0%, 0, 0);"
+              tabindex="-1"
+            >
+              <img
+                alt=""
+                class="image-gallery-image"
+                height="400px"
+                sizes=""
+                src="../../assets/noImg.png"
+                srcset=""
+                title=""
+                width=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Carousel component correct render in dependency on quantity of images snapshots renders a set of images 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+    data-testid="left"
+  >
+    <div
+      aria-live="polite"
+      class="image-gallery"
+    >
+      <div
+        class="image-gallery-content left"
+      >
+        <div
+          class="image-gallery-thumbnails-wrapper left thumbnails-swipe-vertical"
+        >
+          <div
+            class="image-gallery-thumbnails"
+          >
+            <div
+              aria-label="Thumbnail Navigation"
+              class="image-gallery-thumbnails-container"
+              style="transform: translate3d(0, 0px, 0); transition: all 450ms ease-out;"
+            >
+              <button
+                aria-label="Go to Slide 1"
+                aria-pressed="true"
+                class="image-gallery-thumbnail active"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="image-gallery-thumbnail-inner"
+                >
+                  <img
+                    alt="/img_01.jpg"
+                    class="image-gallery-thumbnail-image"
+                    src="/img_01.jpg"
+                  />
+                </span>
+              </button>
+              <button
+                aria-label="Go to Slide 2"
+                aria-pressed="false"
+                class="image-gallery-thumbnail"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="image-gallery-thumbnail-inner"
+                >
+                  <img
+                    alt="/img_02.jpg"
+                    class="image-gallery-thumbnail-image"
+                    src="/img_02.jpg"
+                  />
+                </span>
+              </button>
+              <button
+                aria-label="Go to Slide 3"
+                aria-pressed="false"
+                class="image-gallery-thumbnail"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="image-gallery-thumbnail-inner"
+                >
+                  <img
+                    alt="/img_03.jpg"
+                    class="image-gallery-thumbnail-image"
+                    src="/img_03.jpg"
+                  />
+                </span>
+              </button>
+              <button
+                aria-label="Go to Slide 4"
+                aria-pressed="false"
+                class="image-gallery-thumbnail"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="image-gallery-thumbnail-inner"
+                >
+                  <img
+                    alt="/img_04.jpg"
+                    class="image-gallery-thumbnail-image"
+                    src="/img_04.jpg"
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="image-gallery-slide-wrapper left"
+        >
+          <button
+            aria-label="Previous Slide"
+            class="image-gallery-icon image-gallery-left-nav"
+            disabled=""
+            type="button"
+          >
+            <svg
+              class="image-gallery-svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              viewBox="6 0 12 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="15 18 9 12 15 6"
+              />
+            </svg>
+          </button>
+          <button
+            aria-label="Next Slide"
+            class="image-gallery-icon image-gallery-right-nav"
+            type="button"
+          >
+            <svg
+              class="image-gallery-svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              viewBox="6 0 12 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="9 18 15 12 9 6"
+              />
+            </svg>
+          </button>
+          <div
+            class="image-gallery-swipe"
+          >
+            <div
+              class="image-gallery-slides"
+            >
+              <div
+                aria-label="Go to Slide 1"
+                class="image-gallery-slide  center  set"
+                role="button"
+                style="display: inherit; transform: translate3d(0%, 0, 0);"
+                tabindex="-1"
+              >
+                <img
+                  alt="/img_01.jpg"
+                  class="image-gallery-image"
+                  height="400px"
+                  sizes=""
+                  src="/img_01.jpg"
+                  srcset=""
+                  title=""
+                  width=""
+                />
+              </div>
+              <div
+                aria-label="Go to Slide 2"
+                class="image-gallery-slide  right  set"
+                role="button"
+                style="display: inherit; transform: translate3d(100%, 0, 0);"
+                tabindex="-1"
+              >
+                <img
+                  alt="/img_02.jpg"
+                  class="image-gallery-image"
+                  height="400px"
+                  sizes=""
+                  src="/img_02.jpg"
+                  srcset=""
+                  title=""
+                  width=""
+                />
+              </div>
+              <div
+                aria-label="Go to Slide 3"
+                class="image-gallery-slide   set"
+                role="button"
+                style="display: inherit; transform: translate3d(200%, 0, 0);"
+                tabindex="-1"
+              >
+                <img
+                  alt="/img_03.jpg"
+                  class="image-gallery-image"
+                  height="400px"
+                  sizes=""
+                  src="/img_03.jpg"
+                  srcset=""
+                  title=""
+                  width=""
+                />
+              </div>
+              <div
+                aria-label="Go to Slide 4"
+                class="image-gallery-slide   set"
+                role="button"
+                style="display: inherit; transform: translate3d(300%, 0, 0);"
+                tabindex="-1"
+              >
+                <img
+                  alt="/img_04.jpg"
+                  class="image-gallery-image"
+                  height="400px"
+                  sizes=""
+                  src="/img_04.jpg"
+                  srcset=""
+                  title=""
+                  width=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="image-gallery-bullets"
+          >
+            <div
+              aria-label="Bullet Navigation"
+              class="image-gallery-bullets-container"
+              role="navigation"
+            >
+              <button
+                aria-label="Go to Slide 1"
+                aria-pressed="true"
+                class="image-gallery-bullet active"
+                type="button"
+              />
+              <button
+                aria-label="Go to Slide 2"
+                aria-pressed="false"
+                class="image-gallery-bullet"
+                type="button"
+              />
+              <button
+                aria-label="Go to Slide 3"
+                aria-pressed="false"
+                class="image-gallery-bullet"
+                type="button"
+              />
+              <button
+                aria-label="Go to Slide 4"
+                aria-pressed="false"
+                class="image-gallery-bullet"
+                type="button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Carousel component correct render in dependency on quantity of images snapshots renders a single image 1`] = `
+<DocumentFragment>
+  <div
+    class="container single"
+    data-testid="left"
+  >
+    <div
+      aria-live="polite"
+      class="image-gallery"
+    >
+      <div
+        class="image-gallery-content left"
+      >
+        <div
+          class="image-gallery-slide-wrapper left"
+        >
+          <div
+            class="image-gallery-slides"
+          >
+            <div
+              aria-label="Go to Slide 1"
+              class="image-gallery-slide  center  single"
+              role="button"
+              style="display: inherit; transform: translate3d(0%, 0, 0);"
+              tabindex="-1"
+            >
+              <img
+                alt="/img_01.jpg"
+                class="image-gallery-image"
+                height="400px"
+                sizes=""
+                src="/img_01.jpg"
+                srcset=""
+                title=""
+                width=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Carousel component correct render in dependency on screen width snapshots renders a valid snapshot with default size 600px 1`] = `
+<DocumentFragment>
+  <div
+    class="container single"
+    data-testid="left"
+  >
+    <div
+      aria-live="polite"
+      class="image-gallery"
+    >
+      <div
+        class="image-gallery-content left"
+      >
+        <div
+          class="image-gallery-slide-wrapper left"
+        >
+          <div
+            class="image-gallery-slides"
+          >
+            <div
+              aria-label="Go to Slide 1"
+              class="image-gallery-slide  center  single"
+              role="button"
+              style="display: inherit; transform: translate3d(0%, 0, 0);"
+              tabindex="-1"
+            >
+              <img
+                alt="/img_01.jpg"
+                class="image-gallery-image"
+                height="400px"
+                sizes=""
+                src="/img_01.jpg"
+                srcset=""
+                title=""
+                width=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

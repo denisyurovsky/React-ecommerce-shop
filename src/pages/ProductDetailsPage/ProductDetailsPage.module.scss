@@ -1,4 +1,4 @@
-@import "../../assets/styles/breakpoints.scss";
+@import "../../assets/styles/variables.scss";
 
 $headerHeight: 60px;
 
@@ -6,19 +6,12 @@ $footerHeightLarge: 64px;
 $footerHeightSmall: 56px;
 
 .container {
-  height: calc(100vh - #{$headerHeight} - #{$footerHeightLarge});
-  font-size: 24px;
+  min-height: calc(100vh - #{$headerHeight} - #{$footerHeightLarge});
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: flex-start;
 
   @media screen and (max-width: $sm) {
     height: fit-content;
     min-height: calc(100vh - #{$headerHeight} - #{$footerHeightSmall});
   }
-}
-
-.title {
-  font-size: 48px;
 }

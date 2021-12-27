@@ -33,7 +33,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
     <Card className={styles.container}>
       <CardMedia
         component="img"
-        image={images ? images[0] : noImg}
+        image={Array.isArray(images) && images.length ? images[0] : noImg}
         className={styles.image}
         alt={name}
       />
