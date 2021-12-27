@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 
+import render from '../../../test-utils/renderWithStore';
 import { HomePageContent } from '../HomePageContent';
 
 describe('HomePageContent component', () => {

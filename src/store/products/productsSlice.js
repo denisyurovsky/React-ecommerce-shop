@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getSomeProducts, getAllProducts } from '../../api/products';
+import { getAllProducts, getSomeProducts } from '../../api/products';
 import { NUMBER_OF_CARDS_ON_HOMEPAGE } from '../../helpers/constants/constants';
 
 import initialState from './initialState';
@@ -31,10 +31,15 @@ export const getHomePageProducts = createAsyncThunk(
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    addProducts: (state, data) => {
+      state.data = data.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {
+        state.errorOccurred = false;
         state.isLoading = true;
       })
       .addCase(getProducts.fulfilled, (state, action) => {

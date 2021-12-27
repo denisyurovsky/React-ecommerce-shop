@@ -9,6 +9,7 @@ import { sortTypes } from '../../../pages/ProductListPage/constants/constants';
 
 export default function SortFilter({ setFilterProperties }) {
   const [sort, setSort] = useState(sortTypes.NEW_FIRST);
+
   const handleChange = (event) => {
     setSort(event.target.value);
     setFilterProperties((prev) => ({

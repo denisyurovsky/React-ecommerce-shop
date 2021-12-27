@@ -12,7 +12,6 @@ describe('App component', () => {
         <App />
       </MemoryRouter>
     );
-
     expect(screen.getByText(/EPAM systems/i)).toBeInTheDocument();
   });
   it('landing on a "NotFoundPage"', () => {

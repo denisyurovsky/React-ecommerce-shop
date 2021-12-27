@@ -8,10 +8,20 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import noImg from '../../../assets/images/noImg.jpg';
+import { formatDate } from '../../../helpers/dateUtils';
+
 import styles from './ProductCard.module.scss';
 
 export const ProductCard = ({ card }) => {
-  const { image, name, creationDate, updateDate, price, type } = card;
+  const {
+    name,
+    image = noImg,
+    createdAt,
+    updatedAt,
+    price,
+    category: { name: type },
+  } = card;
 
   return (
     <Card className={styles.card}>
@@ -22,20 +32,25 @@ export const ProductCard = ({ card }) => {
         className={styles.cardImage}
       />
       <CardContent>
-        <Typography color={indigo[500]} gutterBottom variant="h5">
+        <Typography
+          color={indigo[500]}
+          gutterBottom
+          variant="h5"
+          className={styles.name}
+        >
           {name}
         </Typography>
         <Typography variant="overline">{type}</Typography>
         <Typography variant="body2" color="text.secondary">
-          Created:{creationDate}
+          Created: {formatDate(createdAt)}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Updated: {updateDate}
+          Updated: {formatDate(updatedAt)}
         </Typography>
       </CardContent>
       <CardActions className={styles.cardActions}>
         <Typography variant="h5" component="p">
-          {price}
+          {Number(price).toFixed()} $
         </Typography>
         <Button variant="contained" className={styles.button}>
           + add to cart
@@ -47,12 +62,21 @@ export const ProductCard = ({ card }) => {
 
 ProductCard.propTypes = {
   card: PropTypes.shape({
-    image: PropTypes.string,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
     name: PropTypes.string,
-    creationDate: PropTypes.string,
-    updateDate: PropTypes.string,
+    image: PropTypes.string,
     price: PropTypes.string,
-    type: PropTypes.string,
+    description: PropTypes.string,
     id: PropTypes.number,
+    category: PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    author: PropTypes.shape({
+      firstName: PropTypes.string,
+      id: PropTypes.string,
+      lastName: PropTypes.string,
+    }),
   }).isRequired,
 };

@@ -14,71 +14,25 @@ exports[`HomePageContent component snapshots renders a valid snapshot 1`] = `
     <div
       class="container"
     >
-      <div
-        class="MuiFormControl-root form css-1nrlq1o-MuiFormControl-root"
+      <span
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
       >
-        <label
-          class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
-          data-shrink="false"
-          for="uncontrolled-native"
-        />
-        <div
-          class="MuiFormControl-root MuiTextField-root select css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+        <svg
+          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
         >
-          <label
-            class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1kty9di-MuiFormLabel-root-MuiInputLabel-root"
-            data-shrink="true"
-            for="select-category-input"
-            id="select-category-input-label"
-          >
-            Categories
-          </label>
-          <div
-            class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"
-          >
-            <div
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-labelledby="select-category-input-label select-category-input"
-              class="MuiSelect-select MuiSelect-outlined MuiOutlinedInput-input MuiInputBase-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-              id="select-category-input"
-              role="button"
-              tabindex="0"
-            >
-              All categories
-            </div>
-            <input
-              aria-hidden="true"
-              class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-              tabindex="-1"
-              value="All categories"
-            />
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
-              data-testid="ArrowDropDownIcon"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M7 10l5 5 5-5z"
-              />
-            </svg>
-            <fieldset
-              aria-hidden="true"
-              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-            >
-              <legend
-                class="css-1z7n62"
-              >
-                <span>
-                  Categories
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-      </div>
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </span>
       <div
         class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd textField css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
         data-testid="text-search-input"
@@ -136,266 +90,25 @@ exports[`HomePageContent component snapshots renders a valid snapshot 1`] = `
       <div
         class="container"
       >
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+        <span
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
         >
-          <img
-            alt="name11"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
-            src="url"
-          />
-          <div
-            class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+          <svg
+            class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
           >
-            <h5
-              class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
-            >
-              name11
-            </h5>
-            <span
-              class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
-            >
-              First category
-            </span>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Created:000
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Updated: 111
-            </p>
-          </div>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
-            >
-              300$
-            </p>
-            <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              + add to cart
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
-        >
-          <img
-            alt="name1"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
-            src="url"
-          />
-          <div
-            class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-          >
-            <h5
-              class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
-            >
-              name1
-            </h5>
-            <span
-              class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
-            >
-              First category
-            </span>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Created:000
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Updated: 111
-            </p>
-          </div>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
-            >
-              300$
-            </p>
-            <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              + add to cart
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
-        >
-          <img
-            alt="name2"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
-            src="url"
-          />
-          <div
-            class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-          >
-            <h5
-              class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
-            >
-              name2
-            </h5>
-            <span
-              class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
-            >
-              Second category
-            </span>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Created:000
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Updated: 111
-            </p>
-          </div>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
-            >
-              300$
-            </p>
-            <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              + add to cart
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
-        >
-          <img
-            alt="name3"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
-            src="url"
-          />
-          <div
-            class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-          >
-            <h5
-              class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
-            >
-              name3
-            </h5>
-            <span
-              class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
-            >
-              Third category
-            </span>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Created:000
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Updated: 111
-            </p>
-          </div>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
-            >
-              300$
-            </p>
-            <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              + add to cart
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
-        >
-          <img
-            alt="ebyb"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
-            src="url"
-          />
-          <div
-            class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
-          >
-            <h5
-              class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-15k7a75-MuiTypography-root"
-            >
-              ebyb
-            </h5>
-            <span
-              class="MuiTypography-root MuiTypography-overline css-b3fch5-MuiTypography-root"
-            >
-              Third category
-            </span>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Created:000
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
-            >
-              Updated: 111
-            </p>
-          </div>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing cardActions css-1t6e9jv-MuiCardActions-root"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
-            >
-              300$
-            </p>
-            <button
-              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button css-sghohy-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              + add to cart
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </span>
       </div>
     </div>
   </section>

@@ -1,15 +1,48 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import { initialCards } from '../../HomePageContent';
+import render, { screen } from '../../../../test-utils/renderWithStore';
 import { SearchArea } from '../SearchArea';
 
+const cards = [
+  {
+    name: '1 name',
+    category: {
+      name: 'First category',
+    },
+  },
+  {
+    name: '2 name',
+    category: {
+      name: 'Second category',
+    },
+  },
+  {
+    name: '3 name',
+    category: {
+      name: 'Third category',
+    },
+  },
+];
+
 describe('SearchArea component', () => {
+  const categories = {
+    data: ['First category', 'Second category', 'Third category'],
+    isLoading: false,
+    errorOccured: false,
+    errorMessage: '',
+  };
+
   describe('snapshots', () => {
     it('renders a valid snapshot', async () => {
-      render(<SearchArea initialCards={initialCards} setCards={() => {}} />);
-
+      render(
+        <SearchArea
+          cards={cards}
+          categories={categories}
+          setDisplayedCards={() => {}}
+        />
+      );
       let inputElement = screen.getByDisplayValue('All categories');
 
       expect(inputElement).toBeInTheDocument();
@@ -31,7 +64,13 @@ describe('SearchArea component', () => {
 
   describe('main group of tests', () => {
     it('text search works properly', () => {
-      render(<SearchArea initialCards={initialCards} setCards={() => {}} />);
+      render(
+        <SearchArea
+          cards={cards}
+          categories={categories}
+          setDisplayedCards={() => {}}
+        />
+      );
       const inputElement = screen.getByPlaceholderText(
         'Search by advertisement'
       );

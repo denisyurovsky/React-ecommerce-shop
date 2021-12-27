@@ -40,7 +40,6 @@ const ProductListPage = () => {
 
   const products = useSelector(selectProducts);
   const categories = useSelector(selectCategories);
-
   const allCategories = ['All Categories', ...categories.data];
 
   const [filterProperties, setFilterProperties] = useState({

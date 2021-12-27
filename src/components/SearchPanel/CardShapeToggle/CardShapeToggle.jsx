@@ -9,6 +9,7 @@ import { pageView } from '../../../pages/ProductListPage/constants/constants';
 
 export default function CardShapeToggle({ setFilterProperties, className }) {
   const [cardShape, setCardShape] = useState(pageView.LIST_VIEW);
+
   const handleCardShape = (event, newCardShape) => {
     setCardShape(newCardShape);
     setFilterProperties((prev) => ({

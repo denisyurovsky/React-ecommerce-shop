@@ -38,7 +38,7 @@ export const BurgerButton = () => {
           />
         </svg>
       </button>
-      <MobileNavigation ref={navigationContainerRef}></MobileNavigation>
+      <MobileNavigation ref={navigationContainerRef} />
     </div>
   );
 };

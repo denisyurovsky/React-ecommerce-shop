@@ -10,6 +10,13 @@ exports[`CardArea component snapshots renders a valid snapshot 1`] = `
     >
       Recently added
     </p>
+    <div>
+      Div test
+    </div>
+    <p>
+      Text test
+    </p>
+    Random test
   </div>
 </DocumentFragment>
 `;

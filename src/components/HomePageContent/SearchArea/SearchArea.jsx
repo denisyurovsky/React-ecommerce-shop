@@ -6,35 +6,46 @@ import {
   InputLabel,
   Button,
   OutlinedInput,
+  CircularProgress,
 } from '@mui/material';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
+import { notificationError } from '../../../helpers/constants/constants';
 
 import styles from './SearchArea.module.scss';
 
-export const SearchArea = ({ setCards, initialCards }) => {
+export const SearchArea = ({ setDisplayedCards, categories, cards }) => {
   const [category, setCategory] = useState('All categories');
   const [textsearch, setTextsearch] = useState('');
 
+  useEffect(() => {
+    if (categories.errorOccurred) {
+      toast.error(notificationError);
+    }
+  }, [categories.errorOccurred]);
   const handleSelectChange = (event) => {
     setCategory(event.target.value);
-    setCards(
-      initialCards.filter(
+    setDisplayedCards(
+      cards.filter(
         (card) =>
           card.name.includes(textsearch) &&
           (event.target.value === 'All categories'
             ? true
-            : card.type === event.target.value)
+            : card.category.name === event.target.value)
       )
     );
   };
 
   const handleTextInput = (event) => {
-    setCards(
-      initialCards.filter(
+    setDisplayedCards(
+      cards.filter(
         (card) =>
           card.name.includes(event.target.value) &&
-          (category !== 'All categories' ? category === card.type : true)
+          (category !== 'All categories'
+            ? category === card.category.name
+            : true)
       )
     );
     setTextsearch(event.target.value);
@@ -42,22 +53,28 @@ export const SearchArea = ({ setCards, initialCards }) => {
 
   return (
     <div className={styles.container}>
-      <FormControl className={styles.form}>
-        <InputLabel htmlFor="uncontrolled-native"></InputLabel>
-        <TextField
-          select
-          id="select-category-input"
-          onChange={handleSelectChange}
-          value={category}
-          className={styles.select}
-          label="Categories"
-        >
-          <MenuItem value={'First category'}>First category</MenuItem>
-          <MenuItem value={'Second category'}>Second category</MenuItem>
-          <MenuItem value={'Third category'}>Third category</MenuItem>
-          <MenuItem value={'All categories'}>All categories</MenuItem>
-        </TextField>
-      </FormControl>
+      {categories.isLoading ? (
+        <CircularProgress />
+      ) : (
+        <FormControl className={styles.form}>
+          <InputLabel htmlFor="uncontrolled-native"></InputLabel>
+          <TextField
+            select
+            id="select-category-input"
+            onChange={handleSelectChange}
+            value={category}
+            className={styles.select}
+            label="Categories"
+          >
+            {categories.data.map((category, index) => (
+              <MenuItem key={index} value={category}>
+                {category}
+              </MenuItem>
+            ))}
+            <MenuItem value={'All categories'}>All categories</MenuItem>
+          </TextField>
+        </FormControl>
+      )}
       <OutlinedInput
         data-testid="text-search-input"
         onChange={handleTextInput}
@@ -75,6 +92,12 @@ export const SearchArea = ({ setCards, initialCards }) => {
 };
 
 SearchArea.propTypes = {
-  setCards: PropTypes.func,
-  initialCards: PropTypes.array,
+  categories: PropTypes.shape({
+    data: PropTypes.array,
+    isLoading: PropTypes.bool,
+    errorOccurred: PropTypes.bool,
+    errorMessage: PropTypes.string,
+  }),
+  setDisplayedCards: PropTypes.func,
+  cards: PropTypes.array,
 };

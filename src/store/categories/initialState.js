@@ -1,6 +1,6 @@
 const initialState = {
   data: [],
-  isLoading: true,
+  isLoading: false,
   errorOccurred: false,
   errorMessage: '',
 };
