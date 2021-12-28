@@ -1,5 +1,4 @@
 import {
-  Button,
   CardActions,
   CardContent,
   CardMedia,
@@ -16,6 +15,7 @@ import noImg from '../../../assets/images/noImg.png';
 import { formatDate } from '../../../helpers/dateUtils';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
 import { getRatingByProductId } from '../../../store/products/productsSlice';
+import { AddToCartButton } from '../../AddToCartButton/AddToCartButton';
 
 import stylesList from './CardList.module.scss';
 import stylesModule from './CardModule.module.scss';
@@ -80,13 +80,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
         <Typography variant="h5" component="p">
           {parseInt(price)} $
         </Typography>
-        <Button
-          className={styles.button}
-          variant="contained"
-          sx={{ padding: '6px 20px' }}
-        >
-          <span>+ ADD TO CART</span>
-        </Button>
+        <AddToCartButton product={product} />
       </CardActions>
     </Card>
   );

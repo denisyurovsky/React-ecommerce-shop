@@ -9,7 +9,6 @@ import {
 } from '../../helpers/constants/authConstants';
 
 import initialState from './initialState';
-
 const { LOCKED, FULFILLED, PENDING, REJECTED, IDLE } = authStatus;
 
 export const removeLockAfterTimeout = () => (dispatch) => {
@@ -61,6 +60,7 @@ export const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loginStatus = FULFILLED;
         state.user.amountOfTries = 0;
+        state.user.id = action.payload.user.id;
         localStorage.setItem('accessToken', action.payload.accessToken);
         state.user = {
           ...state.user,
@@ -83,6 +83,7 @@ export const userSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.registerStatus = FULFILLED;
+        state.user.id = action.payload.user.id;
         localStorage.setItem('accessToken', action.payload.accessToken);
         state.user = {
           ...state.user,

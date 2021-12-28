@@ -1,0 +1,57 @@
+@import "../../assets/styles/colors.scss";
+
+.container {
+  min-width: 120px;
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rightButton {
+  border-radius: 0 5px 5px 0 !important;
+}
+
+.leftButton {
+  line-height: 21px !important;
+  font-size: 27px !important;
+  border-radius: 5px 0 0 5px !important;
+}
+
+.button {
+  height: 37px !important;
+  width: 54px !important;
+  min-width: unset !important;
+  background-color: $primaryMain;
+  text-transform: capitalize;
+}
+
+.bigButton {
+  width: 150px;
+  background-color: $primaryMain;
+  text-transform: capitalize;
+}
+
+.counter {
+  margin: 0;
+  height: 37px;
+  padding-top: 9px;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: center;
+  width: 100%;
+  border-bottom: 1px solid $greyDark;
+  border-top: 1px solid $greyDark;
+}
+
+@media all and (max-width: 400px) {
+  .bigButton {
+    font-size: 10px !important;
+    width: 120px;
+  }
+
+  .container {
+    width: 120px;
+  }
+}

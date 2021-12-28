@@ -5,6 +5,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
+import cartReducer from '../store/cart/cartSlice';
 import categoriesReducer from '../store/categories/categoriesSlice';
 import feedbackReducer from '../store/feedback/feedbackSlice';
 import productsReducer from '../store/products/productsSlice';
@@ -30,6 +31,7 @@ function render(component, { role = null, store } = {}) {
     ? store
     : configureStore({
         reducer: {
+          cart: cartReducer,
           products: productsReducer,
           categories: categoriesReducer,
           user: userReducer,

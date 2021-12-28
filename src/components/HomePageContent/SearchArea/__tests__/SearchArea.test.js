@@ -2,7 +2,9 @@ import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import render, { screen } from '../../../../test-utils/renderWithStore';
+import renderWithStore, {
+  screen,
+} from '../../../../test-utils/renderWithStore';
 import { SearchArea } from '../SearchArea';
 
 const cards = [
@@ -36,7 +38,7 @@ describe('SearchArea component', () => {
 
   describe('snapshots', () => {
     it('renders a valid snapshot', async () => {
-      render(
+      renderWithStore(
         <SearchArea
           cards={cards}
           categories={categories}
@@ -64,7 +66,7 @@ describe('SearchArea component', () => {
 
   describe('main group of tests', () => {
     it('text search works properly', () => {
-      render(
+      renderWithStore(
         <SearchArea
           cards={cards}
           categories={categories}
