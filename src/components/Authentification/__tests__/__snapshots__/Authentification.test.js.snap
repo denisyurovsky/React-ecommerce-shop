@@ -96,8 +96,8 @@ exports[`Failed server: Locked login state: should display error 1`] = `
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled Mui-error MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="mui-23"
-            id="mui-23-label"
+            for="mui-33"
+            id="mui-33-label"
           >
             Email
           </label>
@@ -105,19 +105,19 @@ exports[`Failed server: Locked login state: should display error 1`] = `
             class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled Mui-error MuiInputBase-fullWidth MuiInputBase-formControl css-ghsjzk-MuiInputBase-root-MuiInput-root"
           >
             <input
-              aria-describedby="mui-23-helper-text"
+              aria-describedby="mui-33-helper-text"
               aria-invalid="true"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input Mui-disabled css-1x51dt5-MuiInputBase-input-MuiInput-input"
               disabled=""
-              id="mui-23"
+              id="mui-33"
               type="text"
               value="ivan@yandex.ru"
             />
           </div>
           <p
             class="MuiFormHelperText-root Mui-disabled Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
-            id="mui-23-helper-text"
+            id="mui-33-helper-text"
           >
             Many wrong attempts, try again later
           </p>
@@ -128,8 +128,8 @@ exports[`Failed server: Locked login state: should display error 1`] = `
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled Mui-error MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="mui-24"
-            id="mui-24-label"
+            for="mui-34"
+            id="mui-34-label"
           >
             Password
           </label>
@@ -137,12 +137,12 @@ exports[`Failed server: Locked login state: should display error 1`] = `
             class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled Mui-error MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-ghsjzk-MuiInputBase-root-MuiInput-root"
           >
             <input
-              aria-describedby="mui-24-helper-text"
+              aria-describedby="mui-34-helper-text"
               aria-invalid="true"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-1x51dt5-MuiInputBase-input-MuiInput-input"
               disabled=""
-              id="mui-24"
+              id="mui-34"
               type="password"
               value="password"
             />
@@ -178,7 +178,7 @@ exports[`Failed server: Locked login state: should display error 1`] = `
           </div>
           <p
             class="MuiFormHelperText-root Mui-disabled Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
-            id="mui-24-helper-text"
+            id="mui-34-helper-text"
           >
             Many wrong attempts, try again later
           </p>
@@ -329,8 +329,8 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="mui-44"
-            id="mui-44-label"
+            for="mui-54"
+            id="mui-54-label"
           >
             Email
           </label>
@@ -341,7 +341,7 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
               aria-invalid="false"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
-              id="mui-44"
+              id="mui-54"
               type="text"
               value="ivan@yandex.ru"
             />
@@ -353,8 +353,8 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="true"
-            for="mui-45"
-            id="mui-45-label"
+            for="mui-55"
+            id="mui-55-label"
           >
             Password
           </label>
@@ -365,7 +365,7 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
               aria-invalid="false"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-1x51dt5-MuiInputBase-input-MuiInput-input"
-              id="mui-45"
+              id="mui-55"
               type="password"
               value="password"
             />

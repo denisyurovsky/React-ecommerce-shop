@@ -23,7 +23,7 @@ export const removeLockAfterTimeout = () => (dispatch) => {
 export const loginUser = createAsyncThunk(
   'user/loginUser',
   async ({ password, email }) => {
-    const response = await login(email, password);
+    const response = await login({ email, password });
 
     return response.data;
   }
@@ -47,10 +47,10 @@ export const userSlice = createSlice({
       state.user.amountOfTries = 0;
     },
     resetError(state) {
-      if (state.loginStatus !== LOCKED) {
+      if (state.loginStatus === REJECTED || state.registerStatus === REJECTED) {
         state.loginStatus = IDLE;
+        state.registerStatus = IDLE;
       }
-      state.registerStatus = IDLE;
     },
   },
   extraReducers: (builder) => {
@@ -62,6 +62,10 @@ export const userSlice = createSlice({
         state.loginStatus = FULFILLED;
         state.user.amountOfTries = 0;
         localStorage.setItem('accessToken', action.payload.accessToken);
+        state.user = {
+          ...state.user,
+          ...action.payload.user,
+        };
       })
       .addCase(loginUser.rejected, (state) => {
         state.user.amountOfTries++;
@@ -80,6 +84,10 @@ export const userSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.registerStatus = FULFILLED;
         localStorage.setItem('accessToken', action.payload.accessToken);
+        state.user = {
+          ...state.user,
+          ...action.payload.user,
+        };
       })
       .addCase(registerUser.rejected, (state) => {
         state.registerStatus = REJECTED;

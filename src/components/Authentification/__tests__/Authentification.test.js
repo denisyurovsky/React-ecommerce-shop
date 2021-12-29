@@ -12,6 +12,16 @@ import Authentification from '../Authentification';
 
 const successfulHandlers = [
   rest.post('/login', (req, res, ctx) => {
+    if (
+      req.body.email !== 'ivan@yandex.ru' &&
+      req.body.password !== 'password'
+    ) {
+      return res(
+        ctx.status(400),
+        ctx.json({ message: 'Request failed with status code 400' })
+      );
+    }
+
     return res(
       ctx.json({
         accessToken: 'mocked_user_token_login',
@@ -20,6 +30,18 @@ const successfulHandlers = [
     );
   }),
   rest.post('/register', (req, res, ctx) => {
+    if (
+      req.body.firstName !== 'Ivan' &&
+      req.body.lastName !== 'Ivn' &&
+      req.body.email !== 'ivan@yandex.ru' &&
+      req.body.password !== 'AbcDefG12!'
+    ) {
+      res(
+        ctx.status(400),
+        ctx.json({ message: 'Request failed with status code 400' })
+      );
+    }
+
     return res(
       ctx.json({
         accessToken: 'mocked_user_token_register',
@@ -118,6 +140,16 @@ describe('Failed server:', () => {
       expect(localStorage.getItem('accessToken')).toBeNull();
     });
 
+    it('should remove server error after switches between tabs', async () => {
+      sendLoginRequest();
+
+      await screen.findAllByText(ERROR.LOGIN);
+      userEvent.click(screen.getByRole('tab', { name: /sign up/i }));
+      userEvent.click(screen.getByRole('tab', { name: /sign in/i }));
+
+      expect(screen.queryByText(ERROR.LOGIN)).toBeNull();
+    });
+
     it('should be able to detect incorrect data in sign up', async () => {
       sendRegisterRequest();
 
@@ -150,7 +182,7 @@ describe('Failed server:', () => {
       expect(screen.getByRole('presentation')).toMatchSnapshot();
     });
 
-    it('should display error after switches between tabs', async () => {
+    it('should display locked state after switches between tabs', async () => {
       await createLockedState();
       await screen.findAllByText(ERROR.LOCK);
 
