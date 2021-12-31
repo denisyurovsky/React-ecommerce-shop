@@ -6,24 +6,19 @@ exports[`NavigationList component snapshots renders a valid snapshot 1`] = `
     class="list"
     data-testid="header-navigation-list"
   >
-    <li
-      class="item"
+    <a
+      aria-current="page"
+      class="link active"
+      href="/"
     >
-      <a
-        href="/"
-      >
-        HOME
-      </a>
-    </li>
-    <li
-      class="item"
+      home
+    </a>
+    <a
+      class="link"
+      href="/products"
     >
-      <a
-        href="/"
-      >
-        PRODUCTS
-      </a>
-    </li>
+      products
+    </a>
   </ul>
 </DocumentFragment>
 `;

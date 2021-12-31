@@ -3,6 +3,7 @@ import React from 'react';
 import renderWithStore, {
   screen,
 } from '../../../../test-utils/renderWithStore';
+import RouterConnected from '../../../../test-utils/RouterConnected';
 import { Header } from '../Header';
 
 const testWidth = 700;
@@ -25,7 +26,9 @@ afterAll(() => {
 describe('Header component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', () => {
-      const { asFragment } = renderWithStore(<Header />);
+      const { asFragment } = renderWithStore(
+        <RouterConnected component={<Header />} />
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -41,7 +44,7 @@ describe('Header component', () => {
 
     it('renders correctly after 700px', () => {
       window.innerWidth = 800;
-      renderWithStore(<Header />);
+      renderWithStore(<RouterConnected component={<Header />} />);
 
       expect(screen.getByTestId('header-navigation-list')).toBeInTheDocument();
     });
