@@ -1,16 +1,12 @@
 @import "../../../assets/styles/colors.scss";
 
 .appbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: min-content;
   padding: 0;
   background-color: $greyMain;
-  height: min-content;
-  width: calc(100% + 30px);
-}
-
-@media all and (min-width: 1000px) {
-  .appbar {
-    width: calc(100% + 100vw - 1000px);
-  }
 }
 
 .copyright {
