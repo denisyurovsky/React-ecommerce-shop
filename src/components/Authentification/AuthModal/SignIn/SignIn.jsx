@@ -43,7 +43,10 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
 
     setPassword(input);
     resetError();
-    setIsFinished(checkIsFinished(email, password));
+
+    e.target.hasAttribute('autocompleted')
+      ? setIsFinished(true)
+      : setIsFinished(checkIsFinished(email, password));
   };
 
   const handleKeepChange = () => setIsKeep(!isKeep);
