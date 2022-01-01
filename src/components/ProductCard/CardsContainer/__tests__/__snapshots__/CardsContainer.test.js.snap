@@ -11,7 +11,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
       <img
         alt="Intelligent Cotton Pants"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-        src="noImg.jpg"
+        src="noImg.png"
       />
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -66,7 +66,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
       <img
         alt="Incredible Plastic Table"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-        src="noImg.jpg"
+        src="noImg.png"
       />
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -121,7 +121,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
       <img
         alt="Incredible Rubber Cheese"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-        src="noImg.jpg"
+        src="noImg.png"
       />
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -176,7 +176,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
       <img
         alt="Incredible Metal Shoes"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-        src="noImg.jpg"
+        src="noImg.png"
       />
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -231,7 +231,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
       <img
         alt="Incredible Metal Chair"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-        src="noImg.jpg"
+        src="noImg.png"
       />
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -286,7 +286,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
       <img
         alt="Fantastic Concrete Computer"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-        src="noImg.jpg"
+        src="noImg.png"
       />
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"

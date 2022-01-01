@@ -8,13 +8,13 @@ exports[`ProductCard component snapshots renders a valid snapshot 1`] = `
     <img
       alt="name"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img cardImage css-o69gx8-MuiCardMedia-root"
-      src="noImg.jpg"
+      src="noImg.png"
     />
     <div
       class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
     >
       <h5
-        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom name css-15k7a75-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom name css-h93ljk-MuiTypography-root"
       >
         name
       </h5>

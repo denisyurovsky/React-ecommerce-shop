@@ -3,12 +3,11 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { indigo } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import noImg from '../../../assets/images/noImg.jpg';
+import noImg from '../../../assets/images/noImg.png';
 import { formatDate } from '../../../helpers/dateUtils';
 
 import styles from './ProductCard.module.scss';
@@ -32,12 +31,7 @@ export const ProductCard = ({ card }) => {
         className={styles.cardImage}
       />
       <CardContent>
-        <Typography
-          color={indigo[500]}
-          gutterBottom
-          variant="h5"
-          className={styles.name}
-        >
+        <Typography gutterBottom variant="h5" className={styles.name}>
           {name}
         </Typography>
         <Typography variant="overline">{type}</Typography>

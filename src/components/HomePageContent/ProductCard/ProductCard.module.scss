@@ -2,6 +2,7 @@
 
 .name {
   height: 64px;
+  color: $primaryMain;
 }
 
 .card {
@@ -47,7 +48,7 @@
 }
 
 .cardImage {
-  width: 85% !important;
+  width: 75% !important;
   height: 200px;
   margin-left: auto;
   margin-right: auto;

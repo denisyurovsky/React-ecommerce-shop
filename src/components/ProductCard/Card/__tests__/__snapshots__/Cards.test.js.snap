@@ -8,7 +8,7 @@ exports[`Card component snapshots renders a valid snapshot with default shape 1`
     <img
       alt="Intelligent Cotton Pants"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-      src="noImg.jpg"
+      src="noImg.png"
     />
     <div
       class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -68,7 +68,7 @@ exports[`Card component snapshots renders a valid snapshot with list shape 1`] =
     <img
       alt="Intelligent Cotton Pants"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-      src="noImg.jpg"
+      src="noImg.png"
     />
     <div
       class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"

@@ -10,7 +10,7 @@ import Card from '@mui/material/Card';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import noImg from '../../../assets/images/noImg.jpg';
+import noImg from '../../../assets/images/noImg.png';
 import { formatDate } from '../../../helpers/dateUtils';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
 

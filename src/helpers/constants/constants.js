@@ -3,7 +3,7 @@ export const notificationError =
 
 export const NUMBER_OF_CARDS_ON_HOMEPAGE = 5;
 
-export const NO_IMG_URL = '../../assets/noImg.png';
+export const NO_IMG_URL = '../../assets/images/noImg.png';
 
 export const USER_ROLE = {
   ADMIN: 'admin',
