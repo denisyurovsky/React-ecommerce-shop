@@ -2,7 +2,7 @@ const formatPrice = (price) => {
   const options = {
     style: 'currency',
     currency: 'USD',
-    maximumFractionDigits: Number(price) === Math.round(Number(price)) ? 0 : 2,
+    maximumFractionDigits: price === Math.round(price) ? 0 : 2,
   };
 
   return new Intl.NumberFormat('ru-RU', options).format(price);

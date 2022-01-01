@@ -44,7 +44,7 @@ export const ProductCard = ({ card }) => {
       </CardContent>
       <CardActions className={styles.cardActions}>
         <Typography variant="h5" component="p">
-          {Number(price).toFixed()} $
+          {Math.floor(price)} $
         </Typography>
         <Button variant="contained" className={styles.button}>
           + add to cart
@@ -60,7 +60,7 @@ ProductCard.propTypes = {
     updatedAt: PropTypes.string,
     name: PropTypes.string,
     image: PropTypes.string,
-    price: PropTypes.string,
+    price: PropTypes.number,
     description: PropTypes.string,
     id: PropTypes.number,
     category: PropTypes.shape({
@@ -69,7 +69,7 @@ ProductCard.propTypes = {
     }),
     author: PropTypes.shape({
       firstName: PropTypes.string,
-      id: PropTypes.string,
+      id: PropTypes.number,
       lastName: PropTypes.string,
     }),
   }).isRequired,

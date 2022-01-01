@@ -51,7 +51,7 @@ ProductDetailsPageContent.propTypes = {
   product: PropTypes.shape({
     name: PropTypes.string,
     updatedAt: PropTypes.string,
-    price: PropTypes.string,
+    price: PropTypes.number,
     images: PropTypes.arrayOf(PropTypes.string),
     author: PropTypes.shape({
       firstName: PropTypes.string,

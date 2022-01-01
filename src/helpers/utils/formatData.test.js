@@ -8,8 +8,8 @@ describe('formatDate', () => {
 
 describe('formatPrice', () => {
   it('format price should be "* *** $"', () => {
-    expect(formatPrice('3999.00')).toEqual('3\u00A0999\u00A0$');
-    expect(formatPrice('156.25')).toEqual('156,25\u00A0$');
-    expect(formatPrice('23.50')).toEqual('23,50\u00A0$');
+    expect(formatPrice(3999.0)).toEqual('3\u00A0999\u00A0$');
+    expect(formatPrice(156.25)).toEqual('156,25\u00A0$');
+    expect(formatPrice(23.5)).toEqual('23,50\u00A0$');
   });
 });

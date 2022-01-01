@@ -90,7 +90,7 @@ CardItem.propTypes = {
     name: PropTypes.string,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,
-    price: PropTypes.string,
+    price: PropTypes.number,
     images: PropTypes.arrayOf(PropTypes.string),
     category: PropTypes.shape({
       name: PropTypes.string,

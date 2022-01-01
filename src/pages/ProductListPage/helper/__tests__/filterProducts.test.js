@@ -6,7 +6,7 @@ const expected1 = [
   {
     id: 1,
     name: 'Incredible Plastic Table',
-    price: '790.00',
+    price: 790.0,
     description:
       'New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016',
     category: {
@@ -25,7 +25,7 @@ const expected1 = [
   {
     id: 4,
     name: 'Incredible Metal Chair',
-    price: '130.00',
+    price: 130.0,
     description:
       'Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support',
     category: {
@@ -47,7 +47,7 @@ const expected2 = [
   {
     id: 5,
     name: 'Fantastic Concrete Computer',
-    price: '805.00',
+    price: 805.0,
     description:
       'The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive',
     category: {
@@ -66,7 +66,7 @@ const expected2 = [
   {
     id: 1,
     name: 'Incredible Plastic Table',
-    price: '790.00',
+    price: 790.0,
     description:
       'New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016',
     category: {
@@ -85,7 +85,7 @@ const expected2 = [
   {
     id: 0,
     name: 'Intelligent Cotton Pants',
-    price: '670.00',
+    price: 670.0,
     description:
       'The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design',
     category: {
@@ -105,7 +105,7 @@ const expected2 = [
   {
     id: 2,
     name: 'Incredible Rubber Cheese',
-    price: '638.00',
+    price: 638.0,
     description:
       "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
     category: {
@@ -124,7 +124,7 @@ const expected2 = [
   {
     id: 4,
     name: 'Incredible Metal Chair',
-    price: '130.00',
+    price: 130.0,
     description:
       'Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support',
     category: {
@@ -143,7 +143,7 @@ const expected2 = [
   {
     id: 3,
     name: 'Incredible Metal Shoes',
-    price: '67.00',
+    price: 67.0,
     description:
       'New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016',
     category: {
@@ -165,7 +165,7 @@ const expected3 = [
   {
     id: 3,
     name: 'Incredible Metal Shoes',
-    price: '67.00',
+    price: 67.0,
     description:
       'New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016',
     category: {
@@ -184,7 +184,7 @@ const expected3 = [
   {
     id: 4,
     name: 'Incredible Metal Chair',
-    price: '130.00',
+    price: 130.0,
     description:
       'Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support',
     category: {
@@ -206,7 +206,7 @@ const expected4 = [
   {
     id: 2,
     name: 'Incredible Rubber Cheese',
-    price: '638.00',
+    price: 638.0,
     description:
       "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
     category: {
@@ -225,7 +225,7 @@ const expected4 = [
   {
     id: 3,
     name: 'Incredible Metal Shoes',
-    price: '67.00',
+    price: 67.0,
     description:
       'New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016',
     category: {
