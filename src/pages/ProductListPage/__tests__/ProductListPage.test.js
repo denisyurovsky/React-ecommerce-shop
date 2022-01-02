@@ -6,6 +6,7 @@ import React from 'react';
 import categoriesData from '../../../test-utils/dto/categoriesDto';
 import cardsData from '../../../test-utils/dto/productsDto';
 import render, { screen } from '../../../test-utils/renderWithStore';
+import RouterConnected from '../../../test-utils/RouterConnected';
 import ProductListPage from '../ProductListPage';
 
 const handlersFulfilled = [
@@ -33,7 +34,7 @@ const serverRejected = setupServer(...handlersRejected);
 describe('ProductListPage component', () => {
   it('Get data from server', async () => {
     serverFulfilled.listen();
-    render(<ProductListPage />);
+    render(<RouterConnected component={<ProductListPage />} />);
 
     expect(
       screen.getByRole('progressbar', { name: /products preloader/i })

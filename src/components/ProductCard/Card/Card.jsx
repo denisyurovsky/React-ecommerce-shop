@@ -3,12 +3,12 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Link,
   Typography,
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import noImg from '../../../assets/images/noImg.png';
 import { formatDate } from '../../../helpers/dateUtils';
@@ -38,12 +38,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
         alt={name}
       />
       <CardContent className={styles.description}>
-        <Link
-          href={`/products/${id}`}
-          className={styles.title}
-          gutterBottom
-          variant="h6"
-        >
+        <Link to={`/products/${id}`} className={styles.title}>
           {name}
         </Link>
         <Typography

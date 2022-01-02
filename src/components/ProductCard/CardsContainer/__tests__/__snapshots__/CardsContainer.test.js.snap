@@ -17,7 +17,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          class="title"
           href="/products/0"
         >
           Intelligent Cotton Pants
@@ -72,7 +72,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          class="title"
           href="/products/1"
         >
           Incredible Plastic Table
@@ -127,7 +127,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          class="title"
           href="/products/2"
         >
           Incredible Rubber Cheese
@@ -182,7 +182,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          class="title"
           href="/products/3"
         >
           Incredible Metal Shoes
@@ -237,7 +237,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          class="title"
           href="/products/4"
         >
           Incredible Metal Chair
@@ -292,7 +292,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+          class="title"
           href="/products/5"
         >
           Fantastic Concrete Computer

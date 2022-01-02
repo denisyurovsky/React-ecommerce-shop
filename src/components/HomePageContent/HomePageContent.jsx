@@ -9,10 +9,10 @@ import {
   selectProducts,
   getHomePageProducts,
 } from '../../store/products/productsSlice';
+import CardsContainer from '../ProductCard/CardsContainer/CardsContainer';
 import { Title } from '../Title/Title';
 
 import { CardArea } from './CardArea/CardArea';
-import { CardsContainer } from './CardsContainer/CardsContainer';
 import { SearchArea } from './SearchArea/SearchArea';
 
 import styles from './HomePageContent.module.scss';
@@ -27,6 +27,7 @@ export const HomePageContent = () => {
     dispatch(getHomePageProducts());
     dispatch(getCategories());
   }, [dispatch]);
+
   useEffect(() => {
     setDisplayedCards(cards.data);
   }, [cards]);
@@ -40,7 +41,11 @@ export const HomePageContent = () => {
         cards={cards.data}
       />
       <CardArea>
-        <CardsContainer displayedCards={displayedCards} />
+        <CardsContainer
+          products={displayedCards}
+          isLoading={cards.isLoading}
+          errorOccurred={cards.errorOccurred}
+        />
       </CardArea>
     </section>
   );

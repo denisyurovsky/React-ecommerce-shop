@@ -14,7 +14,7 @@ exports[`Card component snapshots renders a valid snapshot with default shape 1`
       class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+        class="title"
         href="/products/0"
       >
         Intelligent Cotton Pants
@@ -74,7 +74,7 @@ exports[`Card component snapshots renders a valid snapshot with list shape 1`] =
       class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom MuiLink-root MuiLink-underlineAlways title css-bb51tf-MuiTypography-root-MuiLink-root"
+        class="title"
         href="/products/0"
       >
         Intelligent Cotton Pants

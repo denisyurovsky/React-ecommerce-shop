@@ -25,11 +25,14 @@
 
 .title {
   text-align: left;
-  color: $indigo500;
-  text-decoration: none !important;
+  color: $indigo700;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0;
+  text-decoration: none;
 
   &:hover {
-    text-decoration: underline !important;
+    text-decoration: underline;
   }
 }
 
