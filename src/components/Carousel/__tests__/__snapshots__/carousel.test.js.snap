@@ -31,7 +31,7 @@ exports[`Carousel component correct render in dependency on quantity of images s
                 class="image-gallery-image"
                 height="400px"
                 sizes=""
-                src="../../assets/images/noImg.png"
+                src="noImg.png"
                 srcset=""
                 title=""
                 width=""

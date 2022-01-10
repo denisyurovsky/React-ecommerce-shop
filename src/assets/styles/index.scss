@@ -5,6 +5,10 @@
 @import "normalize.css";
 @import "react-toastify/dist/ReactToastify.css";
 
+html {
+  font-size: 10px;
+}
+
 body {
   font-family: Roboto, sans-serif;
   min-height: 100vh;

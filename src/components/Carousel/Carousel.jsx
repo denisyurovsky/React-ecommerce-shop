@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 
-import { NO_IMG_URL } from '../../helpers/constants/constants';
+import noImg from '../../assets/images/noImg.png';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
 import 'react-image-gallery/styles/scss/image-gallery.scss';
@@ -29,7 +29,7 @@ const prepareGalleryData = (images, screenWidth, breakPoint) =>
       }))
     : [
         {
-          original: NO_IMG_URL,
+          original: noImg,
           originalClass: 'single',
           originalHeight: IMG_HEIGHT(screenWidth, breakPoint),
         },

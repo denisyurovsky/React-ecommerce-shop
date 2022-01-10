@@ -6,12 +6,14 @@ $productDetailsPageContentHeight: calc(100% - 40px);
 .container {
   margin: 20px auto;
   display: grid;
-  grid-template-columns: auto 200px;
-  grid-template-rows: 80px auto 80px;
+  grid-template-columns: auto 220px;
+  grid-template-rows: 80px auto auto;
   align-items: center;
   border-radius: 2px;
   box-shadow: 0 0 2px $greyDark;
   height: $productDetailsPageContentHeight;
+  width: 100%;
+  background: $white;
 
   @media screen and (max-width: $sm) {
     grid-template-columns: 2fr 1fr;
@@ -34,7 +36,7 @@ $productDetailsPageContentHeight: calc(100% - 40px);
 }
 
 .title > * {
-  padding-left: 1rem;
+  padding-left: 1.6rem;
 }
 
 .price {
@@ -65,8 +67,16 @@ $productDetailsPageContentHeight: calc(100% - 40px);
     flex-direction: row;
     align-items: center;
 
-    img {
-      margin-left: 6px;
+    .name {
+      margin: 0 0.5rem 0 1rem;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .personIcon {
+      color: $white;
+      background: $greyDark !important;
+      margin: 0 1rem 0 0.5rem;
     }
   }
 
@@ -77,15 +87,9 @@ $productDetailsPageContentHeight: calc(100% - 40px);
 
 .description {
   grid-area: 3 / 1 / 4 / 3;
-  padding: 0 35px;
+  padding: 35px;
 
   @media screen and (max-width: $sm) {
     grid-area: 4 / 1 / 5 / 3;
   }
-}
-
-.personIcon {
-  color: $white;
-  background: $greyDark !important;
-  margin-left: 0.6rem !important;
 }

@@ -30,7 +30,7 @@ const ProductDetailsPageContent = ({ product }) => {
       <Box className={styles.buy}>
         <Button variant="contained">+ ADD TO CART</Button>
         <Box className={styles.seller}>
-          <Typography variant="body1">
+          <Typography variant="body1" className={styles.name}>
             {`${author.firstName} ${author.lastName}`}
           </Typography>
           <IconButton className={styles.personIcon}>

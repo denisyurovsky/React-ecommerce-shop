@@ -56,7 +56,7 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
                     class="image-gallery-image"
                     height="400px"
                     sizes=""
-                    src="../../assets/images/noImg.png"
+                    src="noImg.png"
                     srcset=""
                     title=""
                     width=""
@@ -85,7 +85,7 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
         class="seller MuiBox-root css-0"
       >
         <p
-          class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 name css-ahj2mt-MuiTypography-root"
         >
           Lindsay Yundt
         </p>

@@ -17,6 +17,9 @@ const theme = createTheme({
       light: '#fff',
     },
   },
+  typography: {
+    htmlFontSize: 10,
+  },
 });
 
 const toastConfiguration = {
