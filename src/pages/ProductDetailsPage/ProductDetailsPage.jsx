@@ -24,7 +24,7 @@ export const ProductDetailsPage = () => {
       try {
         const response = await getProduct(params.id);
 
-        setProduct(response.data);
+        setProduct(response);
       } catch (err) {
         setMessage(MESSAGE.rejected);
       }

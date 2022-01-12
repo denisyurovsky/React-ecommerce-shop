@@ -116,3 +116,19 @@ const productsDto = [
 ];
 
 export default productsDto;
+
+export const productForPDP = {
+  id: 6,
+  userId: 1,
+  name: 'Intelligent Cotton Pants',
+  price: 670.0,
+  description:
+    'The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design',
+  category: {
+    id: 'e8d65a83-7e30-48ae-a786-2f3ccbfc51b8',
+    name: 'Home',
+  },
+  createdAt: '2021-11-10T17:35:05.565Z',
+  updatedAt: '2021-11-24T02:22:24.505Z',
+  images: [],
+};

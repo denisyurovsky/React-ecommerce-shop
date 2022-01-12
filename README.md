@@ -159,31 +159,31 @@ const response = await http.get( 'products/2' )
   },
   {
     id: 2,
-    email: "smirnova@gmail.com",
+    email: "seller1@gmail.com",
     password: "123456",
     userRole: "seller",
   },
   {
     id: 3,
-    email: "ivanov@gmail.com",
+    email: "seller2@gmail.com",
     password: "123456",
     userRole: "seller",
   },
   {
     id: 4,
-    email: "petrov@gmail.com",
+    email: "seller3@gmail.com",
     password: "123456",
     userRole: "seller",
   },
   {
     id: 5,
-    email: "fedorov@gmail.com",
+    email: "consumer1@gmail.com",
     password: "123456",
     userRole: "consumer",
   },
   {
     id: 6,
-    email: "sidorova@gmail.com",
+    email: "consumer2@gmail.com",
     password: "123456",
     userRole: "consumer",
   }
