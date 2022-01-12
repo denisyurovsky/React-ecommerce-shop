@@ -1,3 +1,5 @@
+import { USER_ROLE } from '../helpers/constants/constants';
+
 import { http } from './setup';
 
 export const login = ({ email, password }) =>
@@ -9,4 +11,5 @@ export const register = ({ email, password, firstName, lastName }) =>
     password,
     firstName,
     lastName,
+    role: USER_ROLE.CONSUMER,
   });
