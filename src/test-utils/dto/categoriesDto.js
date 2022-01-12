@@ -1,3 +1,9 @@
-const categoriesDto = ['Grocery', 'Industrial', 'Clothing', 'Computers'];
+const categoriesDto = [
+  'All categories',
+  'Grocery',
+  'Industrial',
+  'Clothing',
+  'Computers',
+];
 
 export default categoriesDto;

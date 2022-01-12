@@ -5,16 +5,19 @@ import NativeSelect from '@mui/material/NativeSelect';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import { sortTypes } from '../../../pages/ProductListPage/constants/constants';
+import {
+  sortTypes,
+  sortObj,
+} from '../../../pages/ProductListPage/constants/constants';
 
-export default function SortFilter({ setFilterProperties }) {
+export default function SortFilter({ setSearchParams }) {
   const [sort, setSort] = useState(sortTypes.NEW_FIRST);
 
   const handleChange = (event) => {
     setSort(event.target.value);
-    setFilterProperties((prev) => ({
+    setSearchParams((prev) => ({
       ...prev,
-      sort: event.target.value,
+      sort: sortObj[event.target.value],
     }));
   };
 
@@ -45,5 +48,5 @@ export default function SortFilter({ setFilterProperties }) {
 }
 
 SortFilter.propTypes = {
-  setFilterProperties: PropTypes.func.isRequired,
+  setSearchParams: PropTypes.func.isRequired,
 };

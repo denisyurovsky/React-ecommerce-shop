@@ -5,15 +5,18 @@ import {
 } from '@reduxjs/toolkit';
 
 import { setRating } from '../../api/feedback';
-import { getAllProducts, getSomeProducts } from '../../api/products';
+import { getSomeProducts } from '../../api/products';
 import { NUMBER_OF_CARDS_ON_HOMEPAGE } from '../../helpers/constants/constants';
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',
-  async () => {
-    const response = await getAllProducts();
+  async (searchParams) => {
+    const response = await getSomeProducts(searchParams);
 
-    return response.data;
+    return {
+      data: response.data,
+      totalCountProducts: response.headers['x-total-count'],
+    };
   }
 );
 
@@ -21,10 +24,15 @@ export const getHomePageProducts = createAsyncThunk(
   'products/getHomePageProducts',
   async () => {
     const response = await getSomeProducts({
-      sortField: 'createdAt',
-      sortType: 'desc',
-      startPage: 0,
-      endPage: NUMBER_OF_CARDS_ON_HOMEPAGE,
+      entity: 'products',
+      filters: null,
+      sort: {
+        field: 'createdAt',
+        order: 'desc',
+      },
+      currentPage: 1,
+      itemsPerPage: NUMBER_OF_CARDS_ON_HOMEPAGE,
+      text: null,
     });
 
     return response.data;
@@ -58,6 +66,7 @@ export const productsSlice = createSlice({
     isLoading: false,
     errorOccurred: false,
     errorMessage: '',
+    totalCountProducts: 0,
   }),
   reducers: {
     addProducts: productsAdapter.upsertMany,
@@ -71,7 +80,8 @@ export const productsSlice = createSlice({
       .addCase(getProducts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorOccurred = false;
-        productsAdapter.setAll(state, action.payload);
+        state.totalCountProducts = action.payload.totalCountProducts;
+        productsAdapter.setAll(state, action.payload.data);
       })
       .addCase(getProducts.rejected, (state, action) => {
         state.errorMessage = action.error.message;
@@ -109,6 +119,7 @@ export const selectProducts = (state) => ({
   isLoading: state.products.isLoading,
   errorOccurred: state.products.errorOccurred,
   errorMessage: state.products.errorMessage,
+  totalCountProducts: state.products.totalCountProducts,
 });
 
 export const getRatingByProductId = (state, id) =>

@@ -1,18 +1,14 @@
+import buildSearchQuery from '../helpers/buildSearchQuery';
+
 import { http } from './setup';
 
-export function getSomeProducts({
-  sortField = 'id',
-  sortType = 'asc',
-  startPage = 0,
-  endPage = 1,
-}) {
-  return http.get(
-    `/products?_sort=${sortField}&_order=${sortType}&_start=${startPage}&_end=${endPage}`
-  );
-}
+export function getSomeProducts(searchParams) {
+  const { entity, filters, sort, text, currentPage, itemsPerPage } =
+    searchParams;
 
-export function getAllProducts() {
-  return http.get('/products');
+  return http.get(
+    buildSearchQuery(entity, filters, sort, text, currentPage, itemsPerPage)
+  );
 }
 
 export const getProductsByIds = (ids) => {

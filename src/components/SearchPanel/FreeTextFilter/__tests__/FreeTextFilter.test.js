@@ -7,9 +7,9 @@ import FreeTextFilter from '../FreeTextFilter';
 describe('Search component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', () => {
-      const setFilterProperties = jest.fn();
+      const setSearchParams = jest.fn();
       const { asFragment } = render(
-        <FreeTextFilter setFilterProperties={setFilterProperties} />
+        <FreeTextFilter setSearchParams={setSearchParams} />
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -17,9 +17,9 @@ describe('Search component', () => {
   });
   describe('main group of tests', () => {
     it('typing in search works properly', () => {
-      const setFilterProperties = jest.fn();
+      const setSearchParams = jest.fn();
 
-      render(<FreeTextFilter setFilterProperties={setFilterProperties} />);
+      render(<FreeTextFilter setSearchParams={setSearchParams} />);
       const inputElement = screen.getByPlaceholderText(
         'Search by advertisement'
       );
@@ -37,9 +37,9 @@ describe('Search component', () => {
     });
     it('search button works properly', () => {
       let data;
-      const setFilterProperties = jest.fn((func) => (data = func()));
+      const setSearchParams = jest.fn((func) => (data = func()));
 
-      render(<FreeTextFilter setFilterProperties={setFilterProperties} />);
+      render(<FreeTextFilter setSearchParams={setSearchParams} />);
       const inputElement = screen.getByPlaceholderText(
         'Search by advertisement'
       );
@@ -47,7 +47,7 @@ describe('Search component', () => {
 
       userEvent.type(inputElement, 'test');
       userEvent.click(button);
-      expect(data.searchValue).toEqual('test');
+      expect(data.text).toEqual('test');
     });
   });
 });

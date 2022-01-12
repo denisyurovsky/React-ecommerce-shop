@@ -5,35 +5,48 @@ import React from 'react';
 import { pageView } from '../../../../pages/ProductListPage/constants/constants';
 import CardShapeToggle from '../CardShapeToggle';
 
-describe('CardsContainer component', () => {
-  describe('snapshots', () => {
+describe('CardShapeToggle component', () => {
+  describe('should render a valid snapshots', () => {
     it('renders a valid snapshot', () => {
-      const setFilterProperties = jest.fn();
+      const setCardShape = jest.fn();
       const { asFragment } = render(
-        <CardShapeToggle setFilterProperties={setFilterProperties} />
+        <CardShapeToggle
+          cardShape={pageView.LIST_VIEW}
+          setCardShape={setCardShape}
+        />
       );
 
       expect(asFragment()).toMatchSnapshot();
     });
   });
   describe('main group of tests', () => {
-    it('toggle works properly', () => {
-      let data;
-      const setFilterProperties = jest.fn((func) => (data = func()));
+    it('module toggle button works properly', () => {
+      let cardShape = pageView.LIST_VIEW;
+      const setCardShape = jest.fn(
+        (newCardShape) => (cardShape = newCardShape)
+      );
 
-      render(<CardShapeToggle setFilterProperties={setFilterProperties} />);
-      const leftButton = screen.getAllByRole('button')[0];
-      const rightButton = screen.getAllByRole('button')[1];
+      render(
+        <CardShapeToggle cardShape={cardShape} setCardShape={setCardShape} />
+      );
+      const moduleButton = screen.getByRole('button', { name: /module/i });
 
-      expect(leftButton).toHaveAttribute('aria-pressed', 'true');
-      expect(rightButton).toHaveAttribute('aria-pressed', 'false');
-      userEvent.click(rightButton);
-      expect(leftButton).toHaveAttribute('aria-pressed', 'false');
-      expect(rightButton).toHaveAttribute('aria-pressed', 'true');
-      userEvent.click(rightButton);
-      expect(leftButton).toHaveAttribute('aria-pressed', 'false');
-      expect(rightButton).toHaveAttribute('aria-pressed', 'true');
-      expect(data.cardShape).toEqual(pageView.MODULE_VIEW);
+      userEvent.click(moduleButton);
+      expect(cardShape).toEqual(pageView.MODULE_VIEW);
+    });
+    it('list toggle button works properly', () => {
+      let cardShape = pageView.MODULE_VIEW;
+      const setCardShape = jest.fn(
+        (newCardShape) => (cardShape = newCardShape)
+      );
+
+      render(
+        <CardShapeToggle cardShape={cardShape} setCardShape={setCardShape} />
+      );
+      const listButton = screen.getByRole('button', { name: /list/i });
+
+      userEvent.click(listButton);
+      expect(cardShape).toEqual(pageView.LIST_VIEW);
     });
   });
 });

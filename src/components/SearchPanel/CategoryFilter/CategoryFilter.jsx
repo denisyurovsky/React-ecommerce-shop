@@ -16,16 +16,20 @@ export const CategoryFilter = ({
   isLoading,
   errorOccurred,
   className,
-  setFilterProperties,
+  setSearchParams,
 }) => {
   const [category, setCategory] = useState(allCategories[0]);
 
-  const handleSelectChange = (event) => {
-    setCategory(event.target.value);
+  const handleSelectChange = (e) => {
+    setCategory(e.target.value);
+    const categoryFilter =
+      e.target.value === allCategories[0]
+        ? null
+        : [{ 'category.name': e.target.value }];
 
-    setFilterProperties((prev) => ({
+    setSearchParams((prev) => ({
       ...prev,
-      category: event.target.value,
+      filters: categoryFilter,
       currentPage: 1,
     }));
   };
@@ -65,7 +69,7 @@ export const CategoryFilter = ({
 
 CategoryFilter.propTypes = {
   allCategories: PropTypes.array.isRequired,
-  setFilterProperties: PropTypes.func.isRequired,
+  setSearchParams: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   errorOccurred: PropTypes.bool.isRequired,
   className: PropTypes.string,

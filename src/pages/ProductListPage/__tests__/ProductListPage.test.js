@@ -5,16 +5,16 @@ import React from 'react';
 
 import categoriesData from '../../../test-utils/dto/categoriesDto';
 import cardsData from '../../../test-utils/dto/productsDto';
-import render, { screen } from '../../../test-utils/renderWithStore';
+import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
 import RouterConnected from '../../../test-utils/RouterConnected';
 import ProductListPage from '../ProductListPage';
 
 const handlersFulfilled = [
   rest.get('/categories', (req, res, ctx) => {
-    return res(ctx.json(categoriesData), ctx.delay(150));
+    return res(ctx.json(categoriesData));
   }),
   rest.get('/products', (req, res, ctx) => {
-    return res(ctx.json(cardsData), ctx.delay(150));
+    return res(ctx.json(cardsData), ctx.set('x-total-count', 6));
   }),
 ];
 
@@ -28,53 +28,69 @@ const handlersRejected = [
 ];
 
 const serverFulfilled = setupServer(...handlersFulfilled);
-
 const serverRejected = setupServer(...handlersRejected);
 
 describe('ProductListPage component', () => {
-  it('Get data from server', async () => {
-    serverFulfilled.listen();
-    render(<RouterConnected component={<ProductListPage />} />);
+  describe('Render with data', () => {
+    beforeEach(() => serverFulfilled.listen());
+    afterEach(() => serverFulfilled.close());
 
-    expect(
-      screen.getByRole('progressbar', { name: /products preloader/i })
-    ).toBeInTheDocument();
+    it('should render a valid snapshot', async () => {
+      const { asFragment } = renderWithStore(
+        <RouterConnected component={<ProductListPage />} />
+      );
 
-    expect(
-      await screen.findByText(/Intelligent Cotton Pants/i)
-    ).toBeInTheDocument();
-    expect(
-      screen.queryByRole('progressbar', { name: /products preloader/i })
-    ).not.toBeInTheDocument();
+      expect(await screen.findByText(/Found: 6 items/i)).toBeInTheDocument();
 
-    const button = screen.getByRole('button', { name: /all categories/i });
+      expect(asFragment()).toMatchSnapshot();
+    });
 
-    userEvent.click(button);
-    expect(
-      screen.getByRole('option', { name: /computers/i })
-    ).toBeInTheDocument();
+    it('Get data from server', async () => {
+      renderWithStore(<RouterConnected component={<ProductListPage />} />);
+      expect(
+        screen.getByRole('progressbar', { name: /products preloader/i })
+      ).toBeInTheDocument();
 
-    serverFulfilled.resetHandlers();
-    serverFulfilled.close();
+      expect(
+        await screen.findByText(/Intelligent Cotton Pants/i)
+      ).toBeInTheDocument();
+    });
+
+    it('CardShapeToggle works properly', () => {
+      renderWithStore(<RouterConnected component={<ProductListPage />} />);
+      const listButton = screen.getByRole('button', { name: /list/i });
+      const moduleButton = screen.getByRole('button', { name: /module/i });
+
+      expect(listButton).toHaveAttribute('aria-pressed', 'true');
+      expect(moduleButton).toHaveAttribute('aria-pressed', 'false');
+      userEvent.click(moduleButton);
+      expect(listButton).toHaveAttribute('aria-pressed', 'false');
+      expect(moduleButton).toHaveAttribute('aria-pressed', 'true');
+      userEvent.click(moduleButton);
+      expect(listButton).toHaveAttribute('aria-pressed', 'false');
+      expect(moduleButton).toHaveAttribute('aria-pressed', 'true');
+    });
   });
 
-  it('Get error from server', async () => {
-    serverRejected.listen();
+  describe('Render without data', () => {
+    beforeEach(() => serverRejected.listen());
+    afterEach(() => serverRejected.close());
 
-    render(<ProductListPage />);
+    it('should render a valid snapshot', () => {
+      const { asFragment } = renderWithStore(<ProductListPage />);
 
-    expect(
-      screen.getByRole('progressbar', { name: /products preloader/i })
-    ).toBeInTheDocument();
-    expect(
-      await screen.findByText(/There are no products/i)
-    ).toBeInTheDocument();
+      expect(asFragment()).toMatchSnapshot();
+    });
 
-    const button = screen.getByRole('button', { name: /all categories/i });
+    it('Get error from server', async () => {
+      renderWithStore(<ProductListPage />);
 
-    expect(button).toHaveAttribute('aria-disabled', 'true');
-
-    serverRejected.resetHandlers();
-    serverRejected.close();
+      expect(
+        screen.getByRole('progressbar', { name: /products preloader/i })
+      ).toBeInTheDocument();
+      expect(
+        await screen.findByText(/There are no products/i)
+      ).toBeInTheDocument();
+    });
   });
 });

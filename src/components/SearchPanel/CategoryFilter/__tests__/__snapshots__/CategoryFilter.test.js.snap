@@ -25,7 +25,7 @@ exports[`CategoryFilter component snapshots renders a valid snapshot 1`] = `
         role="button"
         tabindex="0"
       >
-        Grocery
+        All categories
       </div>
       <input
         aria-hidden="true"
@@ -33,7 +33,7 @@ exports[`CategoryFilter component snapshots renders a valid snapshot 1`] = `
         id="uncontrolled-native"
         name="categories"
         tabindex="-1"
-        value="Grocery"
+        value="All categories"
       />
       <svg
         aria-hidden="true"

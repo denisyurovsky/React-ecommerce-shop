@@ -7,10 +7,10 @@ import Pagination from '../Pagination';
 describe('Pagination component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', () => {
-      const setFilterProperties = jest.fn();
+      const setSearchParams = jest.fn();
       const { asFragment } = render(
         <Pagination
-          setFilterProperties={setFilterProperties}
+          setSearchParams={setSearchParams}
           currentPage={2}
           pageCount={8}
         />
@@ -22,11 +22,11 @@ describe('Pagination component', () => {
   describe('main group of tests', () => {
     it('Pagination buttons works properly', () => {
       let data;
-      const setFilterProperties = jest.fn((func) => (data = func()));
+      const setSearchParams = jest.fn((func) => (data = func()));
 
       render(
         <Pagination
-          setFilterProperties={setFilterProperties}
+          setSearchParams={setSearchParams}
           currentPage={1}
           pageCount={6}
         />

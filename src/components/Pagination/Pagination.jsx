@@ -5,12 +5,12 @@ import React from 'react';
 
 export default function PaginationBlock({
   pageCount,
-  setFilterProperties,
+  setSearchParams,
   className,
   currentPage,
 }) {
   const handleChange = (event, value) => {
-    setFilterProperties((prev) => ({
+    setSearchParams((prev) => ({
       ...prev,
       currentPage: value,
     }));
@@ -31,7 +31,7 @@ export default function PaginationBlock({
 }
 
 PaginationBlock.propTypes = {
-  setFilterProperties: PropTypes.func.isRequired,
+  setSearchParams: PropTypes.func.isRequired,
   pageCount: PropTypes.number,
   currentPage: PropTypes.number,
   className: PropTypes.string,

@@ -9,7 +9,6 @@ export const USER_ROLE = {
   CONSUMER: 'consumer',
   GUEST: 'guest',
 };
-
 export const FETCH = {
   PENDING: 'loading',
   FULFILLED: 'success',
@@ -23,3 +22,5 @@ export const REQUEST_STATUS = {
   REJECTED: 'rejected',
   IDLE: 'idle',
 };
+
+export const ALL_CATEGORIES = 'All Categories';

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardsContainer component snapshots renders a valid snapshot 1`] = `
+exports[`CardShapeToggle component should render a valid snapshots renders a valid snapshot 1`] = `
 <DocumentFragment>
   <div
     aria-label="card shape"
@@ -8,7 +8,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot 1`] = `
     role="group"
   >
     <button
-      aria-label="module"
+      aria-label="list"
       aria-pressed="true"
       class="MuiButtonBase-root MuiToggleButton-root Mui-selected MuiToggleButton-sizeMedium MuiToggleButton-standard MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-ueukts-MuiButtonBase-root-MuiToggleButton-root"
       tabindex="0"
