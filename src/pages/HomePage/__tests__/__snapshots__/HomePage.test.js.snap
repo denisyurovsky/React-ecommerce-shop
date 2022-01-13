@@ -9,8 +9,7 @@ exports[`HomePage component snapshots renders a valid snapshot 1`] = `
       class="container"
     >
       <h2
-        class="header"
-        data-testid="title"
+        class="MuiTypography-root MuiTypography-h2 title css-75mh4b-MuiTypography-root"
       >
         Welcome to Born2Die Market!
       </h2>

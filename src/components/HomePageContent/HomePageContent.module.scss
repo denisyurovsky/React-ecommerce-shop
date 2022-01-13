@@ -8,18 +8,22 @@
   }
 }
 
+.title {
+  color: $primaryMain;
+}
+
 .container {
   justify-content: flex-start;
 }
 
 @media all and (max-width: 700px) {
-  .header {
+  .title {
     font-size: 30px;
   }
 }
 
 @media all and (max-width: 500px) {
-  .header {
+  .title {
     font-size: 25px;
   }
 }

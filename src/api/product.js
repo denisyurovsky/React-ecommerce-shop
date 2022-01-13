@@ -27,3 +27,11 @@ export const getProduct = async (productId) => {
     },
   };
 };
+
+export const updateProduct = (id, editedProduct) => {
+  return http.put(`products/${id}`, editedProduct);
+};
+
+export const createProduct = (product) => {
+  return http.post('/products', product);
+};
