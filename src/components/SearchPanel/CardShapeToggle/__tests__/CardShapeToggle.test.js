@@ -30,6 +30,9 @@ describe('CardsContainer component', () => {
       userEvent.click(rightButton);
       expect(leftButton).toHaveAttribute('aria-pressed', 'false');
       expect(rightButton).toHaveAttribute('aria-pressed', 'true');
+      userEvent.click(rightButton);
+      expect(leftButton).toHaveAttribute('aria-pressed', 'false');
+      expect(rightButton).toHaveAttribute('aria-pressed', 'true');
       expect(data.cardShape).toEqual(pageView.MODULE_VIEW);
     });
   });

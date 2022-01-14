@@ -9,13 +9,16 @@ import { pageView } from '../../../pages/ProductListPage/constants/constants';
 
 export default function CardShapeToggle({ setFilterProperties, className }) {
   const [cardShape, setCardShape] = useState(pageView.LIST_VIEW);
+  const { LIST_VIEW, MODULE_VIEW } = pageView;
 
   const handleCardShape = (event, newCardShape) => {
-    setCardShape(newCardShape);
-    setFilterProperties((prev) => ({
-      ...prev,
-      cardShape: newCardShape,
-    }));
+    if (newCardShape !== null) {
+      setCardShape(newCardShape);
+      setFilterProperties((prev) => ({
+        ...prev,
+        cardShape: newCardShape,
+      }));
+    }
   };
 
   return (
@@ -26,16 +29,10 @@ export default function CardShapeToggle({ setFilterProperties, className }) {
       onChange={handleCardShape}
       aria-label="card shape"
     >
-      <ToggleButton
-        value={pageView.LIST_VIEW}
-        aria-label={pageView.MODULE_VIEW}
-      >
+      <ToggleButton value={LIST_VIEW} aria-label={MODULE_VIEW}>
         <ViewListIcon color="primary" />
       </ToggleButton>
-      <ToggleButton
-        value={pageView.MODULE_VIEW}
-        aria-label={pageView.MODULE_VIEW}
-      >
+      <ToggleButton value={MODULE_VIEW} aria-label={MODULE_VIEW}>
         <ViewModuleIcon color="primary" />
       </ToggleButton>
     </ToggleButtonGroup>
