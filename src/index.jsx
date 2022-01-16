@@ -36,6 +36,10 @@ const toastConfiguration = {
   theme: 'colored',
 };
 
+const styleToast = {
+  fontSize: '1.6rem',
+};
+
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
@@ -43,7 +47,7 @@ ReactDOM.render(
         <BrowserRouter>
           <App />
         </BrowserRouter>
-        <ToastContainer {...toastConfiguration} />
+        <ToastContainer {...toastConfiguration} style={styleToast} />
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,
