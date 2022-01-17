@@ -11,6 +11,7 @@ import { CreateOrEditProductPage } from '../../pages/AdminPages/CreateOrEditProd
 import { CartPage } from '../../pages/CartPage/CartPage';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
+import { OrdersPage } from '../../pages/OrdersPage/OrdersPage';
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage/ProductDetailsPage';
 import ProductListPage from '../../pages/ProductListPage/ProductListPage';
 import ProfilePage from '../../pages/ProfilePage/ProfilePage';
@@ -19,6 +20,22 @@ import { WishListPage } from '../../pages/WishListPage/WishListPage';
 import AuthExpirationModal from '../AuthExpirationModal/AuthExpirationModal';
 import { Layout } from '../Layout/Layout';
 import { ProtectedRoutes } from '../ProtectedRoutes/ProtectedRoutes';
+
+import { pathNames } from './pathNames/pathNames';
+
+const {
+  PRODUCTS,
+  PROFILE,
+  ADDRESSBOOK,
+  ADMIN,
+  USERS,
+  ORDERS,
+  WISHLIST,
+  CATEGORIES,
+  CART,
+  EDIT,
+  CREATE,
+} = pathNames;
 
 const App = ({ handleClose, isOpenModal }) => {
   const location = useLocation();
@@ -30,35 +47,47 @@ const App = ({ handleClose, isOpenModal }) => {
   return (
     <Layout>
       <Routes>
-        <Route exact path="/products/:id" element={<ProductDetailsPage />} />
-        <Route exact path="/products" element={<ProductListPage />} />
-        <Route exact path="/cart" element={<CartPage />} />
-        <Route path="/users/:id" element={<ProfilePage />} />
-        <Route path="/profile" element={<ProfilePrivatePage />} />
+        <Route
+          exact
+          path={`${PRODUCTS}/:id`}
+          element={<ProductDetailsPage />}
+        />
+        <Route exact path={`${PRODUCTS}`} element={<ProductListPage />} />
+        <Route exact path={`${CART}`} element={<CartPage />} />
+        <Route path={`${USERS}/:id`} element={<ProfilePage />} />
+        <Route path={`${PROFILE}`} element={<ProfilePrivatePage />} />
         <Route exact path="/" element={<HomePage />} />
         <Route
           element={<ProtectedRoutes permissionLevel={USER_ROLE.CONSUMER} />}
         >
-          <Route exact path="/profile/wishlist" element={<WishListPage />} />
+          <Route
+            exact
+            path={`${PROFILE}${WISHLIST}`}
+            element={<WishListPage />}
+          />
+          <Route exact path={`${PROFILE}${ORDERS}`} element={<OrdersPage />} />
         </Route>
         <Route path="/" element={<ProtectedRoutes />}>
           <Route
-            path="/admin/products/create"
+            path={`${ADMIN}${PRODUCTS}${CREATE}`}
             element={<CreateOrEditProductPage />}
           />
           <Route
-            path="/admin/products/:id/edit"
+            path={`${ADMIN}${PRODUCTS}/:id${EDIT}`}
             element={<CreateOrEditProductPage />}
           />
         </Route>
         <Route
-          path="/admin"
+          path={`${ADMIN}`}
           element={<ProtectedRoutes permissionLevel={USER_ROLE.SELLER} />}
         >
-          <Route path="/admin/products" element={<AdminProductsPage />} />
-          <Route path="/admin/categories" element={<AdminCategoriesPage />} />
+          <Route path={`${ADMIN}${PRODUCTS}`} element={<AdminProductsPage />} />
+          <Route
+            path={`${ADMIN}${CATEGORIES}`}
+            element={<AdminCategoriesPage />}
+          />
         </Route>
-        <Route path="/profile/address-book" element={<AddressBook />} />
+        <Route path={`${PROFILE}${ADDRESSBOOK}`} element={<AddressBook />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <AuthExpirationModal

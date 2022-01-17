@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 const formatPrice = (price) => {
   const options = {
     style: 'currency',
@@ -23,4 +25,19 @@ const formatDiscountInPercents = (price, discountPrice) => {
   return `${Math.trunc(((price - discountPrice) * 100) / price)} %`;
 };
 
-export { formatDate, formatPrice, formatFileSize, formatDiscountInPercents };
+const formatDateWithFullMonth = (input) => {
+  return format(new Date(input), 'dd MMMM yyyy');
+};
+
+const formatDateWithShortMonth = (input) => {
+  return format(new Date(input), 'dd MMM yyyy');
+};
+
+export {
+  formatDate,
+  formatFileSize,
+  formatPrice,
+  formatDateWithFullMonth,
+  formatDateWithShortMonth,
+  formatDiscountInPercents,
+};

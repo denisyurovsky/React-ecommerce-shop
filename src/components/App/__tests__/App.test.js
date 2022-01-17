@@ -13,6 +13,8 @@ import renderWithStore, {
 } from '../../../test-utils/renderWithStore';
 import App from '../App';
 
+window.scrollTo = jest.fn();
+
 const accessToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJvcm4yZGllLmNvbSIsImlhdCI6MTY0MzcxOTM2NiwiZXhwIjoxNjQzNzIyOTY2LCJzdWIiOiIxIn0.AsOF1x9vVcLklRmsnmUmDdn-KoajVJD2X1xVWgYVKlc';
 
@@ -38,7 +40,10 @@ describe('App component', () => {
   const server = setupServer(...handlersFulfilled);
 
   beforeAll(() => server.listen());
-  afterAll(() => server.close());
+  afterAll(() => {
+    jest.clearAllMocks();
+    server.close();
+  });
   it('full app rendering/navigating', () => {
     renderWithStore(AppWithRouter);
     expect(screen.getByText(/EPAM systems/i)).toBeInTheDocument();
@@ -57,6 +62,9 @@ describe('App component', () => {
   });
 
   describe('should check access token', () => {
+    afterAll(() => {
+      jest.clearAllMocks();
+    });
     it('should be button "Log in"', () => {
       localStorage.clear();
       renderWithStore(AppWithRouter);

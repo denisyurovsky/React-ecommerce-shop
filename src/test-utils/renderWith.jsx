@@ -11,6 +11,7 @@ import categoriesReducer from '../store/categories/categoriesSlice';
 import citiesReducer from '../store/cities/citiesSlice';
 import countriesReducer from '../store/countries/countriesSlice';
 import feedbackReducer from '../store/feedback/feedbackSlice';
+import ordersReducer from '../store/orders/ordersSlice';
 import productsReducer from '../store/products/productsSlice';
 import userReducer from '../store/user/userSlice';
 
@@ -24,6 +25,7 @@ function render(
 ) {
   const store = configureStore({
     reducer: {
+      orders: ordersReducer,
       cart: cartReducer,
       products: productsReducer,
       categories: categoriesReducer,

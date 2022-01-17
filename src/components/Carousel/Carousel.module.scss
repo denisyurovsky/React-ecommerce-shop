@@ -21,7 +21,6 @@ $thumbnailsSizeSmall: 50px;
   }
 
   :global {
-
     .image-gallery {
       margin: 0 auto 3rem;
     }
@@ -110,7 +109,8 @@ $thumbnailsSizeSmall: 50px;
           margin-right: 0.6rem;
         }
       }
-      .image-gallery-thumbnail.active, .image-gallery-thumbnail:focus {
+      .image-gallery-thumbnail.active,
+      .image-gallery-thumbnail:focus {
         border: 3px solid $indigo700;
       }
     }

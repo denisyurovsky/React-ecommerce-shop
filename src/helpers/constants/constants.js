@@ -57,3 +57,4 @@ export const MODAL_SIZES = {
   NORMAL: 'normal',
   SMALL: 'small',
 };
+export const laptopBreakPoint = 700;

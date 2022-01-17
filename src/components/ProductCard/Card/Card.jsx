@@ -41,23 +41,6 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
 
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
 
-  /*
-      <Box className={styles.imageContainer}>
-      <CardMedia
-        component="img"
-        image={Array.isArray(images) && images.length ? images[0] : noImg}
-        className={styles.image}
-        alt={name}
-      />
-      { discountPrice ? 
-      <Box className={styles.discountLabel}>
-        <DiscountLabel price={price} discountPrice={discountPrice} />
-      </Box> : 
-      <></>
-      }
-      </Box>
-  */
-
   return (
     <Card className={styles.container}>
       <AddToWishListButton

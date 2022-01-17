@@ -8,3 +8,13 @@ jest.setTimeout(15000);
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 window.URL.createObjectURL = () => 'blob:http://someURL';
 window.URL.revokeObjectURL = () => {};
+
+global.matchMedia =
+  global.matchMedia ||
+  function () {
+    return {
+      matches: false,
+      addListener: function () {},
+      removeListener: function () {},
+    };
+  };

@@ -19,8 +19,18 @@ export function getAllProducts() {
   return http.get('/products');
 }
 
-export const getProductsByIds = (ids) => {
+export const getProductsByIds = (ids, abortControl = {}) => {
   const reqParams = 'id=' + ids.join('&id=');
 
-  return http.get(`/products/?${reqParams}`);
+  return new Promise((resolve, reject) => {
+    if (abortControl.signal) {
+      abortControl.signal.addEventListener('abort', (event) => {
+        reject(event);
+      });
+    }
+
+    const result = http.get(`/products/?${reqParams}`);
+
+    resolve(result);
+  });
 };

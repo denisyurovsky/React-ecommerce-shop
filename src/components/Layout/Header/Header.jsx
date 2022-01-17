@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import logo from '../../../assets/images/logo_transparent.png';
+import { laptopBreakPoint } from '../../../helpers/constants/constants';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { getCart } from '../../../store/cart/cartSlice';
 import { getCurrentUser } from '../../../store/user/userSlice';
@@ -14,8 +15,6 @@ import { NavigationList } from './NavigationList/NavigationList';
 import { ShoppingCart } from './ShoppingCart/ShoppingCart';
 
 import styles from './Header.module.scss';
-
-export const laptopBreakPoint = 700;
 
 export const Header = () => {
   const dispatch = useDispatch();

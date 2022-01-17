@@ -168,7 +168,6 @@ export const userSlice = createSlice({
       .addCase(updateWishList.rejected, (state) => {
         state.updateWishlistStatus = REQUEST_STATUS.REJECTED;
       })
-
       // update
       .addCase(updateUser.pending, (state) => {
         state.errorOccurred = false;

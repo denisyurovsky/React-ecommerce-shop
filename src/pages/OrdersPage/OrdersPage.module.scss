@@ -1,0 +1,39 @@
+@import "../../assets/styles/colors.scss";
+
+.page {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media all and (max-width: 600px) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .selectForm {
+    width: 100% !important;
+  }
+}
+
+.cardsContainer {
+  position: relative;
+  width: 100%;
+}
+
+.select {
+  height: 30px;
+  width: 200px;
+
+  @media all and (max-width: 600px) {
+    height: 30px;
+    width: unset !important;
+    margin-bottom: 22px;
+  }
+}

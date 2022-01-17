@@ -7,7 +7,7 @@ export const MAX_LOGIN_ATTEMPTS = 5;
 export const ERROR = {
   LOGIN: 'Incorrect password or email',
   LOCK: 'Many wrong attempts, try again later',
-  REGISTER: 'User already exists, try to sign in',
+  REGISTER: 'User already exists, try to Sign in',
 };
 
 export const authStatus = {

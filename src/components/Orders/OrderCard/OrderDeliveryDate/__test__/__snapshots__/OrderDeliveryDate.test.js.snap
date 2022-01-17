@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderDeliveryDate component snapshots for different order statuses Renders a valid orderCard snapshot with status equal CANCELLED 1`] = `<DocumentFragment />`;
+
+exports[`OrderDeliveryDate component snapshots for different order statuses Renders a valid orderCard snapshot with status equal DELIVERED 1`] = `
+<DocumentFragment>
+  <p
+    class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+  >
+    Delivered on 22 February 2022
+  </p>
+</DocumentFragment>
+`;
+
+exports[`OrderDeliveryDate component snapshots for different order statuses Renders a valid orderCard snapshot with status equal PAID 1`] = `<DocumentFragment />`;
+
+exports[`OrderDeliveryDate component snapshots for different order statuses Renders a valid orderCard snapshot with status equal WAITING_FOR_PAYMENT 1`] = `<DocumentFragment />`;

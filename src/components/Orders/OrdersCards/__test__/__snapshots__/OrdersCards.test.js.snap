@@ -1,0 +1,950 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrdersCards component snapshots with orders and without orders Renders a valid orderCard snapshot with orders 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #1
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          10 000 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 January 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #2
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark2 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for delivery
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          714 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 March 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #3
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark3 css-ahj2mt-MuiTypography-root"
+          >
+            Delivered
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          539 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 September 2022
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #4
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark4 css-ahj2mt-MuiTypography-root"
+          >
+            Cancelled
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          274,50 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #5
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          310 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #6
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          310 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #7
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          111 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #8
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark3 css-ahj2mt-MuiTypography-root"
+          >
+            Delivered
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          310 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #9
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark4 css-ahj2mt-MuiTypography-root"
+          >
+            Cancelled
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          111 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #10
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          310 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #11
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          111 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 April 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #12
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          310 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 March 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #13
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          111 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 August 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #14
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          310 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 January 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #15
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          740 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
+    >
+      <div
+        class="outerInformation MuiBox-root css-0"
+      >
+        <div
+          class="dateInformation MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
+          >
+            Ordered on 19 February 2021
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
+          >
+            Order #16
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+          >
+            Waiting for payment
+          </p>
+        </div>
+      </div>
+      <div
+        class="priceInformation MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 orderPrice css-ahj2mt-MuiTypography-root"
+        >
+          3 010 $  
+        </p>
+        <svg
+          aria-expanded="false"
+          aria-hidden="true"
+          aria-label="show more"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium showMoreButton css-i4bv87-MuiSvgIcon-root"
+          data-testid="ExpandMoreIcon"
+          expand="false"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;
+
+exports[`OrdersCards component snapshots with orders and without orders Renders a valid orderCard snapshot without orders 1`] = `
+<DocumentFragment>
+  <p
+    class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter noOrders css-1uwgr7b-MuiTypography-root"
+  >
+    There are no orders to display, you can order something at any time
+  </p>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;

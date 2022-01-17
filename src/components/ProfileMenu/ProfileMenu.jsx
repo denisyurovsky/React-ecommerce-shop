@@ -1,6 +1,7 @@
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import PersonIcon from '@mui/icons-material/Person';
+import SellIcon from '@mui/icons-material/Sell';
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import MenuItem from '@mui/material/MenuItem';
@@ -107,7 +108,8 @@ export const ProfileMenu = () => {
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to={'/'}>
+                <Link to={'/profile/orders'}>
+                  <SellIcon color="primary" className={styles.image} />
                   <span>My Orders</span>
                 </Link>
               </MenuItem>
