@@ -16,6 +16,7 @@ const productsDto = [
     },
     createdAt: '2021-11-10T17:35:05.565Z',
     updatedAt: '2021-11-24T02:22:24.505Z',
+    rating: 4,
     images: [],
   },
   {
@@ -35,6 +36,7 @@ const productsDto = [
     },
     createdAt: '2021-04-17T07:18:07.870Z',
     updatedAt: '2021-10-14T17:03:47.317Z',
+    rating: 5,
     images: [],
   },
   {
@@ -54,6 +56,7 @@ const productsDto = [
     },
     createdAt: '2021-01-09T11:29:45.814Z',
     updatedAt: '2021-05-12T04:43:57.783Z',
+    rating: 4,
     images: [],
   },
   {
@@ -73,6 +76,7 @@ const productsDto = [
     },
     createdAt: '2021-03-18T07:51:04.578Z',
     updatedAt: '2021-11-26T03:53:43.493Z',
+    rating: 3,
     images: [],
   },
   {
@@ -92,6 +96,7 @@ const productsDto = [
     },
     createdAt: '2021-03-29T04:41:15.527Z',
     updatedAt: '2021-04-07T13:31:55.867Z',
+    rating: 2.5,
     images: [],
   },
   {
@@ -111,6 +116,7 @@ const productsDto = [
     },
     createdAt: '2021-10-16T05:33:02.583Z',
     updatedAt: '2021-10-20T04:05:37.000Z',
+    rating: 1,
     images: [],
   },
 ];

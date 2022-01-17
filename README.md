@@ -154,8 +154,8 @@ const response = await http.get( 'products/2' )
   {
     id: 1,
     email: "admin@born2die.com",
-    password: "admin",
-    userRole: "admin",
+    password: admin,
+    role: "admin",
   },
   {
     id: 2,

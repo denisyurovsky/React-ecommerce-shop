@@ -59,5 +59,8 @@ exports[`Header component snapshots renders a valid snapshot 1`] = `
       </div>
     </div>
   </header>
+  <div
+    class="Toastify"
+  />
 </DocumentFragment>
 `;

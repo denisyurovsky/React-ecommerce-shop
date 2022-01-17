@@ -279,5 +279,8 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
       </div>
     </form>
   </div>
+  <div
+    class="Toastify"
+  />
 </DocumentFragment>
 `;

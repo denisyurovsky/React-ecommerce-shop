@@ -4,15 +4,18 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  Rating,
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import noImg from '../../../assets/images/noImg.png';
 import { formatDate } from '../../../helpers/dateUtils';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
+import { getRatingByProductId } from '../../../store/products/productsSlice';
 
 import stylesList from './CardList.module.scss';
 import stylesModule from './CardModule.module.scss';
@@ -25,9 +28,12 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
     updatedAt,
     price,
     images,
+    rating,
     category: { name: category },
   } = product;
   const styles = cardShape === pageView.MODULE_VIEW ? stylesModule : stylesList;
+
+  const updatedRating = useSelector((state) => getRatingByProductId(state, id));
 
   return (
     <Card className={styles.container}>
@@ -62,6 +68,13 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
         >
           Updated: {formatDate(updatedAt)}
         </Typography>
+        <Rating
+          className={styles.rating}
+          data-testid="total-rating"
+          value={updatedRating ?? rating}
+          readOnly
+          precision={0.5}
+        />
       </CardContent>
       <CardActions className={styles.price}>
         <Typography variant="h5" component="p">
@@ -82,6 +95,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
 CardItem.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number,
+    rating: PropTypes.number,
     name: PropTypes.string,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,

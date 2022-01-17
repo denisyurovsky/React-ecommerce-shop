@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FeedbackModal snapshot: should render a valid snapshot 1`] = `
+<div
+  class="MuiModal-root container css-79ws1d-MuiModal-root"
+  role="presentation"
+>
+  <div
+    aria-hidden="true"
+    class="MuiBackdrop-root css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+    style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+  />
+  <div
+    data-test="sentinelStart"
+    tabindex="0"
+  />
+  <div
+    class="modal MuiBox-root css-0"
+    tabindex="-1"
+  >
+    <button
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall cross css-2rshpx-MuiButtonBase-root-MuiIconButton-root"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="CloseIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg forms css-1oqqzyl-MuiContainer-root"
+    >
+      <div
+        class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-1h06ru-MuiFormControl-root-MuiTextField-root"
+      >
+        <label
+          class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root"
+          data-shrink="false"
+          for="mui-1"
+          id="mui-1-label"
+        >
+          Enter your name
+        </label>
+        <div
+          class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-ghsjzk-MuiInputBase-root-MuiInput-root"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+            id="mui-1"
+            placeholder="Anonymous"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <legend
+        class="MuiFormLabel-root MuiFormLabel-colorPrimary css-u4tvz2-MuiFormLabel-root"
+      >
+        Rating
+      </legend>
+      <div
+        class="container MuiBox-root css-0"
+      >
+        <span
+          class="MuiRating-root MuiRating-sizeMedium css-iljtu2-MuiRating-root"
+        >
+          <label
+            class="css-dqr9h-MuiRating-label"
+            for="mui-2"
+          >
+            <span
+              class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarRateIcon"
+                focusable="false"
+                style="opacity: 0.55;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.43 10 12 2l-2.43 8H2l6.18 4.41L5.83 22 12 17.31 18.18 22l-2.35-7.59L22 10z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiRating-visuallyHidden"
+            >
+              1 Star
+            </span>
+          </label>
+          <input
+            class="MuiRating-visuallyHidden"
+            id="mui-2"
+            name="hover-feedback"
+            type="radio"
+            value="1"
+          />
+          <label
+            class="css-dqr9h-MuiRating-label"
+            for="mui-3"
+          >
+            <span
+              class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarRateIcon"
+                focusable="false"
+                style="opacity: 0.55;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.43 10 12 2l-2.43 8H2l6.18 4.41L5.83 22 12 17.31 18.18 22l-2.35-7.59L22 10z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiRating-visuallyHidden"
+            >
+              2 Stars
+            </span>
+          </label>
+          <input
+            class="MuiRating-visuallyHidden"
+            id="mui-3"
+            name="hover-feedback"
+            type="radio"
+            value="2"
+          />
+          <label
+            class="css-dqr9h-MuiRating-label"
+            for="mui-4"
+          >
+            <span
+              class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarRateIcon"
+                focusable="false"
+                style="opacity: 0.55;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.43 10 12 2l-2.43 8H2l6.18 4.41L5.83 22 12 17.31 18.18 22l-2.35-7.59L22 10z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiRating-visuallyHidden"
+            >
+              3 Stars
+            </span>
+          </label>
+          <input
+            class="MuiRating-visuallyHidden"
+            id="mui-4"
+            name="hover-feedback"
+            type="radio"
+            value="3"
+          />
+          <label
+            class="css-dqr9h-MuiRating-label"
+            for="mui-5"
+          >
+            <span
+              class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarRateIcon"
+                focusable="false"
+                style="opacity: 0.55;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.43 10 12 2l-2.43 8H2l6.18 4.41L5.83 22 12 17.31 18.18 22l-2.35-7.59L22 10z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiRating-visuallyHidden"
+            >
+              4 Stars
+            </span>
+          </label>
+          <input
+            class="MuiRating-visuallyHidden"
+            id="mui-5"
+            name="hover-feedback"
+            type="radio"
+            value="4"
+          />
+          <label
+            class="css-dqr9h-MuiRating-label"
+            for="mui-6"
+          >
+            <span
+              class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarRateIcon"
+                focusable="false"
+                style="opacity: 0.55;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.43 10 12 2l-2.43 8H2l6.18 4.41L5.83 22 12 17.31 18.18 22l-2.35-7.59L22 10z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiRating-visuallyHidden"
+            >
+              5 Stars
+            </span>
+          </label>
+          <input
+            class="MuiRating-visuallyHidden"
+            id="mui-6"
+            name="hover-feedback"
+            type="radio"
+            value="5"
+          />
+          <label
+            class="MuiRating-label MuiRating-pristine css-dqr9h-MuiRating-label"
+          >
+            <input
+              class="MuiRating-visuallyHidden"
+              id="hover-feedback-empty"
+              name="hover-feedback"
+              type="radio"
+              value=""
+            />
+            <span
+              class="MuiRating-visuallyHidden"
+            >
+              Empty
+            </span>
+          </label>
+        </span>
+        <legend
+          class="MuiTypography-root MuiTypography-body1 css-1gvla80-MuiTypography-root"
+        />
+      </div>
+      <div
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-15md48e-MuiFormControl-root-MuiTextField-root"
+      >
+        <label
+          class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+          data-shrink="false"
+          for="mui-7"
+          id="mui-7-label"
+        >
+          Comment
+        </label>
+        <div
+          class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline css-8ewcdo-MuiInputBase-root-MuiOutlinedInput-root"
+        >
+          <textarea
+            aria-invalid="false"
+            class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
+            id="mui-7"
+            placeholder="Min comment length: 30"
+            style="height: 0px; overflow: hidden;"
+          />
+          <textarea
+            aria-hidden="true"
+            class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
+            readonly=""
+            style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding: 0px; width: 100%;"
+            tabindex="-1"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="css-173wfxe"
+            >
+              <span>
+                Comment
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <button
+        class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root Mui-disabled  css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        Add feedback
+      </button>
+    </div>
+  </div>
+  <div
+    data-test="sentinelEnd"
+    tabindex="0"
+  />
+</div>
+`;

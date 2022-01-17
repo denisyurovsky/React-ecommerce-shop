@@ -3,26 +3,22 @@
 
 $productDetailsPageContentHeight: calc(100% - 40px);
 
-.container {
+.card {
   margin: 20px auto;
-  display: grid;
-  grid-template-columns: auto 220px;
-  grid-template-rows: 80px auto auto;
-  align-items: center;
-  border-radius: 2px;
-  box-shadow: 0 0 2px $greyDark;
+  display: grid !important;
+  grid-template-columns: auto 200px;
+  grid-template-rows: 80px auto;
   height: $productDetailsPageContentHeight;
   width: 100%;
   background: $white;
 
   @media screen and (max-width: $sm) {
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 90px auto 170px auto;
-    height: fit-content;
+    grid-template-rows: 90px auto 210px auto;
   }
 }
 
-.container > * {
+.card > * {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -60,7 +56,7 @@ $productDetailsPageContentHeight: calc(100% - 40px);
   grid-area: 2 / 2 / 3 / 3;
   border-top: 1px solid $greyDark;
   border-bottom: 1px solid $greyDark;
-  justify-content: space-evenly;
+  justify-content: start;
 
   .seller {
     display: flex;
@@ -87,7 +83,7 @@ $productDetailsPageContentHeight: calc(100% - 40px);
 
 .description {
   grid-area: 3 / 1 / 4 / 3;
-  padding: 35px;
+  padding: 20px 35px;
 
   @media screen and (max-width: $sm) {
     grid-area: 4 / 1 / 5 / 3;

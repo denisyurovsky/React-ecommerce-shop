@@ -8,3 +8,10 @@ export const USER_ROLE = {
   CONSUMER: 'consumer',
   GUEST: 'guest',
 };
+
+export const FETCH = {
+  PENDING: 'loading',
+  FULFILLED: 'success',
+  REJECTED: 'failure',
+  IDLE: 'idle',
+};
