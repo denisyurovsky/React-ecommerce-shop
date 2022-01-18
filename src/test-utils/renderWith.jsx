@@ -5,8 +5,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
+import addressesReducer from '../store/addresses/addressesSlice';
 import cartReducer from '../store/cart/cartSlice';
 import categoriesReducer from '../store/categories/categoriesSlice';
+import citiesReducer from '../store/cities/citiesSlice';
+import countriesReducer from '../store/countries/countriesSlice';
 import feedbackReducer from '../store/feedback/feedbackSlice';
 import productsReducer from '../store/products/productsSlice';
 import userReducer from '../store/user/userSlice';
@@ -26,6 +29,9 @@ function render(
       categories: categoriesReducer,
       user: userReducer,
       feedback: feedbackReducer,
+      countries: countriesReducer,
+      cities: citiesReducer,
+      addresses: addressesReducer,
     },
     preloadedState,
   });

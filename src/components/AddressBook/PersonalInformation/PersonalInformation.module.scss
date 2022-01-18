@@ -1,0 +1,49 @@
+@import "../../../assets/styles/variables.scss";
+
+.wrapperFullName {
+  display: flex;
+}
+
+.title {
+  flex-basis: 60px;
+  flex-shrink: 0;
+  margin-right: 10px !important;
+}
+
+.name {
+  flex-grow: 1;
+  margin-right: 10px !important;
+}
+
+.surname {
+  flex-grow: 1;
+}
+
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: $xs) {
+  .wrapperFullName {
+    flex-wrap: wrap;
+  }
+
+  .title {
+    margin-right: 0 !important;
+    width: 100% !important;
+    flex-basis: unset;
+  }
+
+  .wrapper {
+    margin-top: 10px !important;
+  }
+
+  .name {
+    flex-grow: 1;
+  }
+
+  .surname {
+    flex-grow: 1;
+  }
+}

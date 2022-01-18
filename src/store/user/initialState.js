@@ -11,6 +11,7 @@ export default {
     email: '',
     avatar: '',
     amountOfTries: 0,
+    addresses: [],
     role: USER_ROLE.GUEST,
     wishlist: [],
   },

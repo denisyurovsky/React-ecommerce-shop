@@ -1,3 +1,4 @@
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import PersonIcon from '@mui/icons-material/Person';
 import Button from '@mui/material/Button';
@@ -111,7 +112,11 @@ export const ProfileMenu = () => {
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to={'/'}>
+                <Link to={'/profile/address-book'}>
+                  <ImportContactsIcon
+                    color="primary"
+                    className={styles.image}
+                  />
                   <span>My Address book</span>
                 </Link>
               </MenuItem>

@@ -9,6 +9,7 @@ const users = [
       gender: 'Male',
       email: 'admin@born2die.com',
       role: USER_ROLE.ADMIN,
+      addresses: [1, 3],
     },
   },
   {
@@ -21,6 +22,7 @@ const users = [
       email: 'seller1@gmail.com',
       avatar: 'http://localhost:5000/users/images/profile1.png',
       role: USER_ROLE.SELLER,
+      addresses: [2],
     },
   },
   {
@@ -29,6 +31,7 @@ const users = [
       firstName: 'Elon',
       lastName: 'Musk',
       role: USER_ROLE.SELLER,
+      addresses: [],
     },
   },
   {
@@ -37,6 +40,7 @@ const users = [
       firstName: 'Joe',
       lastName: 'Doe',
       role: USER_ROLE.CONSUMER,
+      addresses: [],
     },
   },
 ];

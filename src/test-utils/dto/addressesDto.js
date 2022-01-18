@@ -1,0 +1,67 @@
+export const newAddress = {
+  title: 'Mr.',
+  name: 'Jon',
+  surname: 'Smith',
+  country: { id: 'RU', name: 'Russian Federation' },
+  city: 'Saint Petersburg',
+  street: 'Nevskiy',
+  building: '8',
+  flat: '33',
+  phone: '+7 (981) 1112233',
+  zip: '168142',
+};
+
+export const addresses = [
+  {
+    id: 1,
+    title: 'Mr.',
+    name: 'Alexander',
+    surname: 'Sidorov',
+    country: {
+      id: 'RU',
+      name: 'Russian Federation',
+    },
+    city: 'Saint Petersburg',
+    street: 'Pulkovskaya',
+    building: '8',
+    flat: '4',
+    phone: '+7 (981) 3002020',
+    zip: '168142',
+  },
+  {
+    id: 2,
+    title: 'Mr.',
+    name: 'Ivan',
+    surname: 'Ivanov',
+    country: {
+      id: 'RU',
+      name: 'Russian Federation',
+    },
+    city: 'Saint Petersburg',
+    street: 'Leninskiy',
+    building: '8',
+    flat: '4',
+    phone: '+7 (981) 1112233',
+    zip: '168142',
+  },
+  {
+    id: 3,
+    title: 'Mrs.',
+    name: 'Olga',
+    surname: 'Petrova',
+    country: {
+      id: 'RU',
+      name: 'Russian Federation',
+    },
+    city: 'Saint Petersburg',
+    street: 'Pobedy',
+    building: '8',
+    flat: '4',
+    phone: '+7 (981) 1233232',
+    zip: '168142',
+  },
+  {
+    id: 4,
+    ...newAddress,
+  },
+];

@@ -1,0 +1,14 @@
+@import "../../../assets/styles/variables.scss";
+
+.card {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.footer {
+  flex-direction: column;
+  align-items: flex-end !important;
+  padding: 16px !important;
+  padding-top: 0 !important;
+}

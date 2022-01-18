@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { USER_ROLE } from '../../helpers/constants/constants';
 import withAuthExpiration from '../../HOCs/withAuthExpiration';
+import AddressBook from '../../pages/AddressBookPage/AddressBook';
 import { CreateOrEditProductPage } from '../../pages/AdminPages/CreateOrEditProductPage/CreateOrEditProductPage';
 import { CartPage } from '../../pages/CartPage/CartPage';
 import { HomePage } from '../../pages/HomePage/HomePage';
@@ -38,6 +39,7 @@ const App = ({ handleClose, isOpenModal }) => (
           path="/admin/products/:id/edit"
           element={<CreateOrEditProductPage />}
         />
+        <Route path="/profile/address-book" element={<AddressBook />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

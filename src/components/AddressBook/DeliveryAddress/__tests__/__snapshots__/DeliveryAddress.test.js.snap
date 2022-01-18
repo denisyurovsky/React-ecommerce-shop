@@ -1,0 +1,328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeliveryAddress component should render valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper MuiBox-root css-0"
+  >
+    <div
+      aria-expanded="false"
+      class="MuiAutocomplete-root Mui-focused MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon country css-16awh2u-MuiAutocomplete-root"
+      data-testid="autocomplete-country"
+      role="combobox"
+    >
+      <div
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+      >
+        <label
+          class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-focused css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+          data-shrink="true"
+          for="mui-2"
+          id="mui-2-label"
+        >
+          Country
+        </label>
+        <div
+          class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth Mui-focused MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-ghsjzk-MuiInputBase-root-MuiInput-root"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-describedby="mui-2-helper-text"
+            aria-invalid="false"
+            autocapitalize="none"
+            autocomplete="off"
+            class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1x51dt5-MuiInputBase-input-MuiInput-input"
+            id="mui-2"
+            spellcheck="false"
+            type="text"
+            value="Belarus"
+          />
+          <div
+            class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+          >
+            <button
+              aria-label="Clear"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+              tabindex="-1"
+              title="Clear"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              aria-label="Open"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+              tabindex="-1"
+              title="Open"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ArrowDropDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+        <p
+          class="MuiFormHelperText-root MuiFormHelperText-sizeMedium Mui-focused MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+          id="mui-2-helper-text"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      aria-expanded="false"
+      class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-16awh2u-MuiAutocomplete-root"
+      data-testid="autocomplete-city"
+      role="combobox"
+    >
+      <div
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+      >
+        <label
+          class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+          data-shrink="true"
+          for="mui-4"
+          id="mui-4-label"
+        >
+          City
+        </label>
+        <div
+          class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-ghsjzk-MuiInputBase-root-MuiInput-root"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-describedby="mui-4-helper-text"
+            aria-invalid="false"
+            autocapitalize="none"
+            autocomplete="off"
+            class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1x51dt5-MuiInputBase-input-MuiInput-input"
+            id="mui-4"
+            spellcheck="false"
+            type="text"
+            value="Saint Petersburg"
+          />
+          <div
+            class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+          >
+            <button
+              aria-label="Clear"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+              tabindex="-1"
+              title="Clear"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              aria-label="Open"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+              tabindex="-1"
+              title="Open"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ArrowDropDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+        <p
+          class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+          id="mui-4-helper-text"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+  >
+    <label
+      class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="true"
+      for="street"
+      id="street-label"
+    >
+      Street
+    </label>
+    <div
+      class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+    >
+      <input
+        aria-describedby="street-helper-text"
+        aria-invalid="false"
+        class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+        id="street"
+        type="text"
+        value="Pulkovskaya"
+      />
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+      id="street-helper-text"
+    >
+      <span
+        class="notranslate"
+      >
+        ​
+      </span>
+    </p>
+  </div>
+  <div
+    class="wrapper MuiBox-root css-0"
+  >
+    <div
+      class="MuiFormControl-root MuiTextField-root building css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+    >
+      <label
+        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        for="building"
+        id="building-label"
+      >
+        Building
+      </label>
+      <div
+        class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+      >
+        <input
+          aria-describedby="building-helper-text"
+          aria-invalid="false"
+          class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+          id="building"
+          type="text"
+          value="8"
+        />
+      </div>
+      <p
+        class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+        id="building-helper-text"
+      >
+        <span
+          class="notranslate"
+        >
+          ​
+        </span>
+      </p>
+    </div>
+    <div
+      class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+    >
+      <label
+        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        for="flat"
+        id="flat-label"
+      >
+        Flat
+      </label>
+      <div
+        class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+          id="flat"
+          type="text"
+          value="4"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+  >
+    <label
+      class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="true"
+      for="mui-5"
+      id="mui-5-label"
+    >
+      Zip
+    </label>
+    <div
+      class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+    >
+      <input
+        aria-describedby="mui-5-helper-text"
+        aria-invalid="false"
+        class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+        id="mui-5"
+        type="text"
+        value="168142"
+      />
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+      id="mui-5-helper-text"
+    >
+      <span
+        class="notranslate"
+      >
+        ​
+      </span>
+    </p>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;

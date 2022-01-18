@@ -1,0 +1,56 @@
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/variables.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+  width: 40%;
+  max-width: 600px;
+  min-width: 300px;
+  box-shadow: 0 0 20px $grey700;
+  background-color: $white;
+  border-radius: 4px;
+}
+
+.cross {
+  position: absolute !important;
+  top: 5px;
+  right: 5px;
+  margin: 0 !important;
+}
+
+.title {
+  margin-bottom: 10px !important;
+}
+
+.button {
+  margin-top: 30px !important;
+}
+
+@media screen and (max-width: $lg) {
+  .modal {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: $md) {
+  .modal {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .modal {
+    width: 90%;
+  }
+}

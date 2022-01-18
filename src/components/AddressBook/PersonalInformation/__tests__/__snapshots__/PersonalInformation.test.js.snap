@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonalInformation component should render valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapperFullName MuiBox-root css-0"
+  >
+    <div
+      class="MuiFormControl-root title css-1nrlq1o-MuiFormControl-root"
+    >
+      <label
+        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+        data-shrink="true"
+        id="title"
+      >
+        Title
+      </label>
+      <div
+        class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+        data-testid="select-title"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-labelledby="title mui-component-select-title"
+          class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+          id="mui-component-select-title"
+          role="button"
+          tabindex="0"
+        >
+          Mr.
+        </div>
+        <input
+          aria-hidden="true"
+          class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+          name="title"
+          tabindex="-1"
+          value="Mr."
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+          data-testid="ArrowDropDownIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="wrapper MuiBox-root css-0"
+    >
+      <div
+        class="MuiFormControl-root MuiTextField-root name css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+      >
+        <label
+          class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+          data-shrink="true"
+          for="name"
+          id="name-label"
+        >
+          Name
+        </label>
+        <div
+          class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+        >
+          <input
+            aria-describedby="name-helper-text"
+            aria-invalid="false"
+            class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+            id="name"
+            type="text"
+            value="Alexander"
+          />
+        </div>
+        <p
+          class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+          id="name-helper-text"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </p>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root surname css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+      >
+        <label
+          class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+          data-shrink="true"
+          for="surname"
+          id="surname-label"
+        >
+          Surname
+        </label>
+        <div
+          class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+        >
+          <input
+            aria-describedby="surname-helper-text"
+            aria-invalid="false"
+            class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+            id="surname"
+            type="text"
+            value="Sidorov"
+          />
+        </div>
+        <p
+          class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+          id="surname-helper-text"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+  >
+    <label
+      class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="true"
+      for="mui-1"
+      id="mui-1-label"
+    >
+      Phone
+    </label>
+    <div
+      class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1480iag-MuiInputBase-root-MuiInput-root"
+    >
+      <input
+        aria-describedby="mui-1-helper-text"
+        aria-invalid="false"
+        class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+        id="mui-1"
+        type="text"
+        value="+7 (981) 3002020"
+      />
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+      id="mui-1-helper-text"
+    >
+      <span
+        class="notranslate"
+      >
+        ​
+      </span>
+    </p>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;

@@ -41,6 +41,11 @@ export const ERROR = {
   INVALID_FIELDS: 'Failed. One or more fields were invalid.',
 };
 
+export const SUCCESS = {
+  ADDRESS_ADDED: 'Address was successfully added.',
+  ADDRESS_EDITED: 'Address was successfully edited.',
+};
+
 export const KEYS = {
   ENTER: 'Enter',
   BACKSPACE: 'Backspace',
