@@ -65,7 +65,7 @@ const ProductListPage = () => {
 
   return (
     <>
-      <Breadcrumbs className={styles.breadcrumbs} links={links} />
+      <Breadcrumbs links={links} />
       <div className={styles.searchBlock}>
         <CategoryFilter
           className={styles.filter}

@@ -99,5 +99,5 @@ describe('Product rating', () => {
         .getByTestId('total-rating')
         .querySelectorAll('[data-testid="StarIcon"]')
     ).toHaveLength(7);
-  });
+  }, 10000);
 });

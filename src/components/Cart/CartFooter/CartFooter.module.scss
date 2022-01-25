@@ -1,0 +1,12 @@
+@import "../../../assets/styles/colors.scss";
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalPrice {
+  color: $grey700;
+  font-size: 18px;
+}

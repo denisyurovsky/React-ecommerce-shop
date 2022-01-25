@@ -1,4 +1,3 @@
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { AppBar, Toolbar } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
@@ -12,6 +11,7 @@ import Authentification from '../../Authentification/Authentification';
 
 import { BurgerButton } from './BurgerButton/BurgerButton';
 import { NavigationList } from './NavigationList/NavigationList';
+import { ShoppingCart } from './ShoppingCart/ShoppingCart';
 
 import styles from './Header.module.scss';
 
@@ -34,7 +34,7 @@ export const Header = () => {
         <img src={logo} alt="logo" className={styles.logo} />
         {size.width > laptopBreakPoint && <NavigationList />}
         <Box className={styles.header}>
-          <ShoppingBasketIcon sx={{ mr: 2 }}></ShoppingBasketIcon>
+          <ShoppingCart></ShoppingCart>
           <Authentification />
         </Box>
       </Toolbar>

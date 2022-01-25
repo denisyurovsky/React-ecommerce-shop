@@ -1,0 +1,120 @@
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/breakpoints.scss";
+
+.cardContainer {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  width: 95%;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 20px;
+  height: min-content;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.name {
+  width: 28%;
+  font-size: 16px !important;
+  color: $greyDark;
+}
+
+.price {
+  font-size: 15px;
+  width: 27%;
+  color: $grey700;
+}
+
+.image {
+  margin-right: 10px;
+  max-width: 130px;
+}
+
+.trashIcon {
+  position: absolute;
+  right: 20px;
+  color: $grey700;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media all and (max-width: $md) {
+  .name {
+    width: unset;
+  }
+
+  .price {
+    width: unset;
+  }
+
+  .card {
+    justify-content: space-between;
+    padding-right: 44px;
+  }
+}
+
+@media all and (max-width: $sm) {
+  .image {
+    top: 0;
+    left: 10px;
+  }
+
+  .card {
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: min-content;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  .trashIcon {
+    position: absolute;
+    top: calc(50% - 18px);
+  }
+}
+
+@media all and (max-width: 500px) {
+  .name {
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .price {
+    margin-bottom: 20px !important;
+    margin-top: 20px !important;
+  }
+
+  .card {
+    padding-right: 10px;
+    width: 80%;
+  }
+
+  .trashIcon {
+    right: -10px;
+  }
+
+  .cardContainer {
+    justify-content: flex-start;
+  }
+
+  .image {
+    top: 0;
+    left: 0;
+    margin: 0;
+    position: relative;
+  }
+}

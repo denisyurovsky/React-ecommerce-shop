@@ -37,7 +37,7 @@ describe('Header component', () => {
   describe('resize tests', () => {
     it('renders correctly under 700px', () => {
       window.innerWidth = 600;
-      renderWithStore(<Header />);
+      renderWithStore(<RouterConnected component={<Header />} />);
 
       expect(screen.getByTestId('burger-button')).toBeInTheDocument();
     });

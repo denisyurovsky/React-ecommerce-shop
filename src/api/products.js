@@ -14,3 +14,9 @@ export function getSomeProducts({
 export function getAllProducts() {
   return http.get('/products');
 }
+
+export const getProductsByIds = (ids) => {
+  const reqParams = 'id=' + ids.join('&id=');
+
+  return http.get(`/products/?${reqParams}`);
+};

@@ -11,7 +11,7 @@ import { initialState } from './initialState';
 
 export const getCart = createAsyncThunk(
   'cart/getCart',
-  async (_, { getState }) => {
+  async (payload, { getState }) => {
     let response;
 
     const { user } = getState();
@@ -53,7 +53,7 @@ export const getCart = createAsyncThunk(
 
 export const deleteAllProducts = createAsyncThunk(
   'cart/deleteAllProducts',
-  async (_, { getState }) => {
+  async (payload, { getState }) => {
     const { user } = getState();
 
     const userId = user.user.id;
@@ -74,6 +74,14 @@ export const deleteAllProducts = createAsyncThunk(
           cart: updatedCart.cart,
         },
       };
+      localStorage.setItem(
+        'cart',
+        JSON.stringify({
+          products: [],
+          totalQuantity: 0,
+          totalPrice: 0,
+        })
+      );
     } else {
       answer = await setCart({ userId, cart: updatedCart });
     }
@@ -418,6 +426,5 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addCart } = cartSlice.actions;
 export const selectCart = (state) => state.cart;
 export default cartSlice.reducer;

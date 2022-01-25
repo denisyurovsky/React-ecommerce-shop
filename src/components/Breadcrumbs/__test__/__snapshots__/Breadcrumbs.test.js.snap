@@ -3,6 +3,7 @@
 exports[`Breadcrumbs component snapshots renders a valid snapshot 1`] = `
 <DocumentFragment>
   <div
+    class="breadcrumbs"
     role="presentation"
   >
     <nav

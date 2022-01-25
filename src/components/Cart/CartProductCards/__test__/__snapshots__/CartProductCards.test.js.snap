@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartProductCards component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="cards"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 noProducts css-ahj2mt-MuiTypography-root"
+    >
+      No one product has been added to the cart yet :( 
+      <br />
+      Start 
+      <a
+        href="/products"
+      >
+        searching
+      </a>
+    </p>
+  </div>
+</DocumentFragment>
+`;

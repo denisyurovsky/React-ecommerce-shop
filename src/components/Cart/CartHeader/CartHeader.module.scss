@@ -1,0 +1,31 @@
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/breakpoints.scss";
+
+.header {
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media all and (max-width: $sm) {
+  .header {
+    padding: 0 !important;
+  }
+}
+
+.title {
+  font-weight: 400;
+  font-size: 44px;
+  color: $grey700;
+}
+
+.emptyButton {
+  color: $greyDark !important;
+  border-color: $greyDark !important;
+  text-transform: capitalize;
+}
+
+.emptyButton:hover {
+  border-color: $greyDark;
+}

@@ -1,0 +1,16 @@
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/breakpoints.scss";
+
+.noProducts {
+  color: $greyDark;
+  line-height: 70px !important;
+  font-size: 24px !important;
+  text-align: center;
+}
+
+@media all and (max-width: $sm) {
+  .noProducts {
+    line-height: 30px !important;
+    font-size: 18px !important;
+  }
+}

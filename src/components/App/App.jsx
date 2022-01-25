@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { CreateOrEditProductPage } from '../../pages/AdminPages/CreateOrEditProductPage/CreateOrEditProductPage';
+import { CartPage } from '../../pages/CartPage/CartPage';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage/ProductDetailsPage';
@@ -15,6 +16,7 @@ export const App = () => {
       <Routes>
         <Route exact path="/products/:id" element={<ProductDetailsPage />} />
         <Route exact path="/products" element={<ProductListPage />} />
+        <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="/" element={<HomePage />} />
         <Route path="/" element={<ProtectedRoutes />}>
           <Route

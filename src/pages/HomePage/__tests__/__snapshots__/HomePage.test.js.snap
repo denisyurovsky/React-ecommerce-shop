@@ -116,5 +116,8 @@ exports[`HomePage component snapshots renders a valid snapshot 1`] = `
       </div>
     </section>
   </div>
+  <div
+    class="Toastify"
+  />
 </DocumentFragment>
 `;

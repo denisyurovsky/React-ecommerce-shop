@@ -1,3 +1,7 @@
+import { testCart } from '../../test-utils/dto/cartDto';
+
+export const testInitialState = testCart;
+
 export const initialState = {
   products: [],
   totalPrice: 0,

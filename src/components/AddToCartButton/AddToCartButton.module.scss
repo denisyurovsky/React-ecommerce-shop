@@ -21,10 +21,10 @@
 
 .button {
   height: 37px !important;
-  width: 54px !important;
+  width: 60px !important;
   min-width: unset !important;
   background-color: $primaryMain;
-  text-transform: capitalize;
+  text-transform: capitalize !important;
 }
 
 .bigButton {
@@ -48,10 +48,5 @@
 @media all and (max-width: 400px) {
   .bigButton {
     font-size: 10px !important;
-    width: 120px;
-  }
-
-  .container {
-    width: 120px;
   }
 }

@@ -3,9 +3,11 @@ import Link from '@mui/material/Link';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default function BasicBreadcrumbs({ links, className }) {
+import styles from './Breadcrumbs.module.scss';
+
+export default function BasicBreadcrumbs({ links }) {
   return (
-    <div role="presentation" className={className}>
+    <div role="presentation" className={styles.breadcrumbs}>
       <Breadcrumbs aria-label="breadcrumb">
         {links.map(({ url, text }) => (
           <Link key={url} underline="hover" color="inherit" href={url}>
@@ -19,5 +21,4 @@ export default function BasicBreadcrumbs({ links, className }) {
 
 BasicBreadcrumbs.propTypes = {
   links: PropTypes.array.isRequired,
-  className: PropTypes.string,
 };

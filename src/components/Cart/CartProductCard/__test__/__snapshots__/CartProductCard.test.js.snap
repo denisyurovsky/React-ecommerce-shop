@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartProductCard component snapshots renders a valid snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="cardContainer"
+  >
+    <span
+      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked checkbox css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+    >
+      <input
+        aria-label="controlled"
+        checked=""
+        class="PrivateSwitchBase-input css-1m9pwf3"
+        data-indeterminate="false"
+        type="checkbox"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="CheckBoxIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </span>
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="Intelligent Cotton Pants"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+        src="noImg.png"
+      />
+      <p
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom name css-d3wcwz-MuiTypography-root"
+      >
+        Intelligent Cotton Pants
+      </p>
+      <p
+        class="MuiTypography-root MuiTypography-h5 price css-ag7rrr-MuiTypography-root"
+      >
+        670 $
+      </p>
+      <div
+        class="container"
+      >
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button leftButton css-sghohy-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          -
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+        <p
+          class="counter"
+        >
+          1
+        </p>
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root button rightButton css-sghohy-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          +
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium trashIcon css-i4bv87-MuiSvgIcon-root"
+        data-testid="cartDeleteButton"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;

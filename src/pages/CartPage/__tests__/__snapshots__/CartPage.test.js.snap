@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartPage component snapshots renders CartPage without data 1`] = `
+<DocumentFragment>
+  <div
+    class="page"
+  >
+    <div
+      class="breadcrumbs"
+      role="presentation"
+    >
+      <nav
+        aria-label="breadcrumb"
+        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      >
+        <ol
+          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+        >
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href=""
+            >
+              Cart
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div
+      class="header"
+    >
+      <h2
+        class="header"
+        data-testid="title"
+      >
+        Cart
+      </h2>
+    </div>
+    <div
+      class="cards"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1 noProducts css-ahj2mt-MuiTypography-root"
+      >
+        No one product has been added to the cart yet :( 
+        <br />
+        Start 
+        <a
+          href="/products"
+        >
+          searching
+        </a>
+      </p>
+    </div>
+    <div
+      class="footer"
+    >
+      <p
+        class="totalPrice"
+        data-testid="totalPrice"
+      >
+        Total Price: 0 $
+      </p>
+      <button
+        class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-sghohy-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        Buy now
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;

@@ -6,7 +6,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
     class="MuiContainer-root MuiContainer-maxWidthLg container css-1oqqzyl-MuiContainer-root"
   >
     <div
-      class="breadCrumbs"
+      class="breadcrumbs"
       role="presentation"
     >
       <nav
