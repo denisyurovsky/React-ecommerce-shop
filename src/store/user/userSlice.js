@@ -151,6 +151,7 @@ export const {
   setWishlistState,
 } = userSlice.actions;
 export default userSlice.reducer;
+export const selectUser = (state) => state.user;
 export const getLoginState = (state) => state.user.loginStatus;
 export const getRegisterState = (state) => state.user.registerStatus;
 export const getCurrentUser = (state) => state.user;

@@ -40,7 +40,7 @@ export default function CardsContainer({
       </Box>
     );
   }
-  if (!products)
+  if (!products || products.length === 0)
     return (
       <Typography variant="h4" className={styles.title}>
         There are no products

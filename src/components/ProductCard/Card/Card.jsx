@@ -88,7 +88,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
         <Typography variant="h5" component="p">
           {parseInt(price)} $
         </Typography>
-        <AddToCartButton product={product} />
+        <AddToCartButton product={product} viewMode={cardShape} />
       </CardActions>
     </Card>
   );

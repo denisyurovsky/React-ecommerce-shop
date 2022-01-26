@@ -372,8 +372,8 @@ describe('CartPage component', () => {
       const agreeButton = await screen.findByText('Yes');
 
       fireEvent.click(agreeButton);
-      let test = await screen.findByText('Intelligent Cotton Pants');
-      let test1 = await screen.findByText('Intelligent Cotton Pants');
+      let test = await screen.findByText('Incredible Rubber Cheese');
+      let test1 = await screen.findByText('Incredible Rubber Cheese');
 
       expect(test).toBeInTheDocument();
       expect(test1).toBeInTheDocument();

@@ -1,6 +1,6 @@
 import { testCart } from './cartDto';
 
-export const testUser = {
+export const userDto = {
   email: 'IvanIvanov@yandex.ru',
   firstName: 'Ivan',
   lastName: 'Ivanov',

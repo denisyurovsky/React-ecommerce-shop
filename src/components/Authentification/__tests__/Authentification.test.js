@@ -24,10 +24,10 @@ const successfulHandlers = [
 
     return res(
       ctx.json({
-        accessToken: 'mocked_user_token_login',
         user: {
           id: 1,
         },
+        accessToken: 'mocked_user_token_login',
       }),
       ctx.delay(150)
     );
@@ -47,10 +47,10 @@ const successfulHandlers = [
 
     return res(
       ctx.json({
-        accessToken: 'mocked_user_token_register',
         user: {
           id: 1,
         },
+        accessToken: 'mocked_user_token_register',
       }),
       ctx.delay(150)
     );

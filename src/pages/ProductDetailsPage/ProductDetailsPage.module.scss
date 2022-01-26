@@ -9,7 +9,6 @@ $footerHeightSmall: 56px;
   min-height: calc(100vh - #{$headerHeight} - #{$footerHeightLarge});
   display: flex;
   align-items: flex-start;
-  margin-bottom: calc(#{$footerHeightLarge} + 1rem);
   width: 100%;
 
   @media screen and (max-width: $sm) {

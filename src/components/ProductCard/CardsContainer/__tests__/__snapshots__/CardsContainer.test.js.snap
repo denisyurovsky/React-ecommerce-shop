@@ -274,9 +274,11 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
 
 exports[`CardsContainer component snapshots renders a valid snapshot without data 1`] = `
 <DocumentFragment>
-  <div
-    class="container row"
-  />
+  <h4
+    class="MuiTypography-root MuiTypography-h4 title css-5lbw0b-MuiTypography-root"
+  >
+    There are no products
+  </h4>
   <div
     class="Toastify"
   />

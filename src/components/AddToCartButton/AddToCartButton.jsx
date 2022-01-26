@@ -6,15 +6,20 @@ import { toast } from 'react-toastify';
 
 import { notificationError } from '../../helpers/constants/constants';
 import { findProductIndexById } from '../../helpers/utils/findProductIndexById';
+import { pageView } from '../../pages/ProductListPage/constants/constants';
 import {
   selectCart,
   addProduct,
   decreaseProduct,
 } from '../../store/cart/cartSlice';
 
-import styles from './AddToCartButton.module.scss';
+import listStyles from './AddToCartButtonList.module.scss';
+import moduleStyles from './AddToCartButtonModule.module.scss';
 
-export const AddToCartButton = ({ product }) => {
+export const AddToCartButton = ({
+  product,
+  viewMode = pageView.MODULE_VIEW,
+}) => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
   const index = findProductIndexById(cart.products, product.id);
@@ -34,6 +39,8 @@ export const AddToCartButton = ({ product }) => {
       }
     });
   };
+
+  const styles = viewMode === pageView.MODULE_VIEW ? moduleStyles : listStyles;
 
   return cart.products[index] ? (
     <div className={styles.container}>
@@ -78,4 +85,5 @@ AddToCartButton.propTypes = {
       name: PropTypes.string,
     }),
   }).isRequired,
+  viewMode: PropTypes.oneOf([pageView.LIST_VIEW, pageView.MODULE_VIEW]),
 };

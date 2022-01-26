@@ -181,7 +181,7 @@ describe('functionality tests with admin role', () => {
       await screen.findByText(DEFAULT_NAME, { exact: false });
 
       expect(await screen.findByTestId('feedback-section')).toMatchSnapshot();
-    }, 10000);
+    }, 20000);
 
     it('should display a new feedback with correct name', async () => {
       const name = 'test';
@@ -193,7 +193,7 @@ describe('functionality tests with admin role', () => {
       expect(
         await screen.findByText(name, { exact: false })
       ).toBeInTheDocument();
-    }, 10000);
+    }, 20000);
 
     it('should display a notification after posting a feedback', async () => {
       await waitForFeedbacks();
@@ -205,7 +205,7 @@ describe('functionality tests with admin role', () => {
       expect(
         await screen.findByText('Your feedback has been added')
       ).toBeInTheDocument();
-    }, 10000);
+    }, 20000);
 
     it('should display a new feedback with "Anonymous"', async () => {
       await waitForFeedbacks();
@@ -215,7 +215,7 @@ describe('functionality tests with admin role', () => {
       expect(
         await screen.findByText(DEFAULT_NAME, { exact: false })
       ).toBeInTheDocument();
-    }, 10000);
+    }, 20000);
   });
 
   describe('error after add', () => {
@@ -236,6 +236,6 @@ describe('functionality tests with admin role', () => {
       expect(
         await screen.findByText(`Feedback haven't been added`)
       ).toBeInTheDocument();
-    }, 10000);
+    }, 20000);
   });
 });

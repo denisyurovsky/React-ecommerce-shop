@@ -1,0 +1,47 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
+
+.container {
+  min-width: 120px;
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rightButton {
+  border-radius: 0 5px 5px 0 !important;
+}
+
+.leftButton {
+  line-height: 21px !important;
+  font-size: 27px !important;
+  border-radius: 5px 0 0 5px !important;
+}
+
+.button {
+  height: 36px !important;
+  width: 60px !important;
+  min-width: unset !important;
+  background-color: $primaryMain;
+  text-transform: capitalize !important;
+}
+
+.bigButton {
+  width: 150px;
+  background-color: $primaryMain;
+  text-transform: capitalize;
+}
+
+.counter {
+  margin: 0;
+  height: 36px !important;
+  padding-top: 9px;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: center;
+  width: 100%;
+  border-bottom: 1px solid $greyDark;
+  border-top: 1px solid $greyDark;
+}

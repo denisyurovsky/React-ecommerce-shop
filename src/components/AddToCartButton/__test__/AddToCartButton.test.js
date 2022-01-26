@@ -11,12 +11,12 @@ import {
   getCart,
 } from '../../../store/cart/cartSlice';
 import testCards from '../../../test-utils/dto/productsDto';
-import { testUser, userWithEmptyCart } from '../../../test-utils/dto/userDto';
+import { userDto, userWithEmptyCart } from '../../../test-utils/dto/userDto';
 import renderWithStore from '../../../test-utils/renderWithStore';
 import { AddToCartButton } from '../AddToCartButton';
 
 const serverUser = {
-  ...testUser,
+  ...userDto,
 };
 
 const initialUser = {

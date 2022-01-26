@@ -21,21 +21,33 @@ export const CartProductCards = ({ openModal, setModalProduct }) => {
   const user = useSelector(getCurrentUser);
 
   useEffect(() => {
+    let isMounted = true;
+
     const ids = cart.products.map((item) => {
       return item.productId;
     });
 
-    if (ids.length != 0) {
-      getProductsByIds(ids)
-        .then((response) => {
+    const getCartProducts = async (ids) => {
+      try {
+        const response = await getProductsByIds(ids);
+
+        if (isMounted) {
           setProducts(response.data);
-        })
-        .catch(() => {
-          toast(notificationError);
-        });
+        }
+      } catch (err) {
+        toast(notificationError);
+      }
+    };
+
+    if (ids.length != 0) {
+      getCartProducts(ids);
     } else {
       setProducts([]);
     }
+
+    return () => {
+      isMounted = false;
+    };
   }, [cart.products]);
 
   useEffect(() => {

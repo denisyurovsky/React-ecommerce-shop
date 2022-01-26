@@ -1,4 +1,5 @@
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
 
 .container {
   min-width: 120px;
@@ -20,7 +21,7 @@
 }
 
 .button {
-  height: 37px !important;
+  height: 36px !important;
   width: 60px !important;
   min-width: unset !important;
   background-color: $primaryMain;
@@ -35,8 +36,8 @@
 
 .counter {
   margin: 0;
-  height: 37px;
-  padding-top: 9px;
+  height: 36px !important;
+  padding-top: 8px;
   font-size: 14px;
   text-align: center;
   vertical-align: center;
@@ -45,8 +46,25 @@
   border-top: 1px solid $greyDark;
 }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: $sm) {
   .bigButton {
-    font-size: 10px !important;
+    width: 100px;
+    font-size: 9px !important;
+    height: 30px !important;
+  }
+
+  .container {
+    min-width: unset !important;
+    height: 30px !important;
+    width: 100px;
+  }
+
+  .button {
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+  .counter {
+    padding-top: 6px;
   }
 }

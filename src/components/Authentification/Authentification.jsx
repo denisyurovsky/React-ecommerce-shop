@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,6 +10,7 @@ import {
   removeLockAfterTimeout,
   resetError,
 } from '../../store/user/userSlice';
+import { ProfileMenu } from '../ProfileMenu/ProfileMenu';
 
 import AuthModal from './AuthModal/AuthModal';
 
@@ -42,9 +42,7 @@ const Authentification = () => {
   return (
     <>
       {isLogged ? (
-        <Button data-testid="btn-profile" variant="outlined" color="secondary">
-          Profile
-        </Button>
+        <ProfileMenu />
       ) : (
         <AuthModal
           registerUser={sendRegisterForm}
