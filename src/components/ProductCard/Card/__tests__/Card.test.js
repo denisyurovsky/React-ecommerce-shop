@@ -15,11 +15,32 @@ describe('Card component', () => {
 
       expect(asFragment()).toMatchSnapshot();
     });
+    it('renders a valid snapshot with default shape with discount price', () => {
+      const { asFragment } = renderWithStore(
+        <RouterConnected component={<Card product={productsDto[5]} />} />
+      );
+
+      expect(asFragment()).toMatchSnapshot();
+    });
     it('renders a valid snapshot with list shape', () => {
       const { asFragment } = renderWithStore(
         <RouterConnected
           component={
             <Card product={productsDto[0]} cardShape={pageView.LIST_VIEW} />
+          }
+        />
+      );
+
+      expect(asFragment()).toMatchSnapshot();
+    });
+    it('renders a valid snapshot with list shape with discount price', () => {
+      const { asFragment } = renderWithStore(
+        <RouterConnected
+          component={
+            <Card
+              product={{ ...productsDto[0], discountPrice: 100 }}
+              cardShape={pageView.LIST_VIEW}
+            />
           }
         />
       );

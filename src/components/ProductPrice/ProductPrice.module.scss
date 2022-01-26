@@ -1,0 +1,14 @@
+@import "../../assets/styles/colors.scss";
+
+.crossedPrice {
+  margin: 0 !important;
+  color: $grey700 !important;
+  font-size: 16px !important;
+  text-decoration: line-through;
+}
+
+@media all and (max-width: 750px) {
+  .crossedPrice {
+    font-size: 16px !important;
+  }
+}

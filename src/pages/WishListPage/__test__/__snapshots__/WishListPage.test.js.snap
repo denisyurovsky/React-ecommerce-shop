@@ -78,11 +78,15 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </span>
-        <img
-          alt="Intelligent Cotton Pants"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-          src="noImg.png"
-        />
+        <div
+          class="imageContainer MuiBox-root css-0"
+        >
+          <img
+            alt="Intelligent Cotton Pants"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+            src="noImg.png"
+          />
+        </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
         >
@@ -321,7 +325,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
           <p
             class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
           >
-            670 $
+            670 $
           </p>
           <button
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
@@ -359,11 +363,15 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </span>
-        <img
-          alt="Incredible Plastic Table"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-          src="noImg.png"
-        />
+        <div
+          class="imageContainer MuiBox-root css-0"
+        >
+          <img
+            alt="Incredible Plastic Table"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+            src="noImg.png"
+          />
+        </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
         >
@@ -602,7 +610,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
           <p
             class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
           >
-            790 $
+            790 $
           </p>
           <button
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
@@ -640,11 +648,15 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </span>
-        <img
-          alt="Incredible Rubber Cheese"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-          src="noImg.png"
-        />
+        <div
+          class="imageContainer MuiBox-root css-0"
+        >
+          <img
+            alt="Incredible Rubber Cheese"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+            src="noImg.png"
+          />
+        </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
         >
@@ -883,7 +895,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
           <p
             class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
           >
-            638 $
+            638 $
           </p>
           <button
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
@@ -921,11 +933,15 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </span>
-        <img
-          alt="Incredible Metal Shoes"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-          src="noImg.png"
-        />
+        <div
+          class="imageContainer MuiBox-root css-0"
+        >
+          <img
+            alt="Incredible Metal Shoes"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+            src="noImg.png"
+          />
+        </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
         >
@@ -1164,7 +1180,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
           <p
             class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
           >
-            67 $
+            670 $
           </p>
           <button
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
@@ -1202,11 +1218,15 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </span>
-        <img
-          alt="Incredible Metal Chair"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-          src="noImg.png"
-        />
+        <div
+          class="imageContainer MuiBox-root css-0"
+        >
+          <img
+            alt="Incredible Metal Chair"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+            src="noImg.png"
+          />
+        </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
         >
@@ -1445,7 +1465,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
           <p
             class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
           >
-            130 $
+            130 $
           </p>
           <button
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
@@ -1483,11 +1503,24 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </span>
-        <img
-          alt="Fantastic Concrete Computer"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-          src="noImg.png"
-        />
+        <div
+          class="imageContainer MuiBox-root css-0"
+        >
+          <img
+            alt="Fantastic Concrete Computer"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+            src="noImg.png"
+          />
+          <div
+            class="discountLabel MuiBox-root css-0"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 label css-ahj2mt-MuiTypography-root"
+            >
+              0 %
+            </p>
+          </div>
+        </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
         >
@@ -1724,9 +1757,14 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
           class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 discountPrice css-ag7rrr-MuiTypography-root"
           >
-            805 $
+            804 $
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-h5 crossedPrice css-ag7rrr-MuiTypography-root"
+          >
+            805 $
           </p>
           <button
             class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"

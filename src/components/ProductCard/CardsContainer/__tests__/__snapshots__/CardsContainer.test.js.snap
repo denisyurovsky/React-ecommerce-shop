@@ -8,11 +8,15 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
     >
-      <img
-        alt="Intelligent Cotton Pants"
-        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
-        src="noImg.png"
-      />
+      <div
+        class="imageContainer MuiBox-root css-0"
+      >
+        <img
+          alt="Intelligent Cotton Pants"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
+          src="noImg.png"
+        />
+      </div>
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
       >
@@ -251,7 +255,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         <p
           class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
         >
-          670 $
+          670 $
         </p>
         <button
           class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"

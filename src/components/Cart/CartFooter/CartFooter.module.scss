@@ -10,3 +10,17 @@
   color: $grey700;
   font-size: 18px;
 }
+
+.totalPriceIsDiscount {
+  text-decoration: line-through;
+}
+
+.totalDiscountPrice {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.savedMoney {
+  font-size: 18px;
+  font-weight: bold;
+}

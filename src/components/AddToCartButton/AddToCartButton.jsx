@@ -77,6 +77,7 @@ AddToCartButton.propTypes = {
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,
     name: PropTypes.string,
+    discountPrice: PropTypes.number,
     price: PropTypes.number,
     id: PropTypes.number,
     category: PropTypes.shape({

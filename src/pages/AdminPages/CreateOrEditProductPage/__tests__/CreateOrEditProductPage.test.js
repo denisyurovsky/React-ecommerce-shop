@@ -119,6 +119,7 @@ describe('successful scenarios', () => {
     );
 
     const nameInput = await screen.findByLabelText('Name');
+    const discountPriceInput = await screen.findByLabelText('Discount price');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -138,6 +139,7 @@ describe('successful scenarios', () => {
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
     fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, '1337');
+    userEvent.type(discountPriceInput, '11237467');
     userEvent.click(editButton);
     expect(screen.getByTestId('load')).toBeInTheDocument();
   });
@@ -149,6 +151,7 @@ describe('successful scenarios', () => {
 
   it('renders categories and shows in UI', async () => {
     const nameInput = await screen.findByLabelText('Name');
+    const discountPriceInput = await screen.findByLabelText('Discount price');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -170,6 +173,7 @@ describe('successful scenarios', () => {
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
     fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, '1337');
+    userEvent.type(discountPriceInput, '1234');
     userEvent.click(editButton);
 
     expect(screen.getByTestId('load')).toBeInTheDocument();
@@ -177,6 +181,7 @@ describe('successful scenarios', () => {
 
   it('redirects to /admin after successful server response about editing a product', async () => {
     const nameInput = await screen.findByLabelText('Name');
+    const discountPriceInput = await screen.findByLabelText('Discount price');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -196,6 +201,7 @@ describe('successful scenarios', () => {
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
     fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, '1337');
+    userEvent.type(discountPriceInput, '1234');
     userEvent.click(editButton);
     expect(screen.getByTestId('load')).toBeInTheDocument();
   });
@@ -210,6 +216,7 @@ describe('successful scenarios', () => {
 
   it('makes edit button disabled if some inputs are invalid', async () => {
     const nameInput = await screen.findByLabelText('Name');
+    const discountPriceInput = await screen.findByLabelText('Discount price');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -229,6 +236,11 @@ describe('successful scenarios', () => {
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
     fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, 'string value');
+    userEvent.type(priceInput, '123');
+    userEvent.type(discountPriceInput, 'Non');
+    expect(editButton).toBeDisabled();
+    userEvent.type(priceInput, `\b\b\b\b\b\b string value`);
+    userEvent.type(discountPriceInput, `{backspace}{backspace}{backspace}1`);
     expect(editButton).toBeDisabled();
   });
 });

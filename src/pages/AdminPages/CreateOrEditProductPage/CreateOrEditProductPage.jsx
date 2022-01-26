@@ -37,6 +37,7 @@ export const CreateOrEditProductPage = () => {
     name: '',
     category: '',
     price: '',
+    discountPrice: '',
     serverCategories: [],
     createdAt: 0,
     isLoading: false,
@@ -49,6 +50,7 @@ export const CreateOrEditProductPage = () => {
     isCategoryValid: true,
     isDescriptionValid: true,
     isPriceValid: true,
+    isDiscountPriceValid: true,
   });
 
   const [isFinished, setIsFinished] = useState(false);
@@ -63,7 +65,13 @@ export const CreateOrEditProductPage = () => {
   const date = new Date();
   const isEditPage = useLocation().pathname.includes('edit');
 
-  const postNewProduct = async (name, description, category, price) => {
+  const postNewProduct = async (
+    name,
+    description,
+    category,
+    price,
+    discountPrice = 0
+  ) => {
     setValues({ ...values, isLoading: true });
 
     const newProduct = {
@@ -72,7 +80,8 @@ export const CreateOrEditProductPage = () => {
       category: {
         name: category,
       },
-      price,
+      price: Number(price),
+      discountPrice: Number(discountPrice),
       userId: authorId,
       createdAt: date.toISOString(),
       updatedAt: date.toISOString(),
@@ -86,7 +95,13 @@ export const CreateOrEditProductPage = () => {
     }
   };
 
-  const editProduct = async (name, description, category, price) => {
+  const editProduct = async (
+    name,
+    description,
+    category,
+    price,
+    discountPrice = 0
+  ) => {
     setValues({ ...values, isLoading: true });
     const editedProduct = {
       name,
@@ -95,6 +110,7 @@ export const CreateOrEditProductPage = () => {
         name: category,
       },
       price,
+      discountPrice,
       userId: authorId,
       createdAt: values.createdAt.toString(),
       updatedAt: date.toISOString(),
@@ -121,12 +137,19 @@ export const CreateOrEditProductPage = () => {
       name: response.name,
       category: response.category.name,
       price: response.price,
+      discountPrice: response.discountPrice,
       isLoading: false,
       createdAt: response.createdAt,
     });
   };
 
-  const checkIsFinished = (name, category, description, price) => {
+  const checkIsFinished = (
+    name,
+    category,
+    description,
+    price,
+    discountPrice = 0
+  ) => {
     return (
       checkForLatinText(name) &&
       checkValues.isNameValid &&
@@ -135,7 +158,8 @@ export const CreateOrEditProductPage = () => {
       checkForLatinText(description) &&
       checkValues.isDescriptionValid &&
       price.length !== 0 &&
-      checkForOnlyNumbers(price)
+      checkForOnlyNumbers(price) &&
+      (checkForOnlyNumbers(discountPrice) || discountPrice == '')
     );
   };
 
@@ -159,11 +183,20 @@ export const CreateOrEditProductPage = () => {
         values.name,
         values.category,
         editorState.getCurrentContent().getPlainText(''),
+        values.price,
+        values.discountPrice,
+        editorState.getCurrentContent().getPlainText(''),
         values.price
       )
     );
     // eslint-disable-next-line
-  }, [values.name, values.category, editorState, values.price]);
+  }, [
+    values.name,
+    values.category,
+    editorState,
+    values.price,
+    values.discountPrice,
+  ]);
 
   const categories = useSelector(selectCategories);
 
@@ -211,14 +244,40 @@ export const CreateOrEditProductPage = () => {
     });
   };
 
+  const onDiscountPriceChange = (e) => {
+    setValues({
+      ...values,
+      discountPrice: e.target.value,
+    });
+
+    setCheckValues({
+      ...checkValues,
+      isDiscountPriceValid:
+        (checkForOnlyNumbers(e.target.value) || !e.target.value) &&
+        Number(values.price) > Number(e.target.value),
+    });
+  };
+
   const postOrEditProduct = () => {
     const jsonText = JSON.stringify(
       convertToRaw(editorState.getCurrentContent())
     );
 
     isEditPage
-      ? editProduct(values.name, jsonText, values.category, values.price)
-      : postNewProduct(values.name, jsonText, values.category, values.price);
+      ? editProduct(
+          values.name,
+          jsonText,
+          values.category,
+          Number(values.price),
+          Number(values.discountPrice)
+        )
+      : postNewProduct(
+          values.name,
+          jsonText,
+          values.category,
+          Number(values.price),
+          Number(values.discountPrice)
+        );
   };
 
   const checkEmptyDescription = () =>
@@ -313,6 +372,21 @@ export const CreateOrEditProductPage = () => {
               fullWidth
               label="Price"
               onChange={onPriceChange}
+            />
+            <TextField
+              helperText={
+                !checkValues.isDiscountPriceValid
+                  ? values.discountPrice >= values.price
+                    ? 'Discount should be less than price'
+                    : 'Only numbers'
+                  : null
+              }
+              value={values.discountPrice}
+              data-testid="discountPriceInput"
+              error={!checkValues.isDiscountPriceValid}
+              fullWidth
+              label="Discount price"
+              onChange={onDiscountPriceChange}
             />
             <Box className={styles.wrapperForButtons}>
               <Button onClick={onCancel} type="reset" variant="outlined">

@@ -4,12 +4,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import Description from '../../helpers/Description';
-import { formatDate, formatPrice } from '../../helpers/utils/formatData';
+import { formatDate } from '../../helpers/utils/formatData';
 import { getRatingByProductId } from '../../store/products/productsSlice';
 import { getWishlist } from '../../store/user/userSlice';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import AddToWishListButton from '../AddToWishListButton/AddToWishListButton';
 import Carousel from '../Carousel/Carousel';
+import { DiscountLabel } from '../DiscountLabel/DiscountLabel';
+import { ProductPrice } from '../ProductPrice/ProductPrice';
 import Avatar from '../ui-kit/Avatar/Avatar';
 import Link from '../ui-kit/Link/Link';
 
@@ -28,6 +30,7 @@ const ProductDetailsPageContent = ({ product }) => {
     id,
     rating,
     userId,
+    discountPrice,
   } = product;
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
   const wishlist = useSelector(getWishlist);
@@ -42,10 +45,13 @@ const ProductDetailsPageContent = ({ product }) => {
             {`date: ${formatDate(updatedAt)}`}
           </Typography>
         </Box>
-        <Typography variant="h4" className={styles.price}>
-          {formatPrice(price)}
-        </Typography>
+        <Box>
+          <ProductPrice price={price} discountPrice={discountPrice} />
+        </Box>
         <Box className={styles.images}>
+          <Box className={styles.labelContainer}>
+            <DiscountLabel price={price} discountPrice={discountPrice} />
+          </Box>
           <Carousel images={images} />
           <AddToWishListButton
             productId={id}
@@ -89,6 +95,7 @@ ProductDetailsPageContent.propTypes = {
     rating: PropTypes.number,
     name: PropTypes.string,
     updatedAt: PropTypes.string,
+    discountPrice: PropTypes.number,
     price: PropTypes.number,
     images: PropTypes.arrayOf(PropTypes.string),
     author: PropTypes.shape({

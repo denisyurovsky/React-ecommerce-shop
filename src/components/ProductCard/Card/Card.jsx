@@ -4,6 +4,7 @@ import {
   CardMedia,
   Typography,
   Rating,
+  Box,
 } from '@mui/material';
 import Card from '@mui/material/Card';
 import PropTypes from 'prop-types';
@@ -17,6 +18,8 @@ import { pageView } from '../../../pages/ProductListPage/constants/constants';
 import { getRatingByProductId } from '../../../store/products/productsSlice';
 import { AddToCartButton } from '../../AddToCartButton/AddToCartButton';
 import AddToWishListButton from '../../AddToWishListButton/AddToWishListButton';
+import { DiscountLabel } from '../../DiscountLabel/DiscountLabel';
+import { ProductPrice } from '../../ProductPrice/ProductPrice';
 
 import stylesList from './CardList.module.scss';
 import stylesModule from './CardModule.module.scss';
@@ -29,6 +32,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
     updatedAt,
     price,
     images,
+    discountPrice,
     rating,
     category: { name: category },
     isAddedToWishlist,
@@ -36,6 +40,23 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
   const styles = cardShape === pageView.MODULE_VIEW ? stylesModule : stylesList;
 
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
+
+  /*
+      <Box className={styles.imageContainer}>
+      <CardMedia
+        component="img"
+        image={Array.isArray(images) && images.length ? images[0] : noImg}
+        className={styles.image}
+        alt={name}
+      />
+      { discountPrice ? 
+      <Box className={styles.discountLabel}>
+        <DiscountLabel price={price} discountPrice={discountPrice} />
+      </Box> : 
+      <></>
+      }
+      </Box>
+  */
 
   return (
     <Card className={styles.container}>
@@ -45,12 +66,21 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
         cardShape={cardShape}
         isAddedToWishlist={isAddedToWishlist}
       />
-      <CardMedia
-        component="img"
-        image={Array.isArray(images) && images.length ? images[0] : noImg}
-        className={styles.image}
-        alt={name}
-      />
+      <Box className={styles.imageContainer}>
+        <CardMedia
+          component="img"
+          image={Array.isArray(images) && images.length ? images[0] : noImg}
+          className={styles.image}
+          alt={name}
+        />
+        {discountPrice ? (
+          <Box className={styles.discountLabel}>
+            <DiscountLabel price={price} discountPrice={discountPrice} />
+          </Box>
+        ) : (
+          <></>
+        )}
+      </Box>
       <CardContent className={styles.description}>
         <Link to={`/products/${id}`} className={styles.title}>
           {name}
@@ -85,9 +115,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
         />
       </CardContent>
       <CardActions className={styles.price}>
-        <Typography variant="h5" component="p">
-          {parseInt(price)} $
-        </Typography>
+        <ProductPrice discountPrice={discountPrice} price={price} />
         <AddToCartButton product={product} viewMode={cardShape} />
       </CardActions>
     </Card>
@@ -99,6 +127,7 @@ CardItem.propTypes = {
     id: PropTypes.number,
     rating: PropTypes.number,
     name: PropTypes.string,
+    discountPrice: PropTypes.number,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,
     price: PropTypes.number,

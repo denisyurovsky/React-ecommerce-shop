@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductPrice component snapshots renders a snapshot with two prices 1`] = `
+<DocumentFragment>
+  <p
+    class="MuiTypography-root MuiTypography-h5 discountPrice css-ag7rrr-MuiTypography-root"
+  >
+    10 $
+  </p>
+  <p
+    class="MuiTypography-root MuiTypography-h5 crossedPrice css-ag7rrr-MuiTypography-root"
+  >
+    100 $
+  </p>
+</DocumentFragment>
+`;

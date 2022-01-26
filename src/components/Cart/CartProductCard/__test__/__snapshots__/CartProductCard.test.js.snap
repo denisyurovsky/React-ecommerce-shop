@@ -43,11 +43,15 @@ exports[`CartProductCard component snapshots renders a valid snapshot 1`] = `
       >
         Intelligent Cotton Pants
       </p>
-      <p
-        class="MuiTypography-root MuiTypography-h5 price css-ag7rrr-MuiTypography-root"
+      <div
+        class="priceContainer MuiBox-root css-0"
       >
-        670 $
-      </p>
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          670 $
+        </p>
+      </div>
       <div
         class="container"
       >

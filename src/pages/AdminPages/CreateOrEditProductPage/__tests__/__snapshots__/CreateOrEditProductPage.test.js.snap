@@ -62,8 +62,8 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="false"
-            for="mui-3"
-            id="mui-3-label"
+            for="mui-4"
+            id="mui-4-label"
           >
             Name
           </label>
@@ -73,7 +73,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
             <input
               aria-invalid="false"
               class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-              id="mui-3"
+              id="mui-4"
               type="text"
               value=""
             />
@@ -449,8 +449,8 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="false"
-            for="mui-4"
-            id="mui-4-label"
+            for="mui-5"
+            id="mui-5-label"
           >
             Price
           </label>
@@ -460,7 +460,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
             <input
               aria-invalid="false"
               class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-              id="mui-4"
+              id="mui-5"
               type="text"
               value=""
             />
@@ -473,6 +473,42 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
               >
                 <span>
                   Price
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+          data-testid="discountPriceInput"
+        >
+          <label
+            class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink="false"
+            for="mui-6"
+            id="mui-6-label"
+          >
+            Discount price
+          </label>
+          <div
+            class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+              id="mui-6"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="css-173wfxe"
+              >
+                <span>
+                  Discount price
                 </span>
               </legend>
             </fieldset>

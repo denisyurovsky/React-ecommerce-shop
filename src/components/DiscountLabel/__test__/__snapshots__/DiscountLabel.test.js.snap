@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiscountLabel component snapshots renders a snapshot with two prices 1`] = `
+<DocumentFragment>
+  <p
+    class="MuiTypography-root MuiTypography-body1 label css-ahj2mt-MuiTypography-root"
+  >
+    90 %
+  </p>
+</DocumentFragment>
+`;

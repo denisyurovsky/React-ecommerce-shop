@@ -429,32 +429,38 @@ describe('Cart actions', () => {
     it('Should be able to detect getCart error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(getCart());
+      expect(store.getState().cart.isLoading).toEqual(false);
       expect(store.getState().cart.errorOccurred).toEqual(true);
     });
     it('Should be able to detect addProduct error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(addProduct({ product: productsDto[1] }));
+      expect(store.getState().cart.isLoading).toEqual(false);
       expect(store.getState().cart.errorOccurred).toEqual(true);
     });
     it('Should be able to detect decreaseProduct error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(decreaseProduct({ product: productsDto[1] }));
+      expect(store.getState().cart.isLoading).toEqual(false);
       expect(store.getState().cart.errorOccurred).toEqual(true);
     });
     it('Should be able to detect deleteProduct error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(deleteProduct({ product: productsDto[1] }));
+      expect(store.getState().cart.isLoading).toEqual(false);
       expect(store.getState().cart.errorOccurred).toEqual(true);
     });
 
     it('Should be able to detect markProoduct error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(selectProduct({ product: productsDto[1] }));
+      expect(store.getState().cart.isLoading).toEqual(false);
       expect(store.getState().cart.errorOccurred).toEqual(true);
     });
     it('Should be able to detect deleteAllProducts error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(deleteAllProducts());
+      expect(store.getState().cart.isLoading).toEqual(false);
       expect(store.getState().cart.errorOccurred).toEqual(true);
     });
   });

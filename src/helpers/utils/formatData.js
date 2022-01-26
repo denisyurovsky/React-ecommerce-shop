@@ -12,4 +12,8 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString('ru-RU');
 };
 
-export { formatDate, formatPrice };
+const formatDiscountInPercents = (price, discountPrice) => {
+  return `${Math.trunc(((price - discountPrice) * 100) / price)} %`;
+};
+
+export { formatDate, formatPrice, formatDiscountInPercents };

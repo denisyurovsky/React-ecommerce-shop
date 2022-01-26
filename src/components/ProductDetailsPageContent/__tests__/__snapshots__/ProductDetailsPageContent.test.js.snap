@@ -22,14 +22,27 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
           date: 24.11.2021
         </p>
       </div>
-      <h4
-        class="MuiTypography-root MuiTypography-h4 price css-5lbw0b-MuiTypography-root"
+      <div
+        class="MuiBox-root css-0"
       >
-        670 $
-      </h4>
+        <p
+          class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+        >
+          670 $
+        </p>
+      </div>
       <div
         class="images MuiBox-root css-0"
       >
+        <div
+          class="labelContainer MuiBox-root css-0"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1 label css-ahj2mt-MuiTypography-root"
+          >
+            NaN %
+          </p>
+        </div>
         <div
           class="container single"
           data-testid="left"

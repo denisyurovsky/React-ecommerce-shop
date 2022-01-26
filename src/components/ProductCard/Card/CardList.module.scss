@@ -10,6 +10,12 @@
   position: relative;
 }
 
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
 .image {
   width: 18rem !important;
   height: 18rem;
@@ -74,4 +80,24 @@
   .button::after {
     content: "+";
   }
+}
+
+.crossedPrice {
+  text-decoration: line-through;
+}
+
+.discountPrice {
+  margin: 0 !important;
+}
+
+@media all and (max-width: 600px) {
+  .discountPrice {
+    font-size: 24px !important;
+  }
+}
+
+.discountLabel {
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }

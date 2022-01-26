@@ -30,6 +30,13 @@
   color: $greyDark;
 }
 
+.priceContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 160px;
+}
+
 .price {
   font-size: 15px;
   width: 27%;
@@ -116,5 +123,25 @@
     left: 0;
     margin: 0;
     position: relative;
+  }
+}
+
+.crossedPrice {
+  text-decoration: line-through;
+}
+
+.discountPrice {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+@media all and (max-width: 750px) {
+  .crossedPrice {
+    font-size: 16px !important;
+  }
+
+  .discountPrice {
+    font-size: 16px !important;
+    margin: 0;
   }
 }

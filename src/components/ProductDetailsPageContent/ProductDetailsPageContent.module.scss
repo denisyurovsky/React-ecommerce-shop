@@ -93,3 +93,24 @@ $productDetailsPageContentHeight: calc(100% - 40px);
     grid-area: 4 / 1 / 5 / 3;
   }
 }
+
+.crossedPrice {
+  font-size: 16px !important;
+  text-decoration: line-through;
+}
+
+.discountPrice {
+  margin: 0 !important;
+}
+
+@media all and (max-width: 600px) {
+  .discountPrice {
+    font-size: 24px !important;
+  }
+}
+
+.labelContainer {
+  position: absolute !important;
+  top: 8px !important;
+  right: 50px !important;
+}
