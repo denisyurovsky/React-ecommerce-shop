@@ -1,5 +1,5 @@
 import { authStatus } from '../../helpers/constants/authConstants';
-import { USER_ROLE } from '../../helpers/constants/constants';
+import { REQUEST_STATUS, USER_ROLE } from '../../helpers/constants/constants';
 
 export default {
   user: {
@@ -7,12 +7,13 @@ export default {
     firstName: null,
     lastName: null,
     email: null,
-    isAdmin: false,
     amountOfTries: 0,
     role: USER_ROLE.GUEST,
+    wishlist: [],
   },
   loginStatus: authStatus.IDLE,
   registerStatus: authStatus.IDLE,
+  updateWishlistStatus: REQUEST_STATUS.IDLE,
   loginError: '',
   registerError: '',
 };

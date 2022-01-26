@@ -44,6 +44,7 @@ $productDetailsPageContentHeight: calc(100% - 40px);
   border-top: 1px solid $greyDark;
   border-bottom: 1px solid $greyDark;
   border-right: 1px solid $greyDark;
+  position: relative;
 
   @media screen and (max-width: $sm) {
     grid-area: 2 / 1 / 3 / 3;
@@ -62,6 +63,7 @@ $productDetailsPageContentHeight: calc(100% - 40px);
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 1rem auto;
 
     .name {
       margin: 0 0.5rem 0 1rem;

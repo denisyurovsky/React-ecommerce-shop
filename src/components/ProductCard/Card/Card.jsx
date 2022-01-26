@@ -16,6 +16,7 @@ import { formatDate } from '../../../helpers/dateUtils';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
 import { getRatingByProductId } from '../../../store/products/productsSlice';
 import { AddToCartButton } from '../../AddToCartButton/AddToCartButton';
+import AddToWishListButton from '../../AddToWishListButton/AddToWishListButton';
 
 import stylesList from './CardList.module.scss';
 import stylesModule from './CardModule.module.scss';
@@ -30,6 +31,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
     images,
     rating,
     category: { name: category },
+    isAddedToWishlist,
   } = product;
   const styles = cardShape === pageView.MODULE_VIEW ? stylesModule : stylesList;
 
@@ -37,6 +39,12 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
 
   return (
     <Card className={styles.container}>
+      <AddToWishListButton
+        productId={id}
+        productName={name}
+        cardShape={cardShape}
+        isAddedToWishlist={isAddedToWishlist}
+      />
       <CardMedia
         component="img"
         image={Array.isArray(images) && images.length ? images[0] : noImg}
@@ -95,6 +103,7 @@ CardItem.propTypes = {
     updatedAt: PropTypes.string,
     price: PropTypes.number,
     images: PropTypes.arrayOf(PropTypes.string),
+    isAddedToWishlist: PropTypes.bool,
     category: PropTypes.shape({
       name: PropTypes.string,
     }),
@@ -102,4 +111,8 @@ CardItem.propTypes = {
   cardShape: PropTypes.oneOf([pageView.LIST_VIEW, pageView.MODULE_VIEW]),
 };
 
-export default CardItem;
+const areEqual = (prevProps, nextProps) =>
+  prevProps.cardShape === nextProps.cardShape &&
+  prevProps.product.isAddedToWishlist === nextProps.product.isAddedToWishlist;
+
+export default React.memo(CardItem, areEqual);

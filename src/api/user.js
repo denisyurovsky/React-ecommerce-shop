@@ -15,4 +15,13 @@ export const register = ({ email, password, firstName, lastName }) =>
     firstName,
     lastName,
     role: USER_ROLE.CONSUMER,
+    wishlist: [],
   });
+
+export const setWishlist = ({ currentUserId, wishlist }) => {
+  if (!currentUserId) {
+    throw new Error('User is unauthorized');
+  }
+
+  return http.patch(`users/${currentUserId}`, { wishlist });
+};

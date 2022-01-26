@@ -15,3 +15,10 @@ export const FETCH = {
   REJECTED: 'failure',
   IDLE: 'idle',
 };
+
+export const REQUEST_STATUS = {
+  PENDING: 'pending',
+  FULFILLED: 'fulfilled',
+  REJECTED: 'rejected',
+  IDLE: 'idle',
+};

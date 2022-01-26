@@ -14,6 +14,8 @@ import { useSelector } from 'react-redux';
 
 import { formatDate, formatPrice } from '../../helpers/utils/formatData';
 import { getRatingByProductId } from '../../store/products/productsSlice';
+import { getWishlist } from '../../store/user/userSlice';
+import AddToWishListButton from '../AddToWishListButton/AddToWishListButton';
 import Carousel from '../Carousel/Carousel';
 
 import Feedback from './Feedback/Feedback';
@@ -24,6 +26,8 @@ const ProductDetailsPageContent = ({ product }) => {
   const { name, updatedAt, price, images, author, description, id, rating } =
     product;
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
+  const wishlist = useSelector(getWishlist);
+  const isWished = (productId, wishlist) => new Set(wishlist).has(productId);
 
   return (
     <Container>
@@ -39,6 +43,11 @@ const ProductDetailsPageContent = ({ product }) => {
         </Typography>
         <Box className={styles.images}>
           <Carousel images={images} />
+          <AddToWishListButton
+            productId={id}
+            productName={name}
+            isAddedToWishlist={isWished(id, wishlist)}
+          />
         </Box>
         <Box className={styles.buy}>
           <Rating

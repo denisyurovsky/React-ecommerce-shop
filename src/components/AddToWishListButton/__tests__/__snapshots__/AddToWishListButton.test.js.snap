@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToWishListButton component guest should not see the component 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;
