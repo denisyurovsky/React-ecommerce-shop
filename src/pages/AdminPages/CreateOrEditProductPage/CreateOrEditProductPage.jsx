@@ -30,7 +30,7 @@ import styles from './CreateOrEditProductPage.module.scss';
 export const CreateOrEditProductPage = () => {
   const [values, setValues] = useState({
     name: '',
-    category: ' ',
+    category: '',
     description: '',
     price: '',
     serverCategories: [],
@@ -40,6 +40,7 @@ export const CreateOrEditProductPage = () => {
 
   const [checkValues, setCheckValues] = useState({
     isNameValid: true,
+    isCategoryValid: true,
     isDescriptionValid: true,
     isPriceValid: true,
   });
@@ -123,7 +124,8 @@ export const CreateOrEditProductPage = () => {
     return (
       checkForLatinText(name) &&
       checkValues.isNameValid &&
-      category.length > 2 &&
+      checkValues.isCategoryValid &&
+      values.category !== '' &&
       checkForLatinText(description) &&
       checkValues.isDescriptionValid &&
       price.length !== 0 &&
@@ -172,6 +174,11 @@ export const CreateOrEditProductPage = () => {
 
   const onCategoryChange = (e) => {
     setValues({ ...values, category: e.target.value });
+
+    setCheckValues({
+      ...checkValues,
+      isCategoryValid: e.target.value !== '',
+    });
   };
 
   const onDescriptionChange = (e) => {
@@ -249,10 +256,10 @@ export const CreateOrEditProductPage = () => {
               label="Name"
               onChange={onNameChange}
             />
-            <FormControl error={!values.category}>
+            <FormControl error={!checkValues.isCategoryValid}>
               <InputLabel id="selectLabel">Category</InputLabel>
               <Select
-                value={values.category}
+                value={values.category || ''}
                 selected_value={values.category}
                 data-testid="selectInput"
                 labelId="selectLabel"

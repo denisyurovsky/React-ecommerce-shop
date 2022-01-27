@@ -95,8 +95,8 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
           class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
         >
           <label
-            class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1kty9di-MuiFormLabel-root-MuiInputLabel-root"
-            data-shrink="true"
+            class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+            data-shrink="false"
             id="selectLabel"
           >
             Category
@@ -104,7 +104,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
           <div
             class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
             data-testid="selectInput"
-            selected_value=" "
+            selected_value=""
           >
             <div
               aria-expanded="false"
@@ -125,7 +125,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
               aria-hidden="true"
               class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
               tabindex="-1"
-              value=" "
+              value=""
             />
             <svg
               aria-hidden="true"
@@ -143,7 +143,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
               class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="css-1z7n62"
+                class="css-173wfxe"
               >
                 <span>
                   Category

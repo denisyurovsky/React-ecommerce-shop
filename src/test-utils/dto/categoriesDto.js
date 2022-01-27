@@ -1,5 +1,6 @@
 const categoriesDto = [
   'All categories',
+  'Home',
   'Grocery',
   'Industrial',
   'Clothing',
