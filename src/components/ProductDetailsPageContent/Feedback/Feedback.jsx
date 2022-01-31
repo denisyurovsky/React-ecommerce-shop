@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { FETCH } from '../../../helpers/constants/constants';
+import { FETCH, EMPTY, ERROR } from '../../../helpers/constants/constants';
 import {
   fetchCommentsByProductId,
   selectAllComments,
@@ -30,7 +30,7 @@ const Feedback = ({ productId }) => {
 
   useEffect(() => {
     if (status === REJECTED) {
-      toast.error('Failed to load feedback');
+      toast.error(ERROR.LOAD_FEEDBACK);
     }
   }, [status]);
 
@@ -43,7 +43,10 @@ const Feedback = ({ productId }) => {
           <CircularProgress sx={{ textAlign: 'center' }} />
         </Container>
       ) : (
-        <CommentSection comments={comments} />
+        <CommentSection
+          comments={comments}
+          message={EMPTY.NO_COMMENTS_BE_THE_FIRST}
+        />
       )}
     </Box>
   );

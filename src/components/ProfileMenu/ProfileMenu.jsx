@@ -1,4 +1,3 @@
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import PersonIcon from '@mui/icons-material/Person';
 import Button from '@mui/material/Button';
@@ -8,13 +7,17 @@ import MenuList from '@mui/material/MenuList';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import Avatar from '../ui-kit/Avatar/Avatar';
 
 import styles from './ProfileMenu.module.scss';
 
 export const ProfileMenu = () => {
   const [isOpened, setIsOpened] = useState(false);
   const anchorRef = useRef(null);
+  const { avatar, id: userId } = useSelector((state) => state.user.user);
 
   const handleToggle = () => {
     setIsOpened(!isOpened);
@@ -61,7 +64,7 @@ export const ProfileMenu = () => {
         className={styles.expandButton}
         onClick={handleToggle}
       >
-        <AccountCircleIcon className={styles.avatarImage} />
+        <Avatar isWhite avatar={avatar} />
       </Button>
       <Popper
         className={styles.menuContainer}
@@ -81,7 +84,7 @@ export const ProfileMenu = () => {
               onKeyDown={handleListKeyDown}
             >
               <MenuItem onClick={handleClose}>
-                <Link to={'/'}>
+                <Link to={`/users/${userId}`}>
                   <PersonIcon color="primary" className={styles.image} />
                   <span>My Profile</span>
                 </Link>

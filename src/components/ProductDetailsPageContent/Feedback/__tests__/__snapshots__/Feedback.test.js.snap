@@ -399,7 +399,7 @@ exports[`functionality tests with admin role empty feedbacks section should rend
         <h6
           class="MuiTypography-root MuiTypography-subtitle1 css-10wpov9-MuiTypography-root"
         >
-          There are no comments yet. Be the first to review
+          There are no comments yet. Be the first to review.
         </h6>
         <svg
           aria-hidden="true"

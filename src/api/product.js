@@ -17,13 +17,14 @@ export const getProduct = async (productId) => {
     throw new Error(`User with ID ${userId} was not found`);
   }
 
-  const { firstName, lastName } = user.data[0];
+  const { firstName, lastName, avatar } = user.data[0];
 
   return {
     ...product.data,
     author: {
       firstName,
       lastName,
+      avatar,
     },
   };
 };

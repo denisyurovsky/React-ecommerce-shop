@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfilePage component should render consumer page 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+    data-testid="profile"
+  >
+    <div
+      class="breadcrumbs"
+      role="presentation"
+    >
+      <nav
+        aria-label="breadcrumb"
+        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      >
+        <ol
+          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+        >
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href="/users"
+            >
+              Users
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href="/users/3"
+            >
+              Joe Doe
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <h2
+      class="header"
+      data-testid="title"
+    >
+      Profile of Joe Doe
+    </h2>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg css-12hdurq-MuiContainer-root"
+    >
+      <span
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
+      >
+        <svg
+          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;
+
+exports[`ProfilePage component should render seller page 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+    data-testid="profile"
+  >
+    <div
+      class="breadcrumbs"
+      role="presentation"
+    >
+      <nav
+        aria-label="breadcrumb"
+        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      >
+        <ol
+          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+        >
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href="/users"
+            >
+              Users
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              href="/users/2"
+            >
+              Elon Musk
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <h2
+      class="header"
+      data-testid="title"
+    >
+      Profile of Elon Musk
+    </h2>
+    <div
+      class="row"
+    >
+      <h6
+        class="MuiTypography-root MuiTypography-subtitle2 found css-a2zpya-MuiTypography-root"
+      >
+        Found: 0 items
+      </h6>
+    </div>
+    <div
+      class="cardsContainer"
+    >
+      <div
+        class="wrapper MuiBox-root css-0"
+      >
+        <span
+          aria-label="Products preloader"
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;
+
+exports[`ProfilePage component should show "Loader" 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg css-1mzm8gz-MuiContainer-root"
+  >
+    <span
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      role="progressbar"
+      style="width: 40px; height: 40px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;

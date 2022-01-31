@@ -1,0 +1,38 @@
+@import "../../../assets/styles/colors.scss";
+
+.avatar {
+  font-weight: bold;
+  color: $greyLight;
+  background: $primaryMain !important;
+  margin: 0 0.5rem;
+}
+
+.profile {
+  background: $primaryMain !important;
+  width: 18rem !important;
+  height: 18rem !important;
+  font-size: 10rem !important;
+  font-weight: normal;
+
+  &:hover {
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      width: 18rem;
+      height: 18rem;
+      content: "+";
+      background: #0003;
+      color: $greyLight;
+      padding: 15rem 8.5rem;
+      font-size: 2.5rem;
+      font-weight: "bold";
+    }
+  }
+}
+
+.white {
+  color: $primaryMain !important;
+  background: $greyLight !important;
+}

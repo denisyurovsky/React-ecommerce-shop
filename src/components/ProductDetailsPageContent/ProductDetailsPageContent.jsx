@@ -1,12 +1,4 @@
-import PersonIcon from '@mui/icons-material/Person';
-import {
-  IconButton,
-  Typography,
-  Box,
-  Container,
-  Card,
-  Rating,
-} from '@mui/material';
+import { Typography, Box, Container, Card, Rating } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -17,14 +9,25 @@ import { getWishlist } from '../../store/user/userSlice';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import AddToWishListButton from '../AddToWishListButton/AddToWishListButton';
 import Carousel from '../Carousel/Carousel';
+import Avatar from '../ui-kit/Avatar/Avatar';
+import Link from '../ui-kit/Link/Link';
 
 import Feedback from './Feedback/Feedback';
 
 import styles from './ProductDetailsPageContent.module.scss';
 
 const ProductDetailsPageContent = ({ product }) => {
-  const { name, updatedAt, price, images, author, description, id, rating } =
-    product;
+  const {
+    name,
+    updatedAt,
+    price,
+    images,
+    author,
+    description,
+    id,
+    rating,
+    userId,
+  } = product;
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
   const wishlist = useSelector(getWishlist);
   const isWished = (productId, wishlist) => new Set(wishlist).has(productId);
@@ -60,12 +63,13 @@ const ProductDetailsPageContent = ({ product }) => {
           />
           <AddToCartButton product={product} />
           <Box className={styles.seller}>
-            <Typography variant="body1">
-              {`${author.firstName} ${author.lastName}`}
-            </Typography>
-            <IconButton className={styles.personIcon}>
-              <PersonIcon />
-            </IconButton>
+            <Link to={`/users/${userId}`}>
+              <Typography variant="body1">
+                {`${author.firstName} ${author.lastName}`}
+              </Typography>
+
+              <Avatar avatar={author.avatar} />
+            </Link>
           </Box>
         </Box>
         <Box className={styles.description}>
@@ -82,6 +86,7 @@ const ProductDetailsPageContent = ({ product }) => {
 ProductDetailsPageContent.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,
+    userId: PropTypes.number.isRequired,
     rating: PropTypes.number,
     name: PropTypes.string,
     updatedAt: PropTypes.string,
@@ -90,6 +95,7 @@ ProductDetailsPageContent.propTypes = {
     author: PropTypes.shape({
       firstName: PropTypes.string,
       lastName: PropTypes.string,
+      avatar: PropTypes.string,
     }),
     description: PropTypes.string,
   }).isRequired,

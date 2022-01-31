@@ -24,3 +24,6 @@ export const setWishlist = ({ currentUserId, wishlist }) => {
 
   return http.patch(`users/${currentUserId}`, { wishlist });
 };
+
+export const updateProfile = (profile) =>
+  http.patch(`users/${profile.id}`, profile);

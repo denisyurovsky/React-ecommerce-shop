@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,12 +10,12 @@ import { ProfileMenu } from '../ProfileMenu';
 describe('Profile menu component', () => {
   describe('snapshots', () => {
     it('renders profile menu in the default/closed state', () => {
-      const { asFragment } = render(<ProfileMenu />);
+      const { asFragment } = renderWithStore(<ProfileMenu />);
 
       expect(asFragment()).toMatchSnapshot();
     });
     it('renders profile menu in the opened state', () => {
-      const { asFragment } = render(
+      const { asFragment } = renderWithStore(
         <RouterConnected component={<ProfileMenu />} />
       );
       const button = screen.getByTestId('btn-profile');

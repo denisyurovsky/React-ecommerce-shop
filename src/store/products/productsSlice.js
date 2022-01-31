@@ -73,6 +73,7 @@ export const productsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // getProducts
       .addCase(getProducts.pending, (state) => {
         state.errorOccurred = false;
         state.isLoading = true;
@@ -88,6 +89,8 @@ export const productsSlice = createSlice({
         state.isLoading = false;
         state.errorOccurred = true;
       })
+
+      // getHomePageProducts
       .addCase(getHomePageProducts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.errorOccurred = false;
@@ -102,6 +105,8 @@ export const productsSlice = createSlice({
         state.errorOccurred = false;
         state.isLoading = true;
       })
+
+      // setProductRating
       .addCase(setProductRating.fulfilled, (state, action) => {
         productsAdapter.upsertOne(state, action.payload);
       });

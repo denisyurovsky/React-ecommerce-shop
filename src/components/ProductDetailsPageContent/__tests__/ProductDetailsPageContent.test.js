@@ -2,12 +2,12 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { USER_ROLE } from '../../../helpers/constants/constants';
 import { DEFAULT_NAME } from '../../../helpers/constants/feedbackConstants';
 import feedbackDto from '../../../test-utils/dto/feedbackDto';
 import productsDto from '../../../test-utils/dto/productsDto';
+import usersDto from '../../../test-utils/dto/usersDto';
 import { handleModal } from '../../../test-utils/feedback/feedbackHandlers';
-import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
+import render, { screen } from '../../../test-utils/renderWith';
 import ProductDetailsPageContent from '../ProductDetailsPageContent';
 
 const handlersFulfilled = [
@@ -45,6 +45,8 @@ const addFeedbackHandlers = [
   ),
 ];
 
+const preloadedState = { user: usersDto[0] };
+
 describe('ProductDetailsPageContent', () => {
   describe('snapshots', () => {
     const server = setupServer(...handlersFulfilled);
@@ -53,9 +55,9 @@ describe('ProductDetailsPageContent', () => {
     afterAll(() => server.close());
 
     it('renders a valid snapshot', async () => {
-      const { asFragment, findByTestId } = renderWithStore(
+      const { asFragment, findByTestId } = render(
         <ProductDetailsPageContent product={productsDto[0]} />,
-        { role: USER_ROLE.ADMIN }
+        { user: preloadedState }
       );
 
       await findByTestId('comments');
@@ -71,9 +73,9 @@ describe('Product rating', () => {
   afterAll(() => server.close());
 
   it('should show total rating', async () => {
-    const { getByTestId } = renderWithStore(
+    const { getByTestId } = render(
       <ProductDetailsPageContent product={productsDto[2]} />,
-      { role: USER_ROLE.ADMIN }
+      { user: preloadedState }
     );
 
     await screen.findByTestId('comments');
@@ -84,8 +86,8 @@ describe('Product rating', () => {
   });
 
   it('should change total rating', async () => {
-    renderWithStore(<ProductDetailsPageContent product={productsDto[2]} />, {
-      role: USER_ROLE.ADMIN,
+    render(<ProductDetailsPageContent product={productsDto[2]} />, {
+      user: preloadedState,
     });
 
     await screen.findByTestId('comments');

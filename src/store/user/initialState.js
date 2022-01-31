@@ -4,9 +4,12 @@ import { REQUEST_STATUS, USER_ROLE } from '../../helpers/constants/constants';
 export default {
   user: {
     id: null,
-    firstName: null,
-    lastName: null,
-    email: null,
+    firstName: '',
+    lastName: '',
+    gender: '',
+    dateOfBirth: null,
+    email: '',
+    avatar: '',
     amountOfTries: 0,
     role: USER_ROLE.GUEST,
     wishlist: [],
@@ -16,4 +19,6 @@ export default {
   updateWishlistStatus: REQUEST_STATUS.IDLE,
   loginError: '',
   registerError: '',
+  isLoading: false,
+  errorOccurred: false,
 };

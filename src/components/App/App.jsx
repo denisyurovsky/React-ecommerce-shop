@@ -11,6 +11,8 @@ import { HomePage } from '../../pages/HomePage/HomePage';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 import { ProductDetailsPage } from '../../pages/ProductDetailsPage/ProductDetailsPage';
 import ProductListPage from '../../pages/ProductListPage/ProductListPage';
+import ProfilePage from '../../pages/ProfilePage/ProfilePage';
+import ProfilePrivatePage from '../../pages/ProfilePrivatePage/ProfilePrivatePage';
 import { WishListPage } from '../../pages/WishListPage/WishListPage';
 import { setUser } from '../../store/user/userSlice';
 import { Layout } from '../Layout/Layout';
@@ -40,12 +42,14 @@ export const App = () => {
         <Route exact path="/products/:id" element={<ProductDetailsPage />} />
         <Route exact path="/products" element={<ProductListPage />} />
         <Route exact path="/cart" element={<CartPage />} />
+        <Route path="/users/:id" element={<ProfilePage />} />
+        <Route path="/profile" element={<ProfilePrivatePage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route
           element={<ProtectedRoutes permissionLevel={USER_ROLE.CONSUMER} />}
         >
           <Route exact path="/profile/wishlist" element={<WishListPage />} />
         </Route>
-        <Route exact path="/" element={<HomePage />} />
         <Route path="/" element={<ProtectedRoutes />}>
           <Route
             path="/admin/products/create"

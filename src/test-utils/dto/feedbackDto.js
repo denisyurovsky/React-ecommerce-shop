@@ -7,6 +7,7 @@ const feedbackDto = [
     comment: 'Cool stuff',
     createdAt: '2021-12-24T07:49:50.440Z',
     displayedName: 'Fedor',
+    productName: 'Headphones',
   },
   {
     id: 1,
@@ -26,6 +27,7 @@ const feedbackDto = [
       'A very long comment to test read more functionality In mollit laborum cillum qui sit in. Nostrud adipisicing deserunt reprehenderit anim elit aute dolore minim aliqua. Elit magna sunt nisi officia non quis proident excepteur culpa duis. Consequat laborum et anim consequat nulla enim cupidatat laboris duis excepteur eu mollit laboris incididunt. Exercitation amet eiusmod voluptate ad incididunt minim exercitation exercitation laboris sint.',
     createdAt: '2021-12-25T13:56:01.736Z',
     displayedName: 'Anonymous',
+    productName: 'Headphones',
   },
 ];
 

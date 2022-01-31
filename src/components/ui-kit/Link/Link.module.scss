@@ -1,0 +1,22 @@
+@import "../../../assets/styles/colors.scss";
+
+.link,
+.link:visited {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: $primaryMain;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.white {
+    color: $greyLight;
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+}

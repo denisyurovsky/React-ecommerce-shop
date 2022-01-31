@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { login, register, setWishlist } from '../../api/user';
+import { login, register, setWishlist, updateProfile } from '../../api/user';
 import {
   ERROR,
   authStatus,
@@ -66,6 +66,15 @@ export const updateWishList = createAsyncThunk(
   }
 );
 
+export const updateUser = createAsyncThunk(
+  'user/updateUser',
+  async (profile) => {
+    const response = await updateProfile(profile);
+
+    return response.data;
+  }
+);
+
 export const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -98,6 +107,7 @@ export const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      //login
       .addCase(loginUser.pending, (state) => {
         state.loginStatus = PENDING;
       })
@@ -122,6 +132,8 @@ export const userSlice = createSlice({
           state.loginError = ERROR.LOGIN;
         }
       })
+
+      // register
       .addCase(registerUser.pending, (state) => {
         state.registerStatus = PENDING;
       })
@@ -138,6 +150,8 @@ export const userSlice = createSlice({
         state.registerStatus = REJECTED;
         state.registerError = ERROR.REGISTER;
       })
+
+      // updateWishList
       .addCase(updateWishList.pending, (state) => {
         state.updateWishlistStatus = REQUEST_STATUS.PENDING;
       })
@@ -147,6 +161,26 @@ export const userSlice = createSlice({
       })
       .addCase(updateWishList.rejected, (state) => {
         state.updateWishlistStatus = REQUEST_STATUS.REJECTED;
+      })
+
+      // update
+      .addCase(updateUser.pending, (state) => {
+        state.errorOccurred = false;
+        state.isLoading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        const newState = {
+          ...state,
+          isLoading: false,
+          errorOccurred: false,
+          user: action.payload,
+        };
+
+        return newState;
+      })
+      .addCase(updateUser.rejected, (state) => {
+        state.isLoading = false;
+        state.errorOccurred = true;
       });
   },
 });
@@ -164,3 +198,4 @@ export const getRegisterState = (state) => state.user.registerStatus;
 export const getCurrentUser = (state) => state.user;
 export const getWishlist = (state) => state.user.user.wishlist;
 export const getWishlistStatus = (state) => state.user.updateWishlistStatus;
+export const getUser = (state) => state.user.user;

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Router, Route, Routes } from 'react-router-dom';
 
-function RouterConnected({ component: Component, path }) {
-  const history = createMemoryHistory();
+function RouterConnected({ component: Component, path, initialPaths }) {
+  const history = createMemoryHistory({ initialEntries: initialPaths });
 
   return (
     <Router location={history.location} navigator={history}>
@@ -18,10 +18,12 @@ function RouterConnected({ component: Component, path }) {
 RouterConnected.propTypes = {
   component: PropTypes.object.isRequired,
   path: PropTypes.string,
+  initialPaths: PropTypes.arrayOf(PropTypes.string),
 };
 
 RouterConnected.defaultProps = {
   path: '/',
+  initialPaths: ['/'],
 };
 
 export default RouterConnected;

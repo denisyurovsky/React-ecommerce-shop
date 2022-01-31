@@ -4,7 +4,11 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 
-import { getComments, postComment } from '../../api/feedback';
+import {
+  getComments,
+  getCommentsByUserId,
+  postComment,
+} from '../../api/feedback';
 import { FETCH } from '../../helpers/constants/constants';
 
 const { IDLE, PENDING, FULFILLED, REJECTED } = FETCH;
@@ -13,6 +17,15 @@ export const fetchCommentsByProductId = createAsyncThunk(
   'feedback/fetchCommentsByProductId',
   async (productId) => {
     const response = await getComments(productId);
+
+    return response.data;
+  }
+);
+
+export const fetchCommentsByUserId = createAsyncThunk(
+  'feedback/fetchCommentsByUserId',
+  async (userId) => {
+    const response = await getCommentsByUserId(userId);
 
     return response.data;
   }
@@ -49,6 +62,7 @@ export const feedbackSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // fetch comments by productId
       .addCase(fetchCommentsByProductId.pending, (state) => {
         state.status = PENDING;
       })
@@ -59,6 +73,20 @@ export const feedbackSlice = createSlice({
       .addCase(fetchCommentsByProductId.rejected, (state) => {
         state.status = REJECTED;
       })
+
+      // fetch comments by userId
+      .addCase(fetchCommentsByUserId.pending, (state) => {
+        state.status = PENDING;
+      })
+      .addCase(fetchCommentsByUserId.fulfilled, (state, action) => {
+        state.status = FULFILLED;
+        feedbackAdapter.setAll(state, action.payload);
+      })
+      .addCase(fetchCommentsByUserId.rejected, (state) => {
+        state.status = REJECTED;
+      })
+
+      // post new comment
       .addCase(postNewComment.pending, (state) => {
         state.postStatus = PENDING;
       })

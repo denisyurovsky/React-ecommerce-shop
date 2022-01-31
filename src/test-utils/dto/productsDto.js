@@ -1,6 +1,7 @@
 const productsDto = [
   {
     id: 0,
+    userId: 1,
     name: 'Intelligent Cotton Pants',
     price: 670.0,
     description:
@@ -21,6 +22,7 @@ const productsDto = [
   },
   {
     id: 1,
+    userId: 1,
     name: 'Incredible Plastic Table',
     price: 790.0,
     description:
@@ -41,6 +43,7 @@ const productsDto = [
   },
   {
     id: 2,
+    userId: 2,
     name: 'Incredible Rubber Cheese',
     price: 638.0,
     description:
@@ -61,6 +64,7 @@ const productsDto = [
   },
   {
     id: 3,
+    userId: 2,
     name: 'Incredible Metal Shoes',
     price: 67.0,
     description:
@@ -81,6 +85,7 @@ const productsDto = [
   },
   {
     id: 4,
+    userId: 2,
     name: 'Incredible Metal Chair',
     price: 130.0,
     description:
@@ -101,6 +106,7 @@ const productsDto = [
   },
   {
     id: 5,
+    userId: 2,
     name: 'Fantastic Concrete Computer',
     price: 805.0,
     description:
