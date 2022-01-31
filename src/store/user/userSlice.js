@@ -88,6 +88,13 @@ export const userSlice = createSlice({
         state.updateWishlistStatus = REQUEST_STATUS.IDLE;
       }
     },
+    setUser(state, action) {
+      state.loginStatus = FULFILLED;
+      state.user = {
+        ...state.user,
+        ...action.payload,
+      };
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -148,7 +155,7 @@ export const {
   resetBlockedState,
   resetError,
   resetUpdateWishlistStatus,
-  setWishlistState,
+  setUser,
 } = userSlice.actions;
 export default userSlice.reducer;
 export const selectUser = (state) => state.user;
