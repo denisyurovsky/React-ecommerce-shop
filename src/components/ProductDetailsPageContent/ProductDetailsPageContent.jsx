@@ -3,7 +3,6 @@ import {
   IconButton,
   Typography,
   Box,
-  Button,
   Container,
   Card,
   Rating,
@@ -15,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { formatDate, formatPrice } from '../../helpers/utils/formatData';
 import { getRatingByProductId } from '../../store/products/productsSlice';
 import { getWishlist } from '../../store/user/userSlice';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import AddToWishListButton from '../AddToWishListButton/AddToWishListButton';
 import Carousel from '../Carousel/Carousel';
 
@@ -53,14 +53,12 @@ const ProductDetailsPageContent = ({ product }) => {
           <Rating
             data-testid="total-rating"
             value={updatedRating ?? rating}
-            sx={{ mt: 4 }}
+            sx={{ mt: 4, mb: 2 }}
             size="large"
             readOnly
             precision={0.5}
           />
-          <Button variant="contained" sx={{ mt: 3, mb: 4 }}>
-            + ADD TO CART
-          </Button>
+          <AddToCartButton product={product} />
           <Box className={styles.seller}>
             <Typography variant="body1">
               {`${author.firstName} ${author.lastName}`}

@@ -97,7 +97,7 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
       >
         <span
           aria-label="4 Stars"
-          class="MuiRating-root MuiRating-sizeLarge MuiRating-readyOnly css-jrn2no-MuiRating-root"
+          class="MuiRating-root MuiRating-sizeLarge MuiRating-readyOnly css-6to2f-MuiRating-root"
           data-testid="total-rating"
           role="img"
         >
@@ -303,11 +303,11 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
           </span>
         </span>
         <button
-          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-fzr0ga-MuiButtonBase-root-MuiButton-root"
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
-          + ADD TO CART
+          + add to cart
           <span
             class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
