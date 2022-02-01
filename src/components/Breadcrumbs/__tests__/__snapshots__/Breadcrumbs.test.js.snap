@@ -17,7 +17,7 @@ exports[`Breadcrumbs component snapshots renders a valid snapshot 1`] = `
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/"
           >
             Home
@@ -33,7 +33,7 @@ exports[`Breadcrumbs component snapshots renders a valid snapshot 1`] = `
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/products"
           >
             Products

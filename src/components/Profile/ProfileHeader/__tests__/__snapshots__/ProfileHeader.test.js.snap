@@ -17,7 +17,7 @@ exports[`ProfileHeader component snapshots renders a valid snapshot 1`] = `
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/"
           >
             Home
@@ -33,7 +33,7 @@ exports[`ProfileHeader component snapshots renders a valid snapshot 1`] = `
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/users"
           >
             Users
@@ -49,7 +49,7 @@ exports[`ProfileHeader component snapshots renders a valid snapshot 1`] = `
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/users/1"
           >
             John Smith

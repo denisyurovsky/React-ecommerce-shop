@@ -77,13 +77,15 @@ describe('ProductListPage component', () => {
     afterEach(() => serverRejected.close());
 
     it('should render a valid snapshot', () => {
-      const { asFragment } = renderWithStore(<ProductListPage />);
+      const { asFragment } = renderWithStore(
+        <RouterConnected component={<ProductListPage />} />
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('Get error from server', async () => {
-      renderWithStore(<ProductListPage />);
+      renderWithStore(<RouterConnected component={<ProductListPage />} />);
 
       expect(
         screen.getByRole('progressbar', { name: /products preloader/i })

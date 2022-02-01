@@ -20,7 +20,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              class="breadcrumb"
               href="/"
             >
               Home
@@ -36,7 +36,7 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              class="breadcrumb"
               href="/admin/products/create"
             >
               Edit Product

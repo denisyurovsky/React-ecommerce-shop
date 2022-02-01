@@ -44,7 +44,7 @@ exports[`BurgerButton component snapshots renders a valid snapshot 1`] = `
         class="item"
       >
         <a
-          href="/"
+          href="/products"
         >
           PRODUCTS
         </a>

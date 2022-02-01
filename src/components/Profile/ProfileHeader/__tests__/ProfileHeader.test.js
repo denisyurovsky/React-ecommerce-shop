@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
+import RouterConnected from '../../../../test-utils/RouterConnected';
 import ProfileHeader from '../ProfileHeader';
 
 const profile = {
@@ -12,13 +13,17 @@ const profile = {
 describe('ProfileHeader component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', () => {
-      const { asFragment } = render(<ProfileHeader profile={profile} />);
+      const { asFragment } = render(
+        <RouterConnected component={<ProfileHeader profile={profile} />} />
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('should show header text', () => {
-      render(<ProfileHeader profile={profile} />);
+      render(
+        <RouterConnected component={<ProfileHeader profile={profile} />} />
+      );
       expect(screen.getByText(/Profile of John Smith/i)).toBeInTheDocument();
     });
   });

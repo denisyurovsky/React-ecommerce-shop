@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 
 import { NavigationItem } from '../NavigationItem/NavigationItem';
@@ -11,11 +12,18 @@ const MobileNavigation = forwardRef((props, ref) => {
       ref={ref}
       className={styles.container}
     >
-      <NavigationItem>HOME</NavigationItem>
-      <NavigationItem>PRODUCTS</NavigationItem>
+      {props.items.map((item) => (
+        <NavigationItem key={item.name} path={item.link}>
+          {item.name}
+        </NavigationItem>
+      ))}
     </ul>
   );
 });
+
+MobileNavigation.propTypes = {
+  items: PropTypes.array,
+};
 
 MobileNavigation.displayName = 'MobileNavigation';
 

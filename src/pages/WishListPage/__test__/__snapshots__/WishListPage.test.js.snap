@@ -20,7 +20,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              class="breadcrumb"
               href="/"
             >
               Home
@@ -36,7 +36,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with p
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              class="breadcrumb"
               href="/profile"
             >
               Profile
@@ -1765,7 +1765,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot withou
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              class="breadcrumb"
               href="/"
             >
               Home
@@ -1781,7 +1781,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot withou
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              class="breadcrumb"
               href="/profile"
             >
               Profile

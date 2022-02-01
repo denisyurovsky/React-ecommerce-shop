@@ -1,4 +1,11 @@
+@import "../../assets/styles/colors.scss";
+
 .breadcrumbs {
   align-self: flex-start;
   margin-top: 20px;
+}
+
+.breadcrumb {
+  text-decoration: none;
+  color: $grey700;
 }

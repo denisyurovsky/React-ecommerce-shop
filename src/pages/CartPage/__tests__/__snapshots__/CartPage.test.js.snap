@@ -20,7 +20,7 @@ exports[`CartPage component snapshots renders CartPage without data 1`] = `
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+              class="breadcrumb"
               href="/"
             >
               Home
@@ -36,8 +36,8 @@ exports[`CartPage component snapshots renders CartPage without data 1`] = `
             class="MuiBreadcrumbs-li"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
-              href=""
+              class="breadcrumb"
+              href="/"
             >
               Cart
             </a>

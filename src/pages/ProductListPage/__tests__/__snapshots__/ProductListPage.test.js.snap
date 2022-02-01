@@ -17,7 +17,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/"
           >
             Home
@@ -33,7 +33,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/products"
           >
             Products
@@ -1931,7 +1931,7 @@ exports[`ProductListPage component Render without data should render a valid sna
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/"
           >
             Home
@@ -1947,7 +1947,7 @@ exports[`ProductListPage component Render without data should render a valid sna
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineHover css-lf7ukq-MuiTypography-root-MuiLink-root"
+            class="breadcrumb"
             href="/products"
           >
             Products

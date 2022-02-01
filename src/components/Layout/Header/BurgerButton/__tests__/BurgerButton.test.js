@@ -1,12 +1,15 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 
+import RouterConnected from '../../../../../test-utils/RouterConnected';
 import { BurgerButton } from '../BurgerButton';
 
 describe('BurgerButton component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', () => {
-      const { asFragment } = render(<BurgerButton />);
+      const { asFragment } = render(
+        <RouterConnected component={<BurgerButton />} />
+      );
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -14,7 +17,7 @@ describe('BurgerButton component', () => {
 
   describe('correct onClick behaviour', () => {
     it('check if burger button behaves correctly', () => {
-      render(<BurgerButton />);
+      render(<RouterConnected component={<BurgerButton />} />);
       fireEvent.click(screen.getByTestId('burger-button'));
       expect(screen.getByTestId('header-mobile-navigation')).toHaveClass(
         'displayed'
