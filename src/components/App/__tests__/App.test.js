@@ -10,7 +10,23 @@ import { userDto } from '../../../test-utils/dto/userDto';
 import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
 import { App } from '../App';
 
+const handlersFulfilled = [
+  rest.get('/categories', (req, res, ctx) => {
+    return res(ctx.json(categoriesDto));
+  }),
+  rest.get('/products', (req, res, ctx) => {
+    return res(ctx.json(productsDto));
+  }),
+  rest.get('/users/1', (req, res, ctx) => {
+    return res(ctx.json(userDto));
+  }),
+];
+
 describe('App component', () => {
+  const server = setupServer(...handlersFulfilled);
+
+  beforeAll(() => server.listen());
+  afterAll(() => server.close());
   it('full app rendering/navigating', () => {
     renderWithStore(
       <MemoryRouter>
@@ -30,25 +46,11 @@ describe('App component', () => {
     );
     expect(screen.getByText(/Page Not Found/i)).toBeInTheDocument();
   });
-  const handlersFulfilled = [
-    rest.get('/categories', (req, res, ctx) => {
-      return res(ctx.json(categoriesDto));
-    }),
-    rest.get('/products', (req, res, ctx) => {
-      return res(ctx.json(productsDto));
-    }),
-    rest.get('/users/1', (req, res, ctx) => {
-      return res(ctx.json(userDto));
-    }),
-  ];
+
   const accessToken =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJvcm4yZGllLmNvbSIsImlhdCI6MTY0MzcxOTM2NiwiZXhwIjoxNjQzNzIyOTY2LCJzdWIiOiIxIn0.AsOF1x9vVcLklRmsnmUmDdn-KoajVJD2X1xVWgYVKlc';
 
   describe('should check access token', () => {
-    const server = setupServer(...handlersFulfilled);
-
-    beforeAll(() => server.listen());
-    afterAll(() => server.close());
     it('should be button "Log in"', () => {
       localStorage.clear();
       renderWithStore(
@@ -65,6 +67,7 @@ describe('App component', () => {
           <App />
         </MemoryRouter>
       );
+      expect(screen.getByRole('progressbar')).toBeInTheDocument();
       expect(await screen.findByTestId('btn-profile')).toBeInTheDocument();
     });
   });
