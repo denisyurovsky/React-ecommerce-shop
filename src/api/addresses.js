@@ -8,6 +8,10 @@ export const getSomeAddresses = (ids) => {
   return http.get(buildSearchQuery('addresses', filters));
 };
 
+export const getAddressById = (id) => {
+  return http.get(`/addresses/${id}`);
+};
+
 export const addSomeAddress = (data) => {
   return http.post('/addresses', data);
 };

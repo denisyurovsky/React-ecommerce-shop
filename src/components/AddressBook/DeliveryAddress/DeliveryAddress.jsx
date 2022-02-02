@@ -125,6 +125,7 @@ const DeliveryAddress = ({ handleChange, address, setAddress }) => {
         />
       </Box>
       <TextField
+        fullWidth
         onChange={handleChange}
         id="street"
         value={street}
@@ -157,6 +158,7 @@ const DeliveryAddress = ({ handleChange, address, setAddress }) => {
         />
       </Box>
       <TextField
+        fullWidth
         label="Zip"
         variant="standard"
         value={zip}

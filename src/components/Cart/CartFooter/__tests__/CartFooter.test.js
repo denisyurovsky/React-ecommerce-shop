@@ -17,15 +17,16 @@ const preloadedState = {
 describe('CartFooter component', () => {
   describe('Snapshot without data', () => {
     it('renders a valid snapshot without cart in store', () => {
-      const { asFragment } = renderWith(<CartFooter buyHandler={() => {}} />);
+      const { asFragment } = renderWith(<CartFooter />);
 
       expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('Tests for valid describing data from store', () => {
-    it('Total price equal to price from store', () => {
-      renderWith(<CartFooter buyHandler={() => {}} />, preloadedState);
+    it('Total price equal to price from store', async () => {
+      renderWith(<CartFooter />, preloadedState);
+
       const totalPrice = screen.getByTestId('totalPrice');
 
       expect(totalPrice.textContent).toBe(

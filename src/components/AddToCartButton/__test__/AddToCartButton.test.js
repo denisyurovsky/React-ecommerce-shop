@@ -1,4 +1,3 @@
-import { fireEvent, screen } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
@@ -6,7 +5,7 @@ import React from 'react';
 import { testCart } from '../../../test-utils/dto/cartDto';
 import testCards from '../../../test-utils/dto/productsDto';
 import { userDto } from '../../../test-utils/dto/userDto';
-import renderWith from '../../../test-utils/renderWith';
+import renderWith, { fireEvent, screen } from '../../../test-utils/renderWith';
 import { AddToCartButton } from '../AddToCartButton';
 
 const serverUser = {

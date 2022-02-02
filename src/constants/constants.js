@@ -49,6 +49,7 @@ export const KEYS = {
   DELETE: 'Delete',
   TAB: 'Tab',
   ESCAPE: 'Escape',
+  ARROWDOWN: 'arrowdown',
 };
 
 export const BREAK_POINT = {

@@ -1,0 +1,53 @@
+@import "../../../assets/styles/colors.scss";
+
+.accordion {
+  width: 100%;
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+  margin-bottom: 15px;
+
+  &::before {
+    display: none;
+  }
+}
+
+.accordionSummary {
+  background-color: $greyMain !important;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 30px !important;
+  height: 30px !important;
+  margin-right: 15px !important;
+  transition: 1s;
+}
+
+.subtitle {
+  font-size: 18px;
+}
+
+.formControl {
+  width: 100%;
+}
+
+.radioGroup {
+  width: 100% !important;
+}
+
+.formControlLabel {
+  margin: 0 !important;
+  margin-bottom: 30px !important;
+
+  & > *:last-child {
+    flex-grow: 1;
+  }
+}
+
+.button {
+  margin-top: 20px !important;
+}

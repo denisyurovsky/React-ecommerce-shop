@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import _ from 'lodash';
 
 import { setCart } from '../../api/cart';
 import { getUser } from '../../api/user';
+import deleteCheckedProducts from '../../helpers/deleteCheckedProducts';
 import { findProductIndexById } from '../../helpers/findProductIndexById';
 import { getCartFromStorage } from '../../helpers/getCartFromStorage';
+import getCheckedProductsQuantity from '../../helpers/getCheckedProductsQuantity';
 import { isGuest } from '../../helpers/isGuest';
 import { loginUser } from '../user/userSlice';
 
@@ -321,6 +324,42 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
+export const deleteSelectedProducts = createAsyncThunk(
+  'cart/deleteSelectedProducts',
+  async (payload, { getState }) => {
+    const { user, cart } = getState();
+    const userId = user.user.id;
+
+    const cartProducts = _.cloneDeep(cart);
+
+    const updatedTotalQuantity =
+      cartProducts.totalQuantity -
+      getCheckedProductsQuantity(cartProducts.sellers);
+
+    const updatedCart = {
+      sellers: deleteCheckedProducts(cartProducts.sellers),
+      totalPrice: 0,
+      totalDiscountPrice: 0,
+      totalQuantity: updatedTotalQuantity,
+    };
+
+    let answer;
+
+    if (isGuest(userId)) {
+      answer = {
+        data: {
+          cart: updatedCart,
+        },
+      };
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+    } else {
+      answer = await setCart({ userId, cart: { cart: updatedCart } });
+    }
+
+    return answer.data;
+  }
+);
+
 export const selectProduct = createAsyncThunk(
   'cart/selectProduct',
   async ({ product }, { getState }) => {
@@ -570,6 +609,23 @@ export const cartSlice = createSlice({
         state.errorOccurred = false;
       })
       .addCase(selectSellersProducts.rejected, (state, action) => {
+        state.errorMessage = action.error.message;
+        state.isLoading = false;
+        state.errorOccurred = true;
+      })
+      .addCase(deleteSelectedProducts.pending, (state) => {
+        state.isLoading = true;
+        state.errorOccurred = false;
+      })
+      .addCase(deleteSelectedProducts.fulfilled, (state, action) => {
+        state.sellers = action.payload.cart.sellers;
+        state.totalQuantity = action.payload.cart.totalQuantity;
+        state.totalPrice = action.payload.cart.totalPrice;
+        state.totalDiscountPrice = action.payload.cart.totalDiscountPrice;
+        state.isLoading = false;
+        state.errorOccurred = false;
+      })
+      .addCase(deleteSelectedProducts.rejected, (state, action) => {
         state.errorMessage = action.error.message;
         state.isLoading = false;
         state.errorOccurred = true;

@@ -145,3 +145,73 @@ export const productForPDP = {
   updatedAt: '2021-11-24T02:22:24.505Z',
   images: [],
 };
+
+export const CheckoutPageProducts = [
+  {
+    id: 10,
+    userId: 1,
+    name: 'Unbranded Concrete Gloves',
+    price: 917,
+    discountPrice: 679,
+    description:
+      'The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J',
+    category: {
+      id: 5,
+      name: 'Music',
+    },
+    rating: null,
+    images: [],
+    createdAt: '2022-03-02T07:07:28.164Z',
+    updatedAt: '2022-03-02T21:18:41.335Z',
+  },
+  {
+    id: 24,
+    userId: 1,
+    name: 'Sleek Concrete Computer',
+    price: 108,
+    discountPrice: 27,
+    description:
+      'The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients',
+    category: {
+      id: 2,
+      name: 'Clothing',
+    },
+    rating: 2,
+    images: [],
+    createdAt: '2022-03-02T02:37:44.721Z',
+    updatedAt: '2022-03-04T23:38:49.049Z',
+  },
+  {
+    id: 33,
+    userId: 2,
+    name: 'Licensed Rubber Cheese',
+    price: 40,
+    discountPrice: null,
+    description: 'The Football Is Good For Training And Recreational Purposes',
+    category: {
+      id: 4,
+      name: 'Books',
+    },
+    rating: 4,
+    images: [],
+    createdAt: '2022-03-02T14:03:05.569Z',
+    updatedAt: '2022-03-07T00:00:24.450Z',
+  },
+  {
+    id: 50,
+    userId: 2,
+    name: 'Gorgeous Frozen Car',
+    price: 787,
+    discountPrice: null,
+    description:
+      'Carbonite web goalkeeper gloves are ergonomically designed to give easy fit',
+    category: {
+      id: 1,
+      name: 'Industrial',
+    },
+    rating: null,
+    images: [],
+    createdAt: '2022-03-09T05:15:26.347Z',
+    updatedAt: '2022-03-09T08:18:45.254Z',
+  },
+];

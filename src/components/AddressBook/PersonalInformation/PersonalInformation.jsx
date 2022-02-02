@@ -109,6 +109,7 @@ const PersonalInformation = ({ handleChange, address, setAddress }) => {
         </Box>
       </Box>
       <TextField
+        fullWidth
         label="Phone"
         variant="standard"
         value={phone}

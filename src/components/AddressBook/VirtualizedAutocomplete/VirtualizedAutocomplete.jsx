@@ -67,7 +67,7 @@ const VirtualizedAutocomplete = ({ data, setAddress, address, label }) => {
         });
 
         if (inputValue !== '' && !isExisting) {
-          filtered.push(inputValue);
+          filtered.push(`"${inputValue}"`);
         }
 
         return filtered;

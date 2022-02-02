@@ -1,17 +1,17 @@
 import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { pathNames } from '../../../constants/pathNames';
 import { formatPrice } from '../../../helpers/formatData';
 import { selectCart } from '../../../store/cart/cartSlice';
+import Link from '../../ui-kit/Link/Link';
 
 import styles from './CartFooter.module.scss';
 
-export const CartFooter = ({ buyHandler }) => {
+export const CartFooter = () => {
   const cart = useSelector(selectCart);
-
   const { totalDiscountPrice, totalPrice } = cart;
 
   const [shouldDisplayDiscount, setShouldDisplayDiscount] = useState(
@@ -40,13 +40,16 @@ export const CartFooter = ({ buyHandler }) => {
           Total Price: {formatPrice(totalPrice)}
         </p>
       )}
-      <Button variant="contained" onClick={buyHandler}>
-        Buy now
-      </Button>
+      <Link
+        style={{ width: 'unset' }}
+        to={pathNames.CHECKOUT}
+        isWhite
+        isUppercase
+      >
+        <Button variant="contained" disabled={!totalPrice}>
+          Buy now
+        </Button>
+      </Link>
     </div>
   );
-};
-
-CartFooter.propTypes = {
-  buyHandler: PropTypes.func,
 };

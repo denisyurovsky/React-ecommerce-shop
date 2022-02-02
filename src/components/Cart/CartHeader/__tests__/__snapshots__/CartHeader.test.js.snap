@@ -11,16 +11,6 @@ exports[`CartHeader component snapshots renders a valid snapshot 1`] = `
     >
       Cart
     </h2>
-    <button
-      class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root emptyButton css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
-      tabindex="0"
-      type="button"
-    >
-      Empty cart
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
-    </button>
   </div>
   <div
     class="Toastify"

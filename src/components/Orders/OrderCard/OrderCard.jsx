@@ -124,6 +124,8 @@ export const OrderCard = ({ orderId: id }) => {
     status,
   } = orders.orders[index];
 
+  const deliveryAddressString = `${deliveryAddress.title} ${deliveryAddress.name} ${deliveryAddress.surname} ${deliveryAddress.country.name}, ${deliveryAddress.city}, ${deliveryAddress.street}, ${deliveryAddress.building}/${deliveryAddress.flat}`;
+
   const lessThanDelivered = status < orderState.DELIVERED;
 
   const getProductsForImages = async (imagesIds, abortController) => {
@@ -224,7 +226,7 @@ export const OrderCard = ({ orderId: id }) => {
                 <Typography className={styles.deliveryDestination}>
                   Delivery address: &nbsp;
                   <span className={styles.deliveryValue}>
-                    {deliveryAddress}
+                    {deliveryAddressString}
                   </span>
                 </Typography>
               </Box>

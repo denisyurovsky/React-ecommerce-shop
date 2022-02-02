@@ -10,6 +10,7 @@ import { AdminCategoriesPage } from '../../pages/AdminPages/AdminCategoriesPage/
 import { AdminProductsPage } from '../../pages/AdminPages/AdminProductsPage/AdminProductsPage';
 import { CreateOrEditProductPage } from '../../pages/AdminPages/CreateOrEditProductPage/CreateOrEditProductPage';
 import { CartPage } from '../../pages/CartPage/CartPage';
+import CheckoutPage from '../../pages/CheckoutPage/CheckoutPage';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 import { OrdersPage } from '../../pages/OrdersPage/OrdersPage';
@@ -34,6 +35,7 @@ const {
   CART,
   EDIT,
   CREATE,
+  CHECKOUT,
 } = pathNames;
 
 const App = ({ handleClose, isOpenModal }) => {
@@ -55,6 +57,8 @@ const App = ({ handleClose, isOpenModal }) => {
         <Route exact path={CART} element={<CartPage />} />
         <Route path={`${USERS}/:id`} element={<ProfilePage />} />
         <Route path={PROFILE} element={<ProfilePrivatePage />} />
+        <Route exact path={CHECKOUT} element={<CheckoutPage />} />
+        <Route exact path={`${CHECKOUT}/:id`} element={<CheckoutPage />} />
         <Route exact path="/" element={<HomePage />} />
         <Route
           element={<ProtectedRoutes permissionLevel={USER_ROLE.CONSUMER} />}

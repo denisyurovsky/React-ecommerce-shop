@@ -50,10 +50,6 @@ export const CartPage = () => {
     setOpen(true);
   };
 
-  const buyHandler = () => {
-    alert('Possibility to buy products will be later!');
-  };
-
   return (
     <div className={styles.page}>
       <Breadcrumbs
@@ -67,7 +63,7 @@ export const CartPage = () => {
         openModal={openModal}
         setModalProduct={setModalProduct}
       />
-      <CartFooter buyHandler={buyHandler} />
+      <CartFooter />
       <Modal
         isOpen={open}
         onClose={closeModal}

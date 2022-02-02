@@ -4,16 +4,62 @@ import {
   getUsersOrders,
   cancelUsersOrder,
   confirmUsersOrder,
+  addUsersOrders,
+  editUserAddressOrder,
 } from '../../api/orders';
+import getProductQuantity from '../../helpers/getProductQuantity';
 
-import { inititalState } from './initialState';
+import { initialState } from './initialState';
 
 export const getOrders = createAsyncThunk(
   'orders/getOrders',
   async (payload, { getState }) => {
     const { user } = getState();
-
     const response = await getUsersOrders({ userId: user.user.id });
+
+    return response.data;
+  }
+);
+
+export const addOrder = createAsyncThunk(
+  'orders/addOrder',
+  async ({ productsData, addressData, addressId }, { getState }) => {
+    const { user, cart } = getState();
+    const products = productsData.map((p) => ({
+      originalProductId: p.id,
+      price: p.price,
+      discountPrice: p.discountPrice,
+      images: p.images,
+      name: p.name,
+      quantity: getProductQuantity(cart.sellers, p.id),
+    }));
+
+    const response = await addUsersOrders({
+      products,
+      userId: user.user.id,
+      status: 1,
+      addressId,
+      deliveryAddress: addressData,
+      deliveryPrice: 10,
+      totalQuantity: products.reduce((acc, p) => acc + p.quantity, 0),
+      totalPrice: cart.totalPrice,
+      totalDiscountPrice: cart.totalDiscountPrice,
+      deliveredAt: null,
+    });
+
+    return response.data;
+  }
+);
+
+export const editAddressOrder = createAsyncThunk(
+  'orders/editAddressOrder',
+  async ({ orderId, addressData, addressId }) => {
+    const deliveryAddress = addressData;
+    const response = await editUserAddressOrder(
+      orderId,
+      deliveryAddress,
+      addressId
+    );
 
     return response.data;
   }
@@ -49,7 +95,7 @@ export const confirmOrder = createAsyncThunk(
 
 export const ordersSlice = createSlice({
   name: 'orders',
-  initialState: inititalState,
+  initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -68,6 +114,55 @@ export const ordersSlice = createSlice({
         state.isLoading = false;
         state.errorOccurred = true;
       })
+      //editAddressOrder
+      .addCase(editAddressOrder.pending, (state) => {
+        state.errorOccurred = false;
+        state.isLoading = true;
+      })
+      .addCase(editAddressOrder.fulfilled, (state, action) => {
+        const newOrders = state.orders.map((order) => {
+          if (action.payload.id === order.id) return action.payload;
+
+          return order;
+        });
+
+        const newState = {
+          ...state,
+          isLoading: false,
+          errorMessage: '',
+          errorOccurred: false,
+          orders: newOrders,
+        };
+
+        return newState;
+      })
+      .addCase(editAddressOrder.rejected, (state, action) => {
+        state.errorMessage = action.error.message;
+        state.isLoading = false;
+        state.errorOccurred = true;
+      })
+      //addOrder
+      .addCase(addOrder.pending, (state) => {
+        state.errorOccurred = false;
+        state.isLoading = true;
+      })
+      .addCase(addOrder.fulfilled, (state, action) => {
+        const newState = {
+          ...state,
+          isLoading: false,
+          errorMessage: '',
+          errorOccurred: false,
+          orders: [...state.orders, action.payload],
+        };
+
+        return newState;
+      })
+      .addCase(addOrder.rejected, (state, action) => {
+        state.errorMessage = action.error.message;
+        state.isLoading = false;
+        state.errorOccurred = true;
+      })
+
       .addCase(cancelOrder.pending, (state) => {
         state.errorOccurred = false;
         state.isLoading = true;
