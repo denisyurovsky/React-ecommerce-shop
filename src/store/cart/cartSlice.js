@@ -318,10 +318,10 @@ export const deleteProduct = createAsyncThunk(
       localStorage.setItem(
         'cart',
         JSON.stringify({
-          sellers: sellers,
-          totalQuantity: totalQuantity,
-          totalPrice: totalPrice,
-          totalDiscountPrice: totalDiscountPrice,
+          sellers: updatedCart.cart.sellers,
+          totalQuantity: updatedCart.cart.totalQuantity,
+          totalPrice: updatedCart.cart.totalPrice,
+          totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
         })
       );
       response = { data: { cart: updatedCart.cart } };
@@ -381,12 +381,13 @@ export const selectProduct = createAsyncThunk(
       localStorage.setItem(
         'cart',
         JSON.stringify({
-          sellers: sellers,
-          totalQuantity: totalQuantity,
-          totalPrice: totalPrice,
-          totalDiscountPrice: totalDiscountPrice,
+          sellers: updatedCart.cart.sellers,
+          totalQuantity: updatedCart.cart.totalQuantity,
+          totalPrice: updatedCart.cart.totalPrice,
+          totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
         })
       );
+
       response = { data: { cart: updatedCart.cart } };
     } else {
       response = await setCart({ userId, cart: updatedCart });

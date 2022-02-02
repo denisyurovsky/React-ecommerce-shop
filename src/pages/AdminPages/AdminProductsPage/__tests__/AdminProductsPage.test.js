@@ -31,9 +31,9 @@ const serverFulfilled = setupServer(
   deleteProductRequest
 );
 
-const waitForTable = () => screen.findByRole('grid');
+const waitForTable = async () => screen.findByRole('grid');
 
-const waitForDeleteButton = () => screen.findAllByText('Delete');
+const waitForDeleteButton = async () => screen.findAllByText('Delete');
 
 describe('AdminProductsPage tests', () => {
   beforeAll(() => serverFulfilled.listen());
@@ -45,9 +45,7 @@ describe('AdminProductsPage tests', () => {
       { role: USER_ROLE.SELLER }
     );
 
-    await waitFor(async () => {
-      await waitForTable();
-    });
+    await waitForTable();
 
     expect(asFragment()).toMatchSnapshot();
   });
