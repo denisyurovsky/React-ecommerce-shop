@@ -14,7 +14,7 @@ export const CartHeader = ({ openModal }) => {
   return (
     <div className={styles.header}>
       <Title>Cart</Title>
-      {cart.products.length !== 0 && (
+      {(cart.sellers && Object.keys(cart.sellers).length) !== 0 && (
         <Button
           variant="outlined"
           className={styles.emptyButton}

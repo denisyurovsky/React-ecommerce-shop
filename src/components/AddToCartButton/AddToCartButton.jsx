@@ -21,8 +21,12 @@ export const AddToCartButton = ({
   viewMode = pageView.MODULE_VIEW,
 }) => {
   const cart = useSelector(selectCart);
+  const products = cart.sellers[product.userId]
+    ? cart.sellers[product.userId].products
+    : [];
+
   const dispatch = useDispatch();
-  const index = findProductIndexById(cart.products, product.id);
+  const index = findProductIndexById(products, product.id);
 
   const addHandler = () => {
     dispatch(addProduct({ product })).then(() => {
@@ -42,7 +46,7 @@ export const AddToCartButton = ({
 
   const styles = viewMode === pageView.MODULE_VIEW ? moduleStyles : listStyles;
 
-  return cart.products[index] ? (
+  return products[index] ? (
     <div className={styles.container}>
       <Button
         variant="contained"
@@ -51,7 +55,7 @@ export const AddToCartButton = ({
       >
         -
       </Button>
-      <p className={styles.counter}>{cart.products[index].quantity}</p>
+      <p className={styles.counter}>{products[index].quantity}</p>
       <Button
         variant="contained"
         className={styles.button + ' ' + styles.rightButton}
@@ -73,6 +77,7 @@ export const AddToCartButton = ({
 
 AddToCartButton.propTypes = {
   product: PropTypes.shape({
+    userId: PropTypes.number,
     quantity: PropTypes.number,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,

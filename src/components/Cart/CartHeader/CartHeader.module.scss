@@ -2,8 +2,8 @@
 @import "../../../assets/styles/breakpoints.scss";
 
 .header {
-  padding-bottom: 40px;
   display: flex;
+  height: 100px;
   justify-content: space-between;
   align-items: center;
 }
@@ -12,12 +12,6 @@
   .header {
     padding: 0 !important;
   }
-}
-
-.title {
-  font-weight: 400;
-  font-size: 44px;
-  color: $grey700;
 }
 
 .emptyButton {

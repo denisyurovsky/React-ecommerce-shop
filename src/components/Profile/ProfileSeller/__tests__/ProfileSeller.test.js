@@ -2,9 +2,16 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
+import { testCart } from '../../../../test-utils/dto/cartDto';
 import cardsData from '../../../../test-utils/dto/productsDto';
 import render, { screen } from '../../../../test-utils/renderWith';
 import ProfileSeller from '../ProfileSeller';
+
+const initialUser = {
+  user: {
+    id: 1,
+  },
+};
 
 describe('ProfileSeller component', () => {
   it('should get data from server', async () => {
@@ -15,7 +22,10 @@ describe('ProfileSeller component', () => {
     );
 
     server.listen();
-    render(<ProfileSeller profileId={3} />);
+    render(<ProfileSeller profileId={3} />, {
+      cart: testCart,
+      user: initialUser,
+    });
 
     expect(
       screen.getByRole('progressbar', { name: /products preloader/i })
@@ -39,7 +49,10 @@ describe('ProfileSeller component', () => {
     );
 
     server.listen();
-    render(<ProfileSeller profileId={3} />);
+    render(<ProfileSeller profileId={3} />, {
+      cart: testCart,
+      user: initialUser,
+    });
 
     expect(
       screen.getByRole('progressbar', { name: /products preloader/i })

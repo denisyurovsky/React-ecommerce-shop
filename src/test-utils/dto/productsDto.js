@@ -22,7 +22,7 @@ const productsDto = [
   },
   {
     id: 1,
-    userId: 1,
+    userId: 2,
     name: 'Incredible Plastic Table',
     price: 790,
     description:
@@ -43,7 +43,7 @@ const productsDto = [
   },
   {
     id: 2,
-    userId: 2,
+    userId: 3,
     name: 'Incredible Rubber Cheese',
     price: 638,
     description:
@@ -64,7 +64,7 @@ const productsDto = [
   },
   {
     id: 3,
-    userId: 2,
+    userId: 4,
     name: 'Incredible Metal Shoes',
     price: 670,
     description:
@@ -85,7 +85,7 @@ const productsDto = [
   },
   {
     id: 4,
-    userId: 2,
+    userId: 5,
     name: 'Incredible Metal Chair',
     price: 130,
     description:
@@ -106,7 +106,7 @@ const productsDto = [
   },
   {
     id: 5,
-    userId: 2,
+    userId: 6,
     name: 'Fantastic Concrete Computer',
     price: 805,
     discountPrice: 804,

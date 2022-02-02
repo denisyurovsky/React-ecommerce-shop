@@ -4,9 +4,9 @@ import React from 'react';
 
 import { DEFAULT_NAME } from '../../../helpers/constants/feedbackConstants';
 import convertDescription from '../../../helpers/convertDescriptionToObj';
+import { testCart } from '../../../test-utils/dto/cartDto';
 import feedbackDto from '../../../test-utils/dto/feedbackDto';
 import productsDto from '../../../test-utils/dto/productsDto';
-import usersDto from '../../../test-utils/dto/usersDto';
 import { handleModal } from '../../../test-utils/feedback/feedbackHandlers';
 import render, { screen } from '../../../test-utils/renderWith';
 import ProductDetailsPageContent from '../ProductDetailsPageContent';
@@ -46,7 +46,9 @@ const addFeedbackHandlers = [
   ),
 ];
 
-const preloadedState = { user: usersDto[0] };
+const initialUser = {
+  user: { id: 1 },
+};
 
 describe('ProductDetailsPageContent', () => {
   describe('snapshots', () => {
@@ -62,7 +64,7 @@ describe('ProductDetailsPageContent', () => {
       };
       const { asFragment, findByTestId } = render(
         <ProductDetailsPageContent product={product} />,
-        { user: preloadedState }
+        { cart: testCart, user: initialUser }
       );
 
       await findByTestId('comments');
@@ -84,7 +86,7 @@ describe('Product rating', () => {
     };
     const { getByTestId } = render(
       <ProductDetailsPageContent product={product} />,
-      { user: preloadedState }
+      { cart: testCart, user: initialUser }
     );
 
     await screen.findByTestId('comments');
@@ -101,7 +103,8 @@ describe('Product rating', () => {
     };
 
     render(<ProductDetailsPageContent product={product} />, {
-      user: preloadedState,
+      cart: testCart,
+      user: initialUser,
     });
 
     await screen.findByTestId('comments');

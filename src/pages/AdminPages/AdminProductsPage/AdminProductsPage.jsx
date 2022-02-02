@@ -37,9 +37,7 @@ export const AdminProductsPage = () => {
           abortController
         );
 
-        if (!abortController.signal.aborted) {
-          setComments(response.data);
-        }
+        setComments(response.data);
       } catch (e) {
         toast.error(notificationError);
       }

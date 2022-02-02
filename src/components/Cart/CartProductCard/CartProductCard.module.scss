@@ -4,6 +4,8 @@
 .cardContainer {
   position: relative;
   margin-bottom: 20px;
+  padding-left: 30px;
+  padding-top: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,6 +24,24 @@
   flex-direction: row !important;
   justify-content: flex-start;
   align-items: center;
+
+  @media all and (max-width: $md) {
+    justify-content: space-between;
+    padding-right: 44px;
+  }
+
+  @media all and (max-width: $ml) {
+    box-sizing: border-box;
+    padding: 15px 0;
+    height: min-content;
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  @media all and (max-width: $vs) {
+    padding-right: 10px;
+    width: 80%;
+  }
 }
 
 .name {
@@ -37,12 +57,6 @@
   width: 160px;
 }
 
-.price {
-  font-size: 15px;
-  width: 27%;
-  color: $grey700;
-}
-
 .image {
   margin-right: 10px;
   max-width: 130px;
@@ -56,20 +70,19 @@
   &:hover {
     cursor: pointer;
   }
+
+  @media all and (max-width: $ml) {
+    top: calc(50% - 18px);
+  }
+
+  @media all and (max-width: $vs) {
+    right: -20px;
+  }
 }
 
 @media all and (max-width: $md) {
   .name {
     width: unset;
-  }
-
-  .price {
-    width: unset;
-  }
-
-  .card {
-    justify-content: space-between;
-    padding-right: 44px;
   }
 }
 
@@ -78,40 +91,17 @@
     top: 0;
     left: 10px;
   }
-
-  .card {
-    box-sizing: border-box;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    height: min-content;
-    align-items: center;
-    flex-direction: column !important;
-  }
-
-  .trashIcon {
-    position: absolute;
-    top: calc(50% - 18px);
-  }
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: $vs) {
   .name {
     margin-top: 20px !important;
     margin-bottom: 0 !important;
   }
 
-  .price {
-    margin-bottom: 20px !important;
-    margin-top: 20px !important;
-  }
-
   .card {
     padding-right: 10px;
     width: 80%;
-  }
-
-  .trashIcon {
-    right: -10px;
   }
 
   .cardContainer {

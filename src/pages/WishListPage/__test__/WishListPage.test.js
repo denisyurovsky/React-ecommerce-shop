@@ -33,7 +33,7 @@ const initialUser = {
 };
 
 const initialCart = {
-  products: [],
+  sellers: {},
   totalPrice: 0,
   totalQuantity: 0,
 };

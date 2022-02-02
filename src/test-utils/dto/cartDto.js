@@ -1,31 +1,64 @@
 export const testCart = {
-  products: [
-    {
-      quantity: 1,
+  sellers: {
+    1: {
+      products: [
+        {
+          userId: 1,
+          productId: 36,
+          quantity: 1,
+          checked: true,
+          price: 724,
+          discountPrice: null,
+        },
+      ],
       checked: true,
-      productId: 1,
-      price: 790,
-      discountPrice: null,
     },
-    {
-      quantity: 2,
+    3: {
+      products: [
+        {
+          userId: 3,
+          productId: 23,
+          quantity: 1,
+          checked: true,
+          price: 891,
+          discountPrice: null,
+        },
+        {
+          userId: 3,
+          productId: 28,
+          quantity: 1,
+          checked: true,
+          price: 210,
+          discountPrice: 100,
+        },
+        {
+          userId: 3,
+          productId: 6,
+          quantity: 1,
+          checked: true,
+          price: 510,
+          discountPrice: 400,
+        },
+      ],
       checked: true,
-      productId: 2,
-      price: 638,
-      discountPrice: 533,
     },
-    {
-      quantity: 1,
+    4: {
+      products: [
+        {
+          userId: 4,
+          productId: 10,
+          quantity: 1,
+          checked: true,
+          price: 757,
+          discountPrice: null,
+        },
+      ],
       checked: true,
-      productId: 3,
-      price: 67,
-      discountPrice: null,
     },
-  ],
+  },
+  totalPrice: 3092,
+  totalDiscountPrice: 2872,
+  totalQuantity: 5,
   isLoading: false,
   errorOccurred: false,
-  errorMessage: '',
-  totalQuantity: 4,
-  totalPrice: 1505,
-  totalDiscountPrice: 1400,
 };

@@ -25,7 +25,7 @@ export const getCart = createAsyncThunk(
         response = {
           data: {
             cart: {
-              products: [],
+              sellers: {},
               totalQuantity: 0,
               totalPrice: 0,
               totalDiscountPrice: 0,
@@ -39,7 +39,7 @@ export const getCart = createAsyncThunk(
         response = {
           data: {
             cart: {
-              products: [],
+              sellers: {},
               totalQuantity: 0,
               totalPrice: 0,
               totalDiscountPrice: 0,
@@ -62,7 +62,7 @@ export const deleteAllProducts = createAsyncThunk(
 
     const updatedCart = {
       cart: {
-        products: [],
+        sellers: {},
         totalQuantity: 0,
         totalPrice: 0,
         totalDiscountPrice: 0,
@@ -80,7 +80,7 @@ export const deleteAllProducts = createAsyncThunk(
       localStorage.setItem(
         'cart',
         JSON.stringify({
-          products: [],
+          sellers: {},
           totalQuantity: 0,
           totalPrice: 0,
           totalDiscountPrice: 0,
@@ -100,14 +100,19 @@ export const addProduct = createAsyncThunk(
     const { user, cart } = getState();
 
     const userId = user.user.id;
-
-    let { totalQuantity, totalPrice, totalDiscountPrice } = cart;
-
-    let products = cart.products.slice();
     const productId = product.id;
+    const sellerId = product.userId;
+
+    let { totalQuantity, totalPrice, totalDiscountPrice, sellers } = cart;
 
     const actualPrice =
       product.discountPrice == null ? product.price : product.discountPrice;
+
+    let products = [];
+
+    if (sellers[sellerId]) {
+      products = sellers[sellerId].products.slice();
+    }
 
     const inCart = findProductIndexById(products, productId);
 
@@ -129,6 +134,7 @@ export const addProduct = createAsyncThunk(
       products = [
         ...products,
         {
+          userId: sellerId,
           productId: productId,
           quantity: 1,
           checked: true,
@@ -143,7 +149,13 @@ export const addProduct = createAsyncThunk(
 
     updatedCart = {
       cart: {
-        products: products,
+        sellers: {
+          ...sellers,
+          [sellerId]: {
+            products: products,
+            checked: sellers[sellerId] ? sellers[sellerId].checked : true,
+          },
+        },
         totalPrice: totalPrice,
         totalQuantity: totalQuantity,
         totalDiscountPrice: totalDiscountPrice,
@@ -156,10 +168,10 @@ export const addProduct = createAsyncThunk(
       localStorage.setItem(
         'cart',
         JSON.stringify({
-          products: products,
-          totalQuantity: totalQuantity,
-          totalPrice: totalPrice,
-          totalDiscountPrice: totalDiscountPrice,
+          sellers: updatedCart.cart.sellers,
+          totalQuantity: updatedCart.cart.totalQuantity,
+          totalPrice: updatedCart.cart.totalPrice,
+          totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
         })
       );
       response = { data: { cart: updatedCart.cart } };
@@ -177,10 +189,11 @@ export const decreaseProduct = createAsyncThunk(
     const { user, cart } = getState();
 
     const userId = user.user.id;
+    const sellerId = product.userId;
 
-    const { totalQuantity, totalPrice, totalDiscountPrice } = cart;
+    const { totalPrice, totalQuantity, sellers, totalDiscountPrice } = cart;
 
-    const products = cart.products.slice();
+    const products = sellers[sellerId].products.slice();
 
     const actualPrice =
       product.discountPrice == null ? product.price : product.discountPrice;
@@ -193,7 +206,13 @@ export const decreaseProduct = createAsyncThunk(
     if (products[cartPosition].quantity == 1) {
       updatedCart = {
         cart: {
-          products: products.filter((item) => item.productId !== productId),
+          sellers: {
+            ...sellers,
+            [sellerId]: {
+              products: products.filter((item) => item.productId !== productId),
+              checked: sellers[sellerId].checked,
+            },
+          },
           totalQuantity: totalQuantity - 1,
           totalPrice: products[cartPosition].checked
             ? totalPrice - product.price
@@ -203,6 +222,10 @@ export const decreaseProduct = createAsyncThunk(
             : totalDiscountPrice,
         },
       };
+
+      if (updatedCart.cart.sellers[sellerId].products.length == 0) {
+        delete updatedCart.cart.sellers[sellerId];
+      }
     } else {
       products[cartPosition] = {
         ...products[cartPosition],
@@ -210,7 +233,13 @@ export const decreaseProduct = createAsyncThunk(
       };
       updatedCart = {
         cart: {
-          products: [...products],
+          sellers: {
+            ...sellers,
+            [sellerId]: {
+              products: products,
+              checked: sellers[sellerId].checked,
+            },
+          },
           totalQuantity: totalQuantity - 1,
           totalPrice: products[cartPosition].checked
             ? totalPrice - product.price
@@ -228,7 +257,7 @@ export const decreaseProduct = createAsyncThunk(
       localStorage.setItem(
         'cart',
         JSON.stringify({
-          products: updatedCart.cart.products,
+          sellers: sellers,
           totalQuantity: updatedCart.cart.totalQuantity,
           totalPrice: updatedCart.cart.totalPrice,
           totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
@@ -249,20 +278,26 @@ export const deleteProduct = createAsyncThunk(
     const { user, cart } = getState();
 
     const userId = user.user.id;
-
-    const { totalQuantity, totalPrice, totalDiscountPrice } = cart;
-
-    const products = cart.products.slice();
-
+    const sellerId = product.userId;
     const productId = product.id;
+
     const actualPrice =
       product.discountPrice == null ? product.price : product.discountPrice;
+    const { totalPrice, totalQuantity, sellers, totalDiscountPrice } = cart;
+
+    const products = sellers[sellerId].products.slice();
 
     const cartPosition = findProductIndexById(products, productId);
 
     const updatedCart = {
       cart: {
-        products: products.filter((item) => item.productId !== productId),
+        sellers: {
+          ...sellers,
+          [sellerId]: {
+            products: products.filter((item) => item.productId !== productId),
+            checked: sellers[sellerId].checked,
+          },
+        },
         totalQuantity: totalQuantity - products[cartPosition].quantity,
         totalPrice: products[cartPosition].checked
           ? totalPrice - products[cartPosition].quantity * product.price
@@ -273,13 +308,17 @@ export const deleteProduct = createAsyncThunk(
       },
     };
 
+    if (updatedCart.cart.sellers[sellerId].products.length == 0) {
+      delete updatedCart.cart.sellers[sellerId];
+    }
+
     let response;
 
     if (userId == null) {
       localStorage.setItem(
         'cart',
         JSON.stringify({
-          products: products,
+          sellers: sellers,
           totalQuantity: totalQuantity,
           totalPrice: totalPrice,
           totalDiscountPrice: totalDiscountPrice,
@@ -290,12 +329,7 @@ export const deleteProduct = createAsyncThunk(
       response = await setCart({ userId, cart: updatedCart });
     }
 
-    return {
-      productId,
-      totalPrice: response.data.cart.totalPrice,
-      totalQuantity: response.data.cart.totalQuantity,
-      totalDiscountPrice: response.data.cart.totalDiscountPrice,
-    };
+    return response.data;
   }
 );
 
@@ -304,13 +338,13 @@ export const selectProduct = createAsyncThunk(
   async ({ product }, { getState }) => {
     const { user, cart } = getState();
 
+    const { totalQuantity, totalPrice, sellers, totalDiscountPrice } = cart;
+
     const userId = user.user.id;
-
-    const { totalQuantity, totalPrice, totalDiscountPrice } = cart;
-
-    const products = cart.products.slice();
-
+    const sellerId = product.userId;
     const productId = product.id;
+
+    const products = cart.sellers[sellerId].products.slice();
 
     const actualPrice =
       product.discountPrice == null ? product.price : product.discountPrice;
@@ -324,7 +358,13 @@ export const selectProduct = createAsyncThunk(
 
     const updatedCart = {
       cart: {
-        products: products,
+        sellers: {
+          ...sellers,
+          [sellerId]: {
+            products: products,
+            checked: sellers[sellerId].checked,
+          },
+        },
         totalQuantity: totalQuantity,
         totalPrice: products[cartPosition].checked
           ? totalPrice + product.price * products[cartPosition].quantity
@@ -341,7 +381,7 @@ export const selectProduct = createAsyncThunk(
       localStorage.setItem(
         'cart',
         JSON.stringify({
-          products: products,
+          sellers: sellers,
           totalQuantity: totalQuantity,
           totalPrice: totalPrice,
           totalDiscountPrice: totalDiscountPrice,
@@ -352,11 +392,77 @@ export const selectProduct = createAsyncThunk(
       response = await setCart({ userId, cart: updatedCart });
     }
 
-    return {
-      cartPosition,
-      totalPrice: response.data.cart.totalPrice,
-      totalDiscountPrice: response.data.cart.totalDiscountPrice,
+    return response.data;
+  }
+);
+
+export const selectSellersProducts = createAsyncThunk(
+  'cart/selectSellersProducts',
+  async ({ sellerId }, { getState }) => {
+    const { cart, user } = getState();
+
+    const userId = user.user.id;
+
+    const sellerChecked = cart.sellers[sellerId].checked;
+
+    const { totalQuantity, sellers, totalPrice, totalDiscountPrice } = cart;
+
+    const products = cart.sellers[sellerId].products.slice();
+
+    const newProducts = products.map((product) => {
+      if (product.userId == sellerId) {
+        return { ...product, checked: !sellerChecked };
+      } else {
+        return product;
+      }
+    });
+
+    const newSellers = { ...sellers };
+
+    newSellers[sellerId] = { products: newProducts, checked: !sellerChecked };
+
+    const updatedCart = {
+      cart: {
+        sellers: newSellers,
+        totalQuantity: totalQuantity,
+        totalPrice:
+          totalPrice +
+          newProducts.reduce((prev, current, index) => {
+            const difference =
+              products[index].checked == current.checked
+                ? 0
+                : current.price * current.quantity;
+
+            return prev + (sellerChecked ? -difference : difference);
+          }, 0),
+        totalDiscountPrice:
+          totalDiscountPrice +
+          newProducts.reduce((prev, current, index) => {
+            const actualPrice =
+              current.discountPrice === null
+                ? current.price
+                : current.discountPrice;
+
+            const difference =
+              products[index].checked == current.checked
+                ? 0
+                : actualPrice * current.quantity;
+
+            return prev + (sellerChecked ? -difference : difference);
+          }, 0),
+      },
     };
+
+    let response;
+
+    if (isGuest(userId)) {
+      localStorage.setItem('cart', JSON.stringify(updatedCart.cart));
+      response = { data: { cart: updatedCart.cart } };
+    } else {
+      response = await setCart({ userId, cart: updatedCart });
+    }
+
+    return response.data;
   }
 );
 
@@ -370,7 +476,7 @@ export const cartSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getCart.fulfilled, (state, action) => {
-        state.products = action.payload.products;
+        state.sellers = action.payload.sellers;
         state.totalPrice = action.payload.totalPrice;
         state.totalDiscountPrice = action.payload.totalDiscountPrice;
         state.totalQuantity = action.payload.totalQuantity;
@@ -385,7 +491,7 @@ export const cartSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addProduct.fulfilled, (state, action) => {
-        state.products = action.payload.cart.products;
+        state.sellers = action.payload.cart.sellers;
         state.totalQuantity = action.payload.cart.totalQuantity;
         state.totalDiscountPrice = action.payload.cart.totalDiscountPrice;
         state.totalPrice = action.payload.cart.totalPrice;
@@ -400,7 +506,7 @@ export const cartSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(decreaseProduct.fulfilled, (state, action) => {
-        state.products = action.payload.cart.products;
+        state.sellers = action.payload.cart.sellers;
         state.totalQuantity = action.payload.cart.totalQuantity;
         state.totalDiscountPrice = action.payload.cart.totalDiscountPrice;
         state.totalPrice = action.payload.cart.totalPrice;
@@ -415,12 +521,14 @@ export const cartSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.products = state.products.filter(
-          (product) => product.productId !== action.payload.productId
-        );
-        state.totalQuantity = action.payload.totalQuantity;
-        state.totalPrice = action.payload.totalPrice;
-        state.totalDiscountPrice = action.payload.totalDiscountPrice;
+        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
+          action.payload.cart;
+
+        state.sellers = sellers;
+        state.totalPrice = totalPrice;
+        state.totalQuantity = totalQuantity;
+        state.totalDiscountPrice = totalDiscountPrice;
+
         state.isLoading = false;
         state.errorOccurred = false;
       })
@@ -432,12 +540,15 @@ export const cartSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(selectProduct.fulfilled, (state, action) => {
+        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
+          action.payload.cart;
+
+        state.sellers = sellers;
+        state.totalPrice = totalPrice;
+        state.totalQuantity = totalQuantity;
+        state.totalDiscountPrice = totalDiscountPrice;
         state.isLoading = false;
         state.errorOccurred = false;
-        state.totalPrice = action.payload.totalPrice;
-        state.totalDiscountPrice = action.payload.totalDiscountPrice;
-        state.products[action.payload.cartPosition].checked =
-          !state.products[action.payload.cartPosition].checked;
       })
       .addCase(selectProduct.rejected, (state) => {
         state.isLoading = false;
@@ -447,10 +558,13 @@ export const cartSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteAllProducts.fulfilled, (state, action) => {
-        state.products = action.payload.cart.products;
-        state.totalQuantity = action.payload.cart.totalQuantity;
-        state.totalPrice = action.payload.cart.totalPrice;
-        state.totalDiscountPrice = action.payload.cart.totalDiscountPrice;
+        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
+          action.payload.cart;
+
+        state.sellers = sellers;
+        state.totalPrice = totalPrice;
+        state.totalQuantity = totalQuantity;
+        state.totalDiscountPrice = totalDiscountPrice;
         state.isLoading = false;
         state.errorOccurred = false;
       })
@@ -458,12 +572,31 @@ export const cartSlice = createSlice({
         state.isLoading = false;
         state.errorOccurred = true;
       })
+      .addCase(selectSellersProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(selectSellersProducts.fulfilled, (state, action) => {
+        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
+          action.payload.cart;
+
+        state.sellers = sellers;
+        state.totalPrice = totalPrice;
+        state.totalQuantity = totalQuantity;
+        state.totalDiscountPrice = totalDiscountPrice;
+        state.isLoading = false;
+        state.errorOccurred = false;
+      })
+      .addCase(selectSellersProducts.rejected, (state, action) => {
+        state.errorMessage = action.error.message;
+        state.isLoading = false;
+        state.errorOccurred = true;
+      })
       .addCase(loginUser.fulfilled, (state, action) => {
         if (action.payload.user.cart) {
-          const { products, totalPrice, totalQuantity, totalDiscountPrice } =
+          const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
             action.payload.user.cart;
 
-          state.products = products;
+          state.sellers = sellers;
           state.totalPrice = totalPrice;
           state.totalQuantity = totalQuantity;
           state.totalDiscountPrice = totalDiscountPrice;

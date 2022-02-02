@@ -1,8 +1,16 @@
+import { configureStore } from '@reduxjs/toolkit';
+import { waitFor } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 import { Route, Routes, MemoryRouter } from 'react-router-dom';
 
+import cartReducer from '../../../store/cart/cartSlice';
+import categoriesReducer from '../../../store/categories/categoriesSlice';
+import feedbackReducer from '../../../store/feedback/feedbackSlice';
+import productsReducer from '../../../store/products/productsSlice';
+import userReducer from '../../../store/user/userSlice';
+import { testCart } from '../../../test-utils/dto/cartDto';
 import { productForPDP } from '../../../test-utils/dto/productsDto';
 import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
 import { ProductDetailsPage } from '../ProductDetailsPage';
@@ -28,17 +36,26 @@ const handlersFulfilled = [
     return res(ctx.status(400));
   }),
 ];
+const initialUser = {
+  user: { id: 1 },
+};
+
+const store = configureStore({
+  reducer: {
+    cart: cartReducer,
+    products: productsReducer,
+    categories: categoriesReducer,
+    feedback: feedbackReducer,
+    user: userReducer,
+  },
+  preloadedState: {
+    cart: testCart,
+    user: initialUser,
+  },
+});
 
 const handlersRejected = rest.get('/products/1', (req, res, ctx) =>
   res(ctx.status(500))
-);
-
-const TestPage = () => (
-  <MemoryRouter initialEntries={['/product/1']}>
-    <Routes>
-      <Route path="/product/:id" element={<ProductDetailsPage />} />
-    </Routes>
-  </MemoryRouter>
 );
 
 const serverFulfilled = setupServer(...handlersFulfilled);
@@ -48,13 +65,20 @@ describe('ProductDetailsPage component', () => {
   it('Get data from server', async () => {
     serverFulfilled.listen();
 
-    renderWithStore(<TestPage />);
+    renderWithStore(
+      <MemoryRouter initialEntries={['/product/1']}>
+        <Routes>
+          <Route path="/product/:id" element={<ProductDetailsPage />} />
+        </Routes>
+      </MemoryRouter>,
+      { store }
+    );
 
-    expect(screen.getByRole('progressbar')).toBeInTheDocument();
+    await waitFor(async () => {
+      const nameTexts = await screen.findAllByText('Intelligent Cotton Pants');
 
-    expect(
-      await screen.findAllByText(/Intelligent Cotton Pants/i)
-    ).toHaveLength(2);
+      expect(nameTexts[0]).toBeInTheDocument();
+    });
 
     serverFulfilled.close();
   });
@@ -62,7 +86,14 @@ describe('ProductDetailsPage component', () => {
   it('handlers server error', async () => {
     serverRejected.listen();
 
-    renderWithStore(<TestPage />);
+    renderWithStore(
+      <MemoryRouter initialEntries={['/product/1']}>
+        <Routes>
+          <Route path="/product/:id" element={<ProductDetailsPage />} />
+        </Routes>
+      </MemoryRouter>,
+      { store }
+    );
 
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
     expect(await screen.findByText(/oooops!/i)).toBeInTheDocument();

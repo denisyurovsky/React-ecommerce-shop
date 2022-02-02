@@ -2,7 +2,7 @@ import React from 'react';
 
 import { testCart } from '../../../../test-utils/dto/cartDto';
 import renderWith from '../../../../test-utils/renderWith';
-import { CartProductCards } from '../CartProductCards';
+import { CartSellerWrapper } from '../CartSellerWrapper';
 
 const initialUser = {
   user: { id: 1 },
@@ -13,11 +13,16 @@ const preloadedState = {
   user: initialUser,
 };
 
-describe('CartProductCards component', () => {
+describe('CartSellerWrapper component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot', () => {
       const { asFragment } = renderWith(
-        <CartProductCards openModal={() => {}} setModalProduct={() => {}} />,
+        <CartSellerWrapper
+          userId={1}
+          products={testCart.sellers[1].products}
+          openModal={() => {}}
+          setModalProduct={() => {}}
+        />,
         preloadedState
       );
 

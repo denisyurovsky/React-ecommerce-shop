@@ -1,13 +1,45 @@
+import { configureStore } from '@reduxjs/toolkit';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
+import cartReducer from '../../../store/cart/cartSlice';
+import categoriesReducer from '../../../store/categories/categoriesSlice';
+import productsReducer from '../../../store/products/productsSlice';
+import userReducer from '../../../store/user/userSlice';
 import categoriesData from '../../../test-utils/dto/categoriesDto';
 import cardsData from '../../../test-utils/dto/productsDto';
 import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
 import RouterConnected from '../../../test-utils/RouterConnected';
 import ProductListPage from '../ProductListPage';
+
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+    products: productsReducer,
+    cart: cartReducer,
+    categories: categoriesReducer,
+  },
+  preloadedState: {
+    cart: {
+      sellers: {},
+      totalPrice: 0,
+      totalQuantity: 0,
+    },
+    user: {
+      user: {
+        id: 1,
+      },
+    },
+    categories: {
+      data: [],
+      isLoading: false,
+      errorOccurred: false,
+      errorMessage: '',
+    },
+  },
+});
 
 const handlersFulfilled = [
   rest.get('/categories', (req, res, ctx) => {
@@ -37,7 +69,8 @@ describe('ProductListPage component', () => {
 
     it('should render a valid snapshot', async () => {
       const { asFragment } = renderWithStore(
-        <RouterConnected component={<ProductListPage />} />
+        <RouterConnected component={<ProductListPage />} />,
+        { store }
       );
 
       await screen.findByText(/Found: 6 items/i);
@@ -45,8 +78,10 @@ describe('ProductListPage component', () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it('should get data from server', async () => {
-      renderWithStore(<RouterConnected component={<ProductListPage />} />);
+    it('Get data from server', async () => {
+      renderWithStore(<RouterConnected component={<ProductListPage />} />, {
+        store,
+      });
       expect(
         screen.getByRole('progressbar', { name: /products preloader/i })
       ).toBeInTheDocument();

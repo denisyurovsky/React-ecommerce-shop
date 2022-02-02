@@ -13,7 +13,7 @@ export const userWithEmptyCart = {
   id: 1,
   email: 'email@email.com',
   cart: {
-    products: [],
+    sellers: {},
     totalQuantity: 0,
     totalPrice: 0,
   },

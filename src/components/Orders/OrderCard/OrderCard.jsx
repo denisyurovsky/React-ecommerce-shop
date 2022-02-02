@@ -136,11 +136,11 @@ export const OrderCard = ({ orderId: id }) => {
         signal: abortController.signal,
       });
 
-      if (!abortController.signal.aborted) {
-        setOrderProducts(response.data);
-      }
+      setOrderProducts(response.data);
     } catch (err) {
-      toast.error(notificationError);
+      if (!abortController.signal.aborted) {
+        toast.error(notificationError);
+      }
     }
   };
 
