@@ -46,4 +46,7 @@ export const KEYS = {
   BACKSPACE: 'Backspace',
   DELETE: 'Delete',
   TAB: 'Tab',
+  ESCAPE: 'Escape',
 };
+
+export const CHECK_TOKEN_EXPIRATION_FREQUENCY = 30000;

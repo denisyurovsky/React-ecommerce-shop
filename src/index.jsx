@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import './assets/styles/index.scss';
-import { App } from './components/App/App';
+import App from './components/App/App';
 import { store } from './store/store';
 
 const theme = createTheme({

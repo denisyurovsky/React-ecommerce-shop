@@ -1,0 +1,24 @@
+@import "../../assets/styles/colors.scss";
+
+.box {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 200px;
+  padding: 2rem;
+  box-shadow: 0 0 20px $grey700;
+  background-color: $white;
+  border-radius: 4px;
+}
+
+.cross {
+  position: absolute !important;
+  top: 5px;
+  right: 5px;
+}

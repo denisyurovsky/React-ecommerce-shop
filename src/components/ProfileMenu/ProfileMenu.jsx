@@ -7,9 +7,12 @@ import MenuList from '@mui/material/MenuList';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { KEYS } from '../../helpers/constants/constants';
+import makeLogout from '../../helpers/makeLogout';
+import { setUserInitialState } from '../../store/user/userSlice';
 import Avatar from '../ui-kit/Avatar/Avatar';
 
 import styles from './ProfileMenu.module.scss';
@@ -35,7 +38,7 @@ export const ProfileMenu = () => {
     if (event.key === 'Tab') {
       event.preventDefault();
       setIsOpened(false);
-    } else if (event.key === 'Escape') {
+    } else if (event.key === KEYS.ESCAPE) {
       setIsOpened(false);
     }
   };
@@ -49,6 +52,14 @@ export const ProfileMenu = () => {
 
     prevIsOpenedRef.current = isOpened;
   }, [isOpened]);
+
+  const dispatch = useDispatch();
+
+  function getLogout(event) {
+    handleClose(event);
+    dispatch(setUserInitialState());
+    makeLogout();
+  }
 
   return (
     <div className={styles.container}>
@@ -104,11 +115,9 @@ export const ProfileMenu = () => {
                   <span>My Address book</span>
                 </Link>
               </MenuItem>
-              <MenuItem onClick={handleClose}>
-                <Link to={'/'}>
-                  <MeetingRoomIcon color="primary" className={styles.image} />
-                  <span>Log out</span>
-                </Link>
+              <MenuItem onClick={getLogout}>
+                <MeetingRoomIcon color="primary" className={styles.image} />
+                <span>Log out</span>
               </MenuItem>
             </MenuList>
           </ClickAwayListener>

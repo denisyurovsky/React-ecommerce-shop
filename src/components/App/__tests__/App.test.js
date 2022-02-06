@@ -7,8 +7,20 @@ import { Router, MemoryRouter } from 'react-router-dom';
 import categoriesDto from '../../../test-utils/dto/categoriesDto';
 import productsDto from '../../../test-utils/dto/productsDto';
 import { userDto } from '../../../test-utils/dto/userDto';
-import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
-import { App } from '../App';
+import renderWithStore, {
+  screen,
+  fireEvent,
+} from '../../../test-utils/renderWithStore';
+import App from '../App';
+
+const accessToken =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJvcm4yZGllLmNvbSIsImlhdCI6MTY0MzcxOTM2NiwiZXhwIjoxNjQzNzIyOTY2LCJzdWIiOiIxIn0.AsOF1x9vVcLklRmsnmUmDdn-KoajVJD2X1xVWgYVKlc';
+
+const AppWithRouter = (
+  <MemoryRouter>
+    <App />
+  </MemoryRouter>
+);
 
 const handlersFulfilled = [
   rest.get('/categories', (req, res, ctx) => {
@@ -28,13 +40,10 @@ describe('App component', () => {
   beforeAll(() => server.listen());
   afterAll(() => server.close());
   it('full app rendering/navigating', () => {
-    renderWithStore(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
+    renderWithStore(AppWithRouter);
     expect(screen.getByText(/EPAM systems/i)).toBeInTheDocument();
   });
+
   it('landing on a "NotFoundPage"', () => {
     const history = createMemoryHistory();
 
@@ -47,28 +56,28 @@ describe('App component', () => {
     expect(screen.getByText(/Page Not Found/i)).toBeInTheDocument();
   });
 
-  const accessToken =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJvcm4yZGllLmNvbSIsImlhdCI6MTY0MzcxOTM2NiwiZXhwIjoxNjQzNzIyOTY2LCJzdWIiOiIxIn0.AsOF1x9vVcLklRmsnmUmDdn-KoajVJD2X1xVWgYVKlc';
-
   describe('should check access token', () => {
     it('should be button "Log in"', () => {
       localStorage.clear();
-      renderWithStore(
-        <MemoryRouter>
-          <App />
-        </MemoryRouter>
-      );
+      renderWithStore(AppWithRouter);
       expect(screen.getByTestId('btn-login')).toBeInTheDocument();
     });
     it('should be button "Profile"', async () => {
       localStorage.setItem('accessToken', accessToken);
-      renderWithStore(
-        <MemoryRouter>
-          <App />
-        </MemoryRouter>
-      );
-      expect(screen.getByRole('progressbar')).toBeInTheDocument();
+      renderWithStore(AppWithRouter);
       expect(await screen.findByTestId('btn-profile')).toBeInTheDocument();
+    });
+    it('should close modal and make logout', async () => {
+      renderWithStore(AppWithRouter);
+      expect(await screen.findByText('Attention.')).toBeInTheDocument();
+      const closeModalBtn = await screen.findByTestId('btn-close-modal');
+
+      delete window.location;
+      window.location = { reload: jest.fn() };
+      fireEvent.click(closeModalBtn);
+      expect(localStorage.accessToken).toBe(undefined);
+      expect(closeModalBtn).not.toBeInTheDocument();
+      expect(window.location.reload).toHaveBeenCalled();
     });
   });
 });

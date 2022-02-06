@@ -104,6 +104,12 @@ export const userSlice = createSlice({
         ...action.payload,
       };
     },
+    setUserInitialState(state) {
+      state.user = initialState;
+    },
+    setLoginStatus(state, action) {
+      state.loginStatus = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -190,6 +196,8 @@ export const {
   resetError,
   resetUpdateWishlistStatus,
   setUser,
+  setUserInitialState,
+  setLoginStatus,
 } = userSlice.actions;
 export default userSlice.reducer;
 export const selectUser = (state) => state.user;
