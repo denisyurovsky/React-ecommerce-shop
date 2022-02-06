@@ -5,13 +5,25 @@ import {
 } from '@reduxjs/toolkit';
 
 import { setRating } from '../../api/feedback';
-import { getSomeProducts } from '../../api/products';
+import { getProductsByAuthorId, getSomeProducts } from '../../api/products';
 import { NUMBER_OF_CARDS_ON_HOMEPAGE } from '../../helpers/constants/constants';
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',
   async (searchParams) => {
     const response = await getSomeProducts(searchParams);
+
+    return {
+      data: response.data,
+      totalCountProducts: response.headers['x-total-count'],
+    };
+  }
+);
+
+export const getProductsByUserId = createAsyncThunk(
+  'products/getProductsByUserId',
+  async (userId) => {
+    const response = await getProductsByAuthorId(userId);
 
     return {
       data: response.data,
@@ -89,7 +101,22 @@ export const productsSlice = createSlice({
         state.isLoading = false;
         state.errorOccurred = true;
       })
-
+      //getProductsByAuthorId
+      .addCase(getProductsByUserId.pending, (state) => {
+        state.errorOccurred = false;
+        state.isLoading = true;
+      })
+      .addCase(getProductsByUserId.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.errorOccurred = false;
+        state.totalCountProducts = action.payload.totalCountProducts;
+        productsAdapter.setAll(state, action.payload.data);
+      })
+      .addCase(getProductsByUserId.rejected, (state, action) => {
+        state.errorMessage = action.error.message;
+        state.isLoading = false;
+        state.errorOccurred = true;
+      })
       // getHomePageProducts
       .addCase(getHomePageProducts.fulfilled, (state, action) => {
         state.isLoading = false;

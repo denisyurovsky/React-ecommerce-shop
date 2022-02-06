@@ -4,7 +4,7 @@ import { setupServer } from 'msw/node';
 import React from 'react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
-import categoriesDto from '../../../../test-utils/dto/categoriesDto';
+import { categories } from '../../../../test-utils/dto/categoriesDto';
 import { productForPDP } from '../../../../test-utils/dto/productsDto';
 import render, {
   screen,
@@ -26,7 +26,7 @@ const pasteText = (text) =>
   });
 
 const handlersFulfilled = rest.get('/categories', (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json(categoriesDto));
+  return res(ctx.status(200), ctx.json(categories));
 });
 
 const getProductInfo = rest.get('/products/0', (req, res, ctx) => {

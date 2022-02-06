@@ -33,6 +33,10 @@ export const getProduct = async (productId) => {
   };
 };
 
+export const deleteProduct = (id) => {
+  return http.delete(`/products/${id}`);
+};
+
 export const updateProduct = (id, editedProduct) => {
   return http.put(`products/${id}`, editedProduct);
 };

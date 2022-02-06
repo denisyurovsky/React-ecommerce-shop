@@ -9,7 +9,7 @@ export const getCategories = createAsyncThunk(
   async () => {
     const response = await getAllCategories();
 
-    return response.data;
+    return response;
   }
 );
 

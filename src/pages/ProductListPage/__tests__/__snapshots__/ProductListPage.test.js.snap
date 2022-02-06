@@ -49,7 +49,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
       class="MuiFormControl-root filter css-16ojqud-MuiFormControl-root"
     >
       <label
-        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1kty9di-MuiFormLabel-root-MuiInputLabel-root"
+        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
         for="uncontrolled-native"
       >
@@ -2024,7 +2024,7 @@ exports[`ProductListPage component Render without data should render a valid sna
         </span>
       </div>
       <label
-        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled MuiFormLabel-filled css-1kty9di-MuiFormLabel-root-MuiInputLabel-root"
+        class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled MuiFormLabel-filled css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink="true"
         for="uncontrolled-native"
       >

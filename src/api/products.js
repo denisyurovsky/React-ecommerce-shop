@@ -11,6 +11,14 @@ export function getSomeProducts(searchParams) {
   );
 }
 
+export function getProductsByAuthorId(id) {
+  return http.get(`/products/?userId=${id}`);
+}
+
+export function getAllProducts() {
+  return http.get('/products');
+}
+
 export const getProductsByIds = (ids) => {
   const reqParams = 'id=' + ids.join('&id=');
 
