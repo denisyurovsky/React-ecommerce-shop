@@ -562,7 +562,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
           >
-            Created: 17.4.2021
+            Created: 17.04.2021
           </p>
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
@@ -822,12 +822,12 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
           >
-            Created: 9.1.2021
+            Created: 09.01.2021
           </p>
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
           >
-            Updated: 12.5.2021
+            Updated: 12.05.2021
           </p>
           <span
             aria-label="4 Stars"
@@ -1082,7 +1082,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
           >
-            Created: 18.3.2021
+            Created: 18.03.2021
           </p>
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
@@ -1342,12 +1342,12 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
           >
-            Created: 29.3.2021
+            Created: 29.03.2021
           </p>
           <p
             class="MuiTypography-root MuiTypography-body2 date css-r40f8v-MuiTypography-root"
           >
-            Updated: 7.4.2021
+            Updated: 07.04.2021
           </p>
           <span
             aria-label="2.5 Stars"
