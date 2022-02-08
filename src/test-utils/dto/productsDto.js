@@ -47,7 +47,7 @@ const productsDto = [
     name: 'Incredible Rubber Cheese',
     price: 638.0,
     description:
-      "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+      '{"blocks":[{"key":"3f307","text":"Boston\'s most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"7irup","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}',
     category: {
       id: '2eb9ac55-c45e-4c6e-b0a7-911cf1759f66',
       name: 'Home',

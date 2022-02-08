@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
+import { convertToRaw, EditorState } from 'draft-js';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -18,6 +19,8 @@ import { toast } from 'react-toastify';
 import { createProduct, getProduct, updateProduct } from '../../../api/product';
 import BasicBreadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import { Title } from '../../../components/Title/Title';
+import createDecorator from '../../../components/WYSIWYG/Decorators/Decorators';
+import TextEditor from '../../../components/WYSIWYG/TextEditor';
 import checkForLatinText from '../../../helpers/checkForLatinText';
 import checkForOnlyNumbers from '../../../helpers/checkForOnlyNumbers';
 import {
@@ -25,18 +28,21 @@ import {
   selectCategories,
 } from '../../../store/categories/categoriesSlice';
 
+import { DESCRIPTION_ERROR, PRICE_ERROR } from './constants';
+
 import styles from './CreateOrEditProductPage.module.scss';
 
 export const CreateOrEditProductPage = () => {
   const [values, setValues] = useState({
     name: '',
     category: '',
-    description: '',
     price: '',
     serverCategories: [],
     createdAt: 0,
     isLoading: false,
   });
+
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
   const [checkValues, setCheckValues] = useState({
     isNameValid: true,
@@ -46,11 +52,8 @@ export const CreateOrEditProductPage = () => {
   });
 
   const [isFinished, setIsFinished] = useState(false);
-
   const navigate = useNavigate();
-
   const authorId = useSelector((state) => state.user.user.id);
-
   const params = useParams();
 
   const Input = styled('input')({
@@ -58,7 +61,6 @@ export const CreateOrEditProductPage = () => {
   });
 
   const date = new Date();
-
   const isEditPage = useLocation().pathname.includes('edit');
 
   const postNewProduct = async (name, description, category, price) => {
@@ -109,11 +111,15 @@ export const CreateOrEditProductPage = () => {
   const getProductInfo = async () => {
     const response = await getProduct(params.id);
 
+    setEditorState(
+      EditorState.moveSelectionToEnd(
+        EditorState.createWithContent(response.description, createDecorator())
+      )
+    );
     setValues({
       ...values,
       name: response.name,
       category: response.category.name,
-      description: response.description,
       price: response.price,
       isLoading: false,
       createdAt: response.createdAt,
@@ -136,7 +142,9 @@ export const CreateOrEditProductPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    isEditPage ? getProductInfo() : null;
+    if (isEditPage) {
+      getProductInfo();
+    }
     // eslint-disable-next-line
   }, []);
 
@@ -150,12 +158,12 @@ export const CreateOrEditProductPage = () => {
       checkIsFinished(
         values.name,
         values.category,
-        values.description,
+        editorState.getCurrentContent().getPlainText(''),
         values.price
       )
     );
     // eslint-disable-next-line
-  }, [values.name, values.category, values.description, values.price]);
+  }, [values.name, values.category, editorState, values.price]);
 
   const categories = useSelector(selectCategories);
 
@@ -181,18 +189,13 @@ export const CreateOrEditProductPage = () => {
     });
   };
 
-  const onDescriptionChange = (e) => {
-    setValues({
-      ...values,
-      description: e.target.value,
-    });
+  const onDescriptionChange = (state) => {
+    const plainText = state.getCurrentContent().getPlainText('');
 
+    setEditorState(state);
     setCheckValues({
       ...checkValues,
-      isDescriptionValid:
-        checkForLatinText(e.target.value) &&
-        e.target.value.length !== 0 &&
-        e.target.value.length <= 1000,
+      isDescriptionValid: checkForLatinText(plainText),
     });
   };
 
@@ -209,20 +212,17 @@ export const CreateOrEditProductPage = () => {
   };
 
   const postOrEditProduct = () => {
+    const jsonText = JSON.stringify(
+      convertToRaw(editorState.getCurrentContent())
+    );
+
     isEditPage
-      ? editProduct(
-          values.name,
-          values.description,
-          values.category,
-          values.price
-        )
-      : postNewProduct(
-          values.name,
-          values.description,
-          values.category,
-          values.price
-        );
+      ? editProduct(values.name, jsonText, values.category, values.price)
+      : postNewProduct(values.name, jsonText, values.category, values.price);
   };
+
+  const checkEmptyDescription = () =>
+    editorState.getCurrentContent().getPlainText('').length === 0;
 
   const onCancel = () => {
     navigate('/admin/products');
@@ -246,9 +246,7 @@ export const CreateOrEditProductPage = () => {
         <form>
           <Box className={styles.box}>
             <TextField
-              helperText={
-                !checkValues.isNameValid ? 'Only latin characters' : null
-              }
+              helperText={!checkValues.isNameValid ? DESCRIPTION_ERROR : null}
               value={values.name}
               data-testid="nameInput"
               error={!checkValues.isNameValid}
@@ -278,24 +276,21 @@ export const CreateOrEditProductPage = () => {
                 })}
               </Select>
             </FormControl>
-            <TextField
-              helperText={
-                !checkValues.isDescriptionValid
-                  ? 'Only latin characters, max length 1000 characters'
-                  : null
-              }
-              value={values.description}
-              data-testid="descriptionInput"
-              error={!checkValues.isDescriptionValid}
+            <TextEditor
               label="Description"
-              multiline
-              rows={3}
-              onChange={onDescriptionChange}
+              data-testid="descriptionInput"
+              editorState={editorState}
+              setEditorState={onDescriptionChange}
+              error={!checkValues.isDescriptionValid}
+              helperText={
+                !checkValues.isDescriptionValid ? DESCRIPTION_ERROR : null
+              }
+              isEdit={isEditPage}
             />
             <label htmlFor="images-upload">
               <Input
                 id="images-upload"
-                disabled={!values.description}
+                disabled={!checkEmptyDescription()}
                 accept="image/*"
                 multiple
                 type="file"
@@ -311,7 +306,7 @@ export const CreateOrEditProductPage = () => {
               </Button>
             </label>
             <TextField
-              helperText={!checkValues.isPriceValid ? 'Only numbers' : null}
+              helperText={!checkValues.isPriceValid ? PRICE_ERROR : null}
               value={values.price}
               data-testid="priceInput"
               error={!checkValues.isPriceValid}

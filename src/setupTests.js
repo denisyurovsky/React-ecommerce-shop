@@ -4,4 +4,5 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
-jest.setTimeout(10000);
+jest.setTimeout(15000);
+jest.mock('draft-js/lib/generateRandomKey', () => () => '123');

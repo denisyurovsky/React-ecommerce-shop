@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import Description from '../../helpers/Description';
 import { formatDate, formatPrice } from '../../helpers/utils/formatData';
 import { getRatingByProductId } from '../../store/products/productsSlice';
 import { getWishlist } from '../../store/user/userSlice';
@@ -73,9 +74,7 @@ const ProductDetailsPageContent = ({ product }) => {
           </Box>
         </Box>
         <Box className={styles.description}>
-          <Typography variant="body1" color="text.secondary">
-            {description}
-          </Typography>
+          <Description contentState={description} />
         </Box>
       </Card>
       <Feedback productId={id} />
@@ -97,7 +96,7 @@ ProductDetailsPageContent.propTypes = {
       lastName: PropTypes.string,
       avatar: PropTypes.string,
     }),
-    description: PropTypes.string,
+    description: PropTypes.object,
   }).isRequired,
 };
 

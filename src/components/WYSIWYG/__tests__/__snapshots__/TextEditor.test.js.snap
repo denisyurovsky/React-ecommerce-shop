@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`footer: correct messages should change styles for state with less than 50 symbols 1`] = `
+<div
+  class="footer MuiBox-root css-0"
+  data-testid="editor-footer"
+>
+  <p
+    class="MuiTypography-root MuiTypography-body1 symbols css-ahj2mt-MuiTypography-root"
+  >
+    Left: 
+    <span
+      class="warning"
+      data-testid="left-number"
+    >
+      10
+    </span>
+  </p>
+</div>
+`;

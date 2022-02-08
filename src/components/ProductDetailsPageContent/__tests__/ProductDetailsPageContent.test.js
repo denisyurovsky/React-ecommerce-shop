@@ -3,6 +3,7 @@ import { setupServer } from 'msw/node';
 import React from 'react';
 
 import { DEFAULT_NAME } from '../../../helpers/constants/feedbackConstants';
+import convertDescription from '../../../helpers/convertDescriptionToObj';
 import feedbackDto from '../../../test-utils/dto/feedbackDto';
 import productsDto from '../../../test-utils/dto/productsDto';
 import usersDto from '../../../test-utils/dto/usersDto';
@@ -55,8 +56,12 @@ describe('ProductDetailsPageContent', () => {
     afterAll(() => server.close());
 
     it('renders a valid snapshot', async () => {
+      const product = {
+        ...productsDto[0],
+        description: convertDescription(productsDto[0].description),
+      };
       const { asFragment, findByTestId } = render(
-        <ProductDetailsPageContent product={productsDto[0]} />,
+        <ProductDetailsPageContent product={product} />,
         { user: preloadedState }
       );
 
@@ -73,8 +78,12 @@ describe('Product rating', () => {
   afterAll(() => server.close());
 
   it('should show total rating', async () => {
+    const product = {
+      ...productsDto[2],
+      description: convertDescription(productsDto[2].description),
+    };
     const { getByTestId } = render(
-      <ProductDetailsPageContent product={productsDto[2]} />,
+      <ProductDetailsPageContent product={product} />,
       { user: preloadedState }
     );
 
@@ -86,7 +95,12 @@ describe('Product rating', () => {
   });
 
   it('should change total rating', async () => {
-    render(<ProductDetailsPageContent product={productsDto[2]} />, {
+    const product = {
+      ...productsDto[2],
+      description: convertDescription(productsDto[2].description),
+    };
+
+    render(<ProductDetailsPageContent product={product} />, {
       user: preloadedState,
     });
 
@@ -101,5 +115,5 @@ describe('Product rating', () => {
         .getByTestId('total-rating')
         .querySelectorAll('[data-testid="StarIcon"]')
     ).toHaveLength(7);
-  }, 10000);
+  });
 });

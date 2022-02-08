@@ -324,11 +324,46 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
       <div
         class="description MuiBox-root css-0"
       >
-        <p
-          class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+        <div
+          class="DraftEditor-root"
         >
-          The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design
-        </p>
+          <div
+            class="DraftEditor-editorContainer"
+          >
+            <div
+              class="public-DraftEditor-content"
+              contenteditable="false"
+              spellcheck="false"
+              style="outline: none; user-select: text; white-space: pre-wrap; word-wrap: break-word;"
+            >
+              <div
+                data-contents="true"
+              >
+                <div
+                  class=""
+                  data-block="true"
+                  data-editor="123"
+                  data-offset-key="123-0-0"
+                >
+                  <div
+                    class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                    data-offset-key="123-0-0"
+                  >
+                    <span
+                      data-offset-key="123-0-0"
+                    >
+                      <span
+                        data-text="true"
+                      >
+                        The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div

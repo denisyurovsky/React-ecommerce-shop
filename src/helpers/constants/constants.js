@@ -40,3 +40,10 @@ export const ERROR = {
   IMAGE_SIZE: 'The image size is too large. Maximum image size is 100Kb.',
   INVALID_FIELDS: 'Failed. One or more fields were invalid.',
 };
+
+export const KEYS = {
+  ENTER: 'Enter',
+  BACKSPACE: 'Backspace',
+  DELETE: 'Delete',
+  TAB: 'Tab',
+};

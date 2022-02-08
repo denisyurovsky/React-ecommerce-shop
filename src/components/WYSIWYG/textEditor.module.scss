@@ -1,0 +1,135 @@
+@import "../../assets/styles/colors.scss";
+
+$textAreaPadding: 1rem;
+$footerHeight: 2rem;
+$textPaddingBottom: $textAreaPadding + $footerHeight;
+
+.symbols {
+  margin-left: auto;
+  margin-right: 16px !important;
+  user-select: none;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  height: $footerHeight;
+  position: absolute;
+  left: 16px;
+  bottom: 0;
+  user-select: none;
+}
+
+.legend {
+  display: block;
+  color: $muiText;
+  font-size: 1.3rem;
+  font-weight: 400;
+  pointer-events: none;
+  user-select: none;
+  margin-left: 0.8rem;
+  padding: 0.5rem;
+}
+
+.wrapper {
+  min-height: fit-content;
+}
+
+.modifiers {
+  padding: 1rem 1rem 0;
+}
+
+.editor {
+  overflow: auto;
+  min-height: 15rem;
+  max-height: 42rem;
+  padding: $textAreaPadding;
+  height: auto;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  height: $footerHeight;
+  background-color: $greyMain;
+  color: $greyText;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  height: auto;
+  border: 1px solid $greyDark;
+  border-radius: 5px;
+  padding: 0;
+  overflow: hidden;
+  min-width: 0;
+
+  &:hover {
+    border-color: $grey700;
+  }
+
+  &.focused,
+  &:active,
+  &.error {
+    border-width: 2px;
+    border-color: $greyDark;
+
+    & .symbols {
+      margin-right: 15px !important;
+    }
+
+    & .message {
+      left: 15px;
+    }
+
+    & .legend {
+      margin-left: 0.7rem;
+    }
+
+    & .editor {
+      padding: 1rem 0.9rem;
+    }
+
+    & .modifiers {
+      padding: 1rem 0.9rem 0;
+    }
+
+    & .footer {
+      height: 1.9rem;
+    }
+  }
+
+  &.focused {
+    border-color: $primaryMain;
+
+    & .legend {
+      color: $primaryMain;
+    }
+  }
+
+  &.error {
+    border-color: $error;
+
+    & .legend {
+      color: $error;
+    }
+  }
+}
+
+.icon {
+  font-size: 1.1rem !important;
+  color: $primaryMain;
+  margin-right: 0.6rem;
+}
+
+.code {
+  color: $indigo500;
+}
+
+.warning {
+  color: $error;
+}

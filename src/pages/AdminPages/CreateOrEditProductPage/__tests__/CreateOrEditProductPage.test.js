@@ -6,11 +6,27 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 import categoriesDto from '../../../../test-utils/dto/categoriesDto';
 import { productForPDP } from '../../../../test-utils/dto/productsDto';
-import render, { screen, within } from '../../../../test-utils/renderWithStore';
+import render, {
+  screen,
+  within,
+  fireEvent,
+  createEvent,
+  getByRole,
+} from '../../../../test-utils/renderWithStore';
 import { CreateOrEditProductPage } from '../CreateOrEditProductPage';
 
+const getTextArea = () =>
+  getByRole(screen.getByText(/description/i).parentNode, 'textbox');
+const pasteText = (text) =>
+  createEvent.paste(getTextArea(), {
+    clipboardData: {
+      types: ['text/plain'],
+      getData: () => text,
+    },
+  });
+
 const handlersFulfilled = rest.get('/categories', (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json(categoriesDto), ctx.delay(150));
+  return res(ctx.status(200), ctx.json(categoriesDto));
 });
 
 const getProductInfo = rest.get('/products/0', (req, res, ctx) => {
@@ -103,7 +119,6 @@ describe('successful scenarios', () => {
     );
 
     const nameInput = await screen.findByLabelText('Name');
-    const descriptionInput = await screen.findByLabelText('Description');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -121,7 +136,7 @@ describe('successful scenarios', () => {
     });
 
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    userEvent.type(descriptionInput, 'something');
+    fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, '1337');
     userEvent.click(editButton);
     expect(screen.getByTestId('load')).toBeInTheDocument();
@@ -134,7 +149,6 @@ describe('successful scenarios', () => {
 
   it('renders categories and shows in UI', async () => {
     const nameInput = await screen.findByLabelText('Name');
-    const descriptionInput = await screen.findByLabelText('Description');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -154,7 +168,7 @@ describe('successful scenarios', () => {
     });
 
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    userEvent.type(descriptionInput, 'something');
+    fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, '1337');
     userEvent.click(editButton);
 
@@ -163,7 +177,6 @@ describe('successful scenarios', () => {
 
   it('redirects to /admin after successful server response about editing a product', async () => {
     const nameInput = await screen.findByLabelText('Name');
-    const descriptionInput = await screen.findByLabelText('Description');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -181,7 +194,7 @@ describe('successful scenarios', () => {
     });
 
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    userEvent.type(descriptionInput, 'something');
+    fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, '1337');
     userEvent.click(editButton);
     expect(screen.getByTestId('load')).toBeInTheDocument();
@@ -197,7 +210,6 @@ describe('successful scenarios', () => {
 
   it('makes edit button disabled if some inputs are invalid', async () => {
     const nameInput = await screen.findByLabelText('Name');
-    const descriptionInput = await screen.findByLabelText('Description');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
 
@@ -215,7 +227,7 @@ describe('successful scenarios', () => {
     });
 
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    userEvent.type(descriptionInput, 'something');
+    fireEvent(getTextArea(), pasteText('something'));
     userEvent.type(priceInput, 'string value');
     expect(editButton).toBeDisabled();
   });

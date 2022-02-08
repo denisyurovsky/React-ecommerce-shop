@@ -1,0 +1,26 @@
+@import "../../../assets/styles/colors.scss";
+
+.table {
+  margin: 1rem;
+  width: 60%;
+  border: 0.1rem solid $greyMain;
+  font-size: 1.4rem;
+  border-collapse: collapse;
+}
+
+.head {
+  padding: 0.7rem;
+  text-align: left;
+}
+
+.row,
+.cell {
+  padding: 0.9rem;
+  border: 0.1rem solid $greyMain;
+}
+
+.cell,
+.cellContent {
+  min-width: 9rem;
+  min-height: 3rem;
+}

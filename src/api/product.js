@@ -1,3 +1,5 @@
+import convertDescription from '../helpers/convertDescriptionToObj';
+
 import { http } from './setup';
 
 export const getProduct = async (productId) => {
@@ -18,9 +20,11 @@ export const getProduct = async (productId) => {
   }
 
   const { firstName, lastName, avatar } = user.data[0];
+  const description = convertDescription(product.data.description);
 
   return {
     ...product.data,
+    description,
     author: {
       firstName,
       lastName,
