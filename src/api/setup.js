@@ -14,9 +14,11 @@ const requestSettings = {
 const http = axios.create(requestSettings);
 
 http.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem(
-    'accessToken'
-  )}`;
+  const token = localStorage.getItem('accessToken');
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
 
   return config;
 });
