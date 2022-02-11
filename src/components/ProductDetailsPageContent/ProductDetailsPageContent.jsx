@@ -40,43 +40,47 @@ const ProductDetailsPageContent = ({ product }) => {
     <Container>
       <Card className={styles.card}>
         <Box className={styles.title}>
-          <Typography variant="h5">{name}</Typography>
-          <Typography variant="body1" color="text.secondary">
-            {`date: ${formatDate(updatedAt)}`}
-          </Typography>
-        </Box>
-        <Box>
-          <ProductPrice price={price} discountPrice={discountPrice} />
-        </Box>
-        <Box className={styles.images}>
-          <Box className={styles.labelContainer}>
-            <DiscountLabel price={price} discountPrice={discountPrice} />
+          <Box className={styles.subTitle}>
+            <Typography variant="h5">{name}</Typography>
+            <Typography variant="body1" color="text.secondary">
+              {`date: ${formatDate(updatedAt)}`}
+            </Typography>
           </Box>
-          <Carousel images={images} />
-          <AddToWishListButton
-            productId={id}
-            productName={name}
-            isAddedToWishlist={isWished(id, wishlist)}
-          />
+          <Box className={styles.price}>
+            <ProductPrice price={price} discountPrice={discountPrice} />
+          </Box>
         </Box>
-        <Box className={styles.buy}>
-          <Rating
-            data-testid="total-rating"
-            value={updatedRating ?? rating}
-            sx={{ mt: 4, mb: 2 }}
-            size="large"
-            readOnly
-            precision={0.5}
-          />
-          <AddToCartButton product={product} />
-          <Box className={styles.seller}>
-            <Link to={`/users/${userId}`}>
-              <Typography variant="body1">
-                {`${author.firstName} ${author.lastName}`}
-              </Typography>
+        <Box className={styles.info}>
+          <Box className={styles.images}>
+            <Carousel images={images} />
+            <Box className={styles.labelContainer}>
+              <DiscountLabel price={price} discountPrice={discountPrice} />
+            </Box>
+            <AddToWishListButton
+              productId={id}
+              productName={name}
+              isAddedToWishlist={isWished(id, wishlist)}
+            />
+          </Box>
+          <Box className={styles.buy}>
+            <Rating
+              data-testid="total-rating"
+              value={updatedRating ?? rating}
+              sx={{ mt: 4, mb: 2 }}
+              size="large"
+              readOnly
+              precision={0.5}
+            />
+            <AddToCartButton product={product} />
+            <Box className={styles.seller}>
+              <Link to={`/users/${userId}`}>
+                <Typography variant="body1">
+                  {`${author.firstName} ${author.lastName}`}
+                </Typography>
 
-              <Avatar avatar={author.avatar} />
-            </Link>
+                <Avatar avatar={author.avatar} />
+              </Link>
+            </Box>
           </Box>
         </Box>
         <Box className={styles.description}>
