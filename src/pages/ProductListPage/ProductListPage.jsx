@@ -10,6 +10,7 @@ import { CategoryFilter } from '../../components/SearchPanel/CategoryFilter/Cate
 import FreeTextFilter from '../../components/SearchPanel/FreeTextFilter/FreeTextFilter';
 import SortFilter from '../../components/SearchPanel/SortFilter/SortFilter';
 import { ALL_CATEGORIES } from '../../helpers/constants/constants';
+import { useWindowSize } from '../../hooks/useWindowSize';
 import {
   getCategories,
   selectCategories,
@@ -25,6 +26,7 @@ import {
   sortObj,
   NUMBER_ITEMS_ON_PAGE,
   BreadcrumbsLinks,
+  MOBILE_WIDTH,
 } from './constants/constants';
 
 import styles from './ProductListPage.module.scss';
@@ -39,6 +41,14 @@ const ProductListPage = () => {
     itemsPerPage: NUMBER_ITEMS_ON_PAGE,
     text: null,
   });
+  const { width } = useWindowSize();
+  const isMobile = width <= MOBILE_WIDTH;
+
+  useEffect(() => {
+    if (isMobile) {
+      setCardShape(pageView.MODULE_VIEW);
+    }
+  }, [isMobile]);
 
   const dispatch = useDispatch();
 
@@ -75,12 +85,14 @@ const ProductListPage = () => {
         />
       </div>
       <div className={styles.row}>
-        <CardShapeToggle
-          cardShape={cardShape}
-          setCardShape={setCardShape}
-          className={styles.toggle}
-        />
-        <SortFilter setSearchParams={setSearchParams} />
+        {!isMobile && (
+          <CardShapeToggle
+            cardShape={cardShape}
+            setCardShape={setCardShape}
+            className={styles.toggle}
+          />
+        )}
+        <SortFilter setSearchParams={setSearchParams} fullWidth={isMobile} />
       </div>
       <Typography className={styles.found} color="primary" variant="subtitle2">
         Found: {products.totalCountProducts} items

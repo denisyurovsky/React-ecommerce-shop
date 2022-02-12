@@ -32,20 +32,20 @@ const serverRejected = setupServer(...handlersRejected);
 
 describe('ProductListPage component', () => {
   describe('Render with data', () => {
-    beforeEach(() => serverFulfilled.listen());
-    afterEach(() => serverFulfilled.close());
+    beforeAll(() => serverFulfilled.listen());
+    afterAll(() => serverFulfilled.close());
 
     it('should render a valid snapshot', async () => {
       const { asFragment } = renderWithStore(
         <RouterConnected component={<ProductListPage />} />
       );
 
-      expect(await screen.findByText(/Found: 6 items/i)).toBeInTheDocument();
+      await screen.findByText(/Found: 6 items/i);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it('Get data from server', async () => {
+    it('should get data from server', async () => {
       renderWithStore(<RouterConnected component={<ProductListPage />} />);
       expect(
         screen.getByRole('progressbar', { name: /products preloader/i })
@@ -56,7 +56,7 @@ describe('ProductListPage component', () => {
       ).toBeInTheDocument();
     });
 
-    it('CardShapeToggle works properly', () => {
+    it('should switch shape properly', () => {
       renderWithStore(<RouterConnected component={<ProductListPage />} />);
       const listButton = screen.getByRole('button', { name: /list/i });
       const moduleButton = screen.getByRole('button', { name: /module/i });
@@ -73,8 +73,8 @@ describe('ProductListPage component', () => {
   });
 
   describe('Render without data', () => {
-    beforeEach(() => serverRejected.listen());
-    afterEach(() => serverRejected.close());
+    beforeAll(() => serverRejected.listen());
+    afterAll(() => serverRejected.close());
 
     it('should render a valid snapshot', () => {
       const { asFragment } = renderWithStore(
@@ -93,6 +93,29 @@ describe('ProductListPage component', () => {
       expect(
         await screen.findByText(/There are no products/i)
       ).toBeInTheDocument();
+    });
+  });
+
+  describe('Resize events', () => {
+    beforeAll(() => {
+      serverRejected.listen();
+      window.innerWidth = 500;
+      window.dispatchEvent(new Event('resize'));
+    });
+
+    afterAll(() => {
+      serverRejected.close();
+      window.innerWidth = 1024;
+      window.dispatchEvent(new Event('resize'));
+    });
+
+    it('should react on resize', async () => {
+      renderWithStore(<RouterConnected component={<ProductListPage />} />);
+
+      await screen.findByText(/There are no products/i);
+
+      expect(screen.queryByTestId('ViewModuleIcon')).toBeNull();
+      expect(screen.queryByTestId('ViewListIcon')).toBeNull();
     });
   });
 });

@@ -10,7 +10,7 @@ import {
   sortObj,
 } from '../../../pages/ProductListPage/constants/constants';
 
-export default function SortFilter({ setSearchParams }) {
+export default function SortFilter({ setSearchParams, fullWidth }) {
   const [sort, setSort] = useState(sortTypes.NEW_FIRST);
 
   const handleChange = (event) => {
@@ -22,7 +22,7 @@ export default function SortFilter({ setSearchParams }) {
   };
 
   return (
-    <Box sx={{ width: 220 }}>
+    <Box sx={{ width: fullWidth ? '100%' : 220 }}>
       <FormControl fullWidth>
         <InputLabel variant="standard" htmlFor="uncontrolled-native">
           Filter
@@ -49,4 +49,5 @@ export default function SortFilter({ setSearchParams }) {
 
 SortFilter.propTypes = {
   setSearchParams: PropTypes.func.isRequired,
+  fullWidth: PropTypes.bool.isRequired,
 };

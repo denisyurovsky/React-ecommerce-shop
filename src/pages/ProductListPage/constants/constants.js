@@ -23,3 +23,4 @@ export const BreadcrumbsLinks = [
 ];
 
 export const NUMBER_ITEMS_ON_PAGE = 20;
+export const MOBILE_WIDTH = 540;
