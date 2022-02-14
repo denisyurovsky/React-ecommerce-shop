@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import { USER_ROLE } from '../../helpers/constants/constants';
 import withAuthExpiration from '../../HOCs/withAuthExpiration';
 import AddressBook from '../../pages/AddressBookPage/AddressBook';
+import { AdminCategoriesPage } from '../../pages/AdminPages/AdminCategoriesPage/AdminCategoriesPage';
 import { AdminProductsPage } from '../../pages/AdminPages/AdminProductsPage/AdminProductsPage';
 import { CreateOrEditProductPage } from '../../pages/AdminPages/CreateOrEditProductPage/CreateOrEditProductPage';
 import { CartPage } from '../../pages/CartPage/CartPage';
@@ -46,6 +47,7 @@ const App = ({ handleClose, isOpenModal }) => (
         element={<ProtectedRoutes permissionLevel={USER_ROLE.SELLER} />}
       >
         <Route path="/admin/products" element={<AdminProductsPage />} />
+        <Route path="/admin/categories" element={<AdminCategoriesPage />} />
       </Route>
       <Route path="/profile/address-book" element={<AddressBook />} />
       <Route path="*" element={<NotFoundPage />} />
