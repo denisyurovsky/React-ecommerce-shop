@@ -10,3 +10,11 @@ const convertBase64 = (file) => {
 };
 
 export default convertBase64;
+
+const convertBase64ArrayOfImages = (files) => {
+  const arrayOfPromises = files.map((file) => convertBase64(file));
+
+  return Promise.all(arrayOfPromises);
+};
+
+export { convertBase64ArrayOfImages };

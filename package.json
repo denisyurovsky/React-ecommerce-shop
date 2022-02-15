@@ -45,6 +45,8 @@
     "mui-date-picker": "^0.1.10",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
+    "react-dnd": "^14.0.5",
+    "react-dnd-html5-backend": "^14.1.0",
     "react-dom": "^17.0.2",
     "react-image-gallery": "^1.2.7",
     "react-redux": "^7.2.6",

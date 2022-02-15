@@ -1,0 +1,18 @@
+@import "../../../assets/styles/colors.scss";
+
+.list {
+  padding-top: 1rem;
+
+  .title {
+    color: $grey700;
+  }
+
+  .item {
+    padding-left: 0 !important;
+
+    .preview {
+      max-width: 50px;
+      max-height: 50px;
+    }
+  }
+}

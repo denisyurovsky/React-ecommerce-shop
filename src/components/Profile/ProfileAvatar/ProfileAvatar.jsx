@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import checkImageValidity from '../../../helpers/checkImageValidity';
+import checkImageValidity from '../../../helpers/checkImageValidity/checkImageValidity';
 import convertBase64 from '../../../helpers/convertBase64';
 import { updateUser } from '../../../store/user/userSlice';
 import Avatar from '../../ui-kit/Avatar/Avatar';

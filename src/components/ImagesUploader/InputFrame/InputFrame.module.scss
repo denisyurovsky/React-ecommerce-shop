@@ -1,0 +1,29 @@
+@import "../../../assets/styles/colors.scss";
+
+.inputFrame {
+  background: $greyLight;
+  color: $greyA400 !important;
+  border: 3px dashed $greyMain !important;
+  border-radius: 4px;
+  height: 70px;
+  font-size: 2rem !important;
+  text-align: center;
+  vertical-align: middle;
+  padding: 4rem 2rem 0;
+  margin-bottom: 1rem;
+  text-transform: none !important;
+
+  &:hover {
+    border: 3px dashed $indigo700 !important;
+  }
+}
+
+.active {
+  border-color: $indigo700 !important;
+}
+
+.error {
+  border: 2px solid $red700 !important;
+  font-size: 1.6rem !important;
+  color: $red700 !important;
+}

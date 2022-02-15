@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import render from '../../test-utils/renderWith';
+import render from '../../../test-utils/renderWith';
 import checkImageValidity from '../checkImageValidity';
 
 function App({ file }) {

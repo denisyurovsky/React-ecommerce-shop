@@ -6,3 +6,5 @@ import '@testing-library/jest-dom';
 
 jest.setTimeout(15000);
 jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
+window.URL.createObjectURL = () => 'blob:http://someURL';
+window.URL.revokeObjectURL = () => {};

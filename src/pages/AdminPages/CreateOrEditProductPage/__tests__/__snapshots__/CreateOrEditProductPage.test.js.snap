@@ -420,28 +420,32 @@ exports[`CreateOrEditProductPage snapshot should take a snapshot with predefined
             </div>
           </fieldset>
         </div>
-        <label
-          for="images-upload"
+        <div
+          class="MuiBox-root css-0"
         >
-          <input
-            accept="image/*"
-            class="css-1hyfx7x"
-            id="images-upload"
-            multiple=""
-            type="file"
-          />
-          <span
-            class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButtonBase-root uploadButton css-xsqe0f-MuiButtonBase-root-MuiButton-root"
-            data-testid="imageInput"
-            role="button"
-            tabindex="0"
+          <label
+            for="images-upload"
           >
-            Choose images to upload
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            <input
+              accept="image/*"
+              id="images-upload"
+              multiple=""
+              style="display: none;"
+              type="file"
             />
-          </span>
-        </label>
+            <span
+              class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButtonBase-root inputFrame css-xsqe0f-MuiButtonBase-root-MuiButton-root"
+              data-testid="imageInput"
+              role="button"
+              tabindex="0"
+            >
+              Choose images to upload
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </span>
+          </label>
+        </div>
         <div
           class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
           data-testid="priceInput"

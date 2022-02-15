@@ -5,7 +5,6 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  styled,
   TextField,
 } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -18,11 +17,13 @@ import { toast } from 'react-toastify';
 
 import { createProduct, getProduct, updateProduct } from '../../../api/product';
 import BasicBreadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
+import { ImagesUploader } from '../../../components/ImagesUploader/ImagesUploader';
 import { Title } from '../../../components/Title/Title';
 import createDecorator from '../../../components/WYSIWYG/Decorators/Decorators';
 import TextEditor from '../../../components/WYSIWYG/TextEditor';
 import checkForLatinText from '../../../helpers/checkForLatinText';
 import checkForOnlyNumbers from '../../../helpers/checkForOnlyNumbers';
+import { convertBase64ArrayOfImages } from '../../../helpers/convertBase64';
 import {
   getCategories,
   selectCategories,
@@ -44,7 +45,9 @@ export const CreateOrEditProductPage = () => {
   });
 
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-
+  const [imagesBase64, setImagesBase64] = useState([]);
+  const [imageUrls, setImageUrls] = useState([]);
+  const [isImagesValid, setIsImagesValid] = useState(true);
   const [checkValues, setCheckValues] = useState({
     isNameValid: true,
     isCategoryValid: true,
@@ -57,11 +60,6 @@ export const CreateOrEditProductPage = () => {
   const navigate = useNavigate();
   const authorId = useSelector((state) => state.user.user.id);
   const params = useParams();
-
-  const Input = styled('input')({
-    display: 'none',
-  });
-
   const date = new Date();
   const isEditPage = useLocation().pathname.includes('edit');
 
@@ -73,7 +71,6 @@ export const CreateOrEditProductPage = () => {
     discountPrice = 0
   ) => {
     setValues({ ...values, isLoading: true });
-
     const newProduct = {
       name,
       description,
@@ -85,8 +82,8 @@ export const CreateOrEditProductPage = () => {
       userId: authorId,
       createdAt: date.toISOString(),
       updatedAt: date.toISOString(),
+      images: imagesBase64,
     };
-
     const response = await createProduct(newProduct);
 
     if (response.status === 201) {
@@ -114,6 +111,7 @@ export const CreateOrEditProductPage = () => {
       userId: authorId,
       createdAt: values.createdAt.toString(),
       updatedAt: date.toISOString(),
+      images: imagesBase64,
     };
 
     const response = await updateProduct(params.id, editedProduct);
@@ -141,6 +139,7 @@ export const CreateOrEditProductPage = () => {
       isLoading: false,
       createdAt: response.createdAt,
     });
+    setImageUrls(response.images);
   };
 
   const checkIsFinished = (
@@ -159,7 +158,8 @@ export const CreateOrEditProductPage = () => {
       checkValues.isDescriptionValid &&
       price.length !== 0 &&
       checkForOnlyNumbers(price) &&
-      (checkForOnlyNumbers(discountPrice) || discountPrice == '')
+      (checkForOnlyNumbers(discountPrice) || discountPrice == '') &&
+      isImagesValid
     );
   };
 
@@ -196,6 +196,7 @@ export const CreateOrEditProductPage = () => {
     editorState,
     values.price,
     values.discountPrice,
+    isImagesValid,
   ]);
 
   const categories = useSelector(selectCategories);
@@ -215,7 +216,6 @@ export const CreateOrEditProductPage = () => {
 
   const onCategoryChange = (e) => {
     setValues({ ...values, category: e.target.value });
-
     setCheckValues({
       ...checkValues,
       isCategoryValid: e.target.value !== '',
@@ -230,6 +230,17 @@ export const CreateOrEditProductPage = () => {
       ...checkValues,
       isDescriptionValid: checkForLatinText(plainText),
     });
+  };
+
+  const updateImages = async (files, isValid) => {
+    if (!isValid) {
+      return setIsImagesValid(false);
+    }
+
+    const convertedFiles = await convertBase64ArrayOfImages(files);
+
+    setIsImagesValid(true);
+    setImagesBase64(convertedFiles);
   };
 
   const onPriceChange = (e) => {
@@ -279,9 +290,6 @@ export const CreateOrEditProductPage = () => {
           Number(values.discountPrice)
         );
   };
-
-  const checkEmptyDescription = () =>
-    editorState.getCurrentContent().getPlainText('').length === 0;
 
   const onCancel = () => {
     navigate('/admin/products');
@@ -346,24 +354,7 @@ export const CreateOrEditProductPage = () => {
               }
               isEdit={isEditPage}
             />
-            <label htmlFor="images-upload">
-              <Input
-                id="images-upload"
-                disabled={!checkEmptyDescription()}
-                accept="image/*"
-                multiple
-                type="file"
-              />
-              <Button
-                data-testid="imageInput"
-                className={styles.uploadButton}
-                fullWidth
-                variant="outlined"
-                component="span"
-              >
-                Choose images to upload
-              </Button>
-            </label>
+            <ImagesUploader updateImages={updateImages} imageUrls={imageUrls} />
             <TextField
               helperText={!checkValues.isPriceValid ? PRICE_ERROR : null}
               value={values.price}

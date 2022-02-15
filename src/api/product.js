@@ -37,10 +37,7 @@ export const deleteProduct = (id) => {
   return http.delete(`/products/${id}`);
 };
 
-export const updateProduct = (id, editedProduct) => {
-  return http.put(`products/${id}`, editedProduct);
-};
+export const updateProduct = (id, editedProduct) =>
+  http.patch(`products/${id}`, editedProduct);
 
-export const createProduct = (product) => {
-  return http.post('/products', product);
-};
+export const createProduct = (product) => http.post('/products', product);

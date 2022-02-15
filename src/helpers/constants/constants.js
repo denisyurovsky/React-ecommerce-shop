@@ -35,9 +35,6 @@ export const EMPTY = {
 export const ERROR = {
   SOMETHING_WENT_WRONG: notificationError,
   LOAD_FEEDBACK: 'Failed to load feedbacks.',
-  IMAGE_FILE_TYPE:
-    'Invalid image file type. Supported image file types: PNG, BMP, JPEG, JPG, GIF, WEBP.',
-  IMAGE_SIZE: 'The image size is too large. Maximum image size is 100Kb.',
   INVALID_FIELDS: 'Failed. One or more fields were invalid.',
 };
 

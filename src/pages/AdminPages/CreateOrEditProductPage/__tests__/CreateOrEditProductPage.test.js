@@ -43,16 +43,15 @@ const getUserId = rest.get('/users', (req, res, ctx) => {
           firstName: 'Lindsay',
           lastName: 'Yundt',
         },
-      ]),
-      ctx.delay(150)
+      ])
     );
   }
 
   return res(ctx.status(400));
 });
 
-const putProductResponse200 = rest.put('/products/0', (req, res, ctx) => {
-  return res(ctx.status(200), ctx.delay(150));
+const putProductResponse200 = rest.patch('/products/0', (req, res, ctx) => {
+  return res(ctx.status(200));
 });
 
 const postNewProductResponse201 = rest.post('/products', (req, res, ctx) => {
@@ -219,6 +218,10 @@ describe('successful scenarios', () => {
     const discountPriceInput = await screen.findByLabelText('Discount price');
     const priceInput = await screen.findByLabelText('Price');
     const editButton = screen.getByText('Edit');
+    const imgUploader = await screen.findByLabelText(
+      /choose images to upload/i
+    );
+    const file = new File(['(⌐□_□)'], 'image_1.png', { type: 'image/png' });
 
     userEvent.type(nameInput, 'something');
 
@@ -235,12 +238,24 @@ describe('successful scenarios', () => {
 
     userEvent.click(within(optionsPopupEl).getByText('Grocery'));
     fireEvent(getTextArea(), pasteText('something'));
+    userEvent.upload(imgUploader, [file]);
     userEvent.type(priceInput, 'string value');
     userEvent.type(priceInput, '123');
     userEvent.type(discountPriceInput, 'Non');
     expect(editButton).toBeDisabled();
     userEvent.type(priceInput, `\b\b\b\b\b\b string value`);
     userEvent.type(discountPriceInput, `{backspace}{backspace}{backspace}1`);
+    expect(editButton).toBeDisabled();
+  });
+  it('makes edit button disabled if it is uploaded too many images', async () => {
+    const file = new File(['(⌐□_□)'], 'image_1.png', { type: 'image/png' });
+    const files = new Array(11).fill(file);
+    const imgUploader = await screen.findByLabelText(
+      /choose images to upload/i
+    );
+    const editButton = screen.getByText('Edit');
+
+    userEvent.upload(imgUploader, files);
     expect(editButton).toBeDisabled();
   });
 });
