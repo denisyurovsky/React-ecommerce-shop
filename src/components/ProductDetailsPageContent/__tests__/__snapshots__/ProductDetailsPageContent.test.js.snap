@@ -452,16 +452,6 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
       class="MuiBox-root css-91y9h0"
       data-testid="feedback-section"
     >
-      <button
-        class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButtonBase-root  css-16gyej9-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
-      >
-        Add new feedback
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
       <div
         class="MuiStepConnector-root MuiStepConnector-horizontal css-1jgj293-MuiStepConnector-root"
       >

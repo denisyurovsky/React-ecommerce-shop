@@ -7,6 +7,7 @@ import convertDescription from '../../../helpers/convertDescriptionToObj';
 import { testCart } from '../../../test-utils/dto/cartDto';
 import feedbackDto from '../../../test-utils/dto/feedbackDto';
 import productsDto from '../../../test-utils/dto/productsDto';
+import usersDto from '../../../test-utils/dto/usersDto';
 import { handleModal } from '../../../test-utils/feedback/feedbackHandlers';
 import render, { screen } from '../../../test-utils/renderWith';
 import ProductDetailsPageContent from '../ProductDetailsPageContent';
@@ -104,7 +105,7 @@ describe('Product rating', () => {
 
     render(<ProductDetailsPageContent product={product} />, {
       cart: testCart,
-      user: initialUser,
+      user: usersDto[3],
     });
 
     await screen.findByTestId('comments');

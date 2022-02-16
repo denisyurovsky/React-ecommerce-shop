@@ -7,19 +7,24 @@ import { Provider } from 'react-redux';
 import { USER_ROLE } from '../../../helpers/constants/constants';
 import { usePermission } from '../usePermission';
 
-const Test = ({ role }) => usePermission(role) && <p>test page</p>;
+const { ADMIN, SELLER, CONSUMER, GUEST } = USER_ROLE;
+const oneOfRoles = PropTypes.oneOf([ADMIN, SELLER, CONSUMER, GUEST]);
 
-Test.propTypes = { role: PropTypes.string };
+const Test = ({ roles }) => usePermission(roles) && <p>test page</p>;
 
-const TestApp = ({ store, role }) => (
+Test.propTypes = {
+  roles: PropTypes.oneOfType([oneOfRoles, PropTypes.arrayOf(oneOfRoles)]),
+};
+
+const TestApp = ({ store, roles }) => (
   <Provider store={store}>
-    <Test role={role} />
+    <Test role={roles} />
   </Provider>
 );
 
 TestApp.propTypes = {
   store: PropTypes.object.isRequired,
-  role: PropTypes.string,
+  roles: PropTypes.oneOfType([oneOfRoles, PropTypes.arrayOf(oneOfRoles)]),
 };
 
 const newStore = (role) =>
@@ -34,15 +39,18 @@ const newStore = (role) =>
 
 describe('usePermission', () => {
   it('should check the equality of roles', () => {
-    const role = USER_ROLE.CONSUMER;
-
-    render(<TestApp store={newStore(role)} role={role} />);
+    render(
+      <TestApp
+        store={newStore(USER_ROLE.CONSUMER)}
+        roles={[USER_ROLE.CONSUMER]}
+      />
+    );
     expect(screen.getByText(/test page/i)).toBeInTheDocument();
   });
 
   it('should check "admin" permission', () => {
     render(
-      <TestApp store={newStore(USER_ROLE.ADMIN)} role={USER_ROLE.SELLER} />
+      <TestApp store={newStore(USER_ROLE.ADMIN)} roles={USER_ROLE.SELLER} />
     );
     expect(screen.getByText(/test page/i)).toBeInTheDocument();
   });
@@ -52,8 +60,16 @@ describe('usePermission', () => {
     expect(screen.getByText(/test page/i)).toBeInTheDocument();
   });
 
+  it('should check role from array', () => {
+    const roles = [USER_ROLE.SELLER, USER_ROLE.CONSUMER];
+
+    render(<TestApp store={newStore(USER_ROLE.CONSUMER)} roles={roles} />);
+    expect(screen.getByText(/test page/i)).toBeInTheDocument();
+  });
+
   it('should check protected permission', () => {
-    const Test = () => usePermission(USER_ROLE.SELLER) || <p>page not found</p>;
+    const Test = () =>
+      usePermission([USER_ROLE.SELLER]) || <p>page not found</p>;
 
     render(
       <Provider store={newStore(USER_ROLE.GUEST)}>
