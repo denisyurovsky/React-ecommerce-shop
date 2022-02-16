@@ -1,29 +1,22 @@
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
 
-@media all and (min-width: 1000px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.cardsContainer {
+  position: relative;
+  display: flex;
+  width: calc(100% + 1.5rem);
+  margin: -0.75rem;
 }
 
 .title {
   color: $primaryMain;
-}
+  margin: 2rem 0 !important;
 
-.container {
-  justify-content: flex-start;
-}
-
-@media all and (max-width: 700px) {
-  .title {
-    font-size: 30px;
+  @media all and (max-width: $md) {
+    font-size: 4rem !important;
   }
-}
 
-@media all and (max-width: 500px) {
-  .title {
-    font-size: 25px;
+  @media all and (max-width: $sm) {
+    font-size: 2.5rem !important;
   }
 }

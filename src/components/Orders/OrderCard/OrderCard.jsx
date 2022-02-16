@@ -23,7 +23,7 @@ import { getProductsByIds } from '../../../api/products';
 import noImg from '../../../assets/images/noImg.png';
 import {
   notificationError,
-  laptopBreakPoint,
+  BREAK_POINT,
 } from '../../../helpers/constants/constants';
 import {
   orderStatus,
@@ -35,6 +35,7 @@ import {
   formatPrice,
   formatDateWithShortMonth,
 } from '../../../helpers/utils/formatData';
+import useBreakPoint from '../../../hooks/useBreakPoint';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { selectOrders } from '../../../store/orders/ordersSlice';
 import { OrderButton } from '../OrderButton/OrderButton';
@@ -95,13 +96,13 @@ export function orderSlider(slides) {
     prevArrow: <SlickArrowLeft />,
     responsive: [
       {
-        breakpoint: laptopBreakPoint + 200,
+        breakpoint: BREAK_POINT.LAPTOP + 200,
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: laptopBreakPoint - 100,
+        breakpoint: BREAK_POINT.LAPTOP - 100,
         settings: {
           slidesToShow: 1,
         },
@@ -115,6 +116,7 @@ export function orderSlider(slides) {
 export const OrderCard = ({ orderId: id }) => {
   const { width } = useWindowSize();
   const orders = useSelector(selectOrders);
+  const isLessThenBreakPoint = useBreakPoint(BREAK_POINT.MD);
 
   const [expanded, setExpanded] = useState(false);
   const [orderProducts, setOrderProducts] = useState([]);
@@ -180,11 +182,11 @@ export const OrderCard = ({ orderId: id }) => {
           <Box className={styles.dateInformation}>
             <Typography className={styles.orderDate}>
               Ordered on &nbsp;
-              {width > laptopBreakPoint
-                ? formatDateWithFullMonth(creationDate)
-                : formatDateWithShortMonth(creationDate)}
+              {isLessThenBreakPoint
+                ? formatDateWithShortMonth(creationDate)
+                : formatDateWithFullMonth(creationDate)}
             </Typography>
-            <Typography fontSize={width > laptopBreakPoint ? '12px' : '10px'}>
+            <Typography fontSize={isLessThenBreakPoint ? '10px' : '12px'}>
               Order #{id}
             </Typography>
           </Box>
@@ -195,9 +197,7 @@ export const OrderCard = ({ orderId: id }) => {
                 styles[`deliveryMark${status}`]
               )}
             >
-              {width > laptopBreakPoint
-                ? orderStatus[status].deliveryStatus
-                : ''}
+              {!isLessThenBreakPoint ? orderStatus[status].deliveryStatus : ''}
             </Typography>
           </Box>
         </Box>
@@ -261,7 +261,7 @@ export const OrderCard = ({ orderId: id }) => {
             <OrderDeliveryDate
               status={status}
               deliveryDate={deliveryDate}
-              breakpointDisplayed={width < laptopBreakPoint}
+              breakpointDisplayed={width < BREAK_POINT.LAPTOP}
             />
           )}
         </Box>

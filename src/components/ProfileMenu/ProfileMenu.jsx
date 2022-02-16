@@ -1,7 +1,3 @@
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-import PersonIcon from '@mui/icons-material/Person';
-import SellIcon from '@mui/icons-material/Sell';
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,23 +5,22 @@ import MenuList from '@mui/material/MenuList';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
+import Link from '../../components/ui-kit/Link/Link';
 import { KEYS } from '../../helpers/constants/constants';
-import { pathNames } from '../../helpers/constants/pathNames/pathNames';
+import { PROFILE_MENU, LINKS } from '../../helpers/constants/linkConstants';
 import makeLogout from '../../helpers/makeLogout';
 import { setUserInitialState } from '../../store/user/userSlice';
 import Avatar from '../ui-kit/Avatar/Avatar';
 
 import styles from './ProfileMenu.module.scss';
 
-const { USERS, PROFILE, WISHLIST, ORDERS, ADDRESSBOOK } = pathNames;
-
 export const ProfileMenu = () => {
+  const dispatch = useDispatch();
   const [isOpened, setIsOpened] = useState(false);
   const anchorRef = useRef(null);
-  const { avatar, id: userId } = useSelector((state) => state.user.user);
+  const { avatar } = useSelector((state) => state.user.user);
 
   const handleToggle = () => {
     setIsOpened(!isOpened);
@@ -35,12 +30,17 @@ export const ProfileMenu = () => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setIsOpened(false);
   };
 
+  const getLogout = (event) => {
+    handleClose(event);
+    dispatch(setUserInitialState());
+    makeLogout();
+  };
+
   const handleListKeyDown = (event) => {
-    if (event.key === 'Tab') {
+    if (event.key === KEYS.TAB) {
       event.preventDefault();
       setIsOpened(false);
     } else if (event.key === KEYS.ESCAPE) {
@@ -57,14 +57,6 @@ export const ProfileMenu = () => {
 
     prevIsOpenedRef.current = isOpened;
   }, [isOpened]);
-
-  const dispatch = useDispatch();
-
-  function getLogout(event) {
-    handleClose(event);
-    dispatch(setUserInitialState());
-    makeLogout();
-  }
 
   return (
     <div className={styles.container}>
@@ -99,35 +91,19 @@ export const ProfileMenu = () => {
               aria-labelledby="composition-button"
               onKeyDown={handleListKeyDown}
             >
-              <MenuItem onClick={handleClose}>
-                <Link to={`${USERS}/${userId}`}>
-                  <PersonIcon color="primary" className={styles.image} />
-                  <span>My Profile</span>
-                </Link>
-              </MenuItem>
-              <MenuItem onClick={handleClose}>
-                <Link to={`${PROFILE}${WISHLIST}`}>
-                  <span>My Wishlist</span>
-                </Link>
-              </MenuItem>
-              <MenuItem onClick={handleClose}>
-                <Link to={`${PROFILE}${ORDERS}`}>
-                  <SellIcon color="primary" className={styles.image} />
-                  <span>My Orders</span>
-                </Link>
-              </MenuItem>
-              <MenuItem onClick={handleClose}>
-                <Link to={`${PROFILE}${ADDRESSBOOK}`}>
-                  <ImportContactsIcon
-                    color="primary"
-                    className={styles.image}
-                  />
-                  <span>My Address book</span>
-                </Link>
-              </MenuItem>
+              {PROFILE_MENU.map(({ text, url, icon }) => (
+                <MenuItem key={`menu_${text}`} onClick={handleClose}>
+                  <Link to={url}>
+                    <div className={styles.image}>{icon}</div>
+                    <span className={styles.menuTitle}>My {text}</span>
+                  </Link>
+                </MenuItem>
+              ))}
               <MenuItem onClick={getLogout}>
-                <MeetingRoomIcon color="primary" className={styles.image} />
-                <span>Log out</span>
+                <Link to={LINKS.LOGOUT.url}>
+                  <div className={styles.image}>{LINKS.LOGOUT.icon}</div>
+                  <span className={styles.menuTitle}>{LINKS.LOGOUT.text}</span>
+                </Link>
               </MenuItem>
             </MenuList>
           </ClickAwayListener>

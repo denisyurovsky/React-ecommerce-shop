@@ -49,12 +49,12 @@ function ProfilePage() {
     };
   }, [routeId, isOwner]);
 
-  if (isLoading) {
-    return <Spinner height="90vh" />;
-  }
-
   if (pageNotFound) {
     return <NotFoundPage />;
+  }
+
+  if (isLoading || !profile.id) {
+    return <Spinner height="90vh" />;
   }
 
   return (

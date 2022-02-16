@@ -58,11 +58,15 @@ exports[`ProfileHeader component snapshots renders a valid snapshot 1`] = `
       </ol>
     </nav>
   </div>
-  <h2
+  <div
     class="header"
-    data-testid="title"
   >
-    Profile of John Smith
-  </h2>
+    <h2
+      class="header"
+      data-testid="title"
+    >
+      Profile of John Smith
+    </h2>
+  </div>
 </DocumentFragment>
 `;

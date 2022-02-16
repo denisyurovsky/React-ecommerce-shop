@@ -4,13 +4,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10rem;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   font-size: 2.4rem;
   font-weight: 400;
-  max-width: 70%;
+  max-width: 75%;
 
-  @media all and (max-width: $sm) {
+  @media all and (max-width: $md) {
     max-width: 100%;
   }
 }

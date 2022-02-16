@@ -1,0 +1,47 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/variables.scss";
+
+.box {
+  position: fixed;
+  bottom: $bottomMenuOffset;
+  z-index: 10;
+  height: min-content;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: $primaryMain;
+  box-shadow: 0 -0.1rem 1rem #00000046;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  & div:last-child {
+    border-right: none;
+  }
+}
+
+.listItem {
+  border-right: 1px solid $indigo500;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 9.6rem;
+  height: $bottomMenuHeight;
+  padding-bottom: $bottomMenuOffset;
+}
+
+.span {
+  width: 7rem;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}

@@ -77,7 +77,7 @@ function ProfileFields({ profile, setProfile, disabled, isEmailWrong }) {
           disabled={disabled}
         />
 
-        <FormControl className={styles.formControl}>
+        <FormControl className={`${styles.textField} ${styles.formControl}`}>
           <InputLabel id="gender-label" className={styles.genderLabel}>
             Gender
           </InputLabel>
@@ -94,7 +94,7 @@ function ProfileFields({ profile, setProfile, disabled, isEmailWrong }) {
           </Select>
         </FormControl>
 
-        <FormControl className={styles.formControl}>
+        <FormControl className={`${styles.textField} ${styles.formControl}`}>
           <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
             <DatePicker
               label="Date Of Birth"

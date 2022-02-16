@@ -5,17 +5,18 @@ import React from 'react';
 
 import styles from './CardArea.module.scss';
 
-export const CardArea = ({ children }) => {
-  return (
-    <Container className={styles.wrapper}>
-      <Typography variant="body1" color="text.secondary">
-        Recently added
-      </Typography>
-      {children}
-    </Container>
-  );
-};
+export const CardArea = ({ children }) => (
+  <Container className={styles.wrapper}>
+    <Typography variant="body1" color="text.secondary">
+      Recently added
+    </Typography>
+    {children}
+  </Container>
+);
 
 CardArea.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 };

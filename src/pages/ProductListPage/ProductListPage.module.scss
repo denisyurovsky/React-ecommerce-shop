@@ -35,7 +35,7 @@ $mobileWidth: 540px;
 }
 
 .cardsContainer {
-  width: 100%;
+  width: calc(100% + 1.5rem);
 }
 
 @media (max-width: $mobileWidth) {

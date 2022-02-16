@@ -33,8 +33,8 @@ export const HomePageContent = () => {
   }, [cards]);
 
   return (
-    <section className={styles.container}>
-      <Typography sx={{ m: '20px 0' }} variant={'h2'} className={styles.title}>
+    <>
+      <Typography variant={'h2'} className={styles.title}>
         Welcome to Born2Die Market!
       </Typography>
       <SearchArea
@@ -43,12 +43,15 @@ export const HomePageContent = () => {
         cards={cards.data}
       />
       <CardArea>
-        <CardsContainer
-          products={displayedCards}
-          isLoading={cards.isLoading}
-          errorOccurred={cards.errorOccurred}
-        />
+        <div className={styles.cardsContainer}>
+          <CardsContainer
+            className={styles.cardsContainer}
+            products={displayedCards}
+            isLoading={cards.isLoading}
+            errorOccurred={cards.errorOccurred}
+          />
+        </div>
       </CardArea>
-    </section>
+    </>
   );
 };

@@ -38,7 +38,7 @@ describe('Profile menu component', () => {
       userEvent.click(button);
       expect(screen.getByTestId('menuList')).toBeInTheDocument();
       fireEvent.click(screen.getByText('My Wishlist'));
-      expect(screen.queryByTestId('menuList')).toBe(null);
+      expect(screen.queryByTestId('menuList')).toBeNull();
       userEvent.click(button);
       expect(screen.getByTestId('menuList')).toBeInTheDocument();
 
@@ -47,16 +47,13 @@ describe('Profile menu component', () => {
         code: 'Escape',
       });
 
-      expect(screen.queryByTestId('menuList')).toBe(null);
+      expect(screen.queryByTestId('menuList')).toBeNull();
     });
   });
 
   describe('ProfileMenu Logout', () => {
     it('should clean localStorage', async () => {
-      const accessToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJvcm4yZGllLmNvbSIsImlhdCI6MTY0MzcxOTM2NiwiZXhwIjoxNjQzNzIyOTY2LCJzdWIiOiIxIn0.AsOF1x9vVcLklRmsnmUmDdn-KoajVJD2X1xVWgYVKlc';
-
-      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6Ik');
 
       renderWith(<ProfileMenu />);
       const button = screen.getByTestId('btn-profile');

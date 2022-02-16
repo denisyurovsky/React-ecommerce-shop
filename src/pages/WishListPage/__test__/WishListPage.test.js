@@ -131,7 +131,7 @@ describe('WishListPage component', () => {
 
       const likeButtons = await screen.findAllByTestId('FavoriteIcon');
 
-      expect(likeButtons.length).toBe(2);
+      expect(likeButtons.length).toBe(3);
 
       userEvent.click(likeButtons[0]);
 

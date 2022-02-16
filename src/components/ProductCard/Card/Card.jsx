@@ -7,6 +7,7 @@ import {
   Box,
 } from '@mui/material';
 import Card from '@mui/material/Card';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -25,7 +26,7 @@ import { ProductPrice } from '../../ProductPrice/ProductPrice';
 import stylesList from './CardList.module.scss';
 import stylesModule from './CardModule.module.scss';
 
-const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
+const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
   const {
     id,
     name,
@@ -42,8 +43,13 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
 
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
 
+  const containerClasses = classNames({
+    [styles.container]: true,
+    [styles.profileContainer]: isProfile,
+  });
+
   return (
-    <Card className={styles.container}>
+    <Card className={containerClasses}>
       <AddToWishListButton
         productId={id}
         productName={name}
@@ -57,12 +63,10 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
           className={styles.image}
           alt={name}
         />
-        {discountPrice ? (
+        {discountPrice && (
           <Box className={styles.discountLabel}>
             <DiscountLabel price={price} discountPrice={discountPrice} />
           </Box>
-        ) : (
-          <></>
         )}
       </Box>
       <CardContent className={styles.description}>
@@ -122,6 +126,7 @@ CardItem.propTypes = {
     }),
   }).isRequired,
   cardShape: PropTypes.oneOf([pageView.LIST_VIEW, pageView.MODULE_VIEW]),
+  isProfile: PropTypes.bool,
 };
 
 const areEqual = (prevProps, nextProps) =>

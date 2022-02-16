@@ -357,22 +357,27 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
               </span>
             </span>
           </span>
-          <button
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            type="button"
+          <div
+            class="bigButtonContainer"
           >
-            + add to cart
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
+            <button
+              class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
+              tabindex="0"
+              type="button"
+            >
+              + add to cart
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
           <div
             class="seller MuiBox-root css-0"
           >
             <a
               class="link"
               href="/users/1"
+              style="opacity: 1;"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"

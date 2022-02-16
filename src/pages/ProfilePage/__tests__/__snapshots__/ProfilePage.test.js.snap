@@ -62,12 +62,16 @@ exports[`ProfilePage component should render consumer page 1`] = `
         </ol>
       </nav>
     </div>
-    <h2
+    <div
       class="header"
-      data-testid="title"
     >
-      Profile of Joe Doe
-    </h2>
+      <h2
+        class="header"
+        data-testid="title"
+      >
+        Profile of Joe Doe
+      </h2>
+    </div>
     <div
       class="MuiBox-root css-0"
       data-testid="comments"
@@ -162,12 +166,16 @@ exports[`ProfilePage component should render seller page 1`] = `
         </ol>
       </nav>
     </div>
-    <h2
+    <div
       class="header"
-      data-testid="title"
     >
-      Profile of Elon Musk
-    </h2>
+      <h2
+        class="header"
+        data-testid="title"
+      >
+        Profile of Elon Musk
+      </h2>
+    </div>
     <div
       class="row"
     >

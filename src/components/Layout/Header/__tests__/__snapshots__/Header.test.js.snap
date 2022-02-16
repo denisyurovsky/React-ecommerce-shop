@@ -40,6 +40,7 @@ exports[`Header component snapshots renders a valid snapshot 1`] = `
           <a
             class="link white centered"
             href="/cart"
+            style="opacity: 1;"
           >
             <svg
               aria-hidden="true"

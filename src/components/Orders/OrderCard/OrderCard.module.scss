@@ -64,7 +64,7 @@
 .orderDate {
   font-weight: bold !important;
 
-  @media all and (max-width: $sm) {
+  @media all and (max-width: $md) {
     font-size: 14px !important;
   }
 }
@@ -161,7 +161,7 @@
   border-radius: 20px;
   color: $greyLight;
 
-  @media all and (max-width: $sm) {
+  @media all and (max-width: $md) {
     margin: 0 !important;
     margin-left: 2px !important;
     margin-top: 4px !important;

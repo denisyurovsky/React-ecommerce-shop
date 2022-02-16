@@ -51,18 +51,20 @@ export const KEYS = {
   ESCAPE: 'Escape',
 };
 
+export const BREAK_POINT = {
+  CART: 500,
+  SM: 600,
+  LAPTOP: 700,
+  MD: 900,
+};
+
+export const PROFILE_MENU_FROM_TOP = 145;
+
 export const CHECK_TOKEN_EXPIRATION_FREQUENCY = 30000;
 
 export const MODAL_SIZES = {
   NORMAL: 'normal',
   SMALL: 'small',
-};
-
-export const laptopBreakPoint = 700;
-
-export const BREAK_POINT = {
-  SM: 600,
-  LAPTOP: 700,
 };
 
 export const HEADER_HEIGHT = 60;

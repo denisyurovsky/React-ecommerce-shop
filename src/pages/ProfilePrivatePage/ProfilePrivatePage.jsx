@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import ProfileAvatar from '../../components/Profile/ProfileAvatar/ProfileAvatar';
-import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
+import ProfileLayout from '../../components/Profile/ProfileLayout/ProfileLayout';
 import checkEmailValidity from '../../helpers/checkEmailValidity';
 import { ERROR } from '../../helpers/constants/constants';
+import { LINKS } from '../../helpers/constants/linkConstants';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 import { getUser, updateUser } from '../../store/user/userSlice';
 
@@ -63,26 +64,27 @@ function ProfilePrivate() {
   }
 
   return (
-    <>
-      <ProfileHeader profile={profile} title={'My profile'} />
-      <ProfileAvatar id={profile.id} avatar={profile.avatar} />
-
+    <ProfileLayout title={LINKS.PROFILE.text}>
       <div className={styles.container}>
-        <ProfileFields
-          profile={profile}
-          setProfile={setProfile}
-          disabled={disabled}
-          isEmailWrong={isEmailWrong}
-        />
+        <ProfileAvatar id={profile.id} avatar={profile.avatar} />
 
-        <ProfileEditButtons
-          disabled={disabled}
-          setDisabled={setDisabled}
-          handleEdition={handleEdition}
-          cancelEdition={cancelEdition}
-        />
+        <div className={styles.fields}>
+          <ProfileFields
+            profile={profile}
+            setProfile={setProfile}
+            disabled={disabled}
+            isEmailWrong={isEmailWrong}
+          />
+
+          <ProfileEditButtons
+            disabled={disabled}
+            setDisabled={setDisabled}
+            handleEdition={handleEdition}
+            cancelEdition={cancelEdition}
+          />
+        </div>
       </div>
-    </>
+    </ProfileLayout>
   );
 }
 

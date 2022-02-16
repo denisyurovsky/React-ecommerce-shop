@@ -65,13 +65,15 @@ export const AddToCartButton = ({
       </Button>
     </div>
   ) : (
-    <Button
-      variant="contained"
-      className={styles.bigButton}
-      onClick={addHandler}
-    >
-      + add to cart
-    </Button>
+    <div className={styles.bigButtonContainer}>
+      <Button
+        variant="contained"
+        className={styles.bigButton}
+        onClick={addHandler}
+      >
+        + add to cart
+      </Button>
+    </div>
   );
 };
 

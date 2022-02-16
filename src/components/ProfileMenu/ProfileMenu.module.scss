@@ -37,7 +37,9 @@
 
 .image {
   position: absolute;
-  left: 10px;
+  top: 1.2rem;
+  left: 1.5rem;
+  color: $primaryMain;
 }
 
 .expandButton {
@@ -53,4 +55,13 @@
 .avatarImage {
   width: 40px !important;
   height: 40px !important;
+}
+
+.menuTitle {
+  margin: 0 1rem;
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }

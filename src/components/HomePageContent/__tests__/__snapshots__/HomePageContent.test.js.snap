@@ -2,90 +2,90 @@
 
 exports[`HomePageContent component snapshots renders a valid snapshot 1`] = `
 <DocumentFragment>
-  <section
+  <h2
+    class="MuiTypography-root MuiTypography-h2 title css-1sra7t5-MuiTypography-root"
+  >
+    Welcome to Born2Die Market!
+  </h2>
+  <div
     class="container"
   >
-    <h2
-      class="MuiTypography-root MuiTypography-h2 title css-75mh4b-MuiTypography-root"
+    <span
+      class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+      role="progressbar"
+      style="width: 40px; height: 40px;"
     >
-      Welcome to Born2Die Market!
-    </h2>
+      <svg
+        class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </span>
     <div
-      class="container"
+      class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd textField css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
+      data-testid="text-search-input"
     >
-      <span
-        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
-        role="progressbar"
-        style="width: 40px; height: 40px;"
+      <input
+        class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+        placeholder="Search by advertisement"
+        type="text"
+        value=""
+      />
+      <button
+        class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root searchButton css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
       >
         <svg
-          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-          viewBox="22 22 44 44"
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="SearchIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <circle
-            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
-            cx="44"
-            cy="44"
-            fill="none"
-            r="20.2"
-            stroke-width="3.6"
+          <path
+            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
           />
         </svg>
-      </span>
-      <div
-        class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd textField css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
-        data-testid="text-search-input"
-      >
-        <input
-          class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
-          placeholder="Search by advertisement"
-          type="text"
-          value=""
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
-        <button
-          class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root searchButton css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="SearchIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-        <fieldset
-          aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-        >
-          <legend
-            class="css-nnbavb"
-          >
-            <span
-              class="notranslate"
-            >
-              ​
-            </span>
-          </legend>
-        </fieldset>
-      </div>
-    </div>
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthLg wrapper css-1oqqzyl-MuiContainer-root"
-    >
-      <p
-        class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+      </button>
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
-        Recently added
-      </p>
+        <legend
+          class="css-nnbavb"
+        >
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg wrapper css-1oqqzyl-MuiContainer-root"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root"
+    >
+      Recently added
+    </p>
+    <div
+      class="cardsContainer"
+    >
       <div
         class="wrapper MuiBox-root css-0"
       >
@@ -111,7 +111,7 @@ exports[`HomePageContent component snapshots renders a valid snapshot 1`] = `
         </span>
       </div>
     </div>
-  </section>
+  </div>
   <div
     class="Toastify"
   />

@@ -1,7 +1,22 @@
+@import "../../../assets/styles/breakpoints.scss";
+
 .container {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  width: 100%;
+
+  @media all and (max-width: 988px) {
+    width: 103%;
+  }
+
+  @media all and (max-width: $LAPTOP_BREAK_POINT) {
+    width: 101%;
+  }
+
+  @media all and (max-width: $sm) {
+    width: 100%;
+  }
 }
 
 .row {
@@ -10,17 +25,11 @@
 
 .column {
   flex-direction: column;
+  width: 100%;
 }
 
 .title {
   text-align: center;
   margin-top: 100px !important;
   margin-bottom: 100px !important;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
 }

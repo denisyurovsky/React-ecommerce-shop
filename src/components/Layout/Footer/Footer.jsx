@@ -1,13 +1,20 @@
 import { Toolbar, Typography } from '@mui/material';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from './Footer.module.scss';
 
-export const Footer = () => {
+export const Footer = ({ isProfileMobile }) => {
   const date = new Date();
 
+  const appbarClasses = classNames({
+    [styles.appbar]: true,
+    [styles.offset]: isProfileMobile,
+  });
+
   return (
-    <footer className={styles.appbar}>
+    <footer className={appbarClasses}>
       <Toolbar className={styles.toolBar}>
         <Typography
           data-testid="copyright"
@@ -19,4 +26,8 @@ export const Footer = () => {
       </Toolbar>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  isProfileMobile: PropTypes.bool,
 };

@@ -62,6 +62,8 @@ describe('ProfilePage component', () => {
   it('should render "Page Not Found"', async () => {
     render(<ProfilePage />, preloadedState, '/users/:id', ['/users/10']);
 
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
+
     expect(await screen.findByText(/oooops!/i)).toBeInTheDocument();
   });
 });

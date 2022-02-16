@@ -21,7 +21,6 @@
 }
 
 .button {
-  height: 36px !important;
   width: 60px !important;
   min-width: unset !important;
   background-color: $primaryMain;
@@ -30,13 +29,10 @@
 
 .bigButton {
   width: 150px;
-  background-color: $primaryMain;
-  text-transform: capitalize;
 }
 
 .counter {
   margin: 0;
-  height: 36px !important;
   padding-top: 9px;
   font-size: 14px;
   text-align: center;
@@ -44,4 +40,10 @@
   width: 100%;
   border-bottom: 1px solid $greyDark;
   border-top: 1px solid $greyDark;
+}
+
+.counter,
+.button,
+.bigButton {
+  height: 36px;
 }

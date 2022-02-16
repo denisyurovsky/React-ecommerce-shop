@@ -18,11 +18,20 @@
     color: $greyLight;
   }
 
+  &.grey {
+    color: $grey700;
+  }
+
   &.uppercase {
     text-transform: uppercase;
   }
 
   &.centered {
     justify-content: center;
+  }
+
+  &.active {
+    font-weight: bolder;
+    opacity: 1 !important;
   }
 }

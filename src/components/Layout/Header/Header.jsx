@@ -4,8 +4,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import logo from '../../../assets/images/logo_transparent.png';
-import { laptopBreakPoint } from '../../../helpers/constants/constants';
-import { useWindowSize } from '../../../hooks/useWindowSize';
+import useBreakPoint from '../../../hooks/useBreakPoint';
 import { getCart } from '../../../store/cart/cartSlice';
 import { getCurrentUser } from '../../../store/user/userSlice';
 import Authentification from '../../Authentification/Authentification';
@@ -17,6 +16,7 @@ import { ShoppingCart } from './ShoppingCart/ShoppingCart';
 import styles from './Header.module.scss';
 
 export const Header = () => {
+  const isLessThenBreakPoint = useBreakPoint();
   const dispatch = useDispatch();
   const user = useSelector(getCurrentUser);
 
@@ -24,14 +24,12 @@ export const Header = () => {
     dispatch(getCart());
   }, [dispatch, user.user.id]);
 
-  const size = useWindowSize();
-
   return (
     <AppBar className={styles.appBar}>
       <Toolbar className={styles.toolBar}>
-        {size.width <= laptopBreakPoint && <BurgerButton />}
+        {isLessThenBreakPoint && <BurgerButton />}
         <img src={logo} alt="logo" className={styles.logo} />
-        {size.width > laptopBreakPoint && <NavigationList />}
+        {!isLessThenBreakPoint && <NavigationList />}
         <Box className={styles.header}>
           <ShoppingCart></ShoppingCart>
           <Authentification />

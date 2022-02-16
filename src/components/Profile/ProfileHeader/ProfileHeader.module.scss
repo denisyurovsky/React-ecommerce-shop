@@ -1,18 +1,3 @@
-@import "../../../assets/styles/colors.scss";
-@import "../../../assets/styles/breakpoints.scss";
-
 .header {
-  font-size: 6rem;
-  font-weight: 400;
-  color: $greyDark;
-  text-align: center;
-
-  @media all and (max-width: $sm) {
-    font-size: 3.5rem;
-  }
-}
-
-.breadcrumbs {
   align-self: flex-start;
-  margin-top: 4rem;
 }
