@@ -7,7 +7,7 @@ exports[`OrderDeliveryDate component snapshots for different order statuses Rend
   <p
     class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
   >
-    Delivered on 22 February 2022
+    Delivered on 24 February 2022
   </p>
 </DocumentFragment>
 `;

@@ -22,7 +22,7 @@ export const CartProductCard = ({ product, openModal, setModalProduct }) => {
   const checboxHandler = () => {
     dispatch(selectProduct({ product }));
   };
-  const { image = noImg, name, price, discountPrice } = product;
+  const { images, name, price, discountPrice } = product;
 
   return (
     <div className={styles.cardContainer}>
@@ -35,7 +35,7 @@ export const CartProductCard = ({ product, openModal, setModalProduct }) => {
       <Card className={styles.card}>
         <CardMedia
           component="img"
-          image={image}
+          image={images?.length ? images[0] : noImg}
           alt={name}
           className={styles.image}
         />
