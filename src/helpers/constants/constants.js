@@ -57,4 +57,12 @@ export const MODAL_SIZES = {
   NORMAL: 'normal',
   SMALL: 'small',
 };
+
 export const laptopBreakPoint = 700;
+
+export const BREAK_POINT = {
+  SM: 600,
+  LAPTOP: 700,
+};
+
+export const HEADER_HEIGHT = 60;

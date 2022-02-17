@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 import './assets/styles/index.scss';
 import App from './components/App/App';
+import ToastContainer from './components/ToastContainer/ToastContainer';
 import { store } from './store/store';
 
 const theme = createTheme({
@@ -22,24 +22,6 @@ const theme = createTheme({
   },
 });
 
-const toastConfiguration = {
-  position: 'top-right',
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  newestOnTop: false,
-  rtl: false,
-  pauseOnFocusLoss: true,
-  theme: 'colored',
-};
-
-const styleToast = {
-  fontSize: '1.6rem',
-};
-
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
@@ -47,7 +29,7 @@ ReactDOM.render(
         <BrowserRouter>
           <App />
         </BrowserRouter>
-        <ToastContainer {...toastConfiguration} style={styleToast} />
+        <ToastContainer />
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,
