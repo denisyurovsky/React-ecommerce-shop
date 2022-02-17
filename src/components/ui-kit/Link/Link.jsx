@@ -12,11 +12,13 @@ const Link = ({
   color,
   isWhite = false,
   isUppercase = false,
+  isCentered = false,
 }) => {
   const classes = classNames({
     [styles.link]: true,
     [styles.white]: isWhite,
     [styles.uppercase]: isUppercase,
+    [styles.centered]: isCentered,
   });
 
   return (
@@ -43,6 +45,7 @@ Link.propTypes = {
   color: PropTypes.string,
   isWhite: PropTypes.bool,
   isUppercase: PropTypes.bool,
+  isCentered: PropTypes.bool,
 };
 
 export default Link;

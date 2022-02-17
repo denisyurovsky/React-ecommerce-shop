@@ -1,24 +1,15 @@
 @import "../../../../assets//styles/colors.scss";
+@import "../../../../assets//styles/variables.scss";
 
 .container {
-  height: 60px !important;
-  width: 50px !important;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
+  height: $headerHeight;
+  width: 50px;
+  margin-right: 10px;
 }
 
 .container:hover {
   background-color: transparentize($greyLight, 0.85);
-  cursor: pointer;
-}
-
-.ref {
-  position: absolute;
-  height: 24px !important;
-  width: 24px !important;
 }
 
 .counter {

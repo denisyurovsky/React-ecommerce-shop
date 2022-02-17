@@ -1,10 +1,10 @@
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { pathNames } from '../../../../helpers/constants/pathNames/pathNames';
 import { selectCart } from '../../../../store/cart/cartSlice';
+import Link from '../../../ui-kit/Link/Link';
 
 import styles from './ShoppingCart.module.scss';
 
@@ -13,11 +13,12 @@ export const ShoppingCart = () => {
 
   return (
     <div className={styles.container}>
-      <Link to={pathNames.CART} className={styles.ref} />
-      <ShoppingBasketIcon className={styles.cart} />
-      {cart.totalQuantity !== 0 && (
-        <p className={styles.counter}>{cart.totalQuantity}</p>
-      )}
+      <Link to={pathNames.CART} isWhite isCentered>
+        <ShoppingBasketIcon className={styles.cart} />
+        {cart.totalQuantity !== 0 && (
+          <p className={styles.counter}>{cart.totalQuantity}</p>
+        )}
+      </Link>
     </div>
   );
 };

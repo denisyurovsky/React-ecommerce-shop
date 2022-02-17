@@ -1,9 +1,10 @@
 @import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/variables.scss";
 
 .appBar {
   padding: 0 !important;
   margin: 0 !important;
-  height: 60px !important; // used in constants as HEADER_HEIGHT
+  height: $headerHeight !important;
   position: relative;
 }
 

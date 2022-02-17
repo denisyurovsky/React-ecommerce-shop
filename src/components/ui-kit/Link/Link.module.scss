@@ -7,6 +7,8 @@
   text-decoration: none;
   color: $primaryMain;
   background-color: transparent;
+  width: 100%;
+  height: 100%;
 
   &:hover {
     cursor: pointer;
@@ -18,5 +20,9 @@
 
   &.uppercase {
     text-transform: uppercase;
+  }
+
+  &.centered {
+    justify-content: center;
   }
 }
