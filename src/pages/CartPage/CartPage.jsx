@@ -1,5 +1,4 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Button, Modal, Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,6 +6,8 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { CartFooter } from '../../components/Cart/CartFooter/CartFooter';
 import { CartHeader } from '../../components/Cart/CartHeader/CartHeader';
 import { CartProductCards } from '../../components/Cart/CartProductCards/CartProductCards';
+import Modal from '../../components/ui-kit/Modal/Modal';
+import { MODAL_SIZES } from '../../helpers/constants/constants';
 import {
   deleteAllProducts,
   deleteProduct,
@@ -67,26 +68,18 @@ export const CartPage = () => {
         setModalProduct={setModalProduct}
       />
       <CartFooter buyHandler={buyHandler} />
-      <Modal open={open} onClose={closeModal} className={styles.modal}>
-        <Box className={styles.modalInner}>
-          <CloseIcon className={styles.closeIcon} onClick={closeModal} />
-          <Typography align="center" className={styles.modalText}>
-            Are you sure you whant to remove{' '}
-            {modalProduct ? modalProduct.name : 'all products'} from the cart?
-          </Typography>
-          <Box className={styles.modalButtons}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleConfirmation}
-            >
-              Yes
-            </Button>
-            <Button variant="outlined" color="primary" onClick={closeModal}>
-              No
-            </Button>
-          </Box>
-        </Box>
+      <Modal
+        isOpen={open}
+        onClose={closeModal}
+        onConfirm={handleConfirmation}
+        cancelButtonLabel="No"
+        actionButtonLabel="Yes"
+        size={MODAL_SIZES.SMALL}
+      >
+        <Typography align="center">
+          Are you sure you want to remove&nbsp;
+          {modalProduct ? modalProduct.name : 'all products'} from the cart?
+        </Typography>
       </Modal>
     </div>
   );

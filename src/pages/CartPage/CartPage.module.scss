@@ -1,51 +1,15 @@
 @import "../../assets/styles/colors.scss";
 
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-.modalInner {
-  padding: 40px 20px;
-  position: relative;
-  width: 40%;
-  max-width: 600px;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 20px $grey700;
-  background-color: $white;
-  border-radius: 4px;
-}
-
 .page {
   width: 100%;
-}
-
-.closeIcon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
-.closeIcon:hover {
-  cursor: pointer;
 }
 
 .modalButtons {
   width: 30%;
   min-width: 150px;
+  margin: auto;
   margin-top: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.modalText {
-  font-size: 14px;
 }

@@ -1,4 +1,4 @@
-import { TextField, Container, Button } from '@mui/material';
+import { TextField, Box, Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -9,8 +9,6 @@ import {
 import LoadingButton from '../../../../ui-kit/buttons/LoadingButton.jsx';
 
 import ProductRating from './ProductRating';
-
-import styles from './feedbackForms.module.scss';
 
 const FeedbackForms = ({ sendForm, isLoading }) => {
   const [userName, setUserName] = useState('');
@@ -42,7 +40,7 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
   };
 
   return (
-    <Container className={styles.forms}>
+    <Box>
       <TextField
         sx={{ mb: 4 }}
         value={userName}
@@ -51,7 +49,6 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
         label="Enter your name"
         placeholder={DEFAULT_NAME}
         variant="standard"
-        margin="normal"
         fullWidth
       />
       <ProductRating value={rating} onChange={handleChange} />
@@ -79,7 +76,7 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
           Add feedback
         </Button>
       )}
-    </Container>
+    </Box>
   );
 };
 

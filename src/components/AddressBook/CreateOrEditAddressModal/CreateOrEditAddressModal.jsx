@@ -1,5 +1,3 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Box, Button, Modal, Typography, IconButton } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,10 +14,9 @@ import {
   editAddress,
 } from '../../../store/addresses/addressesSlice';
 import { getUser } from '../../../store/user/userSlice';
+import Modal from '../../ui-kit/Modal/Modal';
 import DeliveryAddress from '../DeliveryAddress/DeliveryAddress';
 import PersonalInformation from '../PersonalInformation/PersonalInformation';
-
-import styles from './CreateOrEditAddressModal.module.scss';
 
 const CreateOrEditAddressModal = ({
   modalType,
@@ -78,46 +75,27 @@ const CreateOrEditAddressModal = ({
     });
   };
 
+  const isAddAction = modalType === MODAL_TYPE.ADD;
+
   return (
     <Modal
-      className={styles.container}
-      open={isOpenModal}
+      isOpen={isOpenModal}
       onClose={handleCloseModal}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      title={isAddAction ? 'Add address' : 'Edit address'}
+      actionButtonLabel={isAddAction ? 'add' : 'save'}
+      onConfirm={isAddAction ? handleAdd : handleEdit}
+      isActionButtonDisabled={isDisabled}
     >
-      <Box component="form" className={styles.modal}>
-        <IconButton
-          className={styles.cross}
-          color="primary"
-          onClick={handleCloseModal}
-          size="small"
-        >
-          <CloseIcon />
-        </IconButton>
-        <Typography variant="h4" className={styles.title}>
-          {modalType === MODAL_TYPE.ADD ? 'Add address' : 'Edit address'}
-        </Typography>
-        <PersonalInformation
-          handleChange={handleChange}
-          setAddress={setAddress}
-          address={address}
-        />
-        <DeliveryAddress
-          handleChange={handleChange}
-          setAddress={setAddress}
-          address={address}
-        />
-        <Button
-          role="button"
-          onClick={modalType === MODAL_TYPE.ADD ? handleAdd : handleEdit}
-          variant="contained"
-          className={styles.button}
-          disabled={isDisabled}
-        >
-          {modalType === MODAL_TYPE.ADD ? 'add' : 'save'}
-        </Button>
-      </Box>
+      <PersonalInformation
+        handleChange={handleChange}
+        setAddress={setAddress}
+        address={address}
+      />
+      <DeliveryAddress
+        handleChange={handleChange}
+        setAddress={setAddress}
+        address={address}
+      />
     </Modal>
   );
 };

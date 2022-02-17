@@ -2,7 +2,7 @@ import {
   Checkbox,
   FormControlLabel,
   TextField,
-  Container,
+  Box,
   Button,
 } from '@mui/material';
 import PropTypes from 'prop-types';
@@ -59,7 +59,7 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
   const prepareToSend = () => sendForm({ password, email });
 
   return (
-    <Container>
+    <Box>
       <TextField
         error={isError}
         helperText={isError ? errorMessage : null}
@@ -98,7 +98,7 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
           Sign in
         </Button>
       )}
-    </Container>
+    </Box>
   );
 };
 

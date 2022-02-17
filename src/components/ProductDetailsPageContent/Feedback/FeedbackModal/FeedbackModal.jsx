@@ -1,5 +1,4 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Button, IconButton, Modal, Box } from '@mui/material';
+import { Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,10 +8,9 @@ import { FETCH } from '../../../../helpers/constants/constants';
 import { usePermission } from '../../../../hooks/usePermission/usePermission';
 import { postNewComment } from '../../../../store/feedback/feedbackSlice';
 import { setProductRating } from '../../../../store/products/productsSlice';
+import Modal from '../../../ui-kit/Modal/Modal';
 
 import FeedbackForms from './FeedbackForms/FeedbackForms';
-
-import styles from './feedbackModal.module.scss';
 
 const { PENDING, FULFILLED, REJECTED } = FETCH;
 
@@ -61,21 +59,8 @@ const FeedbackModal = ({ productId }) => {
           Add new feedback
         </Button>
       )}
-      <Modal open={open} onClose={handleClose} className={styles.container}>
-        <Box className={styles.modal}>
-          <IconButton
-            className={styles.cross}
-            color="primary"
-            onClick={handleClose}
-            size="small"
-          >
-            <CloseIcon />
-          </IconButton>
-          <FeedbackForms
-            sendForm={sendForm}
-            isLoading={postStatus === PENDING}
-          />
-        </Box>
+      <Modal isOpen={open} onClose={handleClose}>
+        <FeedbackForms sendForm={sendForm} isLoading={postStatus === PENDING} />
       </Modal>
     </>
   );

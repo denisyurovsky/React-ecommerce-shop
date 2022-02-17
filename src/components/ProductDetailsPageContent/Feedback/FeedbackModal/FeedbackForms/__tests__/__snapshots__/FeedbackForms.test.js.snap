@@ -3,10 +3,10 @@
 exports[`FeedbackForms snapshot: should render a valid snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg forms css-1oqqzyl-MuiContainer-root"
+    class="MuiBox-root css-0"
   >
     <div
-      class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-1h06ru-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-15md48e-MuiFormControl-root-MuiTextField-root"
     >
       <label
         class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root"

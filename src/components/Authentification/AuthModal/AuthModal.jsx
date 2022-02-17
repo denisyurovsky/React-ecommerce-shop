@@ -1,9 +1,9 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Tabs, Tab, Box, Modal, IconButton, Button } from '@mui/material';
+import { Tabs, Tab, Box, Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import { authStatus } from '../../../helpers/constants/authConstants';
+import Modal from '../../ui-kit/Modal/Modal';
 
 import Registration from './Registration/Registration';
 import SignIn from './SignIn/SignIn';
@@ -47,51 +47,40 @@ const AuthModal = ({
       >
         Sign in
       </Button>
-      <Modal open={open} onClose={handleClose} className={styles.container}>
-        <Box className={styles.modal}>
-          <Box>
-            <Tabs
-              centered
-              value={value}
-              onChange={handleChange}
-              textColor="primary"
-              indicatorColor="primary"
-            >
-              <Tab
-                label="Sign in"
-                value="old"
-                sx={{ width: 0.25, minWidth: 100 }}
-              />
-              <Tab
-                label="Sign up"
-                value="new"
-                sx={{ width: 0.25, minWidth: 100 }}
-              />
-            </Tabs>
-            <IconButton
-              className={styles.cross}
-              color="primary"
-              onClick={handleClose}
-              size="small"
-            >
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          <Box className={styles.forms}>
-            {value === 'new' ? (
-              <Registration
-                sendForm={registerUser}
-                status={registerStatus}
-                errorMessage={registerErrorMessage}
-              />
-            ) : (
-              <SignIn
-                sendForm={loginUser}
-                status={loginStatus}
-                errorMessage={loginErrorMessage}
-              />
-            )}
-          </Box>
+      <Modal isOpen={open} onClose={handleClose}>
+        <Tabs
+          centered
+          value={value}
+          onChange={handleChange}
+          textColor="primary"
+          indicatorColor="primary"
+          className={styles.navigation}
+        >
+          <Tab
+            label="Sign in"
+            value="old"
+            sx={{ width: 0.25, minWidth: 100 }}
+          />
+          <Tab
+            label="Sign up"
+            value="new"
+            sx={{ width: 0.25, minWidth: 100 }}
+          />
+        </Tabs>
+        <Box className={styles.content}>
+          {value === 'new' ? (
+            <Registration
+              sendForm={registerUser}
+              status={registerStatus}
+              errorMessage={registerErrorMessage}
+            />
+          ) : (
+            <SignIn
+              sendForm={loginUser}
+              status={loginStatus}
+              errorMessage={loginErrorMessage}
+            />
+          )}
         </Box>
       </Modal>
     </>

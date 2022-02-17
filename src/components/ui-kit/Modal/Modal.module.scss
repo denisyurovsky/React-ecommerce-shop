@@ -1,0 +1,116 @@
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets//styles/breakpoints.scss";
+@import "../../../assets/styles/zIndex.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 600px;
+  min-width: 300px;
+  max-height: 600px;
+  box-shadow: 0 0 20px $grey700;
+  background-color: $white;
+  border-radius: 4px;
+  padding: 3.5rem 3rem 3rem;
+}
+
+.modalSmall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  min-width: 300px;
+  min-height: 200px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.modalWithLabel {
+  padding-top: 1.2rem;
+}
+
+.title {
+  margin: 0 2rem 3rem 0 !important;
+  max-height: 65px;
+  overflow: hidden;
+}
+
+.titleCenter {
+  font-size: 2rem;
+  font-weight: 500;
+  max-height: 65px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.cross {
+  position: absolute !important;
+  right: 0.4rem;
+  top: 0.4rem;
+  z-index: $modal;
+}
+
+.crossWithLabel {
+  top: 1.2rem;
+}
+
+.modalButtons {
+  width: 100%;
+  min-width: 150px;
+  margin-top: 4rem;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: $lg) {
+  .modal {
+    max-width: 550px;
+  }
+
+  .modalSmall {
+    width: 350px;
+  }
+}
+
+@media (max-width: $md) {
+  .modal {
+    width: 80%;
+  }
+
+  .modalSmall {
+    width: 350px;
+  }
+}
+
+@media (max-width: $sm) {
+  .modal {
+    padding: 2rem;
+  }
+
+  .modalSmall {
+    width: 300px;
+  }
+
+  .cross {
+    right: 0.1rem;
+    top: 0.1rem;
+    padding: 0 !important;
+  }
+
+  .crossWithLabel {
+    top: 1rem;
+    right: 0.5rem;
+  }
+}

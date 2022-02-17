@@ -1,38 +1,20 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { IconButton } from '@mui/material';
-import Box from '@mui/material/Box';
-import ModalMui from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from './AuthExpirationModal.module.scss';
+import ModalWindow from '../ui-kit/Modal/Modal';
 
 const Modal = ({ handleClose, isOpenModal }) => (
-  <ModalMui
-    open={isOpenModal}
+  <ModalWindow
+    isOpen={isOpenModal}
     onClose={handleClose}
-    aria-labelledby="modal-modal-title"
-    aria-describedby="modal-modal-description"
+    title="Attention."
+    size="small"
   >
-    <Box className={styles.box}>
-      <Typography id="modal-modal-title" variant="h6" component="h2">
-        Attention.
-      </Typography>
-      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-        The session has expired. Please login again.
-      </Typography>
-      <IconButton
-        data-testid="btn-close-modal"
-        className={styles.cross}
-        color="primary"
-        onClick={handleClose}
-        size="small"
-      >
-        <CloseIcon />
-      </IconButton>
-    </Box>
-  </ModalMui>
+    <Typography id="modal-modal-description">
+      The session has expired. Please login again.
+    </Typography>
+  </ModalWindow>
 );
 
 Modal.propTypes = {

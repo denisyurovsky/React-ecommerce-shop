@@ -55,3 +55,8 @@ export const KEYS = {
 };
 
 export const CHECK_TOKEN_EXPIRATION_FREQUENCY = 30000;
+
+export const MODAL_SIZES = {
+  NORMAL: 'normal',
+  SMALL: 'small',
+};

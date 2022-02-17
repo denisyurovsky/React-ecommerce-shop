@@ -1,36 +1,20 @@
-@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/breakpoints.scss";
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
+.navigation {
+  margin-top: -2rem;
 }
 
-.modal {
-  position: relative;
-  width: 40%;
-  max-width: 600px;
-  min-width: 300px;
-  box-shadow: 0 0 20px $grey700;
-  background-color: $white;
-  border-radius: 4px;
+.content {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.cross {
-  position: absolute !important;
-  top: 5px;
-  right: 5px;
-}
+@media (max-width: $sm) {
+  .content {
+    padding: 0;
+  }
 
-.forms {
-  padding: 40px;
-  padding-top: 16px;
-}
-
-@media (max-width: 575px) {
-  .forms {
-    padding: 16px;
+  .navigation {
+    margin-top: -1rem;
   }
 }

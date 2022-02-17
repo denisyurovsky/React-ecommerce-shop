@@ -1,4 +1,4 @@
-import { Container, Box, TextField, Button } from '@mui/material/';
+import { Box, TextField, Button } from '@mui/material/';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -114,7 +114,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
   const emailMessage = isServerError ? errorMessage : 'Email is invalid';
 
   return (
-    <Container>
+    <Box>
       <TextField
         onChange={onFirstNameChange}
         value={values.firstName}
@@ -175,7 +175,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
           Sign up
         </Button>
       )}
-    </Container>
+    </Box>
   );
 };
 

@@ -70,7 +70,7 @@ describe('App component', () => {
     it('should close modal and make logout', async () => {
       renderWithStore(AppWithRouter);
       expect(await screen.findByText('Attention.')).toBeInTheDocument();
-      const closeModalBtn = await screen.findByTestId('btn-close-modal');
+      const closeModalBtn = await screen.findByTestId('CloseIcon');
 
       delete window.location;
       window.location = { reload: jest.fn() };
