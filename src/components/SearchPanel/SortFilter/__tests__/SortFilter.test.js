@@ -13,7 +13,11 @@ describe('SortFilter component', () => {
     it('renders a valid snapshot', () => {
       const setSearchParams = jest.fn();
       const { asFragment } = render(
-        <SortFilter setSearchParams={setSearchParams} />
+        <SortFilter
+          fullWidth
+          selectedSortType={{ field: 'createdAt', order: 'desc' }}
+          setSearchParams={setSearchParams}
+        />
       );
 
       expect(asFragment()).toMatchSnapshot();
@@ -24,7 +28,13 @@ describe('SortFilter component', () => {
       let data;
       const setSearchParams = jest.fn((func) => (data = func()));
 
-      render(<SortFilter setSearchParams={setSearchParams} />);
+      render(
+        <SortFilter
+          fullWidth
+          selectedSortType={{ field: 'createdAt', order: 'desc' }}
+          setSearchParams={setSearchParams}
+        />
+      );
 
       const select = screen.getByRole('combobox');
 

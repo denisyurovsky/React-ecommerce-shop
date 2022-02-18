@@ -47,7 +47,7 @@ describe('Search component', () => {
 
       userEvent.type(inputElement, 'test');
       userEvent.click(button);
-      expect(data.text).toEqual('test');
+      expect(data.q).toEqual('test');
     });
   });
 });

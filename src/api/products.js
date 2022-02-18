@@ -3,11 +3,10 @@ import buildSearchQuery from '../helpers/buildSearchQuery';
 import { http } from './setup';
 
 export function getSomeProducts(searchParams) {
-  const { entity, filters, sort, text, currentPage, itemsPerPage } =
-    searchParams;
+  const { entity, filters, sort, q, currentPage, itemsPerPage } = searchParams;
 
   return http.get(
-    buildSearchQuery(entity, filters, sort, text, currentPage, itemsPerPage)
+    buildSearchQuery(entity, filters, sort, q, currentPage, itemsPerPage)
   );
 }
 

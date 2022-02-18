@@ -10,8 +10,31 @@ import {
   sortObj,
 } from '../../../pages/ProductListPage/constants/constants';
 
-export default function SortFilter({ setSearchParams, fullWidth }) {
-  const [sort, setSort] = useState(sortTypes.NEW_FIRST);
+export default function SortFilter({
+  setSearchParams,
+  fullWidth,
+  selectedSortType,
+}) {
+  const convertSortObjectIntoString = (selectedSortType) => {
+    if (selectedSortType.field === sortObj[sortTypes.NEW_FIRST].field) {
+      if (selectedSortType.order === sortObj[sortTypes.NEW_FIRST].order) {
+        return sortTypes.NEW_FIRST;
+      } else {
+        return sortTypes.OLD_FIRST;
+      }
+    }
+    if (selectedSortType.field === sortObj[sortTypes.EXPENSIVE_FIRST].field) {
+      if (selectedSortType.order === sortObj[sortTypes.EXPENSIVE_FIRST].order) {
+        return sortTypes.EXPENSIVE_FIRST;
+      } else {
+        return sortTypes.CHEAP_FIRST;
+      }
+    }
+  };
+
+  const [sort, setSort] = useState(
+    convertSortObjectIntoString(selectedSortType)
+  );
 
   const handleChange = (event) => {
     setSort(event.target.value);
@@ -51,4 +74,5 @@ export default function SortFilter({ setSearchParams, fullWidth }) {
 SortFilter.propTypes = {
   setSearchParams: PropTypes.func.isRequired,
   fullWidth: PropTypes.bool.isRequired,
+  selectedSortType: PropTypes.object,
 };

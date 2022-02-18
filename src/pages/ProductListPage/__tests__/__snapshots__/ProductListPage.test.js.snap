@@ -269,7 +269,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
   <h6
     class="MuiTypography-root MuiTypography-subtitle2 found css-a2zpya-MuiTypography-root"
   >
-    Found: 6 items
+    Found: 6 items
   </h6>
   <div
     class="cardsContainer"
@@ -2284,7 +2284,7 @@ exports[`ProductListPage component Render without data should render a valid sna
   <h6
     class="MuiTypography-root MuiTypography-subtitle2 found css-a2zpya-MuiTypography-root"
   >
-    Found: 0 items
+    Found: 0 items
   </h6>
   <div
     class="cardsContainer"

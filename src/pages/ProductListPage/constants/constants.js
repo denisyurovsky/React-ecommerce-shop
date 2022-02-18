@@ -25,4 +25,14 @@ export const BreadcrumbsLinks = [
 ];
 
 export const NUMBER_ITEMS_ON_PAGE = 20;
+
 export const MOBILE_WIDTH = 540;
+
+export const defaultParams = {
+  entity: 'products',
+  filters: null,
+  sort: sortObj[sortTypes.NEW_FIRST],
+  currentPage: 1,
+  itemsPerPage: NUMBER_ITEMS_ON_PAGE,
+  q: '',
+};

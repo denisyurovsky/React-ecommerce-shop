@@ -6,16 +6,16 @@ import React, { useState } from 'react';
 
 import styles from './FreeTextFilter.module.scss';
 
-const FreeTextFilter = ({ className, setSearchParams }) => {
-  const [value, setValue] = useState('');
+const FreeTextFilter = ({ className, setSearchParams, selectedText }) => {
+  const [value, setValue] = useState(selectedText);
   const handleOnSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const text = formData.get('searchValue');
+    const q = formData.get('searchValue');
 
     setSearchParams((prev) => ({
       ...prev,
-      text,
+      q,
       currentPage: 1,
     }));
   };
@@ -55,6 +55,7 @@ const FreeTextFilter = ({ className, setSearchParams }) => {
 
 FreeTextFilter.propTypes = {
   setSearchParams: PropTypes.func.isRequired,
+  selectedText: PropTypes.string,
   className: PropTypes.string,
 };
 

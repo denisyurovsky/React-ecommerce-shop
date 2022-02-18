@@ -17,8 +17,14 @@ export const CategoryFilter = ({
   errorOccurred,
   className,
   setSearchParams,
+  selectedCategory,
 }) => {
-  const [category, setCategory] = useState(allCategories[0]);
+  let select =
+    typeof selectedCategory === 'object' && selectedCategory !== null
+      ? Object.values(selectedCategory)[0]
+      : allCategories[0];
+
+  const [category, setCategory] = useState(select);
 
   const handleSelectChange = (e) => {
     setCategory(e.target.value);
@@ -73,6 +79,7 @@ CategoryFilter.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   errorOccurred: PropTypes.bool.isRequired,
   className: PropTypes.string,
+  selectedCategory: PropTypes.object,
 };
 
 export default CategoryFilter;

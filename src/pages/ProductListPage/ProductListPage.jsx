@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import PaginationBlock from '../../components/Pagination/Pagination';
@@ -10,6 +11,8 @@ import { CategoryFilter } from '../../components/SearchPanel/CategoryFilter/Cate
 import FreeTextFilter from '../../components/SearchPanel/FreeTextFilter/FreeTextFilter';
 import SortFilter from '../../components/SearchPanel/SortFilter/SortFilter';
 import { ALL_CATEGORIES } from '../../constants/constants';
+import buildSearchQuery from '../../helpers/buildSearchQuery';
+import { convertUrlParametersToObj } from '../../helpers/convertUrlParametersToObj';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import {
   getCategories,
@@ -21,28 +24,46 @@ import {
 } from '../../store/products/productsSlice';
 
 import {
-  sortTypes,
-  pageView,
-  sortObj,
-  NUMBER_ITEMS_ON_PAGE,
   BreadcrumbsLinks,
+  defaultParams,
   MOBILE_WIDTH,
+  NUMBER_ITEMS_ON_PAGE,
+  pageView,
 } from './constants/constants';
 
 import styles from './ProductListPage.module.scss';
 
 const ProductListPage = () => {
+  const location = useLocation();
+
+  let tempObjFromQuery = null;
+
+  if (location.search) {
+    tempObjFromQuery = convertUrlParametersToObj(location.search);
+  }
+
+  const objFromQuery = tempObjFromQuery
+    ? {
+        entity: 'products',
+        currentPage: Number(tempObjFromQuery._page),
+        q: tempObjFromQuery.q ?? undefined,
+        filters: tempObjFromQuery['category.name']
+          ? [{ 'category.name': tempObjFromQuery['category.name'] }]
+          : null,
+        itemsPerPage: Number(tempObjFromQuery._limit),
+        sort: { field: tempObjFromQuery._sort, order: tempObjFromQuery._order },
+      }
+    : null;
+
   const [cardShape, setCardShape] = useState(pageView.LIST_VIEW);
-  const [searchParams, setSearchParams] = useState({
-    entity: 'products',
-    filters: null,
-    sort: sortObj[sortTypes.NEW_FIRST],
-    currentPage: 1,
-    itemsPerPage: NUMBER_ITEMS_ON_PAGE,
-    text: null,
-  });
+  const [searchParams, setSearchParams] = useState(
+    objFromQuery || defaultParams
+  );
+
   const { width } = useWindowSize();
   const isMobile = width <= MOBILE_WIDTH;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isMobile) {
@@ -56,9 +77,32 @@ const ProductListPage = () => {
     dispatch(getCategories());
   }, [dispatch]);
 
+  const { entity, filters, sort, q, currentPage, itemsPerPage } = searchParams;
+
   useEffect(() => {
+    const query = buildSearchQuery(
+      entity,
+      filters,
+      sort,
+      q,
+      currentPage,
+      itemsPerPage
+    );
+
+    navigate(query);
+
     dispatch(getProducts(searchParams));
-  }, [dispatch, searchParams]);
+  }, [
+    currentPage,
+    dispatch,
+    entity,
+    filters,
+    itemsPerPage,
+    navigate,
+    q,
+    searchParams,
+    sort,
+  ]);
 
   const products = useSelector(selectProducts);
   const categories = useSelector(selectCategories);
@@ -68,11 +112,20 @@ const ProductListPage = () => {
     products.totalCountProducts / NUMBER_ITEMS_ON_PAGE
   );
 
+  let selectedCategory = null;
+
+  if (Array.isArray(searchParams.filters) && searchParams.filters.length) {
+    selectedCategory = searchParams.filters[0];
+  }
+
+  const { totalCountProducts } = products;
+
   return (
     <>
       <Breadcrumbs className={styles.breadcrumbs} links={BreadcrumbsLinks} />
       <div className={styles.searchBlock}>
         <CategoryFilter
+          selectedCategory={selectedCategory}
           className={styles.filter}
           allCategories={allCategories}
           isLoading={categories.isLoading}
@@ -80,6 +133,7 @@ const ProductListPage = () => {
           setSearchParams={setSearchParams}
         />
         <FreeTextFilter
+          selectedText={q}
           className={styles.search}
           setSearchParams={setSearchParams}
         />
@@ -92,10 +146,16 @@ const ProductListPage = () => {
             className={styles.toggle}
           />
         )}
-        <SortFilter setSearchParams={setSearchParams} fullWidth={isMobile} />
+        <SortFilter
+          selectedSortType={sort}
+          setSearchParams={setSearchParams}
+          fullWidth={isMobile}
+        />
       </div>
       <Typography className={styles.found} color="primary" variant="subtitle2">
-        Found: {products.totalCountProducts} items
+        Found:&nbsp;
+        {totalCountProducts}
+        &nbsp;items
       </Typography>
       <div className={styles.cardsContainer}>
         <CardsContainer
@@ -109,7 +169,7 @@ const ProductListPage = () => {
         className={styles.pagination}
         pageCount={pageCount}
         setSearchParams={setSearchParams}
-        currentPage={searchParams.currentPage}
+        currentPage={searchParams.currentPage ?? 1}
       />
     </>
   );
