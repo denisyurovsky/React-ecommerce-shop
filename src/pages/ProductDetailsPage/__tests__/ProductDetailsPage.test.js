@@ -51,8 +51,8 @@ describe('ProductDetailsPage component', () => {
     expect(screen.getByTestId('load')).toBeInTheDocument();
 
     expect(
-      await screen.findByText(/Intelligent Cotton Pants/i)
-    ).toBeInTheDocument();
+      await screen.findAllByText(/Intelligent Cotton Pants/i)
+    ).toHaveLength(2);
 
     serverFulfilled.close();
   });

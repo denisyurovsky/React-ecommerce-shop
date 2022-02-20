@@ -9,6 +9,7 @@ import { getRatingByProductId } from '../../store/products/productsSlice';
 import { getWishlist } from '../../store/user/userSlice';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import AddToWishListButton from '../AddToWishListButton/AddToWishListButton';
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 import Carousel from '../Carousel/Carousel';
 import { DiscountLabel } from '../DiscountLabel/DiscountLabel';
 import { ProductPrice } from '../ProductPrice/ProductPrice';
@@ -35,9 +36,18 @@ const ProductDetailsPageContent = ({ product }) => {
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
   const wishlist = useSelector(getWishlist);
   const isWished = (productId, wishlist) => new Set(wishlist).has(productId);
+  const links = [
+    { url: '/', text: 'Home' },
+    { url: '/products', text: 'Products' },
+    {
+      url: `/products/${id}`,
+      text: `${name}`,
+    },
+  ];
 
   return (
     <Container>
+      <Breadcrumbs links={links} />
       <Card className={styles.card}>
         <Box className={styles.title}>
           <Box className={styles.subTitle}>

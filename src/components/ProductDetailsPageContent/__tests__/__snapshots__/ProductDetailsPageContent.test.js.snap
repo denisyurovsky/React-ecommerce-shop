@@ -6,6 +6,62 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
   >
     <div
+      class="breadcrumbs"
+      role="presentation"
+    >
+      <nav
+        aria-label="breadcrumb"
+        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      >
+        <ol
+          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+        >
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="breadcrumb"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="breadcrumb"
+              href="/products"
+            >
+              Products
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="breadcrumb"
+              href="/products/0"
+            >
+              Intelligent Cotton Pants
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
     >
       <div
