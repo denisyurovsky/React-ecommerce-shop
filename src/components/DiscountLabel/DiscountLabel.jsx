@@ -7,6 +7,10 @@ import { formatDiscountInPercents } from '../../helpers/formatData';
 import styles from './DiscountLabel.module.scss';
 
 export const DiscountLabel = ({ price, discountPrice }) => {
+  if (!discountPrice) {
+    return null;
+  }
+
   return (
     <Typography className={styles.label}>
       {formatDiscountInPercents(price, discountPrice)}

@@ -16,6 +16,9 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
           class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
           src="noImg.png"
         />
+        <div
+          class="discountLabel MuiBox-root css-0"
+        />
       </div>
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -305,6 +308,9 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
           class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
           src="noImg.png"
         />
+        <div
+          class="discountLabel MuiBox-root css-0"
+        />
       </div>
       <div
         class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -593,6 +599,9 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
           alt="Incredible Metal Shoes"
           class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
           src="noImg.png"
+        />
+        <div
+          class="discountLabel MuiBox-root css-0"
         />
       </div>
       <div

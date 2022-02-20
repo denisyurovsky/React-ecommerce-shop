@@ -288,6 +288,9 @@ exports[`ProductListPage component Render with data should render a valid snapsh
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
             src="noImg.png"
           />
+          <div
+            class="discountLabel MuiBox-root css-0"
+          />
         </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -555,6 +558,9 @@ exports[`ProductListPage component Render with data should render a valid snapsh
             alt="Incredible Plastic Table"
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
             src="noImg.png"
+          />
+          <div
+            class="discountLabel MuiBox-root css-0"
           />
         </div>
         <div
@@ -824,6 +830,9 @@ exports[`ProductListPage component Render with data should render a valid snapsh
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
             src="noImg.png"
           />
+          <div
+            class="discountLabel MuiBox-root css-0"
+          />
         </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -1092,6 +1101,9 @@ exports[`ProductListPage component Render with data should render a valid snapsh
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
             src="noImg.png"
           />
+          <div
+            class="discountLabel MuiBox-root css-0"
+          />
         </div>
         <div
           class="MuiCardContent-root description css-46bh2p-MuiCardContent-root"
@@ -1359,6 +1371,9 @@ exports[`ProductListPage component Render with data should render a valid snapsh
             alt="Incredible Metal Chair"
             class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img image css-o69gx8-MuiCardMedia-root"
             src="noImg.png"
+          />
+          <div
+            class="discountLabel MuiBox-root css-0"
           />
         </div>
         <div

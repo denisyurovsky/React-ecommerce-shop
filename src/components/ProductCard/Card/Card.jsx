@@ -56,11 +56,9 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
           className={styles.image}
           alt={name}
         />
-        {discountPrice && (
-          <Box className={styles.discountLabel}>
-            <DiscountLabel price={price} discountPrice={discountPrice} />
-          </Box>
-        )}
+        <Box className={styles.discountLabel}>
+          <DiscountLabel price={price} discountPrice={discountPrice} />
+        </Box>
       </Box>
       <CardContent className={styles.description}>
         <Link to={`${pathNames.PRODUCTS}/${id}`} className={styles.title}>

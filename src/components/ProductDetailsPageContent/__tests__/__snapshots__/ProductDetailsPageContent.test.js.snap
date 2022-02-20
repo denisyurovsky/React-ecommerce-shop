@@ -139,13 +139,7 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
           </div>
           <div
             class="labelContainer MuiBox-root css-0"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-body1 label css-ahj2mt-MuiTypography-root"
-            >
-              NaN %
-            </p>
-          </div>
+          />
         </div>
         <div
           class="buy MuiBox-root css-0"
