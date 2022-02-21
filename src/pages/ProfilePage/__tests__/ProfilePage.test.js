@@ -7,6 +7,8 @@ import render, { screen } from '../../../test-utils/renderWith';
 import ProfilePage from '../ProfilePage';
 
 const waitForProfile = () => screen.findByTestId('profile');
+const waitForProducts = () => screen.findByText('There are no products');
+const waitForFeedbacks = () => screen.findByTestId('comments');
 const preloadedState = { user: users[1] };
 
 const server = setupServer(
@@ -39,6 +41,7 @@ describe('ProfilePage component', () => {
 
     await waitForProfile();
     expect(await screen.findByText('Elon Musk')).toBeInTheDocument();
+    await waitForProducts();
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -52,6 +55,7 @@ describe('ProfilePage component', () => {
 
     await waitForProfile();
     expect(await screen.findByText('Joe Doe')).toBeInTheDocument();
+    await waitForFeedbacks();
     expect(asFragment()).toMatchSnapshot();
   });
 
