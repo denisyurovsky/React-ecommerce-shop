@@ -20,5 +20,8 @@ exports[`NavigationList component snapshots renders a valid snapshot 1`] = `
       products
     </a>
   </ul>
+  <div
+    class="Toastify"
+  />
 </DocumentFragment>
 `;

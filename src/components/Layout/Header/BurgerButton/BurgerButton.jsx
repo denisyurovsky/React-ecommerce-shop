@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 
-import { LINKS } from './constants/constants';
-
 import styles from './BurgerButton.module.scss';
 
 export const BurgerButton = () => {
@@ -40,7 +38,7 @@ export const BurgerButton = () => {
           />
         </svg>
       </button>
-      <MobileNavigation items={LINKS} ref={navigationContainerRef} />
+      <MobileNavigation ref={navigationContainerRef} />
     </div>
   );
 };

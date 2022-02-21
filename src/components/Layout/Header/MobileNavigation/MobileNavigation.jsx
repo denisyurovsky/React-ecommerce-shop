@@ -1,20 +1,35 @@
 import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
+import { useSelector } from 'react-redux';
 
+import { USER_ROLE } from '../../../../helpers/constants/constants';
+import { pathNames } from '../../../../helpers/constants/pathNames/pathNames';
+import { getUserRole } from '../../../../store/user/userSlice';
 import { NavigationItem } from '../NavigationItem/NavigationItem';
 
 import styles from './MobileNavigation.module.scss';
 
 const MobileNavigation = forwardRef((props, ref) => {
+  const userRole = useSelector(getUserRole);
+
+  const navItems = [
+    { title: 'HOME', path: '/' },
+    { title: 'PRODUCTS', path: pathNames.PRODUCTS },
+  ];
+
+  if (userRole === USER_ROLE.ADMIN || userRole === USER_ROLE.SELLER) {
+    navItems.push({ title: 'ADMIN', path: pathNames.ADMIN });
+  }
+
   return (
     <ul
       data-testid="header-mobile-navigation"
       ref={ref}
       className={styles.container}
     >
-      {props.items.map((item) => (
-        <NavigationItem key={item.name} path={item.link}>
-          {item.name}
+      {navItems.map((item) => (
+        <NavigationItem key={item.title} path={item.path}>
+          {item.title}
         </NavigationItem>
       ))}
     </ul>
