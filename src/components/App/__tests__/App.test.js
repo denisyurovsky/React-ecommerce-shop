@@ -58,7 +58,7 @@ describe('App component', () => {
         <App />
       </Router>
     );
-    expect(screen.getByText(/Page Not Found/i)).toBeInTheDocument();
+    expect(screen.getByText(/oooops!/i)).toBeInTheDocument();
   });
 
   describe('should check access token', () => {

@@ -44,6 +44,6 @@ describe('ProtectedRoute', () => {
 
   it('should show "NotFoundPage"', () => {
     render(<TestApp role={USER_ROLE.GUEST} />);
-    expect(screen.getByText(/page not found/i)).toBeInTheDocument();
+    expect(screen.getByText(/oooops!/i)).toBeInTheDocument();
   });
 });

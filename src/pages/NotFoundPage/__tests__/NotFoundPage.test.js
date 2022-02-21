@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -15,11 +15,5 @@ describe('NotFoundPage component', () => {
     });
 
     expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('renders "Go to home page" as a link to app home page', () => {
-    const courseLink = screen.getByText(/home page/i);
-
-    expect(courseLink.getAttribute('href')).toBe('/');
   });
 });

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { ReactComponent as NotFoundPageLogo } from '../../assets/images/NotFoundPageLogo.svg';
 
 import styles from './NotFoundPage.module.scss';
 
 export function NotFoundPage() {
   return (
     <div className={styles.container}>
-      <p className={styles.title}>Page Not Found</p>
-      <p>The page you are looking for could not be found.</p>
-      <Link to={'/'}>Go to home page</Link>
+      <NotFoundPageLogo className={styles.svgIcon} />
+      <p className={styles.title}>oooops! we couldn&apos;t find this page</p>
+      <p className={styles.helperText}>Sorry for inconvenience</p>
     </div>
   );
 }

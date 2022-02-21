@@ -1,24 +1,38 @@
 @import "../../assets/styles/breakpoints.scss";
+@import "../../assets/styles/colors.scss";
 
-$headerHeight: 60px;
+$headerHeight: 100px;
 
-$footerHeightLarge: 64px;
-$footerHeightSmall: 56px;
+$footerHeightLarge: 100px;
+$footerHeightSmall: 60px;
+
+.title {
+  text-transform: uppercase;
+  font-size: 40px;
+  color: $greyText;
+  font-weight: 500;
+  margin-bottom: -12px;
+  letter-spacing: -1px;
+}
+
+.helperText {
+  font-size: 20px;
+  color: $greyText;
+}
 
 .container {
+  text-align: center;
   height: calc(100vh - #{$headerHeight} - #{$footerHeightLarge});
-  font-size: 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   @media screen and (max-width: $sm) {
+    .title {
+      font-size: 24px;
+    }
+
     height: fit-content;
     min-height: calc(100vh - #{$headerHeight} - #{$footerHeightSmall});
   }
-}
-
-.title {
-  font-size: 48px;
 }

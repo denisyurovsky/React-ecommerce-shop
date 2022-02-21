@@ -9,7 +9,7 @@ describe('ProfilePrivate component', () => {
   it('should show page not found', async () => {
     render(<ProfilePrivatePage />);
 
-    expect(await screen.findByText('Page Not Found')).toBeInTheDocument();
+    expect(await screen.findByText(/oooops!/i)).toBeInTheDocument();
   });
 
   beforeEach(() => render(<ProfilePrivatePage />, { user: users[1] }));

@@ -65,7 +65,7 @@ describe('ProductDetailsPage component', () => {
     renderWithStore(<TestPage />);
 
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
-    expect(await screen.findByText(/Page Not Found/i)).toBeInTheDocument();
+    expect(await screen.findByText(/oooops!/i)).toBeInTheDocument();
 
     serverRejected.close();
   });
