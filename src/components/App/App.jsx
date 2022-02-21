@@ -78,7 +78,7 @@ const App = ({ handleClose, isOpenModal }) => {
           />
         </Route>
         <Route
-          path={`${ADMIN}`}
+          path={`/`}
           element={<ProtectedRoutes permissionLevel={USER_ROLE.SELLER} />}
         >
           <Route path={`${ADMIN}${PRODUCTS}`} element={<AdminProductsPage />} />
