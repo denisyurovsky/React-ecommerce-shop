@@ -14,6 +14,15 @@ const PasswordForm = ({
   onHiddenChange,
 }) => {
   const [isHidden, setIsHidden] = useState(hidden);
+  const [labelFocus, setLabelFocus] = useState(false);
+
+  const onInputPasswrodFocus = () => {
+    setLabelFocus(true);
+  };
+
+  const onInputPasswordBlur = () => {
+    setLabelFocus(false);
+  };
 
   const changeVisibility = () => {
     setIsHidden(!isHidden);
@@ -33,6 +42,9 @@ const PasswordForm = ({
       variant="standard"
       margin="normal"
       label={label}
+      InputLabelProps={{ shrink: password.length || labelFocus }}
+      onFocus={onInputPasswrodFocus}
+      onBlur={onInputPasswordBlur}
       value={password}
       onChange={onChange}
       type={isHidden ? 'password' : 'text'}

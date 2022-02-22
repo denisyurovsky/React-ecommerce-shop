@@ -1,4 +1,4 @@
-import { Box, TextField, Button } from '@mui/material/';
+import { Box, Button } from '@mui/material/';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -9,6 +9,7 @@ import {
 import checkEmailValidity from '../../../../helpers/checkEmailValidity.js';
 import checkPasswordValidity from '../../../../helpers/checkPasswordValidity.js';
 import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
+import { StandartedTextField } from '../../../ui-kit/StandartedTextField/StandartedTextField.jsx';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler.js';
 
@@ -80,6 +81,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
     setIsFinished(checkIsFinished({ ...values, firstName, confirmPassword }));
     setValues({ ...values, firstName });
   };
+
   const onLastNameChange = (e) => {
     const lastName = e.target.value;
 
@@ -115,31 +117,22 @@ const Registration = ({ sendForm, errorMessage, status }) => {
 
   return (
     <Box>
-      <TextField
-        onChange={onFirstNameChange}
+      <StandartedTextField
         value={values.firstName}
-        label="First name"
-        variant="standard"
-        margin="normal"
-        fullWidth
+        labelText="First name"
+        onChange={onFirstNameChange}
       />
-      <TextField
-        onChange={onLastNameChange}
+      <StandartedTextField
+        labelText="Last name"
         value={values.lastName}
-        label="Last name"
-        variant="standard"
-        margin="normal"
-        fullWidth
+        onChange={onLastNameChange}
       />
-      <TextField
-        onChange={onEmailChange}
+      <StandartedTextField
+        labelText="Email"
         value={values.email}
+        onChange={onEmailChange}
         error={isEmailWrong}
         helperText={isEmailWrong ? emailMessage : null}
-        label="Email"
-        variant="standard"
-        margin="normal"
-        fullWidth
       />
       <PasswordForm
         password={values.password}

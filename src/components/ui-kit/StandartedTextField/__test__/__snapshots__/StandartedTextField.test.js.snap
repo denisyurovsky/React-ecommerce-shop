@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StandartedTextField component snapshots renders a snapshot with all values 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-17vbkzs-MuiFormControl-root-MuiTextField-root"
+  >
+    <label
+      class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+      data-shrink="15"
+      for="mui-1"
+      id="mui-1-label"
+    >
+      Label for tests
+    </label>
+    <div
+      class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-ghsjzk-MuiInputBase-root-MuiInput-root"
+    >
+      <input
+        aria-describedby="mui-1-helper-text"
+        aria-invalid="false"
+        autocomplete="off"
+        class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+        id="mui-1"
+        type="text"
+        value="Value for tests"
+      />
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
+      id="mui-1-helper-text"
+    >
+      Helper text fo tests
+    </p>
+  </div>
+</DocumentFragment>
+`;

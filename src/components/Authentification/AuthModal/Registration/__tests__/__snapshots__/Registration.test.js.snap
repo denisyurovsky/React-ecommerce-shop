@@ -21,6 +21,7 @@ exports[`Registration snapshot should render a valid snapshot 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="on"
           class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
           id="mui-1"
           type="text"
@@ -44,6 +45,7 @@ exports[`Registration snapshot should render a valid snapshot 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="on"
           class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
           id="mui-2"
           type="text"
@@ -67,6 +69,7 @@ exports[`Registration snapshot should render a valid snapshot 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="on"
           class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
           id="mui-3"
           type="text"

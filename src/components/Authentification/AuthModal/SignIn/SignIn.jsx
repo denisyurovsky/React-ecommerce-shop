@@ -1,10 +1,4 @@
-import {
-  Checkbox,
-  FormControlLabel,
-  TextField,
-  Box,
-  Button,
-} from '@mui/material';
+import { Checkbox, FormControlLabel, Box, Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -13,6 +7,7 @@ import {
   authStatus,
 } from '../../../../constants/authConstants';
 import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
+import { StandartedTextField } from '../../../ui-kit/StandartedTextField/StandartedTextField';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler';
 
@@ -60,17 +55,14 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
 
   return (
     <Box>
-      <TextField
-        error={isError}
-        helperText={isError ? errorMessage : null}
-        autoComplete="off"
-        fullWidth
-        variant="standard"
-        margin="normal"
-        label="Email"
-        value={email}
+      <StandartedTextField
         onChange={handleEmailChange}
         disabled={disabled}
+        autoComplete="off"
+        error={isError}
+        helperText={isError ? errorMessage : null}
+        labelText="Email"
+        value={email}
       />
       <PasswordForm
         isError={isError}
