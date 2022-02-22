@@ -1,3 +1,5 @@
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
+
 export const MODAL_TYPE = {
   EDIT: 'edit',
   ADD: 'add',
@@ -16,11 +18,13 @@ export const EMPTY_ADDRESS = {
   zip: '',
 };
 
+const { PROFILE, ADDRESSBOOK } = pathNames;
+
 export const LINKS = [
   { url: '/', text: 'Home' },
-  { url: '/profile', text: 'Profile' },
+  { url: PROFILE, text: 'Profile' },
   {
-    url: `/profile/address-book`,
+    url: `${PROFILE}${ADDRESSBOOK}`,
     text: 'Address book',
   },
 ];

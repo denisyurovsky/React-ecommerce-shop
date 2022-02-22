@@ -8,6 +8,7 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Card from '../../components/ProductCard/Card/Card';
 import { Title } from '../../components/Title/Title';
 import { notificationError } from '../../helpers/constants/constants';
+import { pathNames } from '../../helpers/constants/pathNames/pathNames';
 import { getWishlist, selectUser } from '../../store/user/userSlice';
 import { pageView } from '../ProductListPage/constants/constants';
 
@@ -21,7 +22,7 @@ export const WishListPage = () => {
 
   const links = [
     { url: '/', text: 'Home' },
-    { url: '/profile', text: 'Profile' },
+    { url: pathNames.PROFILE, text: 'Profile' },
   ];
 
   useEffect(() => {

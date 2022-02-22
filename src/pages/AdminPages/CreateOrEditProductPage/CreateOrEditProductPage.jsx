@@ -23,6 +23,7 @@ import createDecorator from '../../../components/WYSIWYG/Decorators/Decorators';
 import TextEditor from '../../../components/WYSIWYG/TextEditor';
 import checkForLatinText from '../../../helpers/checkForLatinText';
 import checkForOnlyNumbers from '../../../helpers/checkForOnlyNumbers';
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
 import { convertBase64ArrayOfImages } from '../../../helpers/convertBase64';
 import {
   getCategories,
@@ -295,10 +296,12 @@ export const CreateOrEditProductPage = () => {
     navigate('/admin/products');
   };
 
+  const { ADMIN, PRODUCTS, CREATE } = pathNames;
+
   const links = [
     { url: '/', text: 'Home' },
     {
-      url: '/admin/products/create',
+      url: `${ADMIN}${PRODUCTS}${CREATE}`,
       text: isEditPage ? 'Edit Product' : 'Create New Product',
     },
   ];

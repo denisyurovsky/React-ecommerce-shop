@@ -3,7 +3,9 @@ import { http } from './setup';
 export const getComments = (productId) =>
   http.get(`feedbacks?productId=${productId}&_sort=createdAt&_order=desc`);
 
-export const getAllComments = () => http.get(`feedbacks`);
+export const getAllComments = () => {
+  return http.get(`feedbacks`);
+};
 
 export const getCommentsByUserId = (userId) =>
   http.get(`users/${userId}/feedbacks`);

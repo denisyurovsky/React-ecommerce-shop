@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { pathNames } from '../../../../helpers/constants/pathNames/pathNames';
 import { selectCart } from '../../../../store/cart/cartSlice';
 
 import styles from './ShoppingCart.module.scss';
@@ -12,7 +13,7 @@ export const ShoppingCart = () => {
 
   return (
     <div className={styles.container}>
-      <Link to={'/cart'} className={styles.ref} />
+      <Link to={pathNames.CART} className={styles.ref} />
       <ShoppingBasketIcon className={styles.cart} />
       {cart.totalQuantity !== 0 && (
         <p className={styles.counter}>{cart.totalQuantity}</p>

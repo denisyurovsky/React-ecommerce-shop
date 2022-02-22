@@ -28,13 +28,11 @@ const handlersFulfilled = [
   rest.post('/confirm-order', (req, res, ctx) => {
     const { orderId } = req.body;
 
-    const now = new Date();
-
     return res(
       ctx.json({
         orderStatus: orderState.DELIVERED,
         orderId,
-        deliveredAt: now,
+        deliveredAt: ordersDto[0].deliveredAt,
       }),
       ctx.status(200)
     );

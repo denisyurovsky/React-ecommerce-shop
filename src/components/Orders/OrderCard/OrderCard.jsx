@@ -29,6 +29,7 @@ import {
   orderStatus,
   orderState,
 } from '../../../helpers/constants/orderStatus';
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
 import {
   formatDateWithFullMonth,
   formatPrice,
@@ -135,7 +136,9 @@ export const OrderCard = ({ orderId: id }) => {
         signal: abortController.signal,
       });
 
-      if (!abortController.signal.aborted) setOrderProducts(response.data);
+      if (!abortController.signal.aborted) {
+        setOrderProducts(response.data);
+      }
     } catch (err) {
       toast.error(notificationError);
     }
@@ -159,7 +162,7 @@ export const OrderCard = ({ orderId: id }) => {
 
   const sliderElements = orderProducts.map((product) => {
     return (
-      <Link to={`/products/${product.id}`} key={product.id}>
+      <Link to={`${pathNames.PRODUCTS}/${product.id}`} key={product.id}>
         <CardMedia
           component="img"
           image={product.images.length ? product.images[0] : noImg}
@@ -176,7 +179,7 @@ export const OrderCard = ({ orderId: id }) => {
         <Box className={styles.outerInformation}>
           <Box className={styles.dateInformation}>
             <Typography className={styles.orderDate}>
-              Ordered on{' '}
+              Ordered on &nbsp;
               {width > laptopBreakPoint
                 ? formatDateWithFullMonth(creationDate)
                 : formatDateWithShortMonth(creationDate)}
@@ -219,13 +222,13 @@ export const OrderCard = ({ orderId: id }) => {
             <Box className={styles.description}>
               <Box className={styles.deliveryInforamtion}>
                 <Typography className={styles.deliveryDestination}>
-                  Delivery type:
+                  Delivery type: &nbsp;
                   <span className={styles.deliveryValue}>
                     Courier service delivery
                   </span>
                 </Typography>
                 <Typography className={styles.deliveryDestination}>
-                  Delivery address:
+                  Delivery address: &nbsp;
                   <span className={styles.deliveryValue}>
                     {deliveryAddress}
                   </span>

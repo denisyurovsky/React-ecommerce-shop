@@ -1,3 +1,4 @@
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
@@ -44,7 +45,9 @@ describe('AdminProductsPage tests', () => {
       { role: USER_ROLE.SELLER }
     );
 
-    await waitForTable();
+    await waitFor(async () => {
+      await waitForTable();
+    });
 
     expect(asFragment()).toMatchSnapshot();
   });

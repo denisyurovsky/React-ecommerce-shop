@@ -13,11 +13,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { KEYS } from '../../helpers/constants/constants';
+import { pathNames } from '../../helpers/constants/pathNames/pathNames';
 import makeLogout from '../../helpers/makeLogout';
 import { setUserInitialState } from '../../store/user/userSlice';
 import Avatar from '../ui-kit/Avatar/Avatar';
 
 import styles from './ProfileMenu.module.scss';
+
+const { USERS, PROFILE, WISHLIST, ORDERS, ADDRESSBOOK } = pathNames;
 
 export const ProfileMenu = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -97,24 +100,24 @@ export const ProfileMenu = () => {
               onKeyDown={handleListKeyDown}
             >
               <MenuItem onClick={handleClose}>
-                <Link to={`/users/${userId}`}>
+                <Link to={`${USERS}/${userId}`}>
                   <PersonIcon color="primary" className={styles.image} />
                   <span>My Profile</span>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to={'/profile/wishlist'}>
+                <Link to={`${PROFILE}${WISHLIST}`}>
                   <span>My Wishlist</span>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to={'/profile/orders'}>
+                <Link to={`${PROFILE}${ORDERS}`}>
                   <SellIcon color="primary" className={styles.image} />
                   <span>My Orders</span>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link to={'/profile/address-book'}>
+                <Link to={`${PROFILE}${ADDRESSBOOK}`}>
                   <ImportContactsIcon
                     color="primary"
                     className={styles.image}

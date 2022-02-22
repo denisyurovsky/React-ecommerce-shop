@@ -3,6 +3,7 @@ import React from 'react';
 
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import { Title } from '../../../components/Title/Title';
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
 
 import styles from './ProfileHeader.module.scss';
 
@@ -11,9 +12,9 @@ function ProfileHeader({ profile, title }) {
 
   const links = [
     { url: '/', text: 'Home' },
-    { url: '/users', text: 'Users' },
+    { url: pathNames.USERS, text: 'Users' },
     {
-      url: `/users/${id}`,
+      url: `${pathNames.USERS}/${id}`,
       text: title ? title : `${firstName} ${lastName}`,
     },
   ];

@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { getAllComments } from '../../../api/feedback';
+import { requestWithAbortControl } from '../../../api/requestWithAbortControl';
 import noImg from '../../../assets/images/noImg.png';
 import { AdminTable } from '../../../components/ui-kit/AdminTable/AdminTable';
 import Spinner from '../../../components/ui-kit/Spinner/Spinner';
 import { notificationError } from '../../../helpers/constants/constants';
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
 import {
   getProductsByUserId,
   selectProducts,
@@ -24,19 +26,30 @@ export const AdminProductsPage = () => {
   const authorId = useSelector((state) => state.user.user.id);
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     dispatch(getProductsByUserId(authorId));
 
     const fetchAllComments = async () => {
       try {
-        const response = await getAllComments();
+        const response = await requestWithAbortControl(
+          getAllComments,
+          abortController
+        );
 
-        setComments(response.data);
+        if (!abortController.signal.aborted) {
+          setComments(response.data);
+        }
       } catch (e) {
         toast.error(notificationError);
       }
     };
 
     fetchAllComments();
+
+    return () => {
+      abortController.abort();
+    };
   }, [dispatch, authorId]);
 
   const products = useSelector(selectProducts);
@@ -64,8 +77,10 @@ export const AdminProductsPage = () => {
 
   const navigate = useNavigate();
 
+  const { ADMIN, PRODUCTS, CREATE } = pathNames;
+
   const onCreateProduct = () =>
-    navigate('/admin/products/create', { replace: true });
+    navigate(`${ADMIN}${PRODUCTS}${CREATE}`, { replace: true });
 
   if (products.isLoading) {
     return <Spinner data-testid="load" />;

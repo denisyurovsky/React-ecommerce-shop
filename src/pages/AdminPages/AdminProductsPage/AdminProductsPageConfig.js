@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
 import { DeleteProductButtonWithModal } from '../DeleteProductButtonWithModal/DeleteProductButtonWithModal';
 
 import styles from './AdminProductsPage.module.scss';
@@ -73,12 +74,14 @@ export const columns = [
     headerName: 'Actions',
     flex: 1,
     renderCell: (params) => {
+      const { ADMIN, PRODUCTS, EDIT } = pathNames;
+
       return (
         <>
           <Button>
             <Link
               className={styles.editButton}
-              to={`/admin/products/${params.value.productId}/edit`}
+              to={`${ADMIN}${PRODUCTS}/${params.value.productId}${EDIT}`}
             >
               Edit
             </Link>

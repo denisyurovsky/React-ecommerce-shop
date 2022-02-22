@@ -8,6 +8,7 @@ import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader'
 import ProfileSeller from '../../components/Profile/ProfileSeller/ProfileSeller';
 import Spinner from '../../components/ui-kit/Spinner/Spinner';
 import { USER_ROLE } from '../../helpers/constants/constants';
+import { pathNames } from '../../helpers/constants/pathNames/pathNames';
 import { getUser } from '../../store/user/userSlice';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 
@@ -59,7 +60,7 @@ function ProfilePage() {
   return (
     <div data-testid="profile" className={styles.container}>
       <ProfileHeader profile={profile} />
-      {isOwner && <Navigate to="/profile" replace />}
+      {isOwner && <Navigate to={pathNames.PROFILE} replace />}
       {isSeller && <ProfileSeller profileId={profile.id} />}
       {isConsumer && <ProfileConsumer profileId={profile.id} />}
     </div>

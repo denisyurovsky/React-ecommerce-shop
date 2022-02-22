@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { pathNames } from '../../helpers/constants/pathNames/pathNames';
 import Description from '../../helpers/Description';
 import { formatDate } from '../../helpers/utils/formatData';
 import { getRatingByProductId } from '../../store/products/productsSlice';
@@ -83,7 +84,7 @@ const ProductDetailsPageContent = ({ product }) => {
             />
             <AddToCartButton product={product} />
             <Box className={styles.seller}>
-              <Link to={`/users/${userId}`}>
+              <Link to={`${pathNames.USERS}/${userId}`}>
                 <Typography variant="body1">
                   {`${author.firstName} ${author.lastName}`}
                 </Typography>

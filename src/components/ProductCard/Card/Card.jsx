@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import noImg from '../../../assets/images/noImg.png';
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
 import { formatDate } from '../../../helpers/utils/formatData';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
 import { getRatingByProductId } from '../../../store/products/productsSlice';
@@ -65,7 +66,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW }) => {
         )}
       </Box>
       <CardContent className={styles.description}>
-        <Link to={`/products/${id}`} className={styles.title}>
+        <Link to={`${pathNames.PRODUCTS}/${id}`} className={styles.title}>
           {name}
         </Link>
         <Typography

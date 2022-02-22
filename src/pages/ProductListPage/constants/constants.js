@@ -1,3 +1,5 @@
+import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
+
 export const sortTypes = {
   NEW_FIRST: 'new',
   OLD_FIRST: 'old',
@@ -19,7 +21,7 @@ export const sortObj = {
 
 export const BreadcrumbsLinks = [
   { url: '/', text: 'Home' },
-  { url: '/products', text: 'Products' },
+  { url: pathNames.PRODUCTS, text: 'Products' },
 ];
 
 export const NUMBER_ITEMS_ON_PAGE = 20;

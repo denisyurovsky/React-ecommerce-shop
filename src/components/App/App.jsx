@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 import { USER_ROLE } from '../../helpers/constants/constants';
+import { pathNames } from '../../helpers/constants/pathNames/pathNames';
 import withAuthExpiration from '../../HOCs/withAuthExpiration';
 import AddressBook from '../../pages/AddressBookPage/AddressBook';
 import { AdminCategoriesPage } from '../../pages/AdminPages/AdminCategoriesPage/AdminCategoriesPage';
@@ -20,8 +21,6 @@ import { WishListPage } from '../../pages/WishListPage/WishListPage';
 import AuthExpirationModal from '../AuthExpirationModal/AuthExpirationModal';
 import { Layout } from '../Layout/Layout';
 import { ProtectedRoutes } from '../ProtectedRoutes/ProtectedRoutes';
-
-import { pathNames } from './pathNames/pathNames';
 
 const {
   PRODUCTS,
