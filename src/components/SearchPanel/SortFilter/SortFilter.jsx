@@ -18,6 +18,7 @@ export default function SortFilter({ setSearchParams, fullWidth }) {
     setSearchParams((prev) => ({
       ...prev,
       sort: sortObj[event.target.value],
+      currentPage: 1,
     }));
   };
 
