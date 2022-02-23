@@ -29,8 +29,13 @@ import {
   getCategories,
   selectCategories,
 } from '../../../store/categories/categoriesSlice';
+import { NotFoundPage } from '../../NotFoundPage/NotFoundPage';
 
-import { DESCRIPTION_ERROR, PRICE_ERROR } from './constants';
+import {
+  DESCRIPTION_ERROR,
+  NOT_FOUND_PRODUCT_ERROR,
+  PRICE_ERROR,
+} from './constants';
 
 import styles from './CreateOrEditProductPage.module.scss';
 
@@ -56,6 +61,8 @@ export const CreateOrEditProductPage = () => {
     isPriceValid: true,
     isDiscountPriceValid: true,
   });
+
+  const [errorOccurred, setErrorOccurred] = useState(false);
 
   const [isFinished, setIsFinished] = useState(false);
   const navigate = useNavigate();
@@ -124,23 +131,28 @@ export const CreateOrEditProductPage = () => {
   };
 
   const getProductInfo = async () => {
-    const response = await getProduct(params.id);
+    try {
+      const response = await getProduct(params.id);
 
-    setEditorState(
-      EditorState.moveSelectionToEnd(
-        EditorState.createWithContent(response.description, createDecorator())
-      )
-    );
-    setValues({
-      ...values,
-      name: response.name,
-      category: response.category.name,
-      price: response.price,
-      discountPrice: response.discountPrice,
-      isLoading: false,
-      createdAt: response.createdAt,
-    });
-    setImageUrls(response.images);
+      setEditorState(
+        EditorState.moveSelectionToEnd(
+          EditorState.createWithContent(response.description, createDecorator())
+        )
+      );
+      setValues({
+        ...values,
+        name: response.name,
+        category: response.category.name,
+        price: response.price,
+        discountPrice: response.discountPrice,
+        isLoading: false,
+        createdAt: response.createdAt,
+      });
+      setImageUrls(response.images);
+    } catch (e) {
+      toast.error(NOT_FOUND_PRODUCT_ERROR);
+      setErrorOccurred(true);
+    }
   };
 
   const checkIsFinished = (
@@ -305,6 +317,10 @@ export const CreateOrEditProductPage = () => {
       text: isEditPage ? 'Edit Product' : 'Create New Product',
     },
   ];
+
+  if (errorOccurred) {
+    return <NotFoundPage />;
+  }
 
   if (values.isLoading) {
     return <CircularProgress data-testid="load" />;
