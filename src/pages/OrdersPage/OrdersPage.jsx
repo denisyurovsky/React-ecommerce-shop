@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { OrdersCards } from '../../components/Orders/OrdersCards/OrdersCards';
 import { Title } from '../../components/Title/Title';
-import Spinner from '../../components/ui-kit/Spinner';
+import Spinner from '../../components/ui-kit/Spinner/Spinner';
 import { orderState, orderStatus } from '../../helpers/constants/orderStatus';
 import { getOrders, selectOrders } from '../../store/orders/ordersSlice';
 

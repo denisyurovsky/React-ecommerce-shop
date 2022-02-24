@@ -14,7 +14,7 @@ import {
   IMAGE_VALIDITY_DEFAULT_STATE,
 } from '../../helpers/checkImageValidity/constants/imageValidityConstants';
 import { convertImageUrlsToObjects } from '../../helpers/convertImageUrlToObject';
-import Spinner from '../ui-kit/Spinner';
+import Spinner from '../ui-kit/Spinner/Spinner';
 
 import { FilesList } from './FilesList/FilesList';
 import { InputFrame } from './InputFrame/InputFrame';

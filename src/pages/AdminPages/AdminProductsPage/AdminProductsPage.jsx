@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { getAllComments } from '../../../api/feedback';
 import noImg from '../../../assets/images/noImg.png';
 import { AdminTable } from '../../../components/ui-kit/AdminTable/AdminTable';
-import Spinner from '../../../components/ui-kit/Spinner';
+import Spinner from '../../../components/ui-kit/Spinner/Spinner';
 import { notificationError } from '../../../helpers/constants/constants';
 import {
   getProductsByUserId,

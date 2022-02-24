@@ -196,7 +196,7 @@ exports[`ProfilePage component should render seller page 1`] = `
 exports[`ProfilePage component should show "Loader" 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg css-1mzm8gz-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg container css-g1siz-MuiContainer-root"
   >
     <span
       class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"

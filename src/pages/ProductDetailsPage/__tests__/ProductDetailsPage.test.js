@@ -33,6 +33,14 @@ const handlersRejected = rest.get('/products/1', (req, res, ctx) =>
   res(ctx.status(500))
 );
 
+const TestPage = () => (
+  <MemoryRouter initialEntries={['/product/1']}>
+    <Routes>
+      <Route path="/product/:id" element={<ProductDetailsPage />} />
+    </Routes>
+  </MemoryRouter>
+);
+
 const serverFulfilled = setupServer(...handlersFulfilled);
 const serverRejected = setupServer(handlersRejected);
 
@@ -40,15 +48,9 @@ describe('ProductDetailsPage component', () => {
   it('Get data from server', async () => {
     serverFulfilled.listen();
 
-    renderWithStore(
-      <MemoryRouter initialEntries={['/product/1']}>
-        <Routes>
-          <Route path="/product/:id" element={<ProductDetailsPage />} />
-        </Routes>
-      </MemoryRouter>
-    );
+    renderWithStore(<TestPage />);
 
-    expect(screen.getByTestId('load')).toBeInTheDocument();
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
 
     expect(
       await screen.findAllByText(/Intelligent Cotton Pants/i)
@@ -60,16 +62,9 @@ describe('ProductDetailsPage component', () => {
   it('handlers server error', async () => {
     serverRejected.listen();
 
-    renderWithStore(
-      <MemoryRouter initialEntries={['/product/1']}>
-        <Routes>
-          <Route path="/product/:id" element={<ProductDetailsPage />} />
-        </Routes>
-      </MemoryRouter>
-    );
+    renderWithStore(<TestPage />);
 
-    expect(screen.getByTestId('load')).toBeInTheDocument();
-
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
     expect(await screen.findByText(/Page Not Found/i)).toBeInTheDocument();
 
     serverRejected.close();

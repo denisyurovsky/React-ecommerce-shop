@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { getUser } from '../api/user';
-import Spinner from '../components/ui-kit/Spinner';
+import Spinner from '../components/ui-kit/Spinner/Spinner';
 import { authStatus } from '../helpers/constants/authConstants';
 import { CHECK_TOKEN_EXPIRATION_FREQUENCY } from '../helpers/constants/constants';
 import makeLogout from '../helpers/makeLogout';

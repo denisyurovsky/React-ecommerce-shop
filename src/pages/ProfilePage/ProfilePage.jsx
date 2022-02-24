@@ -6,7 +6,7 @@ import { getUser as fetchUser } from '../../api/user';
 import ProfileConsumer from '../../components/Profile/ProfileConsumer/ProfileConsumer';
 import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
 import ProfileSeller from '../../components/Profile/ProfileSeller/ProfileSeller';
-import Spinner from '../../components/ui-kit/Spinner';
+import Spinner from '../../components/ui-kit/Spinner/Spinner';
 import { USER_ROLE } from '../../helpers/constants/constants';
 import { getUser } from '../../store/user/userSlice';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';

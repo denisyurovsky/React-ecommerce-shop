@@ -10,7 +10,7 @@ import {
   selectAllComments,
 } from '../../../store/feedback/feedbackSlice';
 import CommentSection from '../../ProductDetailsPageContent/Feedback/CommentSection/CommentSection';
-import Spinner from '../../ui-kit/Spinner';
+import Spinner from '../../ui-kit/Spinner/Spinner';
 
 function ProfileConsumer({ profileId }) {
   const dispatch = useDispatch();

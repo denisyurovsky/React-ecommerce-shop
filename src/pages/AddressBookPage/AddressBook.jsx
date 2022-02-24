@@ -7,7 +7,7 @@ import AddressCard from '../../components/AddressBook/AddressCard/AddressCard';
 import CreateOrEditAddressModal from '../../components/AddressBook/CreateOrEditAddressModal/CreateOrEditAddressModal';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { Title } from '../../components/Title/Title';
-import Spinner from '../../components/ui-kit/Spinner';
+import Spinner from '../../components/ui-kit/Spinner/Spinner';
 import { notificationError } from '../../helpers/constants/constants';
 import usePrevious from '../../hooks/usePrevious';
 import {

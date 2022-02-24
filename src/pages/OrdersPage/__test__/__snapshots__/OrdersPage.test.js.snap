@@ -119,7 +119,7 @@ exports[`OrdersPage component snapshots renders OrdersPage without data 1`] = `
       class="cardsContainer"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg css-txx2pg-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg container css-1tz8lv8-MuiContainer-root"
       >
         <span
           class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
