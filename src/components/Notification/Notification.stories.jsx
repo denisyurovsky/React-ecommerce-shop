@@ -53,6 +53,12 @@ export function Notification({ status, message }) {
   );
 }
 
+export default {
+  title: 'Notification',
+  component: Notification,
+  args: { status: 'error', message: `Done! You've got notification.` },
+};
+
 Notification.propTypes = {
   status: PropTypes.oneOf(['success', 'info', 'error']),
   message: PropTypes.string,
