@@ -82,7 +82,8 @@ export const ImagesUploader = ({ updateImages, imageUrls }) => {
     };
 
     return removeURLS();
-  }, [droppedFiles]);
+    // eslint-disable-next-line
+  }, []);
 
   const handleFileDelete = (currentIndex) => {
     const files = droppedFiles.filter((item, index) => index !== currentIndex);

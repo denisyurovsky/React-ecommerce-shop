@@ -46,7 +46,6 @@ export const CreateOrEditProductPage = () => {
     price: '',
     discountPrice: '',
     serverCategories: [],
-    createdAt: 0,
     isLoading: false,
   });
 
@@ -68,7 +67,6 @@ export const CreateOrEditProductPage = () => {
   const navigate = useNavigate();
   const authorId = useSelector((state) => state.user.user.id);
   const params = useParams();
-  const date = new Date();
   const isEditPage = useLocation().pathname.includes('edit');
 
   const postNewProduct = async (
@@ -88,8 +86,6 @@ export const CreateOrEditProductPage = () => {
       price: Number(price),
       discountPrice: Number(discountPrice),
       userId: authorId,
-      createdAt: date.toISOString(),
-      updatedAt: date.toISOString(),
       images: imagesBase64,
     };
     const response = await createProduct(newProduct);
@@ -117,8 +113,6 @@ export const CreateOrEditProductPage = () => {
       price,
       discountPrice,
       userId: authorId,
-      createdAt: values.createdAt.toString(),
-      updatedAt: date.toISOString(),
       images: imagesBase64,
     };
 
