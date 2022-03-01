@@ -1,4 +1,5 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
@@ -107,7 +108,7 @@ describe('OrdersPage component', () => {
       serverFulfilled.close();
     });
 
-    it('Cancels order on click and allows to filter orders', async () => {
+    it('Cancels order on click and allows to filter orders by deliveryState', async () => {
       const firstRender = renderWith(<OrdersPage />, {
         orders: {
           isLoading: false,
@@ -155,12 +156,12 @@ describe('OrdersPage component', () => {
       });
 
       fireEvent.click(expandButtons[0]);
+      const filterButtons = await screen.findAllByText('All');
 
-      const filterButton = await screen.findByText('All');
-
-      fireEvent.mouseDown(filterButton);
+      fireEvent.mouseDown(filterButtons[0]);
 
       newCancelledMarks = await screen.findAllByText('Cancelled');
+
       await waitFor(async () => {
         expect(newCancelledMarks.length).toBe(3);
       });
@@ -171,20 +172,51 @@ describe('OrdersPage component', () => {
       await waitFor(async () => {
         expect(newExpandButtons.length).toEqual(2);
       });
-
-      fireEvent.mouseDown(filterButton);
-      const selectAllOption = await screen.findByText('All');
-
-      await waitFor(async () => {
-        expect(selectAllOption).toBeInTheDocument();
-      });
-
-      fireEvent.click(selectAllOption);
-      const allExpandButtons = await screen.findAllByTestId('ExpandMoreIcon');
-
-      await waitFor(async () => {
-        expect(allExpandButtons.length).toEqual(4);
-      });
     }, 10000);
+
+    it('Cancels order on click and allows to filter orders by year', async () => {
+      renderWith(<OrdersPage />, {
+        orders: {
+          isLoading: false,
+          errorOccurred: false,
+          orders: usersOrders,
+        },
+        user: initialUser,
+      });
+
+      const initialExpandButtons = await screen.findAllByTestId(
+        'ExpandMoreIcon'
+      );
+
+      expect(initialExpandButtons.length).toBe(4);
+
+      const chip2021 = await screen.findByText('2021');
+
+      userEvent.click(chip2021);
+
+      const afterChipExpandButtons = await screen.findAllByTestId(
+        'ExpandMoreIcon'
+      );
+
+      expect(afterChipExpandButtons.length).toBe(3);
+
+      const typeFilterButton = (await screen.findAllByText('All'))[0];
+
+      fireEvent.mouseDown(typeFilterButton);
+
+      const cancelledMarks = await screen.findAllByText('Cancelled');
+
+      await waitFor(async () => {
+        expect(cancelledMarks.length).toBe(2);
+      });
+
+      userEvent.click(cancelledMarks[1]);
+
+      const afterTypeFilterExpandButtons = await screen.findAllByTestId(
+        'ExpandMoreIcon'
+      );
+
+      expect(afterTypeFilterExpandButtons.length).toBe(1);
+    });
   });
 });

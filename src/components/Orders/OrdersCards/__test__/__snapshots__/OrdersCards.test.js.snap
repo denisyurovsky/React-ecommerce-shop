@@ -133,7 +133,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
           <p
             class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
           >
-            Ordered on  19 March 2021
+            Ordered on  19 March 2022
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
@@ -191,7 +191,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
           <p
             class="MuiTypography-root MuiTypography-body1 orderDate css-ahj2mt-MuiTypography-root"
           >
-            Ordered on  19 September 2022
+            Ordered on  19 September 2021
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"

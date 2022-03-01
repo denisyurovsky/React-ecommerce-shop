@@ -1,4 +1,5 @@
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
 
 .page {
   width: 100%;
@@ -11,13 +12,13 @@
   justify-content: flex-end;
   padding-bottom: 30px;
 
-  @media all and (max-width: 600px) {
+  @media all and (max-width: $ml) {
     align-items: flex-start;
     flex-direction: column;
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $ml) {
   .selectForm {
     width: 100% !important;
   }
@@ -32,9 +33,59 @@
   height: 30px;
   width: 200px;
 
-  @media all and (max-width: 600px) {
+  @media all and (max-width: $ml) {
     height: 30px;
     width: unset !important;
     margin-bottom: 22px;
   }
+}
+
+.chipStack {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media all and (min-width: $sm) {
+    justify-content: space-between;
+  }
+
+  @media all and (min-width: $ml) {
+    justify-content: flex-start;
+  }
+}
+
+.filterBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between !important;
+  width: 100%;
+
+  @media all and (max-width: $ml) {
+    width: 100%;
+  }
+
+  @media all and (max-width: $vs) {
+    flex-direction: column;
+  }
+}
+
+.chip {
+  width: 24%;
+  margin: 0 10px 10px 0 !important;
+
+  @media all and (min-width: $sm) {
+    width: 19%;
+    margin: 0 !important;
+  }
+
+  @media all and (min-width: $ml) {
+    width: 90px;
+    margin: 0 10px 10px 0 !important;
+  }
+}
+
+.activeChip {
+  color: $greyLight !important;
+  background-color: $grey700 !important;
 }

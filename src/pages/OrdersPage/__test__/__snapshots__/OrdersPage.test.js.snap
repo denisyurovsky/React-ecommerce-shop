@@ -220,47 +220,123 @@ exports[`OrdersPage component snapshots renders OrdersPage without data 1`] = `
             class="header"
           >
             <div
-              class="MuiFormControl-root selectForm css-1nrlq1o-MuiFormControl-root"
+              class="filterBox MuiBox-root css-0"
             >
-              <label
-                class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
-                data-shrink="true"
-                id="demo-simple-select-standard-label"
-              >
-                Display
-              </label>
               <div
-                class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl select css-1480iag-MuiInputBase-root-MuiInput-root"
-                data-testid="ordersPageSelect"
+                class="MuiFormControl-root selectForm css-1nrlq1o-MuiFormControl-root"
+              >
+                <label
+                  class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+                  data-shrink="true"
+                  id="demo-simple-select-standard-label"
+                >
+                  Display
+                </label>
+                <div
+                  class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl select css-1480iag-MuiInputBase-root-MuiInput-root"
+                  data-testid="ordersPageSelect"
+                >
+                  <div
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby="demo-simple-select-standard-label demo-simple-select-standard"
+                    class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                    id="demo-simple-select-standard"
+                    role="button"
+                    tabindex="0"
+                  >
+                    All
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="0"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                class="chipStack css-1pn912g-MuiStack-root"
               >
                 <div
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-labelledby="demo-simple-select-standard-label demo-simple-select-standard"
-                  class="MuiSelect-select MuiSelect-standard MuiInput-input MuiInputBase-input css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-                  id="demo-simple-select-standard"
+                  aria-disabled="true"
+                  class="MuiButtonBase-root Mui-disabled MuiChip-root MuiChip-filled Mui-disabled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault chip activeChip css-15dxc3s-MuiButtonBase-root-MuiChip-root"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    All
+                  </span>
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault chip css-15dxc3s-MuiButtonBase-root-MuiChip-root"
                   role="button"
                   tabindex="0"
                 >
-                  All
-                </div>
-                <input
-                  aria-hidden="true"
-                  class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                  tabindex="-1"
-                  value="0"
-                />
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
-                  data-testid="ArrowDropDownIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M7 10l5 5 5-5z"
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2022
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
-                </svg>
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault chip css-15dxc3s-MuiButtonBase-root-MuiChip-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2021
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault chip css-15dxc3s-MuiButtonBase-root-MuiChip-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    2020
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault chip css-15dxc3s-MuiButtonBase-root-MuiChip-root"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                  >
+                    Rest
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </div>
               </div>
             </div>
           </div>
