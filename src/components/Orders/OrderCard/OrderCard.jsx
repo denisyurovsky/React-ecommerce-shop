@@ -30,9 +30,9 @@ import {
   formatDateWithShortMonth,
 } from '../../../helpers/formatData';
 import useBreakPoint from '../../../hooks/useBreakPoint';
-import { useWindowSize } from '../../../hooks/useWindowSize';
 import { selectOrders } from '../../../store/orders/ordersSlice';
 import { OrderButton } from '../OrderButton/OrderButton';
+import { PayButton } from '../PayButton/PayButton';
 
 import { OrderDeliveryDate } from './OrderDeliveryDate/OrderDeliveryDate';
 
@@ -108,7 +108,6 @@ export function orderSlider(slides) {
 }
 
 export const OrderCard = ({ orderId: id }) => {
-  const { width } = useWindowSize();
   const orders = useSelector(selectOrders);
   const isLessThenBreakPoint = useBreakPoint(BREAK_POINT.MD);
 
@@ -118,7 +117,7 @@ export const OrderCard = ({ orderId: id }) => {
 
   const {
     createdAt: creationDate,
-    totalPrice: price,
+    totalDiscountPrice: price,
     deliveredAt: deliveryDate,
     deliveryAddress,
     status,
@@ -183,7 +182,7 @@ export const OrderCard = ({ orderId: id }) => {
                 : formatDateWithFullMonth(creationDate)}
             </Typography>
             <Typography fontSize={isLessThenBreakPoint ? '10px' : '12px'}>
-              Order #{id}
+              Order #{id + 1}
             </Typography>
           </Box>
           <Box>
@@ -213,54 +212,41 @@ export const OrderCard = ({ orderId: id }) => {
         </Box>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <Box className={styles.collapseInner}>
-          <CardContent className={styles.cardContent}>
-            <Box className={styles.description}>
-              <Box className={styles.deliveryInformation}>
-                <Typography className={styles.deliveryDestination}>
-                  Delivery type: &nbsp;
-                  <span className={styles.deliveryValue}>
-                    Courier service delivery
-                  </span>
-                </Typography>
-                <Typography className={styles.deliveryDestination}>
-                  Delivery address: &nbsp;
-                  <span className={styles.deliveryValue}>
-                    {deliveryAddressString}
-                  </span>
-                </Typography>
-              </Box>
-              {lessThanDelivered ? (
-                <OrderButton
-                  className={styles.actionButton}
-                  orderIndex={index}
-                  status={status}
-                />
-              ) : (
-                <OrderDeliveryDate
-                  status={status}
-                  deliveryDate={deliveryDate}
-                />
-              )}
+        <CardContent className={styles.cardContent}>
+          <Box className={styles.description}>
+            <Box className={styles.deliveryInforamtion}>
+              <Typography className={styles.deliveryDestination}>
+                Delivery type: &nbsp;
+                <span className={styles.deliveryValue}>
+                  Courier service delivery
+                </span>
+              </Typography>
+              <Typography className={styles.deliveryDestination}>
+                Delivery address: &nbsp;
+                <span className={styles.deliveryValue}>
+                  {deliveryAddressString}
+                </span>
+              </Typography>
             </Box>
-          </CardContent>
-          <Box className={styles.sliderContainer}>
-            {orderSlider(sliderElements)}
+            <Box className={styles.sliderContainer}>
+              {orderSlider(sliderElements)}
+            </Box>
           </Box>
-          {lessThanDelivered ? (
-            <OrderButton
-              className={styles.mobileActionButton}
-              orderIndex={index}
-              status={status}
-            />
-          ) : (
-            <OrderDeliveryDate
-              status={status}
-              deliveryDate={deliveryDate}
-              breakpointDisplayed={width < BREAK_POINT.LAPTOP}
-            />
-          )}
-        </Box>
+          <Box className={styles.buttons}>
+            {lessThanDelivered ? (
+              <OrderButton
+                className={styles.actionButton}
+                orderIndex={index}
+                status={status}
+              />
+            ) : (
+              <OrderDeliveryDate status={status} deliveryDate={deliveryDate} />
+            )}
+            {status === orderState.WAITING_FOR_PAYMENT && (
+              <PayButton orderIndex={id} />
+            )}
+          </Box>
+        </CardContent>
       </Collapse>
     </Card>
   );

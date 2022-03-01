@@ -110,7 +110,7 @@ DeliveryAddressAccordionContainer.propTypes = {
   address: PropTypes.object.isRequired,
   expanded: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
   orderId: PropTypes.number,
-  addressId: PropTypes.string,
+  addressId: PropTypes.number,
 };
 
 export default DeliveryAddressAccordionContainer;

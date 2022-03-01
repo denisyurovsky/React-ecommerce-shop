@@ -67,7 +67,7 @@ const CheckoutUserPage = ({
   };
 
   const handleChangeAddresses = (e) => {
-    const value = e.target?.value ?? e;
+    const value = Number(e.target?.value ?? e);
 
     setAddressId(value);
     const selectedAddress = addresses.data.find(

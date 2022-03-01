@@ -633,7 +633,7 @@ export const checkoutUserOrderRequest = {
   products,
   userId: 0,
   status: 1,
-  addressId: '0',
+  addressId: 0,
   deliveryAddress: {
     id: 0,
     title: 'Mr.',
@@ -698,7 +698,7 @@ export const checkoutUserEditAddressOrderResponse = {
   products,
   userId: 0,
   status: 1,
-  addressId: '2',
+  addressId: 2,
   deliveryAddress: {
     id: 2,
     title: 'Mrs.',
@@ -807,7 +807,7 @@ export const orderResponseId20 = [
     ],
     userId: 0,
     status: 1,
-    addressId: '0',
+    addressId: 0,
     deliveryAddress: {
       id: 0,
       title: 'Mr.',

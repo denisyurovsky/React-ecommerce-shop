@@ -1,0 +1,7 @@
+@import "../../../assets/styles/variables.scss";
+
+.button {
+  @media all and (max-width: $sm) {
+    width: 100% !important;
+  }
+}

@@ -22,7 +22,7 @@ exports[`OrderCard component snapshots for different order statuses Renders a va
           <p
             class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
           >
-            Order #1
+            Order #2
           </p>
         </div>
         <div
@@ -88,7 +88,7 @@ exports[`OrderCard component snapshots for different order statuses Renders a va
           <p
             class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
           >
-            Order #2
+            Order #3
           </p>
         </div>
         <div
@@ -154,7 +154,7 @@ exports[`OrderCard component snapshots for different order statuses Renders a va
           <p
             class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
           >
-            Order #3
+            Order #4
           </p>
         </div>
         <div
@@ -220,7 +220,7 @@ exports[`OrderCard component snapshots for different order statuses Renders a va
           <p
             class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
           >
-            Order #4
+            Order #5
           </p>
         </div>
         <div

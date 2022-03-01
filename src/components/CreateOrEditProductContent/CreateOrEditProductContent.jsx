@@ -38,12 +38,14 @@ const CreateOrEditProductContent = ({
     const jsonText = JSON.stringify(
       convertToRaw(item.description.getCurrentContent())
     );
+    const actualPrice = item.price.discount || item.price.original;
 
     onSubmit({
       ...item,
       description: jsonText,
       price: item.price.original,
       discountPrice: item.price.discount,
+      actualPrice,
       rating: null,
     });
   };
@@ -125,6 +127,7 @@ CreateOrEditProductContent.propTypes = {
     }),
     price: PropTypes.number,
     discountPrice: PropTypes.number,
+    actualPrice: PropTypes.number,
     description: PropTypes.object,
     images: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,

@@ -109,7 +109,7 @@ DeliveryAddressAccordion.propTypes = {
   addresses: PropTypes.object.isRequired,
   address: PropTypes.object.isRequired,
   isDeliveryAddressExpended: PropTypes.bool.isRequired,
-  addressId: PropTypes.string,
+  addressId: PropTypes.number,
 };
 
 export default DeliveryAddressAccordion;

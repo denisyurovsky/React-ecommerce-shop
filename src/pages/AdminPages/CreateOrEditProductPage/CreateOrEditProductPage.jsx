@@ -33,6 +33,7 @@ export const CreateOrEditProductPage = () => {
     },
     price: null,
     discountPrice: null,
+    actualPrice: null,
     description: EditorState.createEmpty(),
     images: [],
   });
