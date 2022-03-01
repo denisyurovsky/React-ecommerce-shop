@@ -3,7 +3,7 @@
 exports[`NavigationItem component snapshots renders a valid snapshot 1`] = `
 <DocumentFragment>
   <li
-    class="item"
+    class="item active"
     role="tab"
     tabindex="0"
   >

@@ -32,7 +32,7 @@ exports[`BurgerButton component snapshots renders a valid snapshot 1`] = `
       data-testid="header-mobile-navigation"
     >
       <li
-        class="item"
+        class="item active"
         role="tab"
         tabindex="0"
       >

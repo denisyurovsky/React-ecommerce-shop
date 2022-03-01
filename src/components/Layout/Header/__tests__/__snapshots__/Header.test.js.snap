@@ -19,7 +19,7 @@ exports[`Header component snapshots renders a valid snapshot 1`] = `
       >
         <a
           aria-current="page"
-          class="link active"
+          class="link active active"
           href="/"
         >
           home

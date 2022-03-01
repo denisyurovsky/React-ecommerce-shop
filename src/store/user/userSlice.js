@@ -138,7 +138,6 @@ export const userSlice = createSlice({
           state.loginError = ERROR.LOGIN;
         }
       })
-
       // register
       .addCase(registerUser.pending, (state) => {
         state.registerStatus = PENDING;
@@ -156,7 +155,6 @@ export const userSlice = createSlice({
         state.registerStatus = REJECTED;
         state.registerError = ERROR.REGISTER;
       })
-
       // updateWishList
       .addCase(updateWishList.pending, (state) => {
         state.updateWishlistStatus = REQUEST_STATUS.PENDING;

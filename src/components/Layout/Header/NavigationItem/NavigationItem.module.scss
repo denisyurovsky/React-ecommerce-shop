@@ -17,3 +17,7 @@
   background-color: transparentize($greyLight, 0.85);
   cursor: pointer;
 }
+
+.active {
+  background-color: transparentize($greyLight, 0.85) !important;
+}

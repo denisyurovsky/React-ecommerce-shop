@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 import { USER_ROLE } from '../../../../constants/constants';
 import { pathNames } from '../../../../constants/pathNames';
+import { makeClassBasingOnPath } from '../../../../helpers/makeClassBasingOnPath';
 import { getUserRole } from '../../../../store/user/userSlice';
 
 import styles from './NavigationList.module.scss';
 
 export const NavigationList = () => {
   const userRole = useSelector(getUserRole);
-
   const navItems = [
     { title: 'home', path: '/' },
     { title: 'products', path: pathNames.PRODUCTS },
@@ -27,7 +27,11 @@ export const NavigationList = () => {
           end
           to={navItem.path}
           key={`navItem${i}`}
-          className={styles.link}
+          className={makeClassBasingOnPath(
+            navItem.path,
+            styles.link,
+            styles.active
+          )}
         >
           {navItem.title}
         </NavLink>
