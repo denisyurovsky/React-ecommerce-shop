@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor, screen } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
@@ -219,6 +219,7 @@ describe('CartPage component', () => {
 
       fireEvent.click(addButtons[0]);
       addButtons = await addRender.findAllByText('+');
+      expect(screen.getByTestId('SaveIcon')).toBeInTheDocument();
 
       const quantity = await addRender.findByText('2');
 
@@ -247,9 +248,10 @@ describe('CartPage component', () => {
       expect(secondTitle).toBeInTheDocument();
 
       fireEvent.click(decreaseButtons[0]);
-      const testButton = await decreaseRender.findByText('2');
+      expect(screen.getByTestId('SaveIcon')).toBeInTheDocument();
+      const testButton = await screen.findAllByText('1');
 
-      expect(testButton).toBeInTheDocument();
+      expect(testButton).toHaveLength(2);
 
       secondTitle = await decreaseRender.findByText('Incredible Rubber Cheese');
       const allQuantities = await decreaseRender.findAllByText('1');

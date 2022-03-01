@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -12,6 +12,7 @@ import {
   addProduct,
   decreaseProduct,
 } from '../../store/cart/cartSlice';
+import LoadingButton from '../ui-kit/buttons/LoadingButton';
 
 import listStyles from './AddToCartButtonList.module.scss';
 import moduleStyles from './AddToCartButtonModule.module.scss';
@@ -27,9 +28,12 @@ export const AddToCartButton = ({
 
   const dispatch = useDispatch();
   const index = findProductIndexById(products, product.id);
+  const [isLoading, setIsLoading] = useState(false);
 
   const addHandler = () => {
+    setIsLoading(true);
     dispatch(addProduct({ product })).then(() => {
+      setIsLoading(false);
       if (cart.errorOccurred) {
         toast.error(notificationError);
       }
@@ -37,7 +41,9 @@ export const AddToCartButton = ({
   };
 
   const decreaseHandler = () => {
+    setIsLoading(true);
     dispatch(decreaseProduct({ product })).then(() => {
+      setIsLoading(false);
       if (cart.errorOccurred) {
         toast.error(notificationError);
       }
@@ -45,6 +51,14 @@ export const AddToCartButton = ({
   };
 
   const styles = viewMode === pageView.MODULE_VIEW ? moduleStyles : listStyles;
+
+  if (isLoading) {
+    return (
+      <div className={styles.container}>
+        <LoadingButton label="" isFullWidth={true} />
+      </div>
+    );
+  }
 
   return products[index] ? (
     <div className={styles.container}>
