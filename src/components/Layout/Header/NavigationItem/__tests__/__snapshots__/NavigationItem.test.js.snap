@@ -4,6 +4,8 @@ exports[`NavigationItem component snapshots renders a valid snapshot 1`] = `
 <DocumentFragment>
   <li
     class="item"
+    role="tab"
+    tabindex="0"
   >
     <a
       href="/"

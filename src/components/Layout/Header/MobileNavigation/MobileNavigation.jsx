@@ -9,7 +9,7 @@ import { NavigationItem } from '../NavigationItem/NavigationItem';
 
 import styles from './MobileNavigation.module.scss';
 
-const MobileNavigation = forwardRef((props, ref) => {
+const MobileNavigation = forwardRef(({ closeBurger }, ref) => {
   const userRole = useSelector(getUserRole);
 
   const navItems = [
@@ -28,7 +28,11 @@ const MobileNavigation = forwardRef((props, ref) => {
       className={styles.container}
     >
       {navItems.map((item) => (
-        <NavigationItem key={item.title} path={item.path}>
+        <NavigationItem
+          key={item.title}
+          path={item.path}
+          closeBurger={closeBurger}
+        >
           {item.title}
         </NavigationItem>
       ))}
@@ -38,6 +42,7 @@ const MobileNavigation = forwardRef((props, ref) => {
 
 MobileNavigation.propTypes = {
   items: PropTypes.array,
+  closeBurger: PropTypes.func,
 };
 
 MobileNavigation.displayName = 'MobileNavigation';

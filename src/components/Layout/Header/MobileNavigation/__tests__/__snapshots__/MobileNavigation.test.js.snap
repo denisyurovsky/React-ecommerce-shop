@@ -8,6 +8,8 @@ exports[`MobileNavigation component snapshots renders a valid snapshot 1`] = `
   >
     <li
       class="item"
+      role="tab"
+      tabindex="0"
     >
       <a
         href="/"
@@ -17,6 +19,8 @@ exports[`MobileNavigation component snapshots renders a valid snapshot 1`] = `
     </li>
     <li
       class="item"
+      role="tab"
+      tabindex="0"
     >
       <a
         href="/products"
