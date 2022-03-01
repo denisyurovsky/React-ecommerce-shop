@@ -38,7 +38,7 @@ const withAuthExpiration = (Wrapped) => {
         return setIsOpenModal(true);
       }
       const timeLeft = new Date(timeLeftMs);
-      const isFiveMinutesBeforeExp = timeLeft.getMinutes() - 5 <= 0;
+      const isFiveMinutesBeforeExp = timeLeft.getMinutes() - 5 < 0;
 
       if (!isExpiredSoon && isFiveMinutesBeforeExp) {
         toast.info(`Your session expiries pretty soon.

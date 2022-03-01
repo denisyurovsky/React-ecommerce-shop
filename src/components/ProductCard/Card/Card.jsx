@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import noImg from '../../../assets/images/noImg.png';
 import { pathNames } from '../../../constants/pathNames';
@@ -22,6 +21,7 @@ import { AddToCartButton } from '../../AddToCartButton/AddToCartButton';
 import AddToWishListButton from '../../AddToWishListButton/AddToWishListButton';
 import { DiscountLabel } from '../../DiscountLabel/DiscountLabel';
 import { ProductPrice } from '../../ProductPrice/ProductPrice';
+import Link from '../../ui-kit/Link/Link';
 
 import stylesList from './CardList.module.scss';
 import stylesModule from './CardModule.module.scss';
@@ -49,59 +49,65 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
 
   return (
     <Card className={containerClasses}>
-      <Box className={styles.imageContainer}>
-        <CardMedia
-          component="img"
-          image={Array.isArray(images) && images.length ? images[0] : noImg}
-          className={styles.image}
-          alt={name}
-        />
-        <Box className={styles.discountLabel}>
-          <DiscountLabel price={price} discountPrice={discountPrice} />
-        </Box>
-      </Box>
-      <CardContent className={styles.description}>
-        <Link to={`${pathNames.PRODUCTS}/${id}`} className={styles.title}>
-          {name}
-        </Link>
-        <Typography
-          className={styles.category}
-          variant="subtitle2"
-          color="text.secondary"
-        >
-          {category.toUpperCase()}
-        </Typography>
-        <Typography
-          className={styles.date}
-          variant="body2"
-          color="text.secondary"
-        >
-          Created: {formatDate(createdAt)}
-        </Typography>
-        <Typography
-          className={styles.date}
-          variant="body2"
-          color="text.secondary"
-        >
-          Updated: {formatDate(updatedAt)}
-        </Typography>
-        <Rating
-          className={styles.rating}
-          data-testid="total-rating"
-          value={updatedRating ?? rating}
-          readOnly
-          precision={0.5}
-        />
-      </CardContent>
       <CardActions className={styles.price}>
-        <ProductPrice discountPrice={discountPrice} price={price} />
-        <AddToCartButton product={product} viewMode={cardShape} />
         <AddToWishListButton
           productId={id}
           productName={name}
           cardShape={cardShape}
           isAddedToWishlist={isAddedToWishlist}
         />
+      </CardActions>
+      <Link to={`${pathNames.PRODUCTS}/${id}`}>
+        <div className={styles.link}>
+          <Box className={styles.imageContainer}>
+            <CardMedia
+              component="img"
+              image={Array.isArray(images) && images.length ? images[0] : noImg}
+              className={styles.image}
+              alt={name}
+            />
+            <Box className={styles.discountLabel}>
+              <DiscountLabel price={price} discountPrice={discountPrice} />
+            </Box>
+          </Box>
+          <CardContent className={styles.description}>
+            <div className={styles.title}>{name}</div>
+            <Typography
+              className={styles.category}
+              variant="subtitle2"
+              color="text.secondary"
+            >
+              {category.toUpperCase()}
+            </Typography>
+            <Typography
+              className={styles.date}
+              variant="body2"
+              color="text.secondary"
+            >
+              Created: {formatDate(createdAt)}
+            </Typography>
+            <Typography
+              className={styles.date}
+              variant="body2"
+              color="text.secondary"
+            >
+              Updated: {formatDate(updatedAt)}
+            </Typography>
+            <Rating
+              className={styles.rating}
+              data-testid="total-rating"
+              value={updatedRating ?? rating}
+              readOnly
+              precision={0.5}
+            />
+          </CardContent>
+          <CardActions className={styles.price}>
+            <ProductPrice discountPrice={discountPrice} price={price} />
+          </CardActions>
+        </div>
+      </Link>
+      <CardActions className={styles.addButton}>
+        <AddToCartButton product={product} viewMode={cardShape} />
       </CardActions>
     </Card>
   );

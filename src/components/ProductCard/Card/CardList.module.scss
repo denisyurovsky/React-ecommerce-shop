@@ -8,12 +8,21 @@
 .container {
   display: flex;
   flex-direction: row;
-  padding: 1.5rem;
-  padding-right: 0;
   width: 98%;
   margin-top: 2rem;
   margin-left: 0.7rem;
   position: relative;
+
+  &:hover {
+    box-shadow: 0 5px 5px transparentize($black, 0.8);
+  }
+}
+
+.link {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem 0;
+  margin: 1rem;
 }
 
 .imageContainer {
@@ -42,25 +51,27 @@
   font-size: 2rem;
   font-weight: 500;
   margin: 1rem 0;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .price {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   margin-left: auto;
-  padding: 0;
+  padding: 1rem 0 !important;
+  width: 150px;
+}
+
+.addButton {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 1.5rem;
 }
 
 @media (max-width: 650px) {
   .image {
-    width: 10rem !important;
-    height: 10rem;
+    width: 100px !important;
+    height: 100px;
   }
 
   .description {
@@ -85,20 +96,6 @@
 
   .button::after {
     content: "+";
-  }
-}
-
-.crossedPrice {
-  text-decoration: line-through;
-}
-
-.discountPrice {
-  margin: 0 !important;
-}
-
-@media all and (max-width: 600px) {
-  .discountPrice {
-    font-size: 24px !important;
   }
 }
 

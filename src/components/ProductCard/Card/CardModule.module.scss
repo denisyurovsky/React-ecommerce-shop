@@ -5,9 +5,12 @@
   width: 31.75%;
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem 2rem;
   margin: 2rem 0.75rem 0;
   position: relative;
+
+  &:hover {
+    box-shadow: 0 5px 5px transparentize($black, 0.8);
+  }
 
   @media all and (max-width: 988px) {
     width: 47%;
@@ -32,6 +35,11 @@
   @media all and (max-width: 950px) {
     width: 100%;
   }
+}
+
+.link {
+  width: 100%;
+  padding: 1rem 2rem 2rem;
 }
 
 .rating {
@@ -59,14 +67,15 @@
 .description {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 0 !important;
-  margin: 0;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0 2rem;
 
   @media (max-width: 640px) {
     align-items: center;
+  }
+
+  @media all and (max-width: $LAPTOP_BREAK_POINT) and (min-width: $sm) {
+    margin-bottom: 7rem;
   }
 }
 
@@ -75,21 +84,28 @@
   font-size: 2rem;
   font-weight: 500;
   color: $indigo700;
-  text-decoration: none;
   margin-bottom: 1rem;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .price {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-left: 0;
+  padding-left: 0 !important;
   margin-top: auto;
-  padding: 0;
+
+  @media all and (max-width: $LAPTOP_BREAK_POINT) and (min-width: $sm) {
+    position: absolute;
+    bottom: 2rem;
+    flex-direction: column-reverse;
+    align-items: flex-start !important;
+    padding: 0 !important;
+  }
+}
+
+.addButton {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 1.7rem;
 }
 
 .crossedPrice {

@@ -1,14 +1,14 @@
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
+
+.discountPrice {
+  margin-right: 1rem !important;
+}
 
 .crossedPrice {
   margin: 0 !important;
+  margin-right: 1rem !important;
   color: $grey700 !important;
   font-size: 16px !important;
   text-decoration: line-through;
-}
-
-@media all and (max-width: 750px) {
-  .crossedPrice {
-    font-size: 16px !important;
-  }
 }
