@@ -85,6 +85,7 @@ export const CreateOrEditProductPage = () => {
       },
       price: Number(price),
       discountPrice: Number(discountPrice),
+      isDiscounted: Boolean(discountPrice),
       userId: authorId,
       images: imagesBase64,
     };
@@ -112,6 +113,7 @@ export const CreateOrEditProductPage = () => {
       },
       price,
       discountPrice,
+      isDiscounted: Boolean(discountPrice),
       userId: authorId,
       images: imagesBase64,
     };

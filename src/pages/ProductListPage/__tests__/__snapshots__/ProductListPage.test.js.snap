@@ -45,6 +45,39 @@ exports[`ProductListPage component Render with data should render a valid snapsh
   <div
     class="searchBlock"
   >
+    <label
+      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementLeft onlyDiscountedCheckbox css-j204z7-MuiFormControlLabel-root"
+    >
+      <span
+        class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        label="discounts"
+      >
+        <input
+          class="PrivateSwitchBase-input css-1m9pwf3"
+          data-indeterminate="false"
+          type="checkbox"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CheckBoxOutlineBlankIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </span>
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
+      >
+        Only discounted
+      </span>
+    </label>
     <div
       class="MuiFormControl-root filter css-16ojqud-MuiFormControl-root"
     >
@@ -68,7 +101,11 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           role="button"
           tabindex="0"
         >
-          All Categories
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
         </div>
         <input
           aria-hidden="true"
@@ -76,7 +113,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           id="uncontrolled-native"
           name="categories"
           tabindex="-1"
-          value="All Categories"
+          value="false"
         />
         <svg
           aria-hidden="true"
@@ -2036,6 +2073,39 @@ exports[`ProductListPage component Render without data should render a valid sna
   <div
     class="searchBlock"
   >
+    <label
+      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementLeft onlyDiscountedCheckbox css-j204z7-MuiFormControlLabel-root"
+    >
+      <span
+        class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+        label="discounts"
+      >
+        <input
+          class="PrivateSwitchBase-input css-1m9pwf3"
+          data-indeterminate="false"
+          type="checkbox"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CheckBoxOutlineBlankIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </span>
+      <span
+        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
+      >
+        Only discounted
+      </span>
+    </label>
     <div
       class="MuiFormControl-root filter css-16ojqud-MuiFormControl-root"
     >
@@ -2082,7 +2152,11 @@ exports[`ProductListPage component Render without data should render a valid sna
           id="mui-component-select-categories"
           role="button"
         >
-          All Categories
+          <span
+            class="notranslate"
+          >
+            ​
+          </span>
         </div>
         <input
           aria-hidden="true"
@@ -2091,7 +2165,7 @@ exports[`ProductListPage component Render without data should render a valid sna
           id="uncontrolled-native"
           name="categories"
           tabindex="-1"
-          value="All Categories"
+          value="false"
         />
         <svg
           aria-hidden="true"

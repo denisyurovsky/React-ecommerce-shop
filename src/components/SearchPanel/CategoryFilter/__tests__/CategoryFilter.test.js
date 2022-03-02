@@ -23,8 +23,12 @@ describe('CategoryFilter component', () => {
   });
   describe('main group of tests', () => {
     it('CategoryFilter works properly', async () => {
-      let data;
-      const setSearchParams = jest.fn((func) => (data = func()));
+      let data = {
+        filters: [],
+      };
+      const setSearchParams = jest.fn((func) => {
+        data = func(data);
+      });
 
       render(
         <CategoryFilter
@@ -41,13 +45,14 @@ describe('CategoryFilter component', () => {
       const option1 = screen.getByRole('option', { name: /computers/i });
 
       userEvent.click(option1);
-      expect(data.filters).toEqual([{ 'category.name': 'Computers' }]);
 
+      expect(data.filters[0]['category.name']).toEqual('Computers');
       userEvent.click(button);
       const option2 = screen.getByRole('option', { name: /all categories/i });
 
       userEvent.click(option2);
-      expect(data.filters).toEqual(null);
+
+      expect(data.filters[0]['category.name']).toEqual(null);
     });
   });
 });

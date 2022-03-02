@@ -6,7 +6,10 @@ import {
 
 import { setRating } from '../../api/feedback';
 import { getProductsByAuthorId, getSomeProducts } from '../../api/products';
-import { NUMBER_OF_CARDS_ON_HOMEPAGE } from '../../constants/constants';
+import {
+  defaultFilters,
+  NUMBER_OF_CARDS_ON_HOMEPAGE,
+} from '../../constants/constants';
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',
@@ -37,7 +40,7 @@ export const getHomePageProducts = createAsyncThunk(
   async () => {
     const response = await getSomeProducts({
       entity: 'products',
-      filters: null,
+      filters: defaultFilters,
       sort: {
         field: 'createdAt',
         order: 'desc',

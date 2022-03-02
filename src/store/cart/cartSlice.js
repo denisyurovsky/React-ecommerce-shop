@@ -100,13 +100,9 @@ export const addProduct = createAsyncThunk(
     const { user, cart } = getState();
 
     const userId = user.user.id;
-    const productId = product.id;
-    const sellerId = product.userId;
 
     let { totalQuantity, totalPrice, totalDiscountPrice, sellers } = cart;
-
-    const actualPrice =
-      product.discountPrice == null ? product.price : product.discountPrice;
+    const { id: productId, userId: sellerId, actualPrice } = product;
 
     let products = [];
 
@@ -189,16 +185,11 @@ export const decreaseProduct = createAsyncThunk(
     const { user, cart } = getState();
 
     const userId = user.user.id;
-    const sellerId = product.userId;
-
     const { totalPrice, totalQuantity, sellers, totalDiscountPrice } = cart;
+    const { id: productId, userId: sellerId, actualPrice } = product;
 
     const products = sellers[sellerId].products.slice();
 
-    const actualPrice =
-      product.discountPrice == null ? product.price : product.discountPrice;
-
-    const productId = product.id;
     const cartPosition = findProductIndexById(products, productId);
 
     let updatedCart;
@@ -278,11 +269,8 @@ export const deleteProduct = createAsyncThunk(
     const { user, cart } = getState();
 
     const userId = user.user.id;
-    const sellerId = product.userId;
-    const productId = product.id;
 
-    const actualPrice =
-      product.discountPrice == null ? product.price : product.discountPrice;
+    const { id: productId, userId: sellerId, actualPrice } = product;
     const { totalPrice, totalQuantity, sellers, totalDiscountPrice } = cart;
 
     const products = sellers[sellerId].products.slice();
@@ -339,16 +327,10 @@ export const selectProduct = createAsyncThunk(
     const { user, cart } = getState();
 
     const { totalQuantity, totalPrice, sellers, totalDiscountPrice } = cart;
-
+    const { id: productId, userId: sellerId, actualPrice } = product;
     const userId = user.user.id;
-    const sellerId = product.userId;
-    const productId = product.id;
 
     const products = cart.sellers[sellerId].products.slice();
-
-    const actualPrice =
-      product.discountPrice == null ? product.price : product.discountPrice;
-
     const cartPosition = findProductIndexById(products, productId);
 
     products[cartPosition] = {

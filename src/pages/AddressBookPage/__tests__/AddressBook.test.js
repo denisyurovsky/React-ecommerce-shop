@@ -1,3 +1,4 @@
+import { waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import _ from 'lodash';
 import { rest } from 'msw';
@@ -110,7 +111,15 @@ describe('AddressBook component', () => {
       expect(
         await screen.findByText(/Address was successfully added/i)
       ).toBeInTheDocument();
-      expect(await screen.findByText(/Nevskiy/i)).toBeInTheDocument();
+
+      await waitFor(
+        async () => {
+          expect(await screen.findByText(/Nevskiy/i)).toBeInTheDocument();
+        },
+        {
+          timeout: 10000,
+        }
+      );
     });
 
     it('Should get an error after trying to add an address', async () => {

@@ -68,3 +68,9 @@ export const MODAL_SIZES = {
 };
 
 export const HEADER_HEIGHT = 60;
+
+export const defaultFilters = [
+  { isDiscounted: false },
+  { 'category.name': null },
+  { userId: null },
+];

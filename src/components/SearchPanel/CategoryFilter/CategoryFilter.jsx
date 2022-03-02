@@ -29,15 +29,19 @@ export const CategoryFilter = ({
   const handleSelectChange = (e) => {
     setCategory(e.target.value);
     const categoryFilter =
-      e.target.value === allCategories[0]
-        ? null
-        : [{ 'category.name': e.target.value }];
+      e.target.value === allCategories[0] ? null : e.target.value;
 
-    setSearchParams((prev) => ({
-      ...prev,
-      filters: categoryFilter,
-      currentPage: 1,
-    }));
+    setSearchParams((prev) => {
+      const newfilters = prev.filters.filter((item) => {
+        return !item['category.name'] && item['category.name'] !== null;
+      });
+
+      return {
+        ...prev,
+        filters: [...newfilters, { 'category.name': categoryFilter }],
+        currentPage: 1,
+      };
+    });
   };
 
   return (

@@ -1,6 +1,6 @@
-import { Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Checkbox, FormControlLabel, Typography } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
@@ -65,6 +65,19 @@ const ProductListPage = () => {
 
   const navigate = useNavigate();
 
+  const checkOnlyDiscountedProducts = () => {
+    const newFilters = searchParams.filters.map((filter) => {
+      return !(filter.isDiscounted === false || filter.isDiscounted === true)
+        ? filter
+        : { isDiscounted: !filter.isDiscounted };
+    });
+
+    setSearchParams({
+      ...searchParams,
+      filters: [...newFilters],
+    });
+  };
+
   useEffect(() => {
     if (isMobile) {
       setCardShape(pageView.MODULE_VIEW);
@@ -124,6 +137,18 @@ const ProductListPage = () => {
     <>
       <Breadcrumbs className={styles.breadcrumbs} links={BreadcrumbsLinks} />
       <div className={styles.searchBlock}>
+        <FormControlLabel
+          className={styles.onlyDiscountedCheckbox}
+          control={
+            <Checkbox
+              label="discounts"
+              checked={searchParams.filters.discountFilter}
+              onChange={checkOnlyDiscountedProducts}
+            />
+          }
+          label="Only discounted"
+          labelPlacement="left"
+        />
         <CategoryFilter
           selectedCategory={selectedCategory}
           className={styles.filter}
