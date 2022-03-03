@@ -4,8 +4,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { notificationError } from '../../helpers/constants/constants';
-import { findProductIndexById } from '../../helpers/utils/findProductIndexById';
+import { notificationError } from '../../constants/constants';
+import { findProductIndexById } from '../../helpers/findProductIndexById';
 import { pageView } from '../../pages/ProductListPage/constants/constants';
 import {
   selectCart,

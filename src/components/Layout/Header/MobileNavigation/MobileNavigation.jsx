@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 import { useSelector } from 'react-redux';
 
-import { USER_ROLE } from '../../../../helpers/constants/constants';
-import { pathNames } from '../../../../helpers/constants/pathNames/pathNames';
+import { USER_ROLE } from '../../../../constants/constants';
+import { pathNames } from '../../../../constants/pathNames';
 import { getUserRole } from '../../../../store/user/userSlice';
 import { NavigationItem } from '../NavigationItem/NavigationItem';
 

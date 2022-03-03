@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { orderState } from '../../../helpers/constants/orderStatus';
+import { orderState } from '../../../constants/orderStatus';
 import {
   cancelOrder,
   selectOrders,

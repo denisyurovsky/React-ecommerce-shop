@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { FETCH } from '../../../../helpers/constants/constants';
+import { FETCH } from '../../../../constants/constants';
 import { usePermission } from '../../../../hooks/usePermission/usePermission';
 import { postNewComment } from '../../../../store/feedback/feedbackSlice';
 import { setProductRating } from '../../../../store/products/productsSlice';

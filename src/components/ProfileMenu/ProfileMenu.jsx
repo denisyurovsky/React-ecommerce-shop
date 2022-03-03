@@ -8,8 +8,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Link from '../../components/ui-kit/Link/Link';
-import { KEYS } from '../../helpers/constants/constants';
-import { PROFILE_MENU, LINKS } from '../../helpers/constants/linkConstants';
+import { KEYS } from '../../constants/constants';
+import { PROFILE_MENU, LINKS } from '../../constants/linkConstants';
 import makeLogout from '../../helpers/makeLogout';
 import { setUserInitialState } from '../../store/user/userSlice';
 import Avatar from '../ui-kit/Avatar/Avatar';

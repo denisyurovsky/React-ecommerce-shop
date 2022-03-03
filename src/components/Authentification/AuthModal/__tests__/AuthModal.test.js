@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 
-import { authStatus } from '../../../../helpers/constants/authConstants';
+import { authStatus } from '../../../../constants/authConstants';
 import AuthModal from '../AuthModal';
 
 const { FULFILLED } = authStatus;

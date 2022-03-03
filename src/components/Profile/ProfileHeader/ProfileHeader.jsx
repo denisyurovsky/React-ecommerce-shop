@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import { Title } from '../../../components/Title/Title';
-import { LINKS } from '../../../helpers/constants/linkConstants';
+import { LINKS } from '../../../constants/linkConstants';
 
 import styles from './ProfileHeader.module.scss';
 

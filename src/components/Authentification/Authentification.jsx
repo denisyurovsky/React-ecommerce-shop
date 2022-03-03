@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { authStatus } from '../../helpers/constants/authConstants';
+import { authStatus } from '../../constants/authConstants';
 import {
   getLoginState,
   getRegisterState,

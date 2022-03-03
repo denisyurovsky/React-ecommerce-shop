@@ -4,9 +4,9 @@ import { toast } from 'react-toastify';
 
 import ProfileAvatar from '../../components/Profile/ProfileAvatar/ProfileAvatar';
 import ProfileLayout from '../../components/Profile/ProfileLayout/ProfileLayout';
+import { ERROR } from '../../constants/constants';
+import { LINKS } from '../../constants/linkConstants';
 import checkEmailValidity from '../../helpers/checkEmailValidity';
-import { ERROR } from '../../helpers/constants/constants';
-import { LINKS } from '../../helpers/constants/linkConstants';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 import { getUser, updateUser } from '../../store/user/userSlice';
 

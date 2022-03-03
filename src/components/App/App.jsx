@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import { USER_ROLE } from '../../helpers/constants/constants';
-import { pathNames } from '../../helpers/constants/pathNames/pathNames';
+import { USER_ROLE } from '../../constants/constants';
+import { pathNames } from '../../constants/pathNames';
 import withAuthExpiration from '../../HOCs/withAuthExpiration';
 import AddressBook from '../../pages/AddressBookPage/AddressBook';
 import { AdminCategoriesPage } from '../../pages/AdminPages/AdminCategoriesPage/AdminCategoriesPage';

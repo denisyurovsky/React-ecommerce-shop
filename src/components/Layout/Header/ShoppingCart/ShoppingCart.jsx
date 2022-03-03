@@ -2,7 +2,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { pathNames } from '../../../../helpers/constants/pathNames/pathNames';
+import { pathNames } from '../../../../constants/pathNames';
 import { selectCart } from '../../../../store/cart/cartSlice';
 import Link from '../../../ui-kit/Link/Link';
 

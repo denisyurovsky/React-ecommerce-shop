@@ -3,8 +3,8 @@ import { Card, CardContent, Rating, Typography, Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import { MAX_SHOWN_SYMBOLS } from '../../../../helpers/constants/feedbackConstants';
-import { formatDate } from '../../../../helpers/utils/formatData';
+import { MAX_SHOWN_SYMBOLS } from '../../../../constants/feedbackConstants';
+import { formatDate } from '../../../../helpers/formatData';
 
 import styles from './feedbackCard.module.scss';
 

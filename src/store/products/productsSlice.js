@@ -6,7 +6,7 @@ import {
 
 import { setRating } from '../../api/feedback';
 import { getProductsByAuthorId, getSomeProducts } from '../../api/products';
-import { NUMBER_OF_CARDS_ON_HOMEPAGE } from '../../helpers/constants/constants';
+import { NUMBER_OF_CARDS_ON_HOMEPAGE } from '../../constants/constants';
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',

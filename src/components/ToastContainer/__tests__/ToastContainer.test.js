@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { toast } from 'react-toastify';
 
-import { BREAK_POINT } from '../../../helpers/constants/constants';
+import { BREAK_POINT } from '../../../constants/constants';
 import render, { screen } from '../../../test-utils/renderWith';
 import ToastContainer from '../ToastContainer';
 

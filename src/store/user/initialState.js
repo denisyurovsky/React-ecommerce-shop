@@ -1,5 +1,5 @@
-import { authStatus } from '../../helpers/constants/authConstants';
-import { REQUEST_STATUS, USER_ROLE } from '../../helpers/constants/constants';
+import { authStatus } from '../../constants/authConstants';
+import { REQUEST_STATUS, USER_ROLE } from '../../constants/constants';
 
 export default {
   user: {

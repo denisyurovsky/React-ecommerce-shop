@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BREAK_POINT } from '../../../helpers/constants/constants';
+import { BREAK_POINT } from '../../../constants/constants';
 import render, { screen } from '../../../test-utils/renderWith';
 import { Layout } from '../Layout';
 

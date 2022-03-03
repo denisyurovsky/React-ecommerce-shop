@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ToastContainer as ToastContainerFromLib } from 'react-toastify';
 
-import { BREAK_POINT, HEADER_HEIGHT } from '../../helpers/constants/constants';
+import { BREAK_POINT, HEADER_HEIGHT } from '../../constants/constants';
 import useBreakPoint from '../../hooks/useBreakPoint';
 
 const toastConfiguration = {

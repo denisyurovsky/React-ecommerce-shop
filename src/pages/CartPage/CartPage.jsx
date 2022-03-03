@@ -7,7 +7,7 @@ import { CartFooter } from '../../components/Cart/CartFooter/CartFooter';
 import { CartHeader } from '../../components/Cart/CartHeader/CartHeader';
 import { CartProductCards } from '../../components/Cart/CartProductCards/CartProductCards';
 import Modal from '../../components/ui-kit/Modal/Modal';
-import { MODAL_SIZES } from '../../helpers/constants/constants';
+import { MODAL_SIZES } from '../../constants/constants';
 import {
   deleteAllProducts,
   deleteProduct,

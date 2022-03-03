@@ -1,10 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import React from 'react';
 
-import {
-  REQUEST_STATUS,
-  USER_ROLE,
-} from '../../../../helpers/constants/constants';
+import { REQUEST_STATUS, USER_ROLE } from '../../../../constants/constants';
 import { pageView } from '../../../../pages/ProductListPage/constants/constants';
 import cartReducer from '../../../../store/cart/cartSlice';
 import productsReducer from '../../../../store/products/productsSlice';

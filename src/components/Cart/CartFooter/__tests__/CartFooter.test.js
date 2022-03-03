@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatPrice } from '../../../../helpers/utils/formatData';
+import { formatPrice } from '../../../../helpers/formatData';
 import { testCart } from '../../../../test-utils/dto/cartDto';
 import renderWith, { screen } from '../../../../test-utils/renderWith';
 import { CartFooter } from '../CartFooter';

@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 
 import Link from '../../components/ui-kit/Link/Link';
-import { PROFILE_MENU } from '../../helpers/constants/linkConstants';
+import { PROFILE_MENU } from '../../constants/linkConstants';
 
 import styles from './ProfileMenuMobile.module.scss';
 

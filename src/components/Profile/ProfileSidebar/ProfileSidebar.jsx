@@ -2,8 +2,8 @@ import { Card, MenuItem, MenuList } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
 import Link from '../../../components/ui-kit/Link/Link';
-import { PROFILE_MENU_FROM_TOP } from '../../../helpers/constants/constants';
-import { PROFILE_MENU } from '../../../helpers/constants/linkConstants';
+import { PROFILE_MENU_FROM_TOP } from '../../../constants/constants';
+import { PROFILE_MENU } from '../../../constants/linkConstants';
 
 import styles from './ProfileSidebar.module.scss';
 

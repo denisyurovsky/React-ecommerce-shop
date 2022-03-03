@@ -6,13 +6,13 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { toast } from 'react-toastify';
 
 import {
-  checkArrayOfImageValidity,
-  checkImageFileType,
-} from '../../helpers/checkImageValidity/checkImageValidity';
-import {
   IMAGE_ERRORS,
   IMAGE_VALIDITY_DEFAULT_STATE,
-} from '../../helpers/checkImageValidity/constants/imageValidityConstants';
+} from '../../constants/imageValidityConstants';
+import {
+  checkArrayOfImageValidity,
+  checkImageFileType,
+} from '../../helpers/checkImageValidity';
 import { convertImageUrlsToObjects } from '../../helpers/convertImageUrlToObject';
 import Spinner from '../ui-kit/Spinner/Spinner';
 

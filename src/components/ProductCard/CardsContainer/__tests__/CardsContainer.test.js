@@ -4,10 +4,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import {
-  REQUEST_STATUS,
-  USER_ROLE,
-} from '../../../../helpers/constants/constants';
+import { REQUEST_STATUS, USER_ROLE } from '../../../../constants/constants';
 import cartReducer from '../../../../store/cart/cartSlice';
 import productsReducer from '../../../../store/products/productsSlice';
 import userReducer from '../../../../store/user/userSlice';

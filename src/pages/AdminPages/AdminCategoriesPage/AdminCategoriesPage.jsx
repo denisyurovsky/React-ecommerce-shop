@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 import { AdminTable } from '../../../components/ui-kit/AdminTable/AdminTable';
 import Spinner from '../../../components/ui-kit/Spinner/Spinner';
-import { notificationError } from '../../../helpers/constants/constants';
+import { notificationError } from '../../../constants/constants';
 import {
   getProductsByUserId,
   selectProducts,

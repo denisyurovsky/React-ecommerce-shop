@@ -9,7 +9,7 @@ import CardShapeToggle from '../../components/SearchPanel/CardShapeToggle/CardSh
 import { CategoryFilter } from '../../components/SearchPanel/CategoryFilter/CategoryFilter';
 import FreeTextFilter from '../../components/SearchPanel/FreeTextFilter/FreeTextFilter';
 import SortFilter from '../../components/SearchPanel/SortFilter/SortFilter';
-import { ALL_CATEGORIES } from '../../helpers/constants/constants';
+import { ALL_CATEGORIES } from '../../constants/constants';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import {
   getCategories,

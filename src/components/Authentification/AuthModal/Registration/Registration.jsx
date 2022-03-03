@@ -2,12 +2,12 @@ import { Box, TextField, Button } from '@mui/material/';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import checkEmailValidity from '../../../../helpers/checkEmailValidity.js';
-import checkPasswordValidity from '../../../../helpers/checkPasswordValidity.js';
 import {
   MIN_PASSWORD_LENGTH,
   authStatus,
-} from '../../../../helpers/constants/authConstants.js';
+} from '../../../../constants/authConstants.js';
+import checkEmailValidity from '../../../../helpers/checkEmailValidity.js';
+import checkPasswordValidity from '../../../../helpers/checkPasswordValidity.js';
 import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler.js';

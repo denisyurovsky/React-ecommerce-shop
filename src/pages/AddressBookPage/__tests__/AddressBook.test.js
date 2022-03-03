@@ -4,7 +4,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { notificationError } from '../../../helpers/constants/constants';
+import { notificationError } from '../../../constants/constants';
 import getAddressBookElements from '../../../test-utils/addressBook/getAddressBookElements';
 import { addresses, newAddress } from '../../../test-utils/dto/addressesDto';
 import { citiesRU, citiesBY } from '../../../test-utils/dto/citiesDto';

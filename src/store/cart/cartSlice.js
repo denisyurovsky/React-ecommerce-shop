@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { setCart } from '../../api/cart';
 import { getUser } from '../../api/user';
+import { findProductIndexById } from '../../helpers/findProductIndexById';
+import { getCartFromStorage } from '../../helpers/getCartFromStorage';
 import { isGuest } from '../../helpers/isGuest';
-import { findProductIndexById } from '../../helpers/utils/findProductIndexById';
-import { getCartFromStorage } from '../../helpers/utils/getCartFromStorage';
 import { loginUser } from '../user/userSlice';
 
 import { initialState } from './initialState';

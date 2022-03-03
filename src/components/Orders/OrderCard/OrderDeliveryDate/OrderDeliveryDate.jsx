@@ -2,11 +2,8 @@ import { Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {
-  orderState,
-  orderStatus,
-} from '../../../../helpers/constants/orderStatus';
-import { formatDateWithFullMonth } from '../../../../helpers/utils/formatData';
+import { orderState, orderStatus } from '../../../../constants/orderStatus';
+import { formatDateWithFullMonth } from '../../../../helpers/formatData';
 
 export const OrderDeliveryDate = ({
   status,

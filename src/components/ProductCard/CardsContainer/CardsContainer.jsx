@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { notificationError } from '../../../helpers/constants/constants';
+import { notificationError } from '../../../constants/constants';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
 import { getWishlist } from '../../../store/user/userSlice';
 import Card from '../Card/Card';

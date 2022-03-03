@@ -3,7 +3,7 @@ import { waitFor } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import { orderState } from '../../../helpers/constants/orderStatus';
+import { orderState } from '../../../constants/orderStatus';
 import { ordersDto } from '../../../test-utils/dto/ordersDto';
 import userReducer from '../../user/userSlice';
 import ordersReducer, {

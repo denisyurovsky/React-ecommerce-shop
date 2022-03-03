@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { REQUEST_STATUS, SUCCESS } from '../../../helpers/constants/constants';
+import { REQUEST_STATUS, SUCCESS } from '../../../constants/constants';
 import {
   MODAL_TYPE,
   RUSSIA,

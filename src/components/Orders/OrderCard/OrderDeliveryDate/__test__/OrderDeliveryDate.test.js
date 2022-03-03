@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { orderState } from '../../../../../helpers/constants/orderStatus';
+import { orderState } from '../../../../../constants/orderStatus';
 import { OrderDeliveryDate } from '../OrderDeliveryDate';
 
 const deliveryDate = '2021-04-19T08:46:13.911Z';

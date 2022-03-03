@@ -6,8 +6,8 @@ import {
   authStatus,
   LOCK_TIMEOUT,
   MAX_LOGIN_ATTEMPTS,
-} from '../../helpers/constants/authConstants';
-import { REQUEST_STATUS } from '../../helpers/constants/constants';
+} from '../../constants/authConstants';
+import { REQUEST_STATUS } from '../../constants/constants';
 
 import initialState from './initialState';
 const { LOCKED, FULFILLED, PENDING, REJECTED, IDLE } = authStatus;

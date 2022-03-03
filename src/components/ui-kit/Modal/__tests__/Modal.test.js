@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import { MODAL_SIZES } from '../../../../helpers/constants/constants';
+import { MODAL_SIZES } from '../../../../constants/constants';
 import Wrapper from '../test-utils/Wrapper';
 
 describe('default modal functionality', () => {

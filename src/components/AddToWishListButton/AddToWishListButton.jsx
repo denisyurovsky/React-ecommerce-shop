@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { REQUEST_STATUS, USER_ROLE } from '../../helpers/constants/constants';
+import { REQUEST_STATUS, USER_ROLE } from '../../constants/constants';
 import { usePermission } from '../../hooks/usePermission/usePermission';
 import { pageView } from '../../pages/ProductListPage/constants/constants';
 import {

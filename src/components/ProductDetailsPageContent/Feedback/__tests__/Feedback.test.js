@@ -2,8 +2,8 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { ERROR, USER_ROLE } from '../../../../helpers/constants/constants';
-import { DEFAULT_NAME } from '../../../../helpers/constants/feedbackConstants';
+import { ERROR, USER_ROLE } from '../../../../constants/constants';
+import { DEFAULT_NAME } from '../../../../constants/feedbackConstants';
 import feedbackDto from '../../../../test-utils/dto/feedbackDto';
 import { handleModal } from '../../../../test-utils/feedback/feedbackHandlers';
 import renderWithStore, {

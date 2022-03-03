@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { EMPTY, ERROR, FETCH } from '../../../helpers/constants/constants';
+import { EMPTY, ERROR, FETCH } from '../../../constants/constants';
 import {
   clearFeedbacks,
   fetchCommentsByUserId,

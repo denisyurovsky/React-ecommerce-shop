@@ -6,7 +6,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, Routes } from 'react-router-dom';
 
-import { USER_ROLE } from '../../../helpers/constants/constants';
+import { USER_ROLE } from '../../../constants/constants';
 import { ProtectedRoutes } from '../ProtectedRoutes';
 
 const { ADMIN, SELLER, CONSUMER, GUEST } = USER_ROLE;

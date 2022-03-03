@@ -7,8 +7,8 @@ import AddressCard from '../../components/AddressBook/AddressCard/AddressCard';
 import CreateOrEditAddressModal from '../../components/AddressBook/CreateOrEditAddressModal/CreateOrEditAddressModal';
 import ProfileLayout from '../../components/Profile/ProfileLayout/ProfileLayout';
 import Spinner from '../../components/ui-kit/Spinner/Spinner';
-import { notificationError } from '../../helpers/constants/constants';
-import { LINKS } from '../../helpers/constants/linkConstants';
+import { notificationError } from '../../constants/constants';
+import { LINKS } from '../../constants/linkConstants';
 import usePrevious from '../../hooks/usePrevious';
 import {
   getAddressesByIds,

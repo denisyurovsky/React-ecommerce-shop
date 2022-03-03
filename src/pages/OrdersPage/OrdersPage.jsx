@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { OrdersCards } from '../../components/Orders/OrdersCards/OrdersCards';
 import ProfileLayout from '../../components/Profile/ProfileLayout/ProfileLayout';
 import Spinner from '../../components/ui-kit/Spinner/Spinner';
-import { LINKS } from '../../helpers/constants/linkConstants';
-import { orderState, orderStatus } from '../../helpers/constants/orderStatus';
+import { LINKS } from '../../constants/linkConstants';
+import { orderState, orderStatus } from '../../constants/orderStatus';
 import { getOrders, selectOrders } from '../../store/orders/ordersSlice';
 
 import styles from './OrdersPage.module.scss';

@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 import {
   MIN_PASSWORD_LENGTH,
   authStatus,
-} from '../../../../helpers/constants/authConstants';
+} from '../../../../constants/authConstants';
 import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler';

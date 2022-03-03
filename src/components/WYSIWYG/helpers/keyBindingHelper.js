@@ -1,6 +1,6 @@
 import { getDefaultKeyBinding, RichUtils } from 'draft-js';
 
-import { KEYS } from '../../../helpers/constants/constants';
+import { KEYS } from '../../../constants/constants';
 import { TYPES } from '../constants';
 
 import { TableHelpers, checkCurrentEmptyBlock } from './editorHelpers';

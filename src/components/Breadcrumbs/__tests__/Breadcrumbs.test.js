@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
+import { pathNames } from '../../../constants/pathNames';
 import RouterConnected from '../../../test-utils/RouterConnected';
 import Breadcrumbs from '../Breadcrumbs';
 

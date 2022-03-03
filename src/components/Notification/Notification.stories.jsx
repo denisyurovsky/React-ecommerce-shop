@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { notificationError } from '../../helpers/constants/constants';
+import { notificationError } from '../../constants/constants';
 
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './Notification.module.scss';

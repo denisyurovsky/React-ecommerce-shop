@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { USER_ROLE } from '../../../helpers/constants/constants';
+import { USER_ROLE } from '../../../constants/constants';
 import { usePermission } from '../usePermission';
 
 const { ADMIN, SELLER, CONSUMER, GUEST } = USER_ROLE;

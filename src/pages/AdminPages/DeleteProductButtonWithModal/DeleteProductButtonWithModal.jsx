@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { deleteProduct } from '../../../api/product';
-import { notificationError } from '../../../helpers/constants/constants';
+import { notificationError } from '../../../constants/constants';
 import { getProductsByUserId } from '../../../store/products/productsSlice';
 
 export const DeleteProductButtonWithModal = ({ productName, id }) => {

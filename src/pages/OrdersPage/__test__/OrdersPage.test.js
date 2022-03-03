@@ -3,7 +3,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { orderState } from '../../../helpers/constants/orderStatus';
+import { orderState } from '../../../constants/orderStatus';
 import { ordersDto } from '../../../test-utils/dto/ordersDto';
 import testProducts from '../../../test-utils/dto/productsDto';
 import renderWith from '../../../test-utils/renderWith';

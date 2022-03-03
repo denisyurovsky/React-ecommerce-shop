@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { USER_ROLE } from '../../../../../helpers/constants/constants';
+import { USER_ROLE } from '../../../../../constants/constants';
 import renderWithStore, {
   screen,
   fireEvent,

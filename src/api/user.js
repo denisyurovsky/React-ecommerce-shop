@@ -1,4 +1,4 @@
-import { USER_ROLE } from '../helpers/constants/constants';
+import { USER_ROLE } from '../constants/constants';
 
 import { http } from './setup';
 

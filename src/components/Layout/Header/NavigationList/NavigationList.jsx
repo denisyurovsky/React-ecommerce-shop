@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { USER_ROLE } from '../../../../helpers/constants/constants';
-import { pathNames } from '../../../../helpers/constants/pathNames/pathNames';
+import { USER_ROLE } from '../../../../constants/constants';
+import { pathNames } from '../../../../constants/pathNames';
 import { getUserRole } from '../../../../store/user/userSlice';
 
 import styles from './NavigationList.module.scss';

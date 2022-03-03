@@ -9,8 +9,8 @@ import { requestWithAbortControl } from '../../../api/requestWithAbortControl';
 import noImg from '../../../assets/images/noImg.png';
 import { AdminTable } from '../../../components/ui-kit/AdminTable/AdminTable';
 import Spinner from '../../../components/ui-kit/Spinner/Spinner';
-import { notificationError } from '../../../helpers/constants/constants';
-import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
+import { notificationError } from '../../../constants/constants';
+import { pathNames } from '../../../constants/pathNames';
 import {
   getProductsByUserId,
   selectProducts,

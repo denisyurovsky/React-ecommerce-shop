@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { BREAK_POINT } from '../helpers/constants/constants';
+import { BREAK_POINT } from '../constants/constants';
 
 import { useWindowSize } from './useWindowSize';
 

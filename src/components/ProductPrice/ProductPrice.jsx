@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { formatPrice } from '../../helpers/utils/formatData';
+import { formatPrice } from '../../helpers/formatData';
 
 import styles from './ProductPrice.module.scss';
 

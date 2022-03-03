@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import { MAX_SHOWN_SYMBOLS } from '../../../../../helpers/constants/feedbackConstants';
+import { MAX_SHOWN_SYMBOLS } from '../../../../../constants/feedbackConstants';
 import feedbackDto from '../../../../../test-utils/dto/feedbackDto';
 import FeedbackCard from '../FeedbackCard';
 

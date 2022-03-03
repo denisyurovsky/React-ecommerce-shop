@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 import { getProductsByIds } from '../../api/products';
 import Card from '../../components/ProductCard/Card/Card';
 import ProfileLayout from '../../components/Profile/ProfileLayout/ProfileLayout';
-import { notificationError } from '../../helpers/constants/constants';
-import { LINKS } from '../../helpers/constants/linkConstants';
+import { notificationError } from '../../constants/constants';
+import { LINKS } from '../../constants/linkConstants';
 import { getWishlist, selectUser } from '../../store/user/userSlice';
 import { pageView } from '../ProductListPage/constants/constants';
 

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { notificationError } from '../../../helpers/constants/constants';
+import { notificationError } from '../../../constants/constants';
 import validateField from '../../../helpers/validateField';
 import usePrevious from '../../../hooks/usePrevious';
 import { RUSSIA } from '../../../pages/AddressBookPage/constants/constants';

@@ -21,9 +21,9 @@ import { ImagesUploader } from '../../../components/ImagesUploader/ImagesUploade
 import { Title } from '../../../components/Title/Title';
 import createDecorator from '../../../components/WYSIWYG/Decorators/Decorators';
 import TextEditor from '../../../components/WYSIWYG/TextEditor';
+import { pathNames } from '../../../constants/pathNames';
 import checkForLatinText from '../../../helpers/checkForLatinText';
 import checkForOnlyNumbers from '../../../helpers/checkForOnlyNumbers';
-import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
 import { convertBase64ArrayOfImages } from '../../../helpers/convertBase64';
 import {
   getCategories,

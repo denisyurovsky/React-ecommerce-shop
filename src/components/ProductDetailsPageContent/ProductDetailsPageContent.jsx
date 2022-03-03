@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { pathNames } from '../../helpers/constants/pathNames/pathNames';
+import { pathNames } from '../../constants/pathNames';
 import Description from '../../helpers/Description';
-import { formatDate } from '../../helpers/utils/formatData';
+import { formatDate } from '../../helpers/formatData';
 import { getRatingByProductId } from '../../store/products/productsSlice';
 import { getWishlist } from '../../store/user/userSlice';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';

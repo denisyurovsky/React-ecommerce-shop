@@ -1,4 +1,4 @@
-import { REQUEST_STATUS } from '../../../helpers/constants/constants';
+import { REQUEST_STATUS } from '../../../constants/constants';
 import reducer, {
   resetBlockedState,
   resetError,

@@ -21,20 +21,14 @@ import { toast } from 'react-toastify';
 
 import { getProductsByIds } from '../../../api/products';
 import noImg from '../../../assets/images/noImg.png';
-import {
-  notificationError,
-  BREAK_POINT,
-} from '../../../helpers/constants/constants';
-import {
-  orderStatus,
-  orderState,
-} from '../../../helpers/constants/orderStatus';
-import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
+import { notificationError, BREAK_POINT } from '../../../constants/constants';
+import { orderStatus, orderState } from '../../../constants/orderStatus';
+import { pathNames } from '../../../constants/pathNames';
 import {
   formatDateWithFullMonth,
   formatPrice,
   formatDateWithShortMonth,
-} from '../../../helpers/utils/formatData';
+} from '../../../helpers/formatData';
 import useBreakPoint from '../../../hooks/useBreakPoint';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import { selectOrders } from '../../../store/orders/ordersSlice';

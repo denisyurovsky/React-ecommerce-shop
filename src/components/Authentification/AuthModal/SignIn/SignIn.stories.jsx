@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { authStatus, ERROR } from '../../../../helpers/constants/authConstants';
+import { authStatus, ERROR } from '../../../../constants/authConstants';
 
 import SignIn from './SignIn';
 

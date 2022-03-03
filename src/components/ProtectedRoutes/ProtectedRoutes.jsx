@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { USER_ROLE } from '../../helpers/constants/constants';
+import { USER_ROLE } from '../../constants/constants';
 import { usePermission } from '../../hooks/usePermission/usePermission';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 

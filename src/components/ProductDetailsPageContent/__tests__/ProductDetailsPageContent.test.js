@@ -2,7 +2,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { DEFAULT_NAME } from '../../../helpers/constants/feedbackConstants';
+import { DEFAULT_NAME } from '../../../constants/feedbackConstants';
 import convertDescription from '../../../helpers/convertDescriptionToObj';
 import { testCart } from '../../../test-utils/dto/cartDto';
 import feedbackDto from '../../../test-utils/dto/feedbackDto';

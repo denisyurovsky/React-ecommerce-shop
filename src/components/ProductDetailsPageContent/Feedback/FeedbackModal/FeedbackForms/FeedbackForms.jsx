@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import {
   MIN_COMMENT_LENGTH,
   DEFAULT_NAME,
-} from '../../../../../helpers/constants/feedbackConstants.js';
+} from '../../../../../constants/feedbackConstants.js';
 import LoadingButton from '../../../../ui-kit/buttons/LoadingButton.jsx';
 
 import ProductRating from './ProductRating';

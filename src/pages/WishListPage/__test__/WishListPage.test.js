@@ -6,8 +6,8 @@ import { setupServer } from 'msw/node';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { authStatus } from '../../../helpers/constants/authConstants';
-import { USER_ROLE } from '../../../helpers/constants/constants';
+import { authStatus } from '../../../constants/authConstants';
+import { USER_ROLE } from '../../../constants/constants';
 import cartReducer from '../../../store/cart/cartSlice';
 import productsReducer from '../../../store/products/productsSlice';
 import userReducer from '../../../store/user/userSlice';

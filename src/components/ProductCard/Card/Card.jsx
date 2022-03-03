@@ -14,8 +14,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import noImg from '../../../assets/images/noImg.png';
-import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
-import { formatDate } from '../../../helpers/utils/formatData';
+import { pathNames } from '../../../constants/pathNames';
+import { formatDate } from '../../../helpers/formatData';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
 import { getRatingByProductId } from '../../../store/products/productsSlice';
 import { AddToCartButton } from '../../AddToCartButton/AddToCartButton';

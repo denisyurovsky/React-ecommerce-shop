@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import { authStatus } from '../../../../../helpers/constants/authConstants';
+import { authStatus } from '../../../../../constants/authConstants';
 import Registration from '../Registration';
 
 const { PENDING, REJECTED } = authStatus;

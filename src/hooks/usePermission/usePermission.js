@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { USER_ROLE } from '../../helpers/constants/constants';
+import { USER_ROLE } from '../../constants/constants';
 import { getUserRole } from '../../store/user/userSlice';
 
 const defaultRoles = [USER_ROLE.CONSUMER, USER_ROLE.SELLER, USER_ROLE.ADMIN];

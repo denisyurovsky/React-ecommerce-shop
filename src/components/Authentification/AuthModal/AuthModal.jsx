@@ -2,7 +2,7 @@ import { Tabs, Tab, Box, Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import { authStatus } from '../../../helpers/constants/authConstants';
+import { authStatus } from '../../../constants/authConstants';
 import Modal from '../../ui-kit/Modal/Modal';
 
 import Registration from './Registration/Registration';

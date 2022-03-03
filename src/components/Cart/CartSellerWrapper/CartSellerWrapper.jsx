@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 import { getProductsByIds } from '../../../api/products';
 import { getUser } from '../../../api/user';
-import { notificationError } from '../../../helpers/constants/constants';
+import { notificationError } from '../../../constants/constants';
 import {
   selectCart,
   selectSellersProducts,

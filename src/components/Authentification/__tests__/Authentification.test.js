@@ -3,10 +3,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import {
-  MAX_LOGIN_ATTEMPTS,
-  ERROR,
-} from '../../../helpers/constants/authConstants';
+import { MAX_LOGIN_ATTEMPTS, ERROR } from '../../../constants/authConstants';
 import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
 import Authentification from '../Authentification';
 

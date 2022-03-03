@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { formatDiscountInPercents } from '../../helpers/utils/formatData';
+import { formatDiscountInPercents } from '../../helpers/formatData';
 
 import styles from './DiscountLabel.module.scss';
 

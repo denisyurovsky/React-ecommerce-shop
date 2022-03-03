@@ -1,4 +1,4 @@
-import { orderState } from '../../helpers/constants/orderStatus';
+import { orderState } from '../../constants/orderStatus';
 
 export const ordersDto = [
   {

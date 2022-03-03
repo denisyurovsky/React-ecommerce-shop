@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { EMPTY } from '../../../../../helpers/constants/constants';
+import { EMPTY } from '../../../../../constants/constants';
 import feedbackDto from '../../../../../test-utils/dto/feedbackDto';
 import CommentSection from '../CommentSection';
 

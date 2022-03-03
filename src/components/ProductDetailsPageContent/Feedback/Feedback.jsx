@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { FETCH, EMPTY, ERROR } from '../../../helpers/constants/constants';
+import { FETCH, EMPTY, ERROR } from '../../../constants/constants';
 import {
   fetchCommentsByProductId,
   selectAllComments,

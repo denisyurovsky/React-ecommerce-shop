@@ -1,4 +1,4 @@
-import { pathNames } from '../../../../../helpers/constants/pathNames/pathNames';
+import { pathNames } from '../../../../../constants/pathNames';
 
 export const LINKS = [
   {

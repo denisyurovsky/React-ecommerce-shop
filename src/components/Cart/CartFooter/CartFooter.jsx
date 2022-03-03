@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { formatPrice } from '../../../helpers/utils/formatData';
+import { formatPrice } from '../../../helpers/formatData';
 import { selectCart } from '../../../store/cart/cartSlice';
 
 import styles from './CartFooter.module.scss';

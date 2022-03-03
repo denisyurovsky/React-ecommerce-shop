@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { pathNames } from '../../../helpers/constants/pathNames/pathNames';
+import { pathNames } from '../../../constants/pathNames';
 import { DeleteCategoryButtonWithModal } from '../DeleteCategoryButtonWithModal/DeleteCategoryButtonWithModal';
 
 import styles from './AdminCategoriesPage.module.scss';

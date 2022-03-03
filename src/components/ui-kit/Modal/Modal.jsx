@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { MODAL_SIZES } from '../../../helpers/constants/constants';
+import { MODAL_SIZES } from '../../../constants/constants';
 
 import ButtonGroup from './ButtonGroup';
 

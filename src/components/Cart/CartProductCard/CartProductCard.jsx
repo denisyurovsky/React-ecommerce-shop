@@ -6,7 +6,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import noImg from '../../../assets/images/noImg.png';
-import { findProductIndexById } from '../../../helpers/utils/findProductIndexById';
+import { findProductIndexById } from '../../../helpers/findProductIndexById';
 import { selectCart, selectProduct } from '../../../store/cart/cartSlice';
 import { AddToCartButton } from '../../AddToCartButton/AddToCartButton';
 import { ProductPrice } from '../../ProductPrice/ProductPrice';

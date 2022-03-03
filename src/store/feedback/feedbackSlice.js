@@ -9,7 +9,7 @@ import {
   getCommentsByUserId,
   postComment,
 } from '../../api/feedback';
-import { FETCH } from '../../helpers/constants/constants';
+import { FETCH } from '../../constants/constants';
 
 const { IDLE, PENDING, FULFILLED, REJECTED } = FETCH;
 

@@ -5,7 +5,7 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import React from 'react';
 
-import { pathNames } from './pathNames/pathNames';
+import { pathNames } from './pathNames';
 
 const { USERS, PROFILE, WISHLIST, ADDRESSBOOK, ORDERS } = pathNames;
 

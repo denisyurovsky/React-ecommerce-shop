@@ -4,7 +4,7 @@ import {
   IMAGE_ERRORS,
   IMAGE_SIZE,
   IMAGE_VALIDITY_DEFAULT_STATE,
-} from './constants/imageValidityConstants';
+} from '../constants/imageValidityConstants';
 
 const checkImageFileType = (file) =>
   /(\.bmp|\.gif|\.jpg|\.jpeg|\.png|\.webp)$/i.test(file.name);

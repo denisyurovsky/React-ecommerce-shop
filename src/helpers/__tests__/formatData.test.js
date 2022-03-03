@@ -1,4 +1,8 @@
-import { formatPrice, formatDate, formatDateWithFullMonth } from './formatData';
+import {
+  formatPrice,
+  formatDate,
+  formatDateWithFullMonth,
+} from '../formatData';
 
 describe('formatDate', () => {
   it('should format the date into dd.mm.yyyy', () => {
