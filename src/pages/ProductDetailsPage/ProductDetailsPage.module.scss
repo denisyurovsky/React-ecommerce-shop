@@ -1,18 +1,7 @@
 @import "../../assets/styles/variables.scss";
 
-$headerHeight: 60px;
-
-$footerHeightLarge: 64px;
-$footerHeightSmall: 56px;
-
 .container {
-  min-height: calc(100vh - #{$headerHeight} - #{$footerHeightLarge});
   display: flex;
   align-items: flex-start;
   width: 100%;
-
-  @media screen and (max-width: $sm) {
-    height: fit-content;
-    min-height: calc(100vh - #{$headerHeight} - #{$footerHeightSmall});
-  }
 }
