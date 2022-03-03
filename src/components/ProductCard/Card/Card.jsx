@@ -40,7 +40,6 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
     isAddedToWishlist,
   } = product;
   const styles = cardShape === pageView.MODULE_VIEW ? stylesModule : stylesList;
-
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
 
   const containerClasses = classNames({
@@ -50,12 +49,6 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
 
   return (
     <Card className={containerClasses}>
-      <AddToWishListButton
-        productId={id}
-        productName={name}
-        cardShape={cardShape}
-        isAddedToWishlist={isAddedToWishlist}
-      />
       <Box className={styles.imageContainer}>
         <CardMedia
           component="img"
@@ -105,6 +98,12 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
       <CardActions className={styles.price}>
         <ProductPrice discountPrice={discountPrice} price={price} />
         <AddToCartButton product={product} viewMode={cardShape} />
+        <AddToWishListButton
+          productId={id}
+          productName={name}
+          cardShape={cardShape}
+          isAddedToWishlist={isAddedToWishlist}
+        />
       </CardActions>
     </Card>
   );
