@@ -2,6 +2,8 @@
 @import "../../../assets/styles/variables.scss";
 
 .appBar {
+  left: 0 !important;
+  width: 100vw !important;
   padding: 0 !important;
   margin: 0 !important;
   height: $headerHeight !important;

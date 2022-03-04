@@ -5,9 +5,11 @@
 @import "normalize.css";
 @import "react-toastify/dist/ReactToastify.css";
 @import "draft-js/dist/Draft.css";
+@import "colors.scss";
 
 html {
   font-size: 10px;
+  background-color: $greyLight;
 }
 
 body {
