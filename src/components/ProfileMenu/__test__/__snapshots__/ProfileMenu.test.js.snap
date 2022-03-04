@@ -17,6 +17,7 @@ exports[`Profile menu component snapshots renders profile menu in the default/cl
     >
       <div
         class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault avatar white css-1vrl596-MuiAvatar-root"
+        data-testid="ProfileAvatar"
       >
         <svg
           aria-hidden="true"
@@ -58,6 +59,7 @@ exports[`Profile menu component snapshots renders profile menu in the opened sta
     >
       <div
         class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault avatar white css-1vrl596-MuiAvatar-root"
+        data-testid="ProfileAvatar"
       >
         <svg
           aria-hidden="true"

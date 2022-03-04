@@ -17,4 +17,4 @@ const convertBase64ArrayOfImages = (files) => {
   return Promise.all(arrayOfPromises);
 };
 
-export { convertBase64ArrayOfImages };
+export { convertBase64ArrayOfImages, convertBase64 };

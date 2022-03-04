@@ -22,6 +22,7 @@ const Avatar = ({
 
   return (
     <AvatarIcon
+      data-testid="ProfileAvatar"
       className={classes}
       sx={{ width: size, height: size }}
       src={avatar}

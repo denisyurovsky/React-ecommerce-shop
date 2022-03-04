@@ -380,6 +380,7 @@ exports[`ProductDetailsPageContent snapshots renders a valid snapshot 1`] = `
               </p>
               <div
                 class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault avatar css-1vrl596-MuiAvatar-root"
+                data-testid="ProfileAvatar"
               >
                 <svg
                   aria-hidden="true"

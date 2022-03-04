@@ -11,7 +11,13 @@ import getCroppedImg from '../helpers/getCroppedImg';
 
 import styles from './ImageCrop.module.scss';
 
-const ImageCrop = ({ imgFile, passFile, resetCroppedImage }) => {
+const ImageCrop = ({
+  imgFile,
+  passFile,
+  resetCroppedImage,
+  imageHeight,
+  imageWidth,
+}) => {
   const cropperRef = useRef();
 
   const generateBlob = async () => {
@@ -33,10 +39,10 @@ const ImageCrop = ({ imgFile, passFile, resetCroppedImage }) => {
           style={{ width: '100%', height: '100%' }}
           src={imgFile.previewURL}
           alt={imgFile.name}
-          aspectRatio={IMAGE_HEIGHT / IMAGE_WIDTH}
+          aspectRatio={imageHeight / imageWidth}
           dragMode="move"
-          minCropBoxWidth={IMAGE_WIDTH}
-          minCropBoxHeight={IMAGE_HEIGHT}
+          minCropBoxWidth={imageWidth}
+          minCropBoxHeight={imageHeight}
           cropBoxResizable={false}
           guides={false}
           ref={cropperRef}
@@ -56,12 +62,16 @@ const ImageCrop = ({ imgFile, passFile, resetCroppedImage }) => {
 
 ImageCrop.defaultProps = {
   forceCrop: false,
+  imageHeight: IMAGE_HEIGHT,
+  imageWidth: IMAGE_WIDTH,
 };
 
 ImageCrop.propTypes = {
   passFile: PropTypes.func.isRequired,
   imgFile: PropTypes.object.isRequired,
   resetCroppedImage: PropTypes.func.isRequired,
+  imageHeight: PropTypes.number,
+  imageWidth: PropTypes.number,
 };
 
 export default ImageCrop;

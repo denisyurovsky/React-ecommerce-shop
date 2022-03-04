@@ -1,47 +1,98 @@
+import { Container } from '@mui/material';
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
+import { notificationError } from '../../../constants/constants';
 import checkImageValidity from '../../../helpers/checkImageValidity';
 import convertBase64 from '../../../helpers/convertBase64';
-import { updateUser } from '../../../store/user/userSlice';
+import { updateUser, getUser } from '../../../store/user/userSlice';
+import ImageCrop from '../../ImagesUploader/ImageCrop/ImageCrop';
 import Avatar from '../../ui-kit/Avatar/Avatar';
 
-const ProfileAvatar = ({ id, avatar }) => {
-  const imgInput = useRef();
+const ProfileAvatar = () => {
+  const user = useSelector(getUser);
   const dispatch = useDispatch();
+  const imgInput = useRef();
+  const [imageForCrop, setImageForCrop] = useState();
+  const [avatar, setAvatar] = useState(user.avatar);
 
   const uploadImage = async (file) => {
-    const base64 = await convertBase64(file);
+    const fileToUpload = addPreviewURL(file);
 
-    dispatch(updateUser({ id, avatar: base64 }));
+    setImageForCrop(fileToUpload);
+  };
+
+  const resetCroppedImage = () => {
+    URL.revokeObjectURL(imageForCrop);
+    setImageForCrop(null);
+  };
+
+  const addPreviewURL = (file) => {
+    file.previewURL = URL.createObjectURL(file);
+
+    return file;
+  };
+
+  const getFileAfterCrop = async (croppedFile) => {
+    try {
+      const base64 = await convertBase64(croppedFile);
+
+      setAvatar(base64);
+
+      dispatch(updateUser({ ...user, avatar: base64 }));
+
+      resetCroppedImage();
+    } catch (error) {
+      toast.error(notificationError);
+    }
+
+    URL.revokeObjectURL(imageForCrop);
   };
 
   const changeImage = (e) => {
     const file = e.target.files[0];
 
-    if (file) {
-      const imageValidity = checkImageValidity(file);
+    if (!file) return;
 
-      imageValidity.result
-        ? uploadImage(file)
-        : toast.error(imageValidity.message);
+    const imageValidity = checkImageValidity(file);
+
+    if (imageValidity.result) {
+      uploadImage(file);
+    } else {
+      toast.error(imageValidity.message);
     }
+
+    e.target.value = '';
   };
 
   const handleImage = () => imgInput.current.click();
+
+  const needCrop = Boolean(imageForCrop);
 
   return (
     <>
       <Avatar isProfile avatar={avatar} onClick={handleImage} />
       <input
+        data-testid="imageInput"
         ref={imgInput}
         type="file"
         name="myImage"
         style={{ display: 'none' }}
         onChange={changeImage}
       />
+      <Container sx={{ width: '75%' }}>
+        {needCrop && (
+          <ImageCrop
+            imgFile={imageForCrop}
+            passFile={getFileAfterCrop}
+            resetCroppedImage={resetCroppedImage}
+            imageHeight={500}
+            imageWidth={500}
+          />
+        )}
+      </Container>
     </>
   );
 };
