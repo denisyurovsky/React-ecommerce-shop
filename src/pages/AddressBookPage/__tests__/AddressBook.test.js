@@ -13,6 +13,7 @@ import { countries } from '../../../test-utils/dto/countriesDto';
 import users from '../../../test-utils/dto/usersDto';
 import render, { screen } from '../../../test-utils/renderWith';
 import AddressBook from '../AddressBook';
+import { successNotification } from '../constants/constants';
 
 const waitForAddressBook = () => screen.findAllByText(/address book/i);
 const preloadedState = {
@@ -44,6 +45,9 @@ const server = setupServer(
   }),
   rest.patch('/users/0', (req, res, ctx) => {
     return res(ctx.json(req.body));
+  }),
+  rest.delete('/addresses/1', (req, res, ctx) => {
+    return res(ctx.status(200));
   })
 );
 
@@ -234,6 +238,32 @@ describe('AddressBook component', () => {
       userEvent.click(screen.getByText('save'));
 
       expect(await screen.findByText(notificationError)).toBeInTheDocument();
+    });
+    it('should show notification after successful product delete', async () => {
+      await waitForAddressBook();
+
+      const deleteButtons = screen.getAllByTestId('CloseIcon');
+
+      userEvent.click(deleteButtons[0]);
+
+      userEvent.click(await screen.findByText('Yes'));
+
+      expect(await screen.findByText(successNotification)).toBeInTheDocument();
+    });
+    it('should close modal after clicking No', async () => {
+      await waitForAddressBook();
+
+      const deleteButtons = screen.getAllByTestId('CloseIcon');
+
+      userEvent.click(deleteButtons[0]);
+
+      userEvent.click(await screen.findByText('No'));
+
+      expect(
+        screen.queryByText(
+          'Are you sure you want to delete the current address?'
+        )
+      ).not.toBeInTheDocument();
     });
   });
 });

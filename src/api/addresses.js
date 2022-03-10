@@ -19,3 +19,7 @@ export const addSomeAddress = (data) => {
 export const editSomeAddress = (data) => {
   return http.put(`/addresses/${data.id}`, data);
 };
+
+export const deleteAddress = (id) => {
+  return http.delete(`/addresses/${id}`);
+};

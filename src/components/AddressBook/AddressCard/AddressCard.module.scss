@@ -2,8 +2,16 @@
 
 .card {
   width: 100%;
+  position: relative;
   margin: 0 auto;
   margin-top: 20px;
+}
+
+.closeIcon {
+  top: 16px;
+  right: 16px;
+  position: absolute;
+  cursor: pointer;
 }
 
 .footer {

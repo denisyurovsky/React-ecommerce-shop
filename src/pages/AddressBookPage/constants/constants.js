@@ -18,6 +18,8 @@ export const EMPTY_ADDRESS = {
   zip: '',
 };
 
+export const successNotification = 'Address was successfully deleted';
+
 const { PROFILE, ADDRESSBOOK } = pathNames;
 
 export const LINKS = [
