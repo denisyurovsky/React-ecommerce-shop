@@ -102,4 +102,5 @@ export default feedbackSlice.reducer;
 export const { selectAll: selectAllComments } = feedbackAdapter.getSelectors(
   (state) => state.feedback
 );
+export const getFeedbackStatus = (state) => state.feedback.status;
 export const { clearFeedbacks } = feedbackSlice.actions;

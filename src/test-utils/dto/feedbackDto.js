@@ -17,6 +17,7 @@ const feedbackDto = [
     comment: 'Awful thing',
     createdAt: '2021-12-28T13:57:12.255Z',
     displayedName: 'Petr',
+    productName: 'Headphones',
   },
   {
     id: 2,

@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
 import { MAX_SHOWN_SYMBOLS } from '../../../../../constants/feedbackConstants';
 import feedbackDto from '../../../../../test-utils/dto/feedbackDto';
+import render, { screen } from '../../../../../test-utils/renderWith';
 import FeedbackCard from '../FeedbackCard';
 
 describe('long comment', () => {

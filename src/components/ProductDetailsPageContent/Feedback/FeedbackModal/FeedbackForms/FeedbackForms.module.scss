@@ -1,0 +1,10 @@
+@import "../../../../../assets/styles/colors.scss";
+
+.checkbox {
+  margin-bottom: 20px;
+
+  & span {
+    font-size: 1.2rem;
+    color: $greyDark;
+  }
+}

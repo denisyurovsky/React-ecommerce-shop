@@ -43,9 +43,9 @@ function ProfileHeader({ profile, title }) {
 ProfileHeader.propTypes = {
   title: PropTypes.string,
   profile: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
   }),
 };
 

@@ -19,6 +19,7 @@ const handlersFulfilled = [
 ];
 
 const addFeedbackHandlers = [
+  rest.get('/products', () => {}),
   rest.get('/feedbacks', (req, res, ctx) => {
     const productId = req.url.searchParams.get('productId');
 
@@ -34,6 +35,7 @@ const addFeedbackHandlers = [
       ctx.json({
         ...req.body,
         id: 3,
+        productName: 'Tasty Fruit',
         createdAt: '2022-01-02T08:54:18.560Z',
       })
     )
@@ -104,10 +106,12 @@ describe('Product rating', () => {
       description: convertDescription(productsDto[2].description),
     };
 
-    render(<ProductDetailsPageContent product={product} />, {
-      cart: testCart,
-      user: usersDto[3],
-    });
+    render(
+      <ProductDetailsPageContent product={product} />,
+      { cart: testCart, user: usersDto[3] },
+      '/products',
+      ['/products']
+    );
 
     await screen.findByTestId('comments');
     handleModal({ rating: 2 });

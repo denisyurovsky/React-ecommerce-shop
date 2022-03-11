@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProfileConsumer component should render user comments 1`] = `
+exports[`ProfileConsumer component should not render "Anonymous" user comments 1`] = `
 <DocumentFragment>
   <div
     class="MuiBox-root css-0"
@@ -8,18 +8,19 @@ exports[`ProfileConsumer component should render user comments 1`] = `
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tbqmd1-MuiPaper-root-MuiCard-root"
+      id="feedback2"
     >
       <div
         class="MuiCardContent-root comment css-46bh2p-MuiCardContent-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 css-1b3y78w-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 title css-ag7rrr-MuiTypography-root"
         >
-          Anonymous (25.12.2021)
+          Headphones (25.12.2021)
         </h5>
         <span
           aria-label="4 Stars"
-          class="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-17cjc3j-MuiRating-root"
+          class="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-1apbn90-MuiRating-root"
           role="img"
         >
           <span>
@@ -123,6 +124,135 @@ exports[`ProfileConsumer component should render user comments 1`] = `
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Toastify"
+  />
+</DocumentFragment>
+`;
+
+exports[`ProfileConsumer component should render user comments 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-0"
+    data-testid="comments"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tbqmd1-MuiPaper-root-MuiCard-root"
+      id="feedback1"
+    >
+      <div
+        class="MuiCardContent-root comment css-46bh2p-MuiCardContent-root"
+      >
+        <h5
+          class="MuiTypography-root MuiTypography-h5 title css-ag7rrr-MuiTypography-root"
+        >
+          <a
+            class="link"
+            href="/products/2"
+            style="display: inline; opacity: 1;"
+          >
+            Headphones (28.12.2021)
+          </a>
+        </h5>
+        <span
+          aria-label="3 Stars"
+          class="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-1apbn90-MuiRating-root"
+          role="img"
+        >
+          <span>
+            <span
+              class="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            <span
+              class="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            <span
+              class="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            <span
+              class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarBorderIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            <span
+              class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                data-testid="StarBorderIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+        >
+          Awful thing
         </p>
       </div>
     </div>

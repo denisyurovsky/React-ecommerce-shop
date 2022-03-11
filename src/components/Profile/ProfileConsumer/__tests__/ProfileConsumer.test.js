@@ -9,30 +9,44 @@ import ProfileConsumer from '../ProfileConsumer';
 const waitForFeedbacks = () => screen.findByTestId('comments');
 
 const server = setupServer(
-  rest.get('/users/0/feedbacks', (req, res, ctx) => {
-    return res(ctx.json([]));
-  }),
-  rest.get('/users/1/feedbacks', (req, res, ctx) => {
-    return res(ctx.status(400));
-  }),
-  rest.get('/users/3/feedbacks', (req, res, ctx) => {
-    return res(ctx.json([feedbackDto[2]]));
+  rest.get('/users/:id/feedbacks', (req, res, ctx) => {
+    switch (req.params.id) {
+      case '0':
+        return res(ctx.json([]));
+      case '1':
+        return res(ctx.status(400));
+      case '3':
+        return res(ctx.json([feedbackDto[1]]));
+      case '4':
+        return res(ctx.json([feedbackDto[2]]));
+      default:
+        return;
+    }
   })
 );
+
+const setProps = (id) => ({ profileId: id, productName: 'Headphones' });
 
 describe('ProfileConsumer component', () => {
   beforeAll(() => server.listen());
   afterAll(() => server.close());
 
   it('should render user comments', async () => {
-    const { asFragment } = render(<ProfileConsumer profileId={3} />);
+    const { asFragment } = render(<ProfileConsumer {...setProps(3)} />);
+
+    await waitForFeedbacks();
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should not render "Anonymous" user comments', async () => {
+    const { asFragment } = render(<ProfileConsumer {...setProps(4)} />);
 
     await waitForFeedbacks();
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should show correct message', async () => {
-    render(<ProfileConsumer profileId={0} />);
+    render(<ProfileConsumer {...setProps(0)} />);
     await waitForFeedbacks();
 
     expect(
@@ -41,7 +55,7 @@ describe('ProfileConsumer component', () => {
   });
 
   it('should show error notification', async () => {
-    render(<ProfileConsumer profileId={1} />);
+    render(<ProfileConsumer {...setProps(1)} />);
 
     expect(
       await screen.findByText('Failed to load feedbacks.')

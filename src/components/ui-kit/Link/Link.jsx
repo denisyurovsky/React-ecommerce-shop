@@ -12,6 +12,7 @@ import styles from './Link.module.scss';
 const Link = ({
   to,
   children,
+  state,
   style,
   color,
   opacity = 1,
@@ -42,6 +43,7 @@ const Link = ({
         color: color,
         opacity: opacity,
       }}
+      state={state}
     >
       {children}
     </RouterLink>
@@ -54,6 +56,7 @@ Link.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  state: PropTypes.object,
   style: PropTypes.object,
   color: PropTypes.string,
   opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

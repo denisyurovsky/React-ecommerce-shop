@@ -8,7 +8,7 @@ export const getAllComments = () => {
 };
 
 export const getCommentsByUserId = (userId) =>
-  http.get(`users/${userId}/feedbacks`);
+  http.get(`users/${userId}/feedbacks?displayedName_ne=Anonymous`);
 
 export const postComment = ({ productId, rating, comment, name, userId }) => {
   return http.post('feedbacks', {

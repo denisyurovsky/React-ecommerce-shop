@@ -8,18 +8,25 @@ exports[`full feedback section should render product comments 1`] = `
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tbqmd1-MuiPaper-root-MuiCard-root"
+      id="feedback0"
     >
       <div
         class="MuiCardContent-root comment css-46bh2p-MuiCardContent-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 css-1b3y78w-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 title css-ag7rrr-MuiTypography-root"
         >
-          Fedor (24.12.2021)
+          <a
+            class="link"
+            href="/users/1"
+            style="display: inline; opacity: 1;"
+          >
+            Fedor (24.12.2021)
+          </a>
         </h5>
         <span
           aria-label="5 Stars"
-          class="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-17cjc3j-MuiRating-root"
+          class="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-1apbn90-MuiRating-root"
           role="img"
         >
           <span>
@@ -117,18 +124,25 @@ exports[`full feedback section should render product comments 1`] = `
     </div>
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tbqmd1-MuiPaper-root-MuiCard-root"
+      id="feedback1"
     >
       <div
         class="MuiCardContent-root comment css-46bh2p-MuiCardContent-root"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 css-1b3y78w-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 title css-ag7rrr-MuiTypography-root"
         >
-          Petr (28.12.2021)
+          <a
+            class="link"
+            href="/users/2"
+            style="display: inline; opacity: 1;"
+          >
+            Petr (28.12.2021)
+          </a>
         </h5>
         <span
           aria-label="3 Stars"
-          class="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-17cjc3j-MuiRating-root"
+          class="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-1apbn90-MuiRating-root"
           role="img"
         >
           <span>
@@ -225,5 +239,8 @@ exports[`full feedback section should render product comments 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="Toastify"
+  />
 </DocumentFragment>
 `;

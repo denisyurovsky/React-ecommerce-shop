@@ -5,16 +5,16 @@ import React from 'react';
 import { ERROR } from '../../../../constants/constants';
 import { DEFAULT_NAME } from '../../../../constants/feedbackConstants';
 import feedbackDto from '../../../../test-utils/dto/feedbackDto';
+import usersDto from '../../../../test-utils/dto/usersDto';
 import { handleModal } from '../../../../test-utils/feedback/feedbackHandlers';
-import renderWithStore, {
-  screen,
-} from '../../../../test-utils/renderWithStore';
+import render, { screen } from '../../../../test-utils/renderWith';
 import { Role } from '../../../../ts/enums/enums';
 import Feedback from '../Feedback';
 
 const waitForFeedbacks = () => screen.findByTestId('comments');
 
 const addFeedbackHandlers = [
+  rest.get('/products', () => {}),
   rest.get('/feedbacks', (req, res, ctx) => {
     const productId = req.url.searchParams.get('productId');
 
@@ -30,7 +30,8 @@ const addFeedbackHandlers = [
       ctx.json({
         ...req.body,
         id: 3,
-        createdAt: '2022-01-02T08:54:18.560Z',
+        productName: 'Tasty Fruit',
+        createdAt: '2022-01-10T08:54:18.560Z',
       })
     )
   ),
@@ -68,9 +69,7 @@ describe('access test', () => {
 
   describe('access denied', () => {
     it('should not show button "add new feedback"', async () => {
-      const { queryByRole } = renderWithStore(<Feedback productId={0} />, {
-        role: Role.Guest,
-      });
+      const { queryByRole } = render(<Feedback productId={0} />);
 
       await waitForFeedbacks();
 
@@ -80,7 +79,9 @@ describe('access test', () => {
 
   describe('access received', () => {
     const renderWithRole = async (role) => {
-      renderWithStore(<Feedback productId={0} />, { role });
+      render(<Feedback productId={0} />, {
+        user: { user: { role } },
+      });
 
       await waitForFeedbacks();
 
@@ -120,7 +121,9 @@ describe('functionality tests with admin role', () => {
     afterAll(() => server.close());
 
     it('should show error notification', async () => {
-      renderWithStore(<Feedback productId={0} />, { role: Role.Admin });
+      render(<Feedback productId={0} />, {
+        user: usersDto[0],
+      });
 
       expect(await screen.findByText(ERROR.LOAD_FEEDBACK)).toBeInTheDocument();
     });
@@ -135,8 +138,8 @@ describe('functionality tests with admin role', () => {
     afterAll(() => server.close());
 
     it('should render a valid snapshot', async () => {
-      const { asFragment } = renderWithStore(<Feedback productId={0} />, {
-        role: Role.Admin,
+      const { asFragment } = render(<Feedback productId={0} />, {
+        user: usersDto[0],
       });
 
       await waitForFeedbacks();
@@ -152,8 +155,8 @@ describe('functionality tests with admin role', () => {
     afterAll(() => server.close());
 
     it('should render product comments', async () => {
-      const { asFragment } = renderWithStore(<Feedback productId={1} />, {
-        role: Role.Admin,
+      const { asFragment } = render(<Feedback productId={1} />, {
+        user: usersDto[0],
       });
 
       await waitForFeedbacks();
@@ -169,7 +172,9 @@ describe('functionality tests with admin role', () => {
     afterAll(() => server.close());
 
     beforeEach(() =>
-      renderWithStore(<Feedback productId={2} />, { role: Role.Admin })
+      render(<Feedback productId={2} />, { user: usersDto[3] }, '/products', [
+        '/products',
+      ])
     );
 
     it('should sort feedbacks in descending order by date', async () => {
@@ -223,9 +228,7 @@ describe('functionality tests with admin role', () => {
     beforeAll(() => server.listen());
     afterAll(() => server.close());
 
-    beforeEach(() =>
-      renderWithStore(<Feedback productId={2} />, { role: Role.Admin })
-    );
+    beforeEach(() => render(<Feedback productId={2} />, { user: usersDto[0] }));
 
     it('should display error notification with failed posting', async () => {
       await waitForFeedbacks();

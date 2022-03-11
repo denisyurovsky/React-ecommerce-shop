@@ -1,20 +1,27 @@
-import { TextField, Box, Button } from '@mui/material';
+import { TextField, Box, Button, Checkbox } from '@mui/material';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import {
   MIN_COMMENT_LENGTH,
   DEFAULT_NAME,
 } from '../../../../../constants/feedbackConstants.js';
+import { getUser } from '../../../../../store/user/userSlice.js';
 import LoadingButton from '../../../../ui-kit/buttons/LoadingButton.jsx';
 
 import ProductRating from './ProductRating';
+
+import styles from './FeedbackForms.module.scss';
 
 const FeedbackForms = ({ sendForm, isLoading }) => {
   const [userName, setUserName] = useState('');
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState(-1);
   const [isFinished, setIsFinished] = useState(false);
+  const [isRealUserName, setIsRealUserName] = useState(false);
+  const user = useSelector(getUser);
 
   const checkForm = (rating, comment) =>
     checkRating(rating) && checkComment(comment);
@@ -39,10 +46,17 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
     sendForm({ name, rating, comment });
   };
 
+  const checkboxHandler = (e) => {
+    e.target.checked
+      ? setUserName(`${user.firstName} ${user.lastName}`)
+      : setUserName(DEFAULT_NAME);
+
+    setIsRealUserName(!isRealUserName);
+  };
+
   return (
     <Box>
       <TextField
-        sx={{ mb: 4 }}
         value={userName}
         onChange={handleNameChange}
         autoComplete="off"
@@ -50,6 +64,18 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
         placeholder={DEFAULT_NAME}
         variant="standard"
         fullWidth
+        disabled={isRealUserName}
+      />
+      <FormControlLabel
+        control={
+          <Checkbox
+            onChange={checkboxHandler}
+            checked={isRealUserName}
+            inputProps={{ 'aria-label': 'pasteName' }}
+          />
+        }
+        className={styles.checkbox}
+        label="paste my name"
       />
       <ProductRating value={rating} onChange={handleChange} />
       <TextField

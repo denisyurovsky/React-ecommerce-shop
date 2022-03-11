@@ -7,6 +7,7 @@ import { EMPTY, ERROR } from '../../../constants/constants';
 import {
   clearFeedbacks,
   fetchCommentsByUserId,
+  getFeedbackStatus,
   selectAllComments,
 } from '../../../store/feedback/feedbackSlice';
 import { FetchStatus } from '../../../ts/enums/enums';
@@ -16,7 +17,7 @@ import Spinner from '../../ui-kit/Spinner/Spinner';
 function ProfileConsumer({ profileId }) {
   const dispatch = useDispatch();
   const comments = useSelector(selectAllComments);
-  const status = useSelector((state) => state.feedback.status);
+  const status = useSelector(getFeedbackStatus);
 
   const isLoading = status === FetchStatus.Pending;
 
