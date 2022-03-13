@@ -51,10 +51,10 @@ const App = ({ handleClose, isOpenModal }) => {
           path={`${PRODUCTS}/:id`}
           element={<ProductDetailsPage />}
         />
-        <Route exact path={`${PRODUCTS}`} element={<ProductListPage />} />
-        <Route exact path={`${CART}`} element={<CartPage />} />
+        <Route exact path={PRODUCTS} element={<ProductListPage />} />
+        <Route exact path={CART} element={<CartPage />} />
         <Route path={`${USERS}/:id`} element={<ProfilePage />} />
-        <Route path={`${PROFILE}`} element={<ProfilePrivatePage />} />
+        <Route path={PROFILE} element={<ProfilePrivatePage />} />
         <Route exact path="/" element={<HomePage />} />
         <Route
           element={<ProtectedRoutes permissionLevel={USER_ROLE.CONSUMER} />}

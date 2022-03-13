@@ -1,52 +1,38 @@
-import { configureStore } from '@reduxjs/toolkit';
 import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import cartReducer from '../../../store/cart/cartSlice';
-import categoriesReducer from '../../../store/categories/categoriesSlice';
-import productsReducer from '../../../store/products/productsSlice';
-import userReducer from '../../../store/user/userSlice';
 import categoriesData from '../../../test-utils/dto/categoriesDto';
 import cardsData from '../../../test-utils/dto/productsDto';
-import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
-import RouterConnected from '../../../test-utils/RouterConnected';
+import renderWith, { screen } from '../../../test-utils/renderWith';
 import ProductListPage from '../ProductListPage';
 
-const store = configureStore({
-  reducer: {
-    user: userReducer,
-    products: productsReducer,
-    cart: cartReducer,
-    categories: categoriesReducer,
+const preloadedState = {
+  cart: {
+    sellers: {},
+    totalPrice: 0,
+    totalQuantity: 0,
   },
-  preloadedState: {
-    cart: {
-      sellers: {},
-      totalPrice: 0,
-      totalQuantity: 0,
-    },
+  user: {
     user: {
-      user: {
-        id: 1,
-      },
-    },
-    categories: {
-      data: [],
-      isLoading: false,
-      errorOccurred: false,
-      errorMessage: '',
+      id: 1,
     },
   },
-});
+  categories: {
+    data: [],
+    isLoading: false,
+    errorOccurred: false,
+    errorMessage: '',
+  },
+};
 
 const handlersFulfilled = [
   rest.get('/categories', (req, res, ctx) => {
     return res(ctx.json(categoriesData));
   }),
   rest.get('/products', (req, res, ctx) => {
-    return res(ctx.json(cardsData), ctx.set('x-total-count', 6));
+    return res(ctx.json(cardsData.slice(0, 2)), ctx.set('x-total-count', 2));
   }),
 ];
 
@@ -68,23 +54,15 @@ describe('ProductListPage component', () => {
     afterAll(() => serverFulfilled.close());
 
     it('should render a valid snapshot', async () => {
-      const { asFragment } = renderWithStore(
-        <RouterConnected component={<ProductListPage />} />,
-        { store }
-      );
+      const { asFragment } = renderWith(<ProductListPage />, preloadedState);
 
-      await screen.findByText(/Found: 6 items/i);
+      await screen.findByText(/Found: 2 items/i);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('Get data from server', async () => {
-      renderWithStore(<RouterConnected component={<ProductListPage />} />, {
-        store,
-      });
-      expect(
-        screen.getByRole('progressbar', { name: /products preloader/i })
-      ).toBeInTheDocument();
+      renderWith(<ProductListPage />, preloadedState);
 
       expect(
         await screen.findByText(/Intelligent Cotton Pants/i)
@@ -92,7 +70,8 @@ describe('ProductListPage component', () => {
     });
 
     it('should switch shape properly', () => {
-      renderWithStore(<RouterConnected component={<ProductListPage />} />);
+      renderWith(<ProductListPage />);
+
       const listButton = screen.getByRole('button', { name: /list/i });
       const moduleButton = screen.getByRole('button', { name: /module/i });
 
@@ -112,15 +91,13 @@ describe('ProductListPage component', () => {
     afterAll(() => serverRejected.close());
 
     it('should render a valid snapshot', () => {
-      const { asFragment } = renderWithStore(
-        <RouterConnected component={<ProductListPage />} />
-      );
+      const { asFragment } = renderWith(<ProductListPage />);
 
       expect(asFragment()).toMatchSnapshot();
     });
 
     it('Get error from server', async () => {
-      renderWithStore(<RouterConnected component={<ProductListPage />} />);
+      renderWith(<ProductListPage />);
 
       expect(
         screen.getByRole('progressbar', { name: /products preloader/i })
@@ -145,7 +122,7 @@ describe('ProductListPage component', () => {
     });
 
     it('should react on resize', async () => {
-      renderWithStore(<RouterConnected component={<ProductListPage />} />);
+      renderWith(<ProductListPage />);
 
       await screen.findByText(/There are no products/i);
 

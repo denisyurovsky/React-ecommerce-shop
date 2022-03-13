@@ -35,6 +35,9 @@ import styles from './ProductListPage.module.scss';
 
 const ProductListPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const objFromQuery = getObjFromQuery(location.search);
 
   const [cardShape, setCardShape] = useState(pageView.LIST_VIEW);
@@ -44,8 +47,6 @@ const ProductListPage = () => {
 
   const { width } = useWindowSize();
   const isMobile = width <= MOBILE_WIDTH;
-
-  const navigate = useNavigate();
 
   const checkOnlyDiscountedProducts = () => {
     const newFilters = searchParams.filters.map((filter) => {
@@ -66,8 +67,6 @@ const ProductListPage = () => {
     }
   }, [isMobile]);
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
@@ -87,13 +86,13 @@ const ProductListPage = () => {
     navigate(query);
 
     dispatch(getProducts(searchParams));
+    //eslint-disable-next-line
   }, [
     currentPage,
     dispatch,
     entity,
     filters,
     itemsPerPage,
-    navigate,
     q,
     searchParams,
     sort,

@@ -1,0 +1,26 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints";
+
+.box {
+  background-color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 $greyDark;
+}
+
+.wrapperForButtons {
+  display: flex;
+  margin-left: auto;
+  gap: 20px;
+  height: 100%;
+}
+
+@media (min-width: $md) {
+  .box {
+    padding: 50px 200px;
+  }
+}

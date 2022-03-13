@@ -1,4 +1,12 @@
-import { ContentState, convertFromRaw } from 'draft-js';
+import { ContentState, convertFromRaw, EditorState } from 'draft-js';
+
+import createDecorator from '../components/WYSIWYG/Decorators/Decorators';
+
+const addSelection = (contentState) => {
+  return EditorState.moveSelectionToEnd(
+    EditorState.createWithContent(contentState, createDecorator())
+  );
+};
 
 const convertDescription = (description) => {
   let parsedDescription;
@@ -14,7 +22,9 @@ const convertDescription = (description) => {
       ? convertFromRaw(parsedDescription)
       : ContentState.createFromText(parsedDescription);
 
-  return contentState;
+  const editorState = addSelection(contentState);
+
+  return editorState;
 };
 
 export default convertDescription;

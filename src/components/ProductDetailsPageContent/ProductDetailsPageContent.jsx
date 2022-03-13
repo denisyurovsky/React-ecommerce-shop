@@ -95,7 +95,7 @@ const ProductDetailsPageContent = ({ product }) => {
           </Box>
         </Box>
         <Box className={styles.description}>
-          <Description contentState={description} />
+          <Description editorState={description} />
         </Box>
       </Card>
       <Feedback productId={id} />

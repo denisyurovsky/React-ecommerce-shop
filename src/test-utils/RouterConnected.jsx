@@ -1,17 +1,14 @@
-import { createMemoryHistory } from 'history';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Router, Route, Routes } from 'react-router-dom';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 function RouterConnected({ component: Component, path, initialPaths }) {
-  const history = createMemoryHistory({ initialEntries: initialPaths });
-
   return (
-    <Router location={history.location} navigator={history}>
+    <MemoryRouter initialEntries={initialPaths}>
       <Routes>
         <Route path={path} element={Component} />
       </Routes>
-    </Router>
+    </MemoryRouter>
   );
 }
 

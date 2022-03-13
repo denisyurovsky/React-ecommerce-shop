@@ -16,10 +16,11 @@ import {
 import { convertImageUrlsToObjects } from '../../helpers/convertImageUrlToObject';
 import Spinner from '../ui-kit/Spinner/Spinner';
 
+import { LOSS_OF_IMAGES } from './constants';
 import { FilesList } from './FilesList/FilesList';
 import { InputFrame } from './InputFrame/InputFrame';
 
-export const ImagesUploader = ({ updateImages, imageUrls }) => {
+export const ImagesUploader = ({ updateImages, imageUrls, disableSubmit }) => {
   const [droppedFiles, setDroppedFiles] = useState([]);
   const [imagesValidity, setImagesValidity] = useState(
     IMAGE_VALIDITY_DEFAULT_STATE
@@ -33,23 +34,27 @@ export const ImagesUploader = ({ updateImages, imageUrls }) => {
     );
   const setValues = useCallback(
     (files) => {
-      const filesWithoutWrongType = files.filter((file) =>
-        checkImageFileType(file)
-      );
+      const correctTypeFiles = files.filter((file) => checkImageFileType(file));
 
-      if (files.length !== filesWithoutWrongType.length) {
+      if (files.length !== correctTypeFiles.length) {
         toast.error(IMAGE_ERRORS.FILE_TYPE);
       }
-      const imagesValidityAfterHandle = checkArrayOfImageValidity(
-        filesWithoutWrongType
-      );
-      const filesWithPreviewURLS = addPreviewURLS(filesWithoutWrongType);
+
+      if (correctTypeFiles.length) {
+        disableSubmit();
+      }
+
+      const imagesValidityAfterHandle =
+        checkArrayOfImageValidity(correctTypeFiles);
+      const filesWithPreviewURLS = addPreviewURLS(correctTypeFiles);
 
       setDroppedFiles(filesWithPreviewURLS);
       setImagesValidity(imagesValidityAfterHandle);
-      updateImages(filesWithoutWrongType, imagesValidityAfterHandle.result);
+      if (imagesValidityAfterHandle.result) {
+        updateImages(correctTypeFiles);
+      }
     },
-    [updateImages]
+    [updateImages, disableSubmit]
   );
   const handleFileDrop = useCallback(
     (item) => {
@@ -63,10 +68,16 @@ export const ImagesUploader = ({ updateImages, imageUrls }) => {
     [droppedFiles, setValues]
   );
   const convertImages = useCallback(async (imageUrls) => {
-    const imageFiles = await convertImageUrlsToObjects(imageUrls);
-    const filesWithPreviewURLS = addPreviewURLS(imageFiles);
+    try {
+      const imageFiles = await convertImageUrlsToObjects(imageUrls);
+      const filesWithPreviewURLS = addPreviewURLS(imageFiles);
 
-    setDroppedFiles(filesWithPreviewURLS);
+      setDroppedFiles(filesWithPreviewURLS);
+    } catch (err) {
+      toast.error(LOSS_OF_IMAGES);
+      updateImages([]);
+    }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -123,4 +134,5 @@ export const ImagesUploader = ({ updateImages, imageUrls }) => {
 ImagesUploader.propTypes = {
   updateImages: PropTypes.func.isRequired,
   imageUrls: PropTypes.arrayOf(PropTypes.string).isRequired,
+  disableSubmit: PropTypes.func.isRequired,
 };

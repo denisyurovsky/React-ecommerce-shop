@@ -1,5 +1,5 @@
 function checkForOnlyNumbers(text) {
-  const onlyNumbersRegexp = /^\d+$/;
+  const onlyNumbersRegexp = /^\d*$/;
 
   return onlyNumbersRegexp.test(text);
 }

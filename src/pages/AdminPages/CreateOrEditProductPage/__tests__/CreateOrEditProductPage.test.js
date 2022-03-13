@@ -2,21 +2,51 @@ import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 import { categories } from '../../../../test-utils/dto/categoriesDto';
 import { productForPDP } from '../../../../test-utils/dto/productsDto';
-import render, {
+import renderWith, {
   screen,
-  within,
   fireEvent,
   createEvent,
   getByRole,
-} from '../../../../test-utils/renderWithStore';
+  waitFor,
+} from '../../../../test-utils/renderWith';
 import { CreateOrEditProductPage } from '../CreateOrEditProductPage';
+
+const preloadedState = {
+  categories: {
+    data: categories.map((el) => el.name),
+  },
+};
+
+const successfullHandlers = [
+  rest.get('/categories', (_, res, ctx) => {
+    return res(ctx.json(categories));
+  }),
+  rest.get('/users', (req, res, ctx) => {
+    if (req.url.searchParams.get('id') != 1) {
+      return res(ctx.status(400));
+    }
+
+    return res(ctx.json([{ firstName: 'Lindsay', lastName: 'Yundt' }]));
+  }),
+  rest.get('/products/0', (_, res, ctx) => res(ctx.json(productForPDP))),
+  rest.patch('/products/0', (_, res, ctx) => res(ctx.status(200))),
+  rest.post('/products', (_, res, ctx) => res(ctx.status(201))),
+];
+
+const errorHandlers = [
+  ...successfullHandlers.slice(0, successfullHandlers.length - 2),
+  rest.patch('/products/0', (_, res, ctx) =>
+    res(ctx.status(403), ctx.json({}))
+  ),
+  rest.post('/products', (_, res, ctx) => res(ctx.status(403), ctx.json({}))),
+];
 
 const getTextArea = () =>
   getByRole(screen.getByText(/description/i).parentNode, 'textbox');
+
 const pasteText = (text) =>
   createEvent.paste(getTextArea(), {
     clipboardData: {
@@ -25,237 +55,145 @@ const pasteText = (text) =>
     },
   });
 
-const handlersFulfilled = rest.get('/categories', (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json(categories));
-});
+const fillMandatoryFields = () => {
+  userEvent.type(screen.getByLabelText(/name/i), 'name');
 
-const getProductInfo = rest.get('/products/0', (req, res, ctx) => {
-  return res(ctx.json(productForPDP));
-});
+  userEvent.click(screen.getByLabelText(/category/i));
+  userEvent.click(screen.getByText('Grocery'));
 
-const getUserId = rest.get('/users', (req, res, ctx) => {
-  const id = req.url.searchParams.get('id');
+  fireEvent(getTextArea(), pasteText('description'));
 
-  if (id == 1) {
-    return res(
-      ctx.json([
-        {
-          firstName: 'Lindsay',
-          lastName: 'Yundt',
-        },
-      ])
-    );
-  }
+  userEvent.type(screen.getByLabelText(/^price/i), '690');
+};
 
-  return res(ctx.status(400));
-});
+describe('Successful response', () => {
+  const server = setupServer(...successfullHandlers);
 
-const putProductResponse200 = rest.patch('/products/0', (req, res, ctx) => {
-  return res(ctx.status(200));
-});
+  beforeAll(() => server.listen());
+  afterAll(() => server.close());
 
-const postNewProductResponse201 = rest.post('/products', (req, res, ctx) => {
-  return res(ctx.status(201));
-});
-
-const serverCategoriesRequest = setupServer(
-  handlersFulfilled,
-  getUserId,
-  getProductInfo,
-  putProductResponse200,
-  postNewProductResponse201
-);
-
-describe('CreateOrEditProductPage snapshot', () => {
-  it('should take a snapshot with predefined data', () => {
-    const { asFragment } = render(
-      <MemoryRouter initialEntries={['/admin/products/0/edit']}>
-        <Routes>
-          <Route
-            path="admin/products/:id/edit"
-            element={<CreateOrEditProductPage />}
-          />
-        </Routes>
-      </MemoryRouter>
+  describe('after editing', () => {
+    beforeEach(() =>
+      renderWith(
+        <CreateOrEditProductPage />,
+        preloadedState,
+        'admin/products/:id/edit',
+        ['/admin/products/0/edit']
+      )
     );
 
-    expect(asFragment()).toMatchSnapshot();
-  });
-});
+    it('should show loading icon', async () => {
+      expect(screen.getByRole('progressbar')).toBeInTheDocument();
 
-beforeAll(() => {
-  serverCategoriesRequest.listen();
-});
-
-afterAll(() => {
-  serverCategoriesRequest.close();
-});
-
-beforeEach(() => {
-  render(
-    <MemoryRouter initialEntries={['/admin/products/0/edit']}>
-      <Routes>
-        <Route
-          path="admin/products/:id/edit"
-          element={<CreateOrEditProductPage />}
-        />
-      </Routes>
-    </MemoryRouter>
-  );
-});
-
-describe('successful scenarios', () => {
-  it('renders createProductPage, if all fields valid, sends data to server', async () => {
-    render(
-      <MemoryRouter>
-        <Routes>
-          <Route
-            path="admin/products/create"
-            element={<CreateOrEditProductPage />}
-          />
-        </Routes>
-      </MemoryRouter>
-    );
-
-    const nameInput = await screen.findByLabelText('Name');
-    const discountPriceInput = await screen.findByLabelText('Discount price');
-    const priceInput = await screen.findByLabelText('Price');
-    const editButton = screen.getByText('Edit');
-
-    userEvent.type(nameInput, 'something');
-
-    const selectLabel = /Category/i;
-    const selectEl = await screen.findByLabelText(selectLabel);
-
-    expect(selectEl).toBeInTheDocument();
-
-    userEvent.click(selectEl);
-
-    const optionsPopupEl = await screen.findByRole('listbox', {
-      name: selectLabel,
+      await screen.findByLabelText(/^name$/i);
     });
 
-    userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    fireEvent(getTextArea(), pasteText('something'));
-    userEvent.type(priceInput, '1337');
-    userEvent.type(discountPriceInput, '11237467');
-    userEvent.click(editButton);
-    expect(screen.getByTestId('load')).toBeInTheDocument();
-  });
-  it('renders product data and shows in UI', async () => {
-    expect(
-      await screen.findByDisplayValue(/Intelligent Cotton Pants/i)
-    ).toBeInTheDocument();
-  });
+    it('should show confirmation message after submit', async () => {
+      const input = await screen.findByLabelText(/^name$/i);
 
-  it('renders categories and shows in UI', async () => {
-    const nameInput = await screen.findByLabelText('Name');
-    const discountPriceInput = await screen.findByLabelText('Discount price');
-    const priceInput = await screen.findByLabelText('Price');
-    const editButton = screen.getByText('Edit');
+      userEvent.type(input, 'a{backspace}');
+      userEvent.click(screen.getByRole('button', { name: /^edit$/i }));
 
-    userEvent.type(nameInput, 'something');
+      await screen.findByRole('alert');
 
-    const selectLabel = /Category/i;
-    const selectEl = await screen.findByLabelText(selectLabel);
-
-    expect(selectEl).toBeInTheDocument();
-
-    userEvent.click(selectEl);
-
-    expect(screen.getByText('Grocery')).toBeInTheDocument();
-
-    const optionsPopupEl = await screen.findByRole('listbox', {
-      name: selectLabel,
+      expect(
+        screen.getByText('Product was successfully edited')
+      ).toBeInTheDocument();
     });
 
-    userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    fireEvent(getTextArea(), pasteText('something'));
-    userEvent.type(priceInput, '1337');
-    userEvent.type(discountPriceInput, '1234');
-    userEvent.click(editButton);
+    it('should navigate to /admin/products after cancel', async () => {
+      await screen.findByLabelText(/^name$/i);
 
-    expect(screen.getByTestId('load')).toBeInTheDocument();
-  });
+      userEvent.click(screen.getByRole('button', { name: /^cancel$/i }));
 
-  it('redirects to /admin after successful server response about editing a product', async () => {
-    const nameInput = await screen.findByLabelText('Name');
-    const discountPriceInput = await screen.findByLabelText('Discount price');
-    const priceInput = await screen.findByLabelText('Price');
-    const editButton = screen.getByText('Edit');
-
-    userEvent.type(nameInput, 'something');
-
-    const selectLabel = /Category/i;
-    const selectEl = await screen.findByLabelText(selectLabel);
-
-    expect(selectEl).toBeInTheDocument();
-
-    userEvent.click(selectEl);
-
-    const optionsPopupEl = await screen.findByRole('listbox', {
-      name: selectLabel,
+      await waitFor(() =>
+        expect(window.location.pathname).toBe('/admin/products')
+      );
     });
-
-    userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    fireEvent(getTextArea(), pasteText('something'));
-    userEvent.type(priceInput, '1337');
-    userEvent.type(discountPriceInput, '1234');
-    userEvent.click(editButton);
-    expect(screen.getByTestId('load')).toBeInTheDocument();
   });
 
-  it('makes name input invalid since it requires latin', async () => {
-    const nameInput = await screen.findByLabelText('Name');
-
-    userEvent.type(nameInput, 'текст на русском');
-
-    expect(nameInput.getAttribute('aria-invalid')).toBe('true');
-  });
-
-  it('makes edit button disabled if some inputs are invalid', async () => {
-    const nameInput = await screen.findByLabelText('Name');
-    const discountPriceInput = await screen.findByLabelText('Discount price');
-    const priceInput = await screen.findByLabelText('Price');
-    const editButton = screen.getByText('Edit');
-    const imgUploader = await screen.findByLabelText(
-      /choose images to upload/i
+  describe('after creation', () => {
+    beforeEach(() =>
+      renderWith(
+        <CreateOrEditProductPage />,
+        preloadedState,
+        'admin/products/create',
+        ['/admin/products/create']
+      )
     );
-    const file = new File(['(⌐□_□)'], 'image_1.png', { type: 'image/png' });
 
-    userEvent.type(nameInput, 'something');
+    it('should show create new product title on cretion page', async () => {
+      expect.assertions(2);
 
-    const selectLabel = /Category/i;
-    const selectEl = await screen.findByLabelText(selectLabel);
+      await screen.findByLabelText(/^name$/i);
 
-    expect(selectEl).toBeInTheDocument();
+      fillMandatoryFields();
+      userEvent.click(screen.getByRole('button', { name: /^create$/i }));
 
-    userEvent.click(selectEl);
+      await screen.findByRole('alert');
 
-    const optionsPopupEl = await screen.findByRole('listbox', {
-      name: selectLabel,
+      expect(
+        screen.getByText('Product was successfully created')
+      ).toBeInTheDocument();
+
+      await waitFor(() => expect(window.location.pathname).toBe('/admin'));
     });
-
-    userEvent.click(within(optionsPopupEl).getByText('Grocery'));
-    fireEvent(getTextArea(), pasteText('something'));
-    userEvent.upload(imgUploader, [file]);
-    userEvent.type(priceInput, 'string value');
-    userEvent.type(priceInput, '123');
-    userEvent.type(discountPriceInput, 'Non');
-    expect(editButton).toBeDisabled();
-    userEvent.type(priceInput, `\b\b\b\b\b\b string value`);
-    userEvent.type(discountPriceInput, `{backspace}{backspace}{backspace}1`);
-    expect(editButton).toBeDisabled();
   });
-  it('makes edit button disabled if it is uploaded too many images', async () => {
-    const file = new File(['(⌐□_□)'], 'image_1.png', { type: 'image/png' });
-    const files = new Array(11).fill(file);
-    const imgUploader = await screen.findByLabelText(
-      /choose images to upload/i
-    );
-    const editButton = screen.getByText('Edit');
+});
 
-    userEvent.upload(imgUploader, files);
-    expect(editButton).toBeDisabled();
+describe('errors in response', () => {
+  const server = setupServer(...errorHandlers);
+
+  beforeAll(() => server.listen());
+  afterAll(() => server.close());
+
+  describe('during creation', () => {
+    beforeEach(() =>
+      renderWith(
+        <CreateOrEditProductPage />,
+        preloadedState,
+        'admin/products/create',
+        ['/admin/products/create']
+      )
+    );
+
+    it('should notify about errors', async () => {
+      expect.assertions(2);
+
+      await screen.findByLabelText(/^name$/i);
+
+      fillMandatoryFields();
+      userEvent.click(screen.getByRole('button', { name: /^create$/i }));
+
+      await screen.findByRole('alert');
+
+      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      await waitFor(() => expect(window.location.pathname).toBe('/admin'));
+    });
+  });
+
+  describe('during editing', () => {
+    beforeEach(() =>
+      renderWith(
+        <CreateOrEditProductPage />,
+        preloadedState,
+        'admin/products/:id/edit',
+        ['/admin/products/0/edit']
+      )
+    );
+
+    it('should notify about errors', async () => {
+      expect.assertions(2);
+
+      const input = await screen.findByLabelText(/^name$/i);
+
+      userEvent.type(input, 'a{backspace}');
+      userEvent.click(screen.getByRole('button', { name: /^edit$/i }));
+
+      await screen.findByRole('alert');
+
+      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      await waitFor(() => expect(window.location.pathname).toBe('/admin'));
+    });
   });
 });
