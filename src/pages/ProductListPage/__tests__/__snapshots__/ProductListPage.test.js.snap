@@ -46,7 +46,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
     class="searchBlock"
   >
     <label
-      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementLeft onlyDiscountedCheckbox css-j204z7-MuiFormControlLabel-root"
+      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd onlyDiscountedCheckbox css-j204z7-MuiFormControlLabel-root"
     >
       <span
         class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
@@ -101,11 +101,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           role="button"
           tabindex="0"
         >
-          <span
-            class="notranslate"
-          >
-            ​
-          </span>
+          All Categories
         </div>
         <input
           aria-hidden="true"
@@ -113,7 +109,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
           id="uncontrolled-native"
           name="categories"
           tabindex="-1"
-          value="false"
+          value="All Categories"
         />
         <svg
           aria-hidden="true"
@@ -2074,7 +2070,7 @@ exports[`ProductListPage component Render without data should render a valid sna
     class="searchBlock"
   >
     <label
-      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementLeft onlyDiscountedCheckbox css-j204z7-MuiFormControlLabel-root"
+      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd onlyDiscountedCheckbox css-j204z7-MuiFormControlLabel-root"
     >
       <span
         class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
@@ -2152,11 +2148,7 @@ exports[`ProductListPage component Render without data should render a valid sna
           id="mui-component-select-categories"
           role="button"
         >
-          <span
-            class="notranslate"
-          >
-            ​
-          </span>
+          All Categories
         </div>
         <input
           aria-hidden="true"
@@ -2165,7 +2157,7 @@ exports[`ProductListPage component Render without data should render a valid sna
           id="uncontrolled-native"
           name="categories"
           tabindex="-1"
-          value="false"
+          value="All Categories"
         />
         <svg
           aria-hidden="true"

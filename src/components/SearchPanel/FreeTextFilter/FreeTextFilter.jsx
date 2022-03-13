@@ -20,6 +20,8 @@ const FreeTextFilter = ({ className, setSearchParams, selectedText }) => {
     }));
   };
 
+  const handleSearchChange = (ev) => setValue(ev.target.value);
+
   return (
     <Box
       component="form"
@@ -34,7 +36,7 @@ const FreeTextFilter = ({ className, setSearchParams, selectedText }) => {
           borderBottomRightRadius: '0px',
           flexGrow: 1,
         }}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleSearchChange}
         className={styles.input}
         placeholder="Search by advertisement"
       />
@@ -51,6 +53,10 @@ const FreeTextFilter = ({ className, setSearchParams, selectedText }) => {
       </Button>
     </Box>
   );
+};
+
+FreeTextFilter.defaultProps = {
+  selectedText: '',
 };
 
 FreeTextFilter.propTypes = {

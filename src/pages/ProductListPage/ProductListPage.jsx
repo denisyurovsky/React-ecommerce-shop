@@ -12,7 +12,6 @@ import FreeTextFilter from '../../components/SearchPanel/FreeTextFilter/FreeText
 import SortFilter from '../../components/SearchPanel/SortFilter/SortFilter';
 import { ALL_CATEGORIES } from '../../constants/constants';
 import buildSearchQuery from '../../helpers/buildSearchQuery';
-import { convertUrlParametersToObj } from '../../helpers/convertUrlParametersToObj';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import {
   getCategories,
@@ -30,30 +29,13 @@ import {
   NUMBER_ITEMS_ON_PAGE,
   pageView,
 } from './constants/constants';
+import getObjFromQuery from './helpers/getObjFromQuery';
 
 import styles from './ProductListPage.module.scss';
 
 const ProductListPage = () => {
   const location = useLocation();
-
-  let tempObjFromQuery = null;
-
-  if (location.search) {
-    tempObjFromQuery = convertUrlParametersToObj(location.search);
-  }
-
-  const objFromQuery = tempObjFromQuery
-    ? {
-        entity: 'products',
-        currentPage: Number(tempObjFromQuery._page),
-        q: tempObjFromQuery.q ?? undefined,
-        filters: tempObjFromQuery['category.name']
-          ? [{ 'category.name': tempObjFromQuery['category.name'] }]
-          : null,
-        itemsPerPage: Number(tempObjFromQuery._limit),
-        sort: { field: tempObjFromQuery._sort, order: tempObjFromQuery._order },
-      }
-    : null;
+  const objFromQuery = getObjFromQuery(location.search);
 
   const [cardShape, setCardShape] = useState(pageView.LIST_VIEW);
   const [searchParams, setSearchParams] = useState(
@@ -67,9 +49,9 @@ const ProductListPage = () => {
 
   const checkOnlyDiscountedProducts = () => {
     const newFilters = searchParams.filters.map((filter) => {
-      return !(filter.isDiscounted === false || filter.isDiscounted === true)
-        ? filter
-        : { isDiscounted: !filter.isDiscounted };
+      return 'isDiscounted' in filter
+        ? { isDiscounted: !filter.isDiscounted }
+        : filter;
     });
 
     setSearchParams({
@@ -128,7 +110,9 @@ const ProductListPage = () => {
   let selectedCategory = null;
 
   if (Array.isArray(searchParams.filters) && searchParams.filters.length) {
-    selectedCategory = searchParams.filters[0];
+    selectedCategory = searchParams.filters.filter(
+      (el) => 'category.name' in el
+    )['category.name'];
   }
 
   const { totalCountProducts } = products;
@@ -142,12 +126,12 @@ const ProductListPage = () => {
           control={
             <Checkbox
               label="discounts"
-              checked={searchParams.filters.discountFilter}
+              checked={location.search.includes('isDiscounted=true')}
               onChange={checkOnlyDiscountedProducts}
             />
           }
           label="Only discounted"
-          labelPlacement="left"
+          labelPlacement="end"
         />
         <CategoryFilter
           selectedCategory={selectedCategory}
