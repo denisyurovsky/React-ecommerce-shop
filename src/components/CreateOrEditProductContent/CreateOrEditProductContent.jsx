@@ -7,7 +7,7 @@ import CategorySelection from './Inputs/CategorySelection';
 import DescriptionEditor from './Inputs/DescriptionEditor';
 import ImagesInput from './Inputs/ImagesInput';
 import NameInput from './Inputs/NameInput';
-import PriceGroup from './Inputs/PriceGroup/PriceGroup';
+import PriceGroup from './Inputs/PriceGroup';
 
 import styles from './CreateOrEditProductContent.module.scss';
 
@@ -17,15 +17,12 @@ const CreateOrEditProductContent = ({
   onCancel,
   isEditPage,
 }) => {
-  const formatPriceToString = (price) => String(price ?? '');
-  const formatPriceToNumber = (price) => (price === '' ? null : Number(price));
-
   const [item, setItem] = useState({
     ...product,
     category: product.category.name,
     price: {
-      original: formatPriceToString(product.price),
-      discount: formatPriceToString(product.discountPrice),
+      original: product.price,
+      discount: product.discountPrice,
     },
   });
   const [isValid, setIsValid] = useState({
@@ -45,8 +42,8 @@ const CreateOrEditProductContent = ({
     onSubmit({
       ...item,
       description: jsonText,
-      price: formatPriceToNumber(item.price.original),
-      discountPrice: formatPriceToNumber(item.price.discount),
+      price: item.price.original,
+      discountPrice: item.price.discount,
       rating: null,
     });
   };

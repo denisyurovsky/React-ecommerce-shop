@@ -13,7 +13,7 @@ import { selectCategories } from '../../../store/categories/categoriesSlice';
 import { SELECTION_ERROR } from '../constants';
 
 const CategorySelection = ({ value, onChange, disableSubmit }) => {
-  const categories = useSelector(selectCategories); //What if error
+  const categories = useSelector(selectCategories);
 
   const [category, setCategory] = useState(value);
   const [isError, setIsError] = useState(false);
