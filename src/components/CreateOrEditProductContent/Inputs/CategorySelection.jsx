@@ -9,11 +9,16 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { defaultCategories } from '../../../constants/defaultCategories';
 import { selectCategories } from '../../../store/categories/categoriesSlice';
 import { SELECTION_ERROR } from '../constants';
 
 const CategorySelection = ({ value, onChange, disableSubmit }) => {
-  const categories = useSelector(selectCategories);
+  const categoriesState = useSelector(selectCategories);
+
+  const categories = categoriesState.errorOccurred
+    ? defaultCategories
+    : categoriesState.data;
 
   const [category, setCategory] = useState(value);
   const [isError, setIsError] = useState(false);
@@ -49,13 +54,11 @@ const CategorySelection = ({ value, onChange, disableSubmit }) => {
         fullWidth
       >
         <MenuItem value="">None</MenuItem>
-        {categories.data.map((category) => {
-          return (
-            <MenuItem key={category} value={category}>
-              {category}
-            </MenuItem>
-          );
-        })}
+        {categories.map((category) => (
+          <MenuItem key={category} value={category}>
+            {category}
+          </MenuItem>
+        ))}
       </Select>
       {isError && <FormHelperText>{SELECTION_ERROR}</FormHelperText>}
     </FormControl>

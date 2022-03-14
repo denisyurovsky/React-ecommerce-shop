@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FileList component renders component with data 1`] = `
+exports[`FilesList component renders component with data 1`] = `
 <DocumentFragment>
   <div
     class="list MuiBox-root css-0"
@@ -14,26 +14,35 @@ exports[`FileList component renders component with data 1`] = `
       class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
     >
       <li
-        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding item css-1rki8sg-MuiListItem-root"
+        class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1rki8sg-MuiListItem-root"
         data-testid="imgItem"
       >
-        <div
-          class="MuiListItemAvatar-root css-1e9lk82-MuiListItemAvatar-root"
+        <button
+          class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-fullWidth MuiButtonBase-root btn css-10vjzfb-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
         >
-          <img
-            alt="image_1.png"
-            class="preview"
-          />
-        </div>
-        <div
-          class="MuiListItemText-root css-tlelie-MuiListItemText-root"
-        >
-          <span
-            class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          <div
+            class="MuiListItemAvatar-root previewWrapper css-1e9lk82-MuiListItemAvatar-root"
           >
-            image_1.png - 0KB
-          </span>
-        </div>
+            <img
+              alt="unCropped.png"
+              class="preview"
+            />
+          </div>
+          <div
+            class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+            >
+              unCropped.png - 0KB
+            </span>
+          </div>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
         <div
           class="MuiListItemSecondaryAction-root css-518kzi-MuiListItemSecondaryAction-root"
         >
@@ -66,4 +75,4 @@ exports[`FileList component renders component with data 1`] = `
 </DocumentFragment>
 `;
 
-exports[`FileList component renders empty component without data 1`] = `<DocumentFragment />`;
+exports[`FilesList component renders empty component without data 1`] = `<DocumentFragment />`;

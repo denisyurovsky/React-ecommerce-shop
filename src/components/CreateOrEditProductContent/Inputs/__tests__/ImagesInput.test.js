@@ -4,7 +4,7 @@ import React from 'react';
 
 import ImagesInput from '../ImagesInput';
 
-const correctFile = new File(['(⌐□_□)'], '1.png', { type: 'image/png' });
+const correctFile = new File(['(⌐□_□)'], 'cropped.png', { type: 'image/png' });
 const incorrectFile = new File(['(⌐□_□)'], '1.txt');
 
 describe('Props tests', () => {

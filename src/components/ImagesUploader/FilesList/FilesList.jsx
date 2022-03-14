@@ -1,3 +1,5 @@
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CropIcon from '@mui/icons-material/Crop';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {
   List,
@@ -7,18 +9,44 @@ import {
   Typography,
   IconButton,
   Box,
+  Button,
 } from '@mui/material';
+import classNames from 'classnames';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { formatFileSize } from '../../../helpers/formatData';
+import Spinner from '../../ui-kit/Spinner/Spinner';
+import { STATUS } from '../constants';
 
 import styles from './FilesList.module.scss';
 
-export const FilesList = ({ filesList, handleImageDelete }) => {
+const { CROPPED, CROPPING } = STATUS;
+
+export const FilesList = ({
+  setCroppedImage,
+  filesList,
+  handleImageDelete,
+  isImagesLoad,
+}) => {
+  const getIcon = (status) => {
+    switch (status) {
+      case CROPPED:
+        return <CheckCircleIcon sx={{ mr: 2 }} />;
+      case CROPPING:
+        return <CropIcon sx={{ mr: 2 }} />;
+      default:
+        return null;
+    }
+  };
+
   if (!filesList.length) {
     return null;
+  }
+
+  if (isImagesLoad) {
+    return <Spinner />;
   }
 
   return (
@@ -27,37 +55,50 @@ export const FilesList = ({ filesList, handleImageDelete }) => {
         Selected images:
       </Typography>
       <List>
-        {filesList.map((item, index) => {
-          const handleImageClick = () => {
-            handleImageDelete(index);
-          };
+        {filesList.map(({ file, status }, index) => {
+          const sendCurrentToCrop = () => setCroppedImage(file);
+          const onDelete = () => handleImageDelete(index);
+
+          const icon = getIcon(status);
+          const isCropped = status === CROPPED;
 
           return (
             <ListItem
               data-testid="imgItem"
               key={_.uniqueId('image_')}
-              className={styles.item}
               secondaryAction={
                 <IconButton
                   edge="end"
                   aria-label="delete"
                   data-testid="delete"
-                  onClick={handleImageClick}
+                  onClick={onDelete}
                 >
                   <DeleteIcon />
                 </IconButton>
               }
             >
-              <ListItemAvatar>
-                <img
-                  src={item.previewURL}
-                  alt={item.name}
-                  className={styles.preview}
+              <Button
+                className={classNames({
+                  [styles.btn]: true,
+                  [styles.btnSuccess]: isCropped,
+                  [styles.btnCurrent]: status === CROPPING,
+                })}
+                onClick={sendCurrentToCrop}
+                fullWidth
+                endIcon={icon}
+                color={isCropped ? 'success' : 'primary'}
+              >
+                <ListItemAvatar className={styles.previewWrapper}>
+                  <img
+                    src={file.previewURL}
+                    alt={file.name}
+                    className={styles.preview}
+                  />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={`${file.name} - ${formatFileSize(file.size)}`}
                 />
-              </ListItemAvatar>
-              <ListItemText
-                primary={`${item.name} - ${formatFileSize(item.size)}`}
-              />
+              </Button>
             </ListItem>
           );
         })}
@@ -67,6 +108,8 @@ export const FilesList = ({ filesList, handleImageDelete }) => {
 };
 
 FilesList.propTypes = {
+  setCroppedImage: PropTypes.func.isRequired,
   filesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleImageDelete: PropTypes.func.isRequired,
+  isImagesLoad: PropTypes.bool.isRequired,
 };

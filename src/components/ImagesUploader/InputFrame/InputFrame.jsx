@@ -5,9 +5,10 @@ import React, { useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import { NativeTypes } from 'react-dnd-html5-backend';
 
+import { DEFAULT_MESSAGE } from '../../../constants/imageValidityConstants';
+
 import styles from './InputFrame.module.scss';
 const cx = classNames.bind(styles);
-const DEFAULT_MESSAGE = 'Choose images to upload';
 
 export const InputFrame = ({
   handleImageDrop,
@@ -38,8 +39,8 @@ export const InputFrame = ({
     error: !isValid,
   });
 
-  const handleImageClick = (event) => {
-    event.preventDefault();
+  const handleImageClick = (e) => {
+    e.preventDefault();
     imgInput.current.click();
   };
 

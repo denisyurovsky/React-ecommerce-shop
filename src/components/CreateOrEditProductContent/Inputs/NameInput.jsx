@@ -30,10 +30,12 @@ const NameInput = ({ value, onChange, disableSubmit }) => {
 
   let errorText = null;
 
-  if (isError && name.length > 0) {
-    errorText = DESCRIPTION_ERROR;
-  } else if (isError) {
+  if (isError) {
     errorText = LENGTH_ERROR;
+
+    if (name.length > 0) {
+      errorText = DESCRIPTION_ERROR;
+    }
   }
 
   return (
