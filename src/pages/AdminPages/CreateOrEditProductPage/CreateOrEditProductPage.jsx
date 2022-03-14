@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import { EditorState } from 'draft-js';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -12,6 +12,8 @@ import { Title } from '../../../components/Title/Title';
 import Spinner from '../../../components/ui-kit/Spinner/Spinner';
 import { pathNames } from '../../../constants/pathNames';
 import { getCategories } from '../../../store/categories/categoriesSlice';
+import { getUserId } from '../../../store/user/userSlice';
+import { NotFoundPage } from '../../NotFoundPage/NotFoundPage';
 
 import styles from './CreateOrEditProductPage.module.scss';
 
@@ -21,6 +23,7 @@ export const CreateOrEditProductPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id: productId } = useParams();
+  const userId = useSelector(getUserId);
 
   const [product, setProduct] = useState({
     name: '',
@@ -84,6 +87,10 @@ export const CreateOrEditProductPage = () => {
 
   if (isLoading) {
     return <Spinner isAbsolute={true} />;
+  }
+
+  if (isEditPage && userId !== product.userId) {
+    return <NotFoundPage />;
   }
 
   return (

@@ -70,7 +70,10 @@ const App = ({ handleClose, isOpenModal }) => {
           />
           <Route exact path={`${PROFILE}${ORDERS}`} element={<OrdersPage />} />
         </Route>
-        <Route path="/" element={<ProtectedRoutes />}>
+        <Route
+          path="/"
+          element={<ProtectedRoutes permissionLevels={USER_ROLE.SELLER} />}
+        >
           <Route
             path={`${ADMIN}${PRODUCTS}${CREATE}`}
             element={<CreateOrEditProductPage />}

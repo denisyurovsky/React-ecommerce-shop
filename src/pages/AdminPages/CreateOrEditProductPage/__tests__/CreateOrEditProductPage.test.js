@@ -3,6 +3,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
+import { USER_ROLE } from '../../../../constants/constants';
 import { categories } from '../../../../test-utils/dto/categoriesDto';
 import { productForPDP } from '../../../../test-utils/dto/productsDto';
 import renderWith, {
@@ -17,6 +18,12 @@ import { CreateOrEditProductPage } from '../CreateOrEditProductPage';
 const preloadedState = {
   categories: {
     data: categories.map((el) => el.name),
+  },
+  user: {
+    user: {
+      id: 1,
+      role: USER_ROLE.SELLER,
+    },
   },
 };
 
