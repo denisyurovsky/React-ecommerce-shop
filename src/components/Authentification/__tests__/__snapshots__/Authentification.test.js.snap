@@ -91,7 +91,7 @@ exports[`Failed server: Locked login state: should display error 1`] = `
         >
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled Mui-error MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
-            data-shrink="14"
+            data-shrink="true"
             for="mui-36"
             id="mui-36-label"
           >
@@ -123,7 +123,7 @@ exports[`Failed server: Locked login state: should display error 1`] = `
         >
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled Mui-error MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
-            data-shrink="8"
+            data-shrink="true"
             for="mui-37"
             id="mui-37-label"
           >
@@ -320,7 +320,7 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
         >
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
-            data-shrink="14"
+            data-shrink="true"
             for="mui-57"
             id="mui-57-label"
           >
@@ -344,7 +344,7 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
         >
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
-            data-shrink="8"
+            data-shrink="true"
             for="mui-58"
             id="mui-58-label"
           >

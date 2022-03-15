@@ -34,3 +34,13 @@
 .button {
   margin-top: 20px !important;
 }
+
+.cardIcons {
+  display: flex;
+  justify-content: center;
+
+  & div {
+    width: 100px;
+    margin: 10px;
+  }
+}

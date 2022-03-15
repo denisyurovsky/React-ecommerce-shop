@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useEffect, useState } from 'react';
+import { uniqueId } from 'lodash';
+import React, { useEffect, useState, createContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -20,21 +21,29 @@ import getCheckedProductsQuantity from '../../helpers/getCheckedProductsQuantity
 import getProductQuantity from '../../helpers/getProductQuantity';
 import getSelectedProductIds from '../../helpers/getSelectedProductIds';
 import { selectCart } from '../../store/cart/cartSlice';
-import { selectUser } from '../../store/user/userSlice';
+import { getUser } from '../../store/user/userSlice';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 
 import { EMPTY_ORDER, LINKS } from './constants/constants';
 
 import styles from './CheckoutPage.module.scss';
 
+export const CheckoutContext = createContext();
+
 const CheckoutPage = () => {
-  const user = useSelector(selectUser);
+  const user = useSelector(getUser);
   const cart = useSelector(selectCart);
   const orderURLId = Number(useParams().id);
   const [orderId, setOrderId] = useState(null);
   const [createdOrderId, setCreatedOrderId] = useState(null);
   const [orderedProductsInfo, setOrderedProductsInfo] = useState(EMPTY_ORDER);
   const [isFetching, setIsFetching] = useState(true);
+  const [disabledAccordion, setDisabledAccordion] = useState({
+    info: false,
+    address: true,
+    payment: true,
+    confirmation: true,
+  });
 
   useEffect(() => {
     if (Number.isInteger(createdOrderId) || Number.isInteger(orderURLId)) {
@@ -94,7 +103,7 @@ const CheckoutPage = () => {
         if (isMounted) {
           setOrderedProductsInfo({
             ...EMPTY_ORDER,
-            userId: user.user.id,
+            userId: user.id,
             products,
             totalPrice: cart.totalPrice,
             totalDiscountPrice: cart.totalDiscountPrice,
@@ -115,7 +124,7 @@ const CheckoutPage = () => {
     return () => {
       isMounted = false;
     };
-  }, [cart, orderId, user.user.id]);
+  }, [cart, orderId, user.id]);
 
   const ActualPrice = () => {
     if (
@@ -140,72 +149,56 @@ const CheckoutPage = () => {
     return <NotFoundPage />;
   }
 
-  if (user.user.id !== orderedProductsInfo.userId) {
+  if (user.id !== orderedProductsInfo.userId) {
     return <NotFoundPage />;
   }
 
   return (
-    <Box className={styles.container}>
-      <BasicBreadcrumbs links={LINKS} />
-      <Title>Checkout</Title>
-      <Box className={styles.wrapper}>
-        <Box className={styles.orderContainer}>
-          {orderedProductsInfo.products.length > 0 && (
-            <>
-              <Box className={styles.orderHeader}>
-                <Typography>{`Your order - ${orderedProductsInfo.totalDiscountPrice} $ (${orderedProductsInfo.totalQuantity} items)`}</Typography>
-                {!orderId && (
-                  <Link style={{ fontSize: 16, width: 'unset' }} to="/cart">
-                    Edit Bag
-                  </Link>
-                )}
-              </Box>
-              {orderedProductsInfo.products.map(
-                ({
-                  originalProductId,
-                  images,
-                  name,
-                  price,
-                  discountPrice,
-                  quantity,
-                }) => {
-                  return (
-                    <OrderCard
-                      key={originalProductId}
-                      images={images}
-                      name={name}
-                      price={price}
-                      discountPrice={discountPrice}
-                      quantity={quantity}
-                    />
-                  );
-                }
-              )}
-              <Box className={styles.orderBottom}>
-                <Typography className={styles.orderPrice}>Total:</Typography>
-                <Typography className={styles.orderPrice}>
-                  <ActualPrice />
-                </Typography>
-              </Box>
-            </>
+    <CheckoutContext.Provider value={[disabledAccordion, setDisabledAccordion]}>
+      <Box className={styles.container}>
+        <BasicBreadcrumbs links={LINKS} />
+        <Title>Checkout</Title>
+        <Box className={styles.wrapper}>
+          <Box className={styles.orderContainer}>
+            {orderedProductsInfo.products.length > 0 && (
+              <>
+                <Box className={styles.orderHeader}>
+                  <Typography>{`Your order - ${orderedProductsInfo.totalDiscountPrice} $ (${orderedProductsInfo.totalQuantity} items)`}</Typography>
+                  {!orderId && (
+                    <Link style={{ fontSize: 16, width: 'unset' }} to="/cart">
+                      Edit Bag
+                    </Link>
+                  )}
+                </Box>
+                {orderedProductsInfo.products.map((product) => (
+                  <OrderCard key={uniqueId('product')} {...product} />
+                ))}
+                <Box className={styles.orderBottom}>
+                  <Typography className={styles.orderPrice}>Total:</Typography>
+                  <Typography className={styles.orderPrice}>
+                    <ActualPrice />
+                  </Typography>
+                </Box>
+              </>
+            )}
+          </Box>
+          {!user.addresses.length && (
+            <CheckoutGuestPage
+              setCreatedOrderId={setCreatedOrderId}
+              orderId={orderId}
+              orderedProductsInfo={orderedProductsInfo}
+            />
+          )}
+          {user.addresses.length && (
+            <CheckoutUserPage
+              setCreatedOrderId={setCreatedOrderId}
+              orderId={orderId}
+              orderedProductsInfo={orderedProductsInfo}
+            />
           )}
         </Box>
-        {!user.user.addresses.length && (
-          <CheckoutGuestPage
-            setCreatedOrderId={setCreatedOrderId}
-            orderId={orderId}
-            orderedProductsInfo={orderedProductsInfo}
-          />
-        )}
-        {user.user.addresses.length > 0 && (
-          <CheckoutUserPage
-            setCreatedOrderId={setCreatedOrderId}
-            orderId={orderId}
-            orderedProductsInfo={orderedProductsInfo}
-          />
-        )}
       </Box>
-    </Box>
+    </CheckoutContext.Provider>
   );
 };
 

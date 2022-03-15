@@ -1,5 +1,7 @@
 import { format } from 'date-fns';
 
+import { PAYCARD_LENGTHS } from '../constants/constants';
+
 const formatPrice = (price) => {
   const options = {
     style: 'currency',
@@ -33,6 +35,14 @@ const formatDateWithShortMonth = (input) => {
   return format(new Date(input), 'dd MMM yyyy');
 };
 
+const leaveDigits = (str, numberOfDigits = PAYCARD_LENGTHS.NUMBER) => {
+  return str.replace(/[^0-9]/g, '').slice(0, numberOfDigits);
+};
+
+const leaveLetters = (str, numberOfLetters = PAYCARD_LENGTHS.HOLDER_NAME) => {
+  return str.replace(/[^A-Z\s]/gi, '').slice(0, numberOfLetters);
+};
+
 export {
   formatDate,
   formatFileSize,
@@ -40,4 +50,6 @@ export {
   formatDateWithFullMonth,
   formatDateWithShortMonth,
   formatDiscountInPercents,
+  leaveDigits,
+  leaveLetters,
 };

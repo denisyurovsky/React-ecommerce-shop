@@ -1,12 +1,13 @@
 import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   EMPTY_ADDRESS,
   MODAL_TYPE,
 } from '../../../pages/AddressBookPage/constants/constants';
+import { CheckoutContext } from '../../../pages/CheckoutPage/CheckoutPage';
 import orderedProductsInfoType from '../../../propTypes/orderedProductsInfoType';
 import {
   getAddressesByIds,
@@ -26,6 +27,7 @@ const CheckoutUserPage = ({
   orderId,
   orderedProductsInfo,
 }) => {
+  const [disabledAccordion, setDisabledAccordion] = useContext(CheckoutContext);
   const dispatch = useDispatch();
   const user = useSelector(getUser);
   const addresses = useSelector(selectAddresses);
@@ -37,10 +39,15 @@ const CheckoutUserPage = ({
 
   useEffect(() => {
     if (orderId) {
-      setIsPaymentMethodAccordionDisabled(false);
       setExpanded(PANEL.PAYMENT_METHOD);
+      setDisabledAccordion({
+        info: false,
+        address: false,
+        payment: false,
+        confirmation: true,
+      });
     }
-  }, [orderId]);
+  }, [orderId, setDisabledAccordion]);
 
   useEffect(() => {
     if (orderedProductsInfo.addressId && addresses.data) {
@@ -52,17 +59,13 @@ const CheckoutUserPage = ({
   const [expanded, setExpanded] = useState(PANEL.DELIVERY_ADDRESS);
   const [addressId, setAddressId] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [
-    isPaymentMethodAccordionDisabled,
-    setIsPaymentMethodAccordionDisabled,
-  ] = useState(true);
 
   const handleCloseModal = () => setIsOpenModal(false);
 
   const handleChangeAccordion = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
     if (panel === PANEL.DELIVERY_ADDRESS) {
-      setIsPaymentMethodAccordionDisabled(true);
+      setDisabledAccordion({ ...disabledAccordion, payment: true });
     }
   };
 
@@ -97,16 +100,14 @@ const CheckoutUserPage = ({
           handleChangeAddresses={handleChangeAddresses}
           handleEditButton={handleEditButton}
           handleChangeAccordion={handleChangeAccordion}
-          setIsPaymentMethodAccordionDisabled={
-            setIsPaymentMethodAccordionDisabled
-          }
           orderId={orderId}
         />
         <PaymentMethodAccordion
           expanded={expanded}
-          isDisabled={isPaymentMethodAccordionDisabled}
+          setExpanded={setExpanded}
           handleChangeAccordion={handleChangeAccordion}
           orderedProductsInfo={orderedProductsInfo}
+          orderId={orderId}
         />
         <OrderConfirmationAccordion
           expanded={expanded}

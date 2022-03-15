@@ -54,3 +54,10 @@ export const defaultFilters = [
   { 'category.name': null },
   { userId: null },
 ];
+
+export const PAYCARD_LENGTHS = {
+  NUMBER: 16,
+  EXP_DATE: 4,
+  CVV: 3,
+  HOLDER_NAME: 27,
+};

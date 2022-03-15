@@ -9,26 +9,91 @@ import {
 } from '@mui/material';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
+import { Maestro, Mastercard, Visa, VisaElectron } from 'react-pay-icons';
+import { toast } from 'react-toastify';
 
-import { PANEL } from '../constants/constants';
+import { sendPayment } from '../../../api/payment';
+import { ERROR } from '../../../constants/constants';
+import { CheckoutContext } from '../../../pages/CheckoutPage/CheckoutPage';
+import Spinner from '../../ui-kit/Spinner/Spinner';
+import { StandardTextField } from '../../ui-kit/StandardTextField/StandardTextField';
+import {
+  EMPTY_PAYMENT_CARD,
+  EXP_DATE_TEXT,
+  PANEL,
+} from '../constants/constants';
 import AccordionSummary from '../helpers/AccordionSummary';
+import { formatCardNumber } from '../helpers/formatCreditCard';
+import handleCardItem from '../helpers/handleCardItem';
 
 import styles from './PaymentMethodAccordion.module.scss';
 
 const PaymentMethodAccordion = ({
   expanded,
+  setExpanded,
   handleChangeAccordion,
   orderedProductsInfo,
-  isDisabled,
+  orderId,
 }) => {
   const isPaymentMethodExpended = expanded === PANEL.PAYMENT_METHOD;
   const actualPrice =
     orderedProductsInfo.totalDiscountPrice || orderedProductsInfo.totalPrice;
 
+  const [isValid, setIsValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [expDateText, setExpDateText] = useState(EXP_DATE_TEXT.DEFAULT);
+  const [card, setCard] = useState(EMPTY_PAYMENT_CARD);
+  const [disabledAccordion, setDisabledAccordion] = useContext(CheckoutContext);
+
+  const { cardNumber, expDate, cvv, cardHolder } = card;
+
+  const handleFieldChange = (e) => {
+    const { cardItem, text } = handleCardItem(e.target);
+
+    text && setExpDateText(text);
+    setCard({ ...card, ...cardItem });
+  };
+
+  const checkValidity = useCallback(() => {
+    for (const key in card) {
+      const { value, error } = card[key];
+
+      if ((!value || error) && key !== 'cardHolder') return setIsValid(false);
+    }
+
+    return setIsValid(true);
+  }, [card]);
+
+  const makePayment = async () => {
+    setIsLoading(true);
+    try {
+      await sendPayment({
+        paymentAmount: actualPrice,
+        cardNumber: cardNumber.value,
+        expDate: expDate.value,
+        cvv: cvv.value,
+        cardHolder: cardHolder.value,
+        orderId,
+      });
+      setDisabledAccordion({
+        info: true,
+        address: true,
+        payment: true,
+        confirmation: false,
+      });
+      setExpanded(PANEL.ORDER_CONFIRMATION);
+    } catch (err) {
+      toast.error(ERROR.SOMETHING_WENT_WRONG);
+    }
+    setIsLoading(false);
+  };
+
+  useEffect(() => checkValidity(), [checkValidity]);
+
   return (
     <Accordion
-      disabled={isDisabled}
+      disabled={disabledAccordion.payment}
       className={classNames({
         [styles.accordionSummary]: !isPaymentMethodExpended,
         [styles.accordion]: true,
@@ -50,11 +115,54 @@ const PaymentMethodAccordion = ({
         </Box>
       </AccordionSummary>
       <AccordionDetails>
-        <Button
-          fullWidth
-          className={styles.button}
-          variant="contained"
-        >{`Pay ${actualPrice} $`}</Button>
+        {isLoading ? (
+          <Spinner height={'400px'} />
+        ) : (
+          <>
+            <Box className={styles.cardIcons}>
+              <Maestro />
+              <Mastercard />
+              <Visa />
+              <VisaElectron />
+            </Box>
+            <Box onChange={handleFieldChange}>
+              <StandardTextField
+                id="cardNumber"
+                labelText="Card Number"
+                error={cardNumber.error}
+                value={formatCardNumber(cardNumber.value)}
+                helperText={'Enter sixteen digits'}
+              />
+              <StandardTextField
+                id="expDate"
+                labelText="Expiration Date"
+                error={expDate.error}
+                value={expDate.value}
+                helperText={expDateText}
+              />
+              <StandardTextField
+                id="cvv"
+                labelText="CVV"
+                error={cvv.error}
+                value={cvv.value}
+                helperText="Last three digits on the card back"
+              />
+              <StandardTextField
+                id="cardHolder"
+                labelText="Card Holder"
+                value={cardHolder.value}
+                helperText="Leave the field blank if card has not name"
+              />
+            </Box>
+            <Button
+              fullWidth
+              className={styles.button}
+              variant="contained"
+              disabled={!isValid}
+              onClick={makePayment}
+            >{`Pay ${actualPrice} $`}</Button>
+          </>
+        )}
       </AccordionDetails>
     </Accordion>
   );
@@ -63,8 +171,9 @@ const PaymentMethodAccordion = ({
 PaymentMethodAccordion.propTypes = {
   orderedProductsInfo: PropTypes.object.isRequired,
   handleChangeAccordion: PropTypes.func.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
   expanded: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+  setExpanded: PropTypes.func.isRequired,
+  orderId: PropTypes.number,
 };
 
 export default PaymentMethodAccordion;

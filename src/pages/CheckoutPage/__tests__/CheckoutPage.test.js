@@ -24,7 +24,13 @@ import {
 import { CheckoutPageProducts } from '../../../test-utils/dto/productsDto';
 import users from '../../../test-utils/dto/usersDto';
 import render, { screen, waitFor } from '../../../test-utils/renderWith';
-import CheckoutPage from '../CheckoutPage';
+import CheckoutPage, { CheckoutContext } from '../CheckoutPage';
+
+const CheckoutWrapper = () => (
+  <CheckoutContext.Provider value={''}>
+    <CheckoutPage />
+  </CheckoutContext.Provider>
+);
 
 const preloadedStateWithoutAddresses = {
   user: users[2],
@@ -88,9 +94,12 @@ describe('CheckoutPage component', () => {
   afterAll(() => server.close());
 
   it('order address should be edited by user without address', async () => {
-    render(<CheckoutPage />, preloadedStateWithoutAddresses, '/checkout/:id', [
-      '/checkout/12',
-    ]);
+    render(
+      <CheckoutWrapper />,
+      preloadedStateWithoutAddresses,
+      '/checkout/:id',
+      ['/checkout/12']
+    );
     await screen.findAllByText(/Checkout/i);
     const { titleSelect, nameInput, surnameInput, streetInput, buildingInput } =
       getAddressBookElements(screen);
@@ -117,7 +126,7 @@ describe('CheckoutPage component', () => {
   });
 
   it('order should be added by user without address', async () => {
-    render(<CheckoutPage />, preloadedStateWithoutAddresses);
+    render(<CheckoutWrapper />, preloadedStateWithoutAddresses);
     await screen.findAllByText(/Checkout/i);
     const {
       titleSelect,
@@ -163,7 +172,7 @@ describe('CheckoutPage component', () => {
   });
 
   it('order should be added by user with address', async () => {
-    render(<CheckoutPage />, preloadedStateWithAddresses);
+    render(<CheckoutWrapper />, preloadedStateWithAddresses);
     await screen.findAllByText(/Checkout/i);
     const radioGroup = screen.getByRole('radiogroup');
 
@@ -180,9 +189,10 @@ describe('CheckoutPage component', () => {
   });
 
   it('order address should be edited by user with address', async () => {
-    render(<CheckoutPage />, preloadedStateWithAddresses, '/checkout/:id', [
+    render(<CheckoutWrapper />, preloadedStateWithAddresses, '/checkout/:id', [
       '/checkout/20',
     ]);
+
     await screen.findAllByText(/Checkout/i);
     const deliveryAddressSummery = screen.getByTestId('deliveryAddressSummery');
 

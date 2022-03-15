@@ -1,12 +1,13 @@
 import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
 
 import {
   EMPTY_ADDRESS,
   RUSSIA,
 } from '../../../pages/AddressBookPage/constants/constants';
+import { CheckoutContext } from '../../../pages/CheckoutPage/CheckoutPage';
 import orderedProductsInfoType from '../../../propTypes/orderedProductsInfoType';
 import { getUser } from '../../../store/user/userSlice';
 import { PANEL } from '../constants/constants';
@@ -23,9 +24,6 @@ const CheckoutGuestPage = ({
   orderedProductsInfo,
 }) => {
   const user = useSelector(getUser);
-  const [isDeliveryAddressDisabled, setIsDeliveryAddressDisabled] =
-    useState(true);
-  const [isPaymentMethodDisabled, setIsPaymentMethodDisabled] = useState(true);
   const [isPersonalInformationValid, setIsPersonalInformationValid] =
     useState(null);
   const [isPersonalAddressValid, setIsPersonalAddressValid] = useState(null);
@@ -35,6 +33,7 @@ const CheckoutGuestPage = ({
     name: user.firstName,
     surname: user.lastName,
   });
+  const [disabledAccordion, setDisabledAccordion] = useContext(CheckoutContext);
 
   const {
     title,
@@ -52,10 +51,14 @@ const CheckoutGuestPage = ({
     if (orderId && Object.keys(orderedProductsInfo.deliveryAddress).length) {
       setAddress(orderedProductsInfo.deliveryAddress);
       setExpanded(PANEL.PAYMENT_METHOD);
-      setIsPaymentMethodDisabled(false);
-      setIsDeliveryAddressDisabled(false);
+      setDisabledAccordion({
+        info: true,
+        address: false,
+        payment: false,
+        cofirmation: true,
+      });
     }
-  }, [orderId, orderedProductsInfo.deliveryAddress]);
+  }, [orderId, orderedProductsInfo.deliveryAddress, setDisabledAccordion]);
 
   useEffect(() => {
     setIsPersonalInformationValid(
@@ -91,13 +94,13 @@ const CheckoutGuestPage = ({
       panel === PANEL.PERSONAL_ADDRESS ||
       panel === PANEL.PERSONAL_INFORMATION
     ) {
-      setIsPaymentMethodDisabled(true);
+      setDisabledAccordion({ ...disabledAccordion, payment: true });
     }
   };
 
   const handlePersonalInformationButton = () => {
     setExpanded(PANEL.PERSONAL_ADDRESS);
-    setIsDeliveryAddressDisabled(false);
+    setDisabledAccordion({ ...disabledAccordion, address: false });
   };
 
   return (
@@ -110,27 +113,25 @@ const CheckoutGuestPage = ({
         handlePersonalInformationButton={handlePersonalInformationButton}
         setAddress={setAddress}
         handleChange={handleChange}
-        setIsDeliveryAddressDisabled={setIsDeliveryAddressDisabled}
       />
       <PersonalAddressAccordion
         expanded={expanded}
         setExpanded={setExpanded}
         handleChangeAccordion={handleChangeAccordion}
         address={address}
-        isDeliveryAddressDisabled={isDeliveryAddressDisabled}
         setAddress={setAddress}
         handleChange={handleChange}
         isPersonalAddressValid={isPersonalAddressValid}
         isPersonalInformationValid={isPersonalInformationValid}
-        setIsPaymentMethodDisabled={setIsPaymentMethodDisabled}
         setCreatedOrderId={setCreatedOrderId}
         orderId={orderId}
       />
       <PaymentMethodAccordion
         expanded={expanded}
-        isDisabled={isPaymentMethodDisabled}
+        setExpanded={setExpanded}
         handleChangeAccordion={handleChangeAccordion}
         orderedProductsInfo={orderedProductsInfo}
+        orderId={orderId}
       />
       <OrderConfirmationAccordion
         expanded={expanded}

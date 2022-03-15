@@ -11,7 +11,7 @@ import {
 import classNames from 'classnames';
 import { createBrowserHistory } from 'history';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -19,6 +19,7 @@ import { getProductsByIds } from '../../../api/products';
 import { notificationError } from '../../../constants/constants';
 import { pathNames } from '../../../constants/pathNames';
 import getSelectedProductIds from '../../../helpers/getSelectedProductIds';
+import { CheckoutContext } from '../../../pages/CheckoutPage/CheckoutPage';
 import {
   deleteSelectedProducts,
   selectCart,
@@ -34,12 +35,10 @@ const PersonalAddressAccordion = ({
   expanded,
   handleChangeAccordion,
   address,
-  isDeliveryAddressDisabled,
   setAddress,
   handleChange,
   isPersonalAddressValid,
   isPersonalInformationValid,
-  setIsPaymentMethodDisabled,
   setExpanded,
   setCreatedOrderId,
   orderId,
@@ -54,10 +53,11 @@ const PersonalAddressAccordion = ({
   const isPersonalAddressExpended = expanded === PANEL.PERSONAL_ADDRESS;
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
+  const [disabledAccordion, setDisabledAccordion] = useContext(CheckoutContext);
 
   const handlePersonalAddressButton = async () => {
     setExpanded(PANEL.PAYMENT_METHOD);
-    setIsPaymentMethodDisabled(false);
+    setDisabledAccordion({ ...disabledAccordion, payment: false });
 
     if (orderId) {
       try {
@@ -90,7 +90,7 @@ const PersonalAddressAccordion = ({
 
   return (
     <Accordion
-      disabled={isDeliveryAddressDisabled}
+      disabled={disabledAccordion.address}
       className={classNames({
         [styles.accordionSummary]: !isPersonalAddressExpended,
         [styles.accordion]: true,
@@ -154,8 +154,6 @@ const PersonalAddressAccordion = ({
 PersonalAddressAccordion.propTypes = {
   handleChangeAccordion: PropTypes.func.isRequired,
   address: PropTypes.object.isRequired,
-  isDeliveryAddressDisabled: PropTypes.bool.isRequired,
-  setIsPaymentMethodDisabled: PropTypes.func.isRequired,
   setAddress: PropTypes.func.isRequired,
   setCreatedOrderId: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,

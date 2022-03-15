@@ -7,7 +7,7 @@ exports[`StandardTextField component snapshots renders a snapshot with all value
   >
     <label
       class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
-      data-shrink="15"
+      data-shrink="true"
       for="mui-1"
       id="mui-1-label"
     >

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { ACCESS_TOKEN } from '../constants/storageConstants';
 
 const HEADERS = { 'Content-Type': 'application/json' };

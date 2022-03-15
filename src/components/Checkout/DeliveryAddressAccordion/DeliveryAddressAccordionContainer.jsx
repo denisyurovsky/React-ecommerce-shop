@@ -1,6 +1,6 @@
 import { createBrowserHistory } from 'history';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -9,6 +9,7 @@ import { getProductsByIds } from '../../../api/products';
 import { notificationError } from '../../../constants/constants';
 import { pathNames } from '../../../constants/pathNames';
 import getSelectedProductIds from '../../../helpers/getSelectedProductIds';
+import { CheckoutContext } from '../../../pages/CheckoutPage/CheckoutPage';
 import {
   deleteSelectedProducts,
   selectCart,
@@ -28,12 +29,12 @@ const DeliveryAddressAccordionContainer = ({
   handleChangeAccordion,
   addresses,
   address,
-  setIsPaymentMethodAccordionDisabled,
   orderId,
 }) => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const isDeliveryAddressExpended = expanded === PANEL.DELIVERY_ADDRESS;
+  const [disabledAccordion, setDisabledAccordion] = useContext(CheckoutContext);
 
   const handleEditOrder = async () => {
     try {
@@ -75,7 +76,7 @@ const DeliveryAddressAccordionContainer = ({
   };
 
   const handleDeliveryAddressButton = () => {
-    setIsPaymentMethodAccordionDisabled(false);
+    setDisabledAccordion({ ...disabledAccordion, payment: false });
     setExpanded(PANEL.PAYMENT_METHOD);
 
     if (orderId) {
@@ -105,7 +106,6 @@ DeliveryAddressAccordionContainer.propTypes = {
   handleChangeAddresses: PropTypes.func.isRequired,
   handleEditButton: PropTypes.func.isRequired,
   handleChangeAccordion: PropTypes.func.isRequired,
-  setIsPaymentMethodAccordionDisabled: PropTypes.func.isRequired,
   addresses: PropTypes.object.isRequired,
   address: PropTypes.object.isRequired,
   expanded: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,

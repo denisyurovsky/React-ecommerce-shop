@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 export const StandardTextField = ({
+  id,
   value,
   onChange,
   labelText,
@@ -23,6 +24,7 @@ export const StandardTextField = ({
 
   return (
     <TextField
+      id={id}
       onChange={onChange}
       onFocus={onInputFieldFocus}
       onBlur={onInputFieldBlur}
@@ -30,7 +32,7 @@ export const StandardTextField = ({
       label={labelText}
       variant="standard"
       InputLabelProps={{
-        shrink: value.length || label,
+        shrink: Boolean(value.length) || label,
       }}
       margin="normal"
       error={error}
@@ -43,6 +45,7 @@ export const StandardTextField = ({
 };
 
 StandardTextField.defaultProps = {
+  id: null,
   autoComplete: 'on',
   error: false,
   helperText: '',
@@ -50,9 +53,10 @@ StandardTextField.defaultProps = {
 };
 
 StandardTextField.propTypes = {
+  id: PropTypes.string,
   error: PropTypes.bool,
   disabled: PropTypes.bool,
-  autoComplete: PropTypes.string,
+  autoComplete: PropTypes.oneOf(['on', 'off']),
   helperText: PropTypes.string,
   labelText: PropTypes.string,
   value: PropTypes.string,

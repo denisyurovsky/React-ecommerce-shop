@@ -23,6 +23,8 @@ import AuthExpirationModal from '../AuthExpirationModal/AuthExpirationModal';
 import { Layout } from '../Layout/Layout';
 import { ProtectedRoutes } from '../ProtectedRoutes/ProtectedRoutes';
 
+const { Guest, Consumer, Seller } = Role;
+
 const {
   PRODUCTS,
   PROFILE,
@@ -57,10 +59,14 @@ const App = ({ handleClose, isOpenModal }) => {
         <Route exact path={CART} element={<CartPage />} />
         <Route path={`${USERS}/:id`} element={<ProfilePage />} />
         <Route path={PROFILE} element={<ProfilePrivatePage />} />
-        <Route exact path={CHECKOUT} element={<CheckoutPage />} />
-        <Route exact path={`${CHECKOUT}/:id`} element={<CheckoutPage />} />
         <Route exact path="/" element={<HomePage />} />
-        <Route element={<ProtectedRoutes permissionLevels={Role.Consumer} />}>
+        <Route
+          element={<ProtectedRoutes permissionLevels={[Guest, Consumer]} />}
+        >
+          <Route exact path={CHECKOUT} element={<CheckoutPage />} />
+          <Route exact path={`${CHECKOUT}/:id`} element={<CheckoutPage />} />
+        </Route>
+        <Route element={<ProtectedRoutes permissionLevels={Consumer} />}>
           <Route
             exact
             path={`${PROFILE}${WISHLIST}`}
@@ -68,10 +74,7 @@ const App = ({ handleClose, isOpenModal }) => {
           />
           <Route exact path={`${PROFILE}${ORDERS}`} element={<OrdersPage />} />
         </Route>
-        <Route
-          path="/"
-          element={<ProtectedRoutes permissionLevels={Role.Seller} />}
-        >
+        <Route path="/" element={<ProtectedRoutes permissionLevels={Seller} />}>
           <Route
             path={`${ADMIN}${PRODUCTS}${CREATE}`}
             element={<CreateOrEditProductPage />}
@@ -83,7 +86,7 @@ const App = ({ handleClose, isOpenModal }) => {
         </Route>
         <Route
           path={`/`}
-          element={<ProtectedRoutes permissionLevels={Role.Seller} />}
+          element={<ProtectedRoutes permissionLevels={Seller} />}
         >
           <Route path={`${ADMIN}${PRODUCTS}`} element={<AdminProductsPage />} />
           <Route

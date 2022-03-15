@@ -188,3 +188,10 @@ const response = await http.get( 'products/2' )
     userRole: "consumer",
   }
 ```
+# 6. Test payment card data:
+
+```
+cardNumber: 4957030420210462,
+exp.date: 10/40,
+cvv: 022
+```

@@ -14,8 +14,9 @@ import {
 } from '@mui/material';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { CheckoutContext } from '../../../pages/CheckoutPage/CheckoutPage';
 import { PANEL } from '../constants/constants';
 import AccordionSummary from '../helpers/AccordionSummary';
 
@@ -34,6 +35,8 @@ const DeliveryAddressAccordion = ({
   addresses,
   address,
 }) => {
+  const [disabledAccordion] = useContext(CheckoutContext);
+
   return (
     <>
       <Accordion
@@ -45,6 +48,7 @@ const DeliveryAddressAccordion = ({
         onChange={handleChangeAccordion(PANEL.DELIVERY_ADDRESS)}
       >
         <AccordionSummary
+          disabled={disabledAccordion.address}
           expandIcon={
             isDeliveryAddressExpended ? <ArrowDropDownIcon /> : <EditIcon />
           }
