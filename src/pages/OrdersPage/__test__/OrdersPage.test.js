@@ -82,6 +82,9 @@ const handlersFulfilled = [
 const serverFulfilled = setupServer(...handlersFulfilled);
 
 describe('OrdersPage component', () => {
+  beforeEach(() => serverFulfilled.listen());
+  afterEach(() => serverFulfilled.close());
+
   describe('snapshots', () => {
     it('renders OrdersPage without data', async () => {
       const { asFragment } = renderWith(<OrdersPage />, {
@@ -100,14 +103,6 @@ describe('OrdersPage component', () => {
   });
 
   describe('Rects on button clicks correct', () => {
-    beforeEach(() => {
-      serverFulfilled.listen();
-    });
-
-    afterEach(() => {
-      serverFulfilled.close();
-    });
-
     it('Cancels order on click and allows to filter orders by deliveryState', async () => {
       const firstRender = renderWith(<OrdersPage />, {
         orders: {

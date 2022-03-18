@@ -178,6 +178,9 @@ const handlersFulfilled = [
 const serverFulfilled = setupServer(...handlersFulfilled);
 
 describe('CartPage component', () => {
+  beforeEach(() => serverFulfilled.listen());
+  afterEach(() => serverFulfilled.close());
+
   describe('snapshots', () => {
     it('renders CartPage without data', () => {
       const { asFragment } = renderWithStore(
@@ -190,14 +193,6 @@ describe('CartPage component', () => {
   });
 
   describe('Operations with products in cart', () => {
-    beforeEach(() => {
-      serverFulfilled.listen();
-    });
-
-    afterEach(() => {
-      serverFulfilled.close();
-    });
-
     it('should be able to add products', async () => {
       const addRender = renderWith(<CartPage />, stateForTests);
       const title = await addRender.findByText('Incredible Plastic Table');

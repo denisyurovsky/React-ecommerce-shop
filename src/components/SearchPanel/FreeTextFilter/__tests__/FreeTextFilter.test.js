@@ -25,8 +25,6 @@ describe('Search component', () => {
       );
 
       expect(inputElement).toBeInTheDocument();
-      userEvent.type(inputElement, '');
-      expect(inputElement).toHaveValue('');
       userEvent.type(inputElement, 'test');
       expect(inputElement).toHaveValue('test');
       userEvent.type(
