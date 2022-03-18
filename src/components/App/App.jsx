@@ -61,7 +61,7 @@ const App = ({ handleClose, isOpenModal }) => {
         <Route exact path={`${CHECKOUT}/:id`} element={<CheckoutPage />} />
         <Route exact path="/" element={<HomePage />} />
         <Route
-          element={<ProtectedRoutes permissionLevel={USER_ROLE.CONSUMER} />}
+          element={<ProtectedRoutes permissionLevels={USER_ROLE.CONSUMER} />}
         >
           <Route
             exact
@@ -82,7 +82,7 @@ const App = ({ handleClose, isOpenModal }) => {
         </Route>
         <Route
           path={`/`}
-          element={<ProtectedRoutes permissionLevel={USER_ROLE.SELLER} />}
+          element={<ProtectedRoutes permissionLevels={USER_ROLE.SELLER} />}
         >
           <Route path={`${ADMIN}${PRODUCTS}`} element={<AdminProductsPage />} />
           <Route
