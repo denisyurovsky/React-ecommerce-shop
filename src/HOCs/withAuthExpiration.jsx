@@ -20,6 +20,7 @@ const withAuthExpiration = (Wrapped) => {
   return function WithAuthExpiration() {
     const loginStatus = useSelector(getLoginState);
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [expTime, setExpTime] = useState(null);
     const [isExpired, setIsExpired] = useState(false);
     const [isExpiredSoon, setIsExpiredSoon] = useState(false);
@@ -53,6 +54,7 @@ const withAuthExpiration = (Wrapped) => {
         const user = await getUser(userId);
 
         dispatch(setUser(user.data));
+        setIsLoading(false);
       },
       [dispatch]
     );
@@ -80,6 +82,8 @@ const withAuthExpiration = (Wrapped) => {
           clearInterval(timerId);
           setIsExpired(true);
         }
+      } else {
+        setIsLoading(false);
       }
 
       return () => {
@@ -95,8 +99,8 @@ const withAuthExpiration = (Wrapped) => {
       setUserToStore,
     ]);
 
-    if (loginStatus === PENDING) {
-      return <Spinner height="100vh" />;
+    if (isLoading) {
+      return <Spinner isAbsolute />;
     }
 
     return <Wrapped handleClose={handleClose} isOpenModal={isOpenModal} />;

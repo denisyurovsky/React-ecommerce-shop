@@ -53,7 +53,7 @@ function ProfilePage() {
     return <NotFoundPage />;
   }
 
-  if (isLoading || !profile.id) {
+  if ((isLoading || !profile.id) && !isOwner) {
     return <Spinner height="90vh" />;
   }
 

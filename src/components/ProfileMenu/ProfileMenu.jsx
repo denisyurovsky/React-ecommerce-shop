@@ -5,19 +5,17 @@ import MenuList from '@mui/material/MenuList';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Link from '../../components/ui-kit/Link/Link';
 import { KEYS } from '../../constants/constants';
 import { PROFILE_MENU, LINKS } from '../../constants/linkConstants';
 import makeLogout from '../../helpers/makeLogout';
-import { setUserInitialState } from '../../store/user/userSlice';
 import Avatar from '../ui-kit/Avatar/Avatar';
 
 import styles from './ProfileMenu.module.scss';
 
 export const ProfileMenu = () => {
-  const dispatch = useDispatch();
   const [isOpened, setIsOpened] = useState(false);
   const anchorRef = useRef(null);
   const { avatar } = useSelector((state) => state.user.user);
@@ -35,7 +33,6 @@ export const ProfileMenu = () => {
 
   const getLogout = (event) => {
     handleClose(event);
-    dispatch(setUserInitialState());
     makeLogout();
   };
 
