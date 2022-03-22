@@ -631,9 +631,9 @@ export const cartSlice = createSlice({
         state.errorOccurred = true;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        if (action.payload.user.cart) {
+        if (action.payload.data.user.cart) {
           const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
-            action.payload.user.cart;
+            action.payload.data.user.cart;
 
           state.sellers = sellers;
           state.totalPrice = totalPrice;

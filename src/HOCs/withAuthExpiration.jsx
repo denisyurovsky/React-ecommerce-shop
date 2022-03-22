@@ -61,7 +61,8 @@ const withAuthExpiration = (Wrapped) => {
 
     useEffect(() => {
       let timerId = null;
-      const { accessToken } = localStorage;
+      const accessToken =
+        localStorage.accessToken ?? sessionStorage.accessToken;
 
       if (!isExpired && accessToken) {
         const isLogged = loginStatus === FULFILLED;

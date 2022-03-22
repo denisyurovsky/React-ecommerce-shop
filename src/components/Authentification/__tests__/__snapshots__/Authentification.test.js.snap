@@ -92,8 +92,8 @@ exports[`Failed server: Locked login state: should display error 1`] = `
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled Mui-error MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="14"
-            for="mui-33"
-            id="mui-33-label"
+            for="mui-36"
+            id="mui-36-label"
           >
             Email
           </label>
@@ -101,19 +101,19 @@ exports[`Failed server: Locked login state: should display error 1`] = `
             class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled Mui-error MuiInputBase-fullWidth MuiInputBase-formControl css-ghsjzk-MuiInputBase-root-MuiInput-root"
           >
             <input
-              aria-describedby="mui-33-helper-text"
+              aria-describedby="mui-36-helper-text"
               aria-invalid="true"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input Mui-disabled css-1x51dt5-MuiInputBase-input-MuiInput-input"
               disabled=""
-              id="mui-33"
+              id="mui-36"
               type="text"
               value="ivan@yandex.ru"
             />
           </div>
           <p
             class="MuiFormHelperText-root Mui-disabled Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
-            id="mui-33-helper-text"
+            id="mui-36-helper-text"
           >
             Many wrong attempts, try again later
           </p>
@@ -124,8 +124,8 @@ exports[`Failed server: Locked login state: should display error 1`] = `
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary Mui-disabled Mui-error MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="8"
-            for="mui-34"
-            id="mui-34-label"
+            for="mui-37"
+            id="mui-37-label"
           >
             Password
           </label>
@@ -133,12 +133,12 @@ exports[`Failed server: Locked login state: should display error 1`] = `
             class="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary Mui-disabled Mui-error MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd css-ghsjzk-MuiInputBase-root-MuiInput-root"
           >
             <input
-              aria-describedby="mui-34-helper-text"
+              aria-describedby="mui-37-helper-text"
               aria-invalid="true"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input Mui-disabled MuiInputBase-inputAdornedEnd css-1x51dt5-MuiInputBase-input-MuiInput-input"
               disabled=""
-              id="mui-34"
+              id="mui-37"
               type="password"
               value="password"
             />
@@ -174,7 +174,7 @@ exports[`Failed server: Locked login state: should display error 1`] = `
           </div>
           <p
             class="MuiFormHelperText-root Mui-disabled Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-filled css-1d1r5q-MuiFormHelperText-root"
-            id="mui-34-helper-text"
+            id="mui-37-helper-text"
           >
             Many wrong attempts, try again later
           </p>
@@ -184,7 +184,7 @@ exports[`Failed server: Locked login state: should display error 1`] = `
         >
           <span
             aria-disabled="true"
-            class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-disabled css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+            class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root Mui-disabled MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked Mui-disabled css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
             tabindex="-1"
           >
             <input
@@ -196,12 +196,12 @@ exports[`Failed server: Locked login state: should display error 1`] = `
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-              data-testid="CheckBoxOutlineBlankIcon"
+              data-testid="CheckBoxIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
               />
             </svg>
           </span>
@@ -321,8 +321,8 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="14"
-            for="mui-54"
-            id="mui-54-label"
+            for="mui-57"
+            id="mui-57-label"
           >
             Email
           </label>
@@ -333,7 +333,7 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
               aria-invalid="false"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
-              id="mui-54"
+              id="mui-57"
               type="text"
               value="ivan@yandex.ru"
             />
@@ -345,8 +345,8 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
           <label
             class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
             data-shrink="8"
-            for="mui-55"
-            id="mui-55-label"
+            for="mui-58"
+            id="mui-58-label"
           >
             Password
           </label>
@@ -357,7 +357,7 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
               aria-invalid="false"
               autocomplete="off"
               class="MuiInput-input MuiInputBase-input MuiInputBase-inputAdornedEnd css-1x51dt5-MuiInputBase-input-MuiInput-input"
-              id="mui-55"
+              id="mui-58"
               type="password"
               value="password"
             />
@@ -396,7 +396,7 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
           class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1apuumd-MuiFormControlLabel-root"
         >
           <span
-            class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+            class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
           >
             <input
               class="PrivateSwitchBase-input css-1m9pwf3"
@@ -406,12 +406,12 @@ exports[`Failed server: Locked login state: should unlock forms after delay 1`] 
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-              data-testid="CheckBoxOutlineBlankIcon"
+              data-testid="CheckBoxIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
               />
             </svg>
             <span

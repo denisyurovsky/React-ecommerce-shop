@@ -78,6 +78,7 @@ const sendLoginRequest = () => {
 const fillInLoginForms = () => {
   userEvent.type(screen.getByLabelText('Email'), 'ivan@yandex.ru');
   userEvent.type(screen.getByLabelText('Password'), 'password');
+  userEvent.click(screen.getByLabelText('Remember me'));
 };
 
 const sendRegisterRequest = () => {
@@ -121,6 +122,20 @@ describe('Successfully login and register', () => {
     expect(localStorage.getItem('accessToken')).toEqual(
       'mocked_user_token_register'
     );
+  });
+
+  it('should allow user to login with unchecked remember me', async () => {
+    userEvent.click(screen.getByTestId('btn-login'));
+    userEvent.type(screen.getByLabelText('Email'), 'ivan@yandex.ru');
+    userEvent.type(screen.getByLabelText('Password'), 'password');
+    userEvent.click(screen.getByRole('button', { name: /sign in/i }));
+
+    await screen.findByTestId('btn-profile');
+
+    expect(sessionStorage.getItem('accessToken')).toBe(
+      'mocked_user_token_login'
+    );
+    sessionStorage.clear();
   });
 });
 

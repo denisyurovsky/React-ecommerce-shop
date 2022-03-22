@@ -25,8 +25,8 @@ const Authentification = () => {
 
   const isLogged = loginStatus === FULFILLED || registerStatus === FULFILLED;
 
-  const sendLoginForm = ({ password, email }) => {
-    dispatch(loginUser({ password, email }));
+  const sendLoginForm = ({ password, email, isKeep }) => {
+    dispatch(loginUser({ password, email, isKeep }));
   };
 
   const sendRegisterForm = ({ email, password, ...info }) => {

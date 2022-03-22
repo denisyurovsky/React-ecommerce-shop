@@ -37,10 +37,10 @@ export const resetUpdateWishlistsStatusAfterTimeout = () => (dispatch) => {
 
 export const loginUser = createAsyncThunk(
   'user/loginUser',
-  async ({ password, email }) => {
+  async ({ password, email, isKeep }) => {
     const response = await login({ email, password });
 
-    return response.data;
+    return { data: response.data, isKeep };
   }
 );
 
@@ -146,11 +146,18 @@ export const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loginStatus = FULFILLED;
         state.user.amountOfTries = 0;
-        state.user.id = action.payload.user.id;
-        localStorage.setItem('accessToken', action.payload.accessToken);
+        state.user.id = action.payload.data.user.id;
+        if (action.payload.isKeep) {
+          localStorage.setItem('accessToken', action.payload.data.accessToken);
+        } else {
+          sessionStorage.setItem(
+            'accessToken',
+            action.payload.data.accessToken
+          );
+        }
         state.user = {
           ...state.user,
-          ...action.payload.user,
+          ...action.payload.data.user,
         };
       })
       .addCase(loginUser.rejected, (state) => {

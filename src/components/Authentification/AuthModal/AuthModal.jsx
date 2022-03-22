@@ -70,6 +70,7 @@ const AuthModal = ({
         <Box className={styles.content}>
           {value === 'new' ? (
             <Registration
+              handleClose={handleClose}
               sendForm={registerUser}
               status={registerStatus}
               errorMessage={registerErrorMessage}

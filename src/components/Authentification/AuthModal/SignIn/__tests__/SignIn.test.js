@@ -7,19 +7,23 @@ import SignIn from '../SignIn';
 
 const { REJECTED, PENDING, LOCKED } = authStatus;
 
-const fillForms = (emailValue, passwordValue) => {
+const fillForms = (emailValue, passwordValue, isKeep) => {
   const btn = screen.getByRole('button');
   const email = screen.getByLabelText('Email');
   const password = screen.getByLabelText('Password');
+  const rememberMeCheck = screen.getByLabelText('Remember me');
 
   userEvent.type(email, emailValue);
   userEvent.type(password, passwordValue);
+  if (isKeep) {
+    userEvent.click(rememberMeCheck);
+  }
 
-  return { btn, email, password };
+  return { btn, email, password, rememberMeCheck };
 };
 
 const getInputs = () => {
-  const { btn, email, password } = fillForms('look@', 'theP');
+  const { btn, email, password } = fillForms('look@', 'theP', false);
   const rememberMeCheck = screen.getByLabelText('Remember me');
   const visibilityCheck = screen
     .getByTestId('visibility')
@@ -59,23 +63,54 @@ describe('Send form button tests:', () => {
     render(<SignIn sendForm={callback} />);
   });
 
-  it('should have active state', () => {
+  it('should have active state with checked remember me', () => {
     const login = 'ivan@ya';
     const passwordValue = 'pass';
-    const { btn, email, password } = fillForms(login, passwordValue);
+    const { btn, email, password, rememberMeCheck } = fillForms(
+      login,
+      passwordValue,
+      true
+    );
 
     expect(email.value).toBe(login);
     expect(password.value).toBe(passwordValue);
+    expect(rememberMeCheck.checked).toBe(true);
     expect(btn.disabled).toBe(false);
   });
 
-  it('should send form with correct credentials', () => {
+  it('should have active state with unchecked remember me', () => {
+    const login = 'ivan@ya';
+    const passwordValue = 'pass';
+    const { btn, email, password, rememberMeCheck } = fillForms(
+      login,
+      passwordValue,
+      false
+    );
+
+    expect(email.value).toBe(login);
+    expect(password.value).toBe(passwordValue);
+    expect(rememberMeCheck.checked).toBe(false);
+    expect(btn.disabled).toBe(false);
+  });
+
+  it('should send form with correct credentials with checked remember me', () => {
     const email = 'petr@';
     const password = 'weak';
-    const { btn } = fillForms(email, password);
+    const isKeep = true;
+    const { btn } = fillForms(email, password, isKeep);
 
     fireEvent.click(btn);
-    expect(callback).toBeCalledWith({ email, password });
+    expect(callback).toBeCalledWith({ email, password, isKeep });
+  });
+
+  it('should send form with correct credentials with unchecked remember me', () => {
+    const email = 'petr@';
+    const password = 'weak';
+    const isKeep = false;
+    const { btn } = fillForms(email, password, isKeep);
+
+    fireEvent.click(btn);
+    expect(callback).toBeCalledWith({ email, password, isKeep });
   });
 });
 

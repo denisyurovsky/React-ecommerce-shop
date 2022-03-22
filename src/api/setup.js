@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ACCESS_TOKEN } from '../constants/storageConstants';
 
 const HEADERS = { 'Content-Type': 'application/json' };
 
@@ -14,7 +15,8 @@ const requestSettings = {
 const http = axios.create(requestSettings);
 
 http.interceptors.request.use((config) => {
-  const token = localStorage.getItem('accessToken');
+  const token =
+    localStorage.getItem(ACCESS_TOKEN) ?? sessionStorage.getItem(ACCESS_TOKEN);
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;

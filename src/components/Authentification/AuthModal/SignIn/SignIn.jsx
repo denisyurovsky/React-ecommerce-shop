@@ -51,7 +51,7 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
   const checkIsFinished = (email, password) =>
     checkEmail(email) && checkPassword(password);
 
-  const prepareToSend = () => sendForm({ password, email });
+  const prepareToSend = () => sendForm({ password, email, isKeep });
 
   return (
     <Box>
