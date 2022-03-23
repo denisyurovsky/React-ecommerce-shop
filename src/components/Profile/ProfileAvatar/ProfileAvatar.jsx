@@ -20,11 +20,14 @@ const ProfileAvatar = ({ id, avatar }) => {
 
   const changeImage = (e) => {
     const file = e.target.files[0];
-    const imageValidity = checkImageValidity(file);
 
-    imageValidity.result
-      ? uploadImage(file)
-      : toast.error(imageValidity.message);
+    if (file) {
+      const imageValidity = checkImageValidity(file);
+
+      imageValidity.result
+        ? uploadImage(file)
+        : toast.error(imageValidity.message);
+    }
   };
 
   const handleImage = () => imgInput.current.click();
