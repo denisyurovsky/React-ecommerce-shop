@@ -9,7 +9,7 @@ import {
 import checkEmailValidity from '../../../../helpers/checkEmailValidity.js';
 import checkPasswordValidity from '../../../../helpers/checkPasswordValidity.js';
 import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
-import { StandartedTextField } from '../../../ui-kit/StandartedTextField/StandartedTextField.jsx';
+import { StandardTextField } from '../../../ui-kit/StandardTextField/StandardTextField.jsx';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler.js';
 
@@ -69,7 +69,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
     return isEmailValid && isPasswordValid && isConfirmPasswordValid;
   };
 
-  const preparetoSend = () => {
+  const prepareToSend = () => {
     if (checkValidForm({ ...values, confirmPassword })) {
       sendForm({ ...values });
     }
@@ -117,17 +117,17 @@ const Registration = ({ sendForm, errorMessage, status }) => {
 
   return (
     <Box>
-      <StandartedTextField
+      <StandardTextField
         value={values.firstName}
         labelText="First name"
         onChange={onFirstNameChange}
       />
-      <StandartedTextField
+      <StandardTextField
         labelText="Last name"
         value={values.lastName}
         onChange={onLastNameChange}
       />
-      <StandartedTextField
+      <StandardTextField
         labelText="Email"
         value={values.email}
         onChange={onEmailChange}
@@ -162,7 +162,7 @@ const Registration = ({ sendForm, errorMessage, status }) => {
         <Button
           fullWidth
           variant="contained"
-          onClick={preparetoSend}
+          onClick={prepareToSend}
           disabled={!isFinished}
         >
           Sign up

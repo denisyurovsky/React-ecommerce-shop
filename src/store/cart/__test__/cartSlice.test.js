@@ -510,7 +510,7 @@ describe('Cart actions', () => {
       expect(store.getState().cart.errorOccurred).toEqual(true);
     });
 
-    it('Should be able to detect markProoduct error', async () => {
+    it('Should be able to detect markProduct error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(selectProduct({ product: productsDto[1] }));
       expect(store.getState().cart.isLoading).toEqual(false);

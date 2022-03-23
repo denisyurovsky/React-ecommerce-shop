@@ -18,7 +18,7 @@ import styles from './SearchArea.module.scss';
 
 export const SearchArea = ({ setDisplayedCards, categories, cards }) => {
   const [category, setCategory] = useState('All categories');
-  const [textsearch, setTextsearch] = useState('');
+  const [textSearch, setTextSearch] = useState('');
 
   useEffect(() => {
     if (categories.errorOccurred) {
@@ -30,7 +30,7 @@ export const SearchArea = ({ setDisplayedCards, categories, cards }) => {
     setDisplayedCards(
       cards.filter(
         (card) =>
-          card.name.includes(textsearch) &&
+          card.name.includes(textSearch) &&
           (event.target.value === 'All categories'
             ? true
             : card.category.name === event.target.value)
@@ -48,7 +48,7 @@ export const SearchArea = ({ setDisplayedCards, categories, cards }) => {
             : true)
       )
     );
-    setTextsearch(event.target.value);
+    setTextSearch(event.target.value);
   };
 
   return (
@@ -78,7 +78,7 @@ export const SearchArea = ({ setDisplayedCards, categories, cards }) => {
       <OutlinedInput
         data-testid="text-search-input"
         onChange={handleTextInput}
-        value={textsearch}
+        value={textSearch}
         className={styles.textField}
         placeholder="Search by advertisement"
         endAdornment={

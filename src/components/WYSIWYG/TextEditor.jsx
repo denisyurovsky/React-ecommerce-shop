@@ -111,7 +111,7 @@ const TextEditor = (props) => {
     isFocused && TableHelpers.checkAnchorInTable(editorState);
 
   return (
-    <Box onClick={focusEditor} tabIndex={-1} className={styles.wraper}>
+    <Box onClick={focusEditor} tabIndex={-1} className={styles.wrapper}>
       <fieldset
         className={classNames({
           [styles.container]: true,

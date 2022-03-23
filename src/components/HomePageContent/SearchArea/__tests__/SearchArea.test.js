@@ -32,7 +32,7 @@ describe('SearchArea component', () => {
   const categories = {
     data: ['First category', 'Second category', 'Third category'],
     isLoading: false,
-    errorOccured: false,
+    errorOccurred: false,
     errorMessage: '',
   };
 

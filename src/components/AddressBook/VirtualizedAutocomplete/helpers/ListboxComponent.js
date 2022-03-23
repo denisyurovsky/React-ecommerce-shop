@@ -18,7 +18,7 @@ import {
   LIMIT_NUMBER_ITEMS,
   ITEM_SIZE_MD,
   ITEM_SIZE_LG,
-} from '../../constatns/constatns';
+} from '../../constants/constants';
 
 const renderRow = ({ data, index, style }) => {
   const dataSet = data[index];

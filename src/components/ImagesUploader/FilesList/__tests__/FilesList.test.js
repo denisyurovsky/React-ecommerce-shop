@@ -25,7 +25,7 @@ describe('FilesList component', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should render spiner on load', () => {
+  it('should render spinner on load', () => {
     render(<Wrapper files={[unCroppedWithState]} isLoad={true} />);
 
     expect(screen.getByRole('progressbar')).toBeInTheDocument();

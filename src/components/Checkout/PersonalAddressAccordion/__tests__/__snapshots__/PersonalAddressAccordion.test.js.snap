@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PersonalAddressAccordin component should render valid snapshot 1`] = `
+exports[`PersonalAddressAccordion component should render valid snapshot 1`] = `
 <DocumentFragment>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters accordion css-1elwnq4-MuiPaper-root-MuiAccordion-root"

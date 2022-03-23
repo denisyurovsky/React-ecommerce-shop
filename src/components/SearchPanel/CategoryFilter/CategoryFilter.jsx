@@ -32,13 +32,13 @@ export const CategoryFilter = ({
       e.target.value === allCategories[0] ? null : e.target.value;
 
     setSearchParams((prev) => {
-      const newfilters = prev.filters.filter((item) => {
+      const newFilters = prev.filters.filter((item) => {
         return !item['category.name'] && item['category.name'] !== null;
       });
 
       return {
         ...prev,
-        filters: [...newfilters, { 'category.name': categoryFilter }],
+        filters: [...newFilters, { 'category.name': categoryFilter }],
         currentPage: 1,
       };
     });

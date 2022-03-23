@@ -36,9 +36,9 @@ Error.args = {
   errorMessage: 'Incorrect password or login',
 };
 
-export const Succed = Template.bind({});
-Succed.storyName = 'Successful login';
-Succed.args = {
+export const Succeed = Template.bind({});
+Succeed.storyName = 'Successful login';
+Succeed.args = {
   registerStatus: 'idle',
   loginStatus: 'succeeded',
   errorMessage: 'Incorrect password or login',

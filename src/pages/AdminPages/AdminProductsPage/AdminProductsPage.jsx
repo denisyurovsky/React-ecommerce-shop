@@ -84,7 +84,7 @@ export const AdminProductsPage = () => {
     return <Spinner data-testid="load" />;
   }
 
-  if (products.errorOccured) {
+  if (products.errorOccurred) {
     toast.error(notificationError);
   }
 

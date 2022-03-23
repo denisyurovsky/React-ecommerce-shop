@@ -95,7 +95,7 @@ const fillInRegisterForms = () => {
   userEvent.type(screen.getByLabelText('Confirm password'), 'AbcDefG12!');
 };
 
-describe('Successfull login and register', () => {
+describe('Successfully login and register', () => {
   const server = setupServer(...successfulHandlers);
 
   beforeAll(() => server.listen());

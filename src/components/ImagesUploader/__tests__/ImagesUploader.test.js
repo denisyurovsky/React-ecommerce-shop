@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import {
   croppedFile,
   unCroppedFile,
-  fileWithWrongExtention,
+  fileWithWrongExtension,
 } from '../../../test-utils/images/images';
 import { TEST_IMG_URL } from '../constants';
 import { ImagesUploader } from '../ImagesUploader';
@@ -102,10 +102,10 @@ describe('add some image', () => {
     expect(await screen.findAllByTestId('imgItem')).toHaveLength(2);
   });
 
-  it('should not upload images with wrong extention', async () => {
+  it('should not upload images with wrong extension', async () => {
     const uploader = screen.getByLabelText(/choose images to upload/i);
 
-    userEvent.upload(uploader, fileWithWrongExtention);
+    userEvent.upload(uploader, fileWithWrongExtension);
 
     await waitFor(() => {
       expect(screen.getByRole('alert')).toBeInTheDocument();

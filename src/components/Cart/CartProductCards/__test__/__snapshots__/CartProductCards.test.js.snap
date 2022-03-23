@@ -5,9 +5,7 @@ exports[`CartProductCards component snapshots renders a valid snapshot 1`] = `
   <div
     class="cards"
   >
-    <div
-      class="cartSellerWrappe"
-    >
+    <div>
       <div
         class="names MuiBox-root css-0"
       >
@@ -48,9 +46,7 @@ exports[`CartProductCards component snapshots renders a valid snapshot 1`] = `
         class="MuiBox-root css-0"
       />
     </div>
-    <div
-      class="cartSellerWrappe"
-    >
+    <div>
       <div
         class="names MuiBox-root css-0"
       >
@@ -91,9 +87,7 @@ exports[`CartProductCards component snapshots renders a valid snapshot 1`] = `
         class="MuiBox-root css-0"
       />
     </div>
-    <div
-      class="cartSellerWrappe"
-    >
+    <div>
       <div
         class="names MuiBox-root css-0"
       >

@@ -60,7 +60,7 @@ export const AdminCategoriesPage = () => {
     return <Spinner data-testid="load" />;
   }
 
-  if (products.errorOccured) {
+  if (products.errorOccurred) {
     toast.error(notificationError);
   }
 

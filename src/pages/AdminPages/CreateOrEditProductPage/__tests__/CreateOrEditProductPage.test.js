@@ -27,7 +27,7 @@ const preloadedState = {
   },
 };
 
-const successfullHandlers = [
+const successfulHandlers = [
   rest.get('/categories', (_, res, ctx) => {
     return res(ctx.json(categories));
   }),
@@ -44,7 +44,7 @@ const successfullHandlers = [
 ];
 
 const errorHandlers = [
-  ...successfullHandlers.slice(0, successfullHandlers.length - 2),
+  ...successfulHandlers.slice(0, successfulHandlers.length - 2),
   rest.patch('/products/0', (_, res, ctx) =>
     res(ctx.status(403), ctx.json({}))
   ),
@@ -74,7 +74,7 @@ const fillMandatoryFields = () => {
 };
 
 describe('Successful response', () => {
-  const server = setupServer(...successfullHandlers);
+  const server = setupServer(...successfulHandlers);
 
   beforeAll(() => server.listen());
   afterAll(() => server.close());
@@ -129,7 +129,7 @@ describe('Successful response', () => {
       )
     );
 
-    it('should show create new product title on cretion page', async () => {
+    it('should show create new product title on creation page', async () => {
       expect.assertions(2);
 
       await screen.findByLabelText(/^name$/i);

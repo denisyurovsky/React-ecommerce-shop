@@ -25,12 +25,12 @@ const PriceGroup = ({ value, onChange, disableSubmit }) => {
       return;
     }
 
-    const formatedPrice = formatPrice(price, discount);
+    const formattedPrice = formatPrice(price, discount);
 
     if (isDiscountError || isPriceError || price === '') {
       disableSubmit();
     } else {
-      onChange(formatedPrice);
+      onChange(formattedPrice);
     }
     //eslint-disable-next-line
   }, [price, discount]);

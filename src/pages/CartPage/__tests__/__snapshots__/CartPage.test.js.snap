@@ -68,9 +68,7 @@ exports[`CartPage component snapshots renders CartPage without data 1`] = `
     <div
       class="cards"
     >
-      <div
-        class="cartSellerWrappe"
-      >
+      <div>
         <div
           class="names MuiBox-root css-0"
         >
@@ -111,9 +109,7 @@ exports[`CartPage component snapshots renders CartPage without data 1`] = `
           class="MuiBox-root css-0"
         />
       </div>
-      <div
-        class="cartSellerWrappe"
-      >
+      <div>
         <div
           class="names MuiBox-root css-0"
         >
@@ -154,9 +150,7 @@ exports[`CartPage component snapshots renders CartPage without data 1`] = `
           class="MuiBox-root css-0"
         />
       </div>
-      <div
-        class="cartSellerWrappe"
-      >
+      <div>
         <div
           class="names MuiBox-root css-0"
         >

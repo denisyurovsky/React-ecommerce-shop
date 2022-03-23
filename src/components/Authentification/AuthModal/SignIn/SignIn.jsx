@@ -7,7 +7,7 @@ import {
   authStatus,
 } from '../../../../constants/authConstants';
 import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
-import { StandartedTextField } from '../../../ui-kit/StandartedTextField/StandartedTextField';
+import { StandardTextField } from '../../../ui-kit/StandardTextField/StandardTextField';
 import PasswordForm from '../PasswordForm';
 import useErrorHandler from '../useErrorHandler';
 
@@ -55,7 +55,7 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
 
   return (
     <Box>
-      <StandartedTextField
+      <StandardTextField
         onChange={handleEmailChange}
         disabled={disabled}
         autoComplete="off"
@@ -94,7 +94,7 @@ const SignIn = ({ sendForm, status, errorMessage }) => {
   );
 };
 
-SignIn.defaulProps = {
+SignIn.defaultProps = {
   errorMessage: '',
   status: IDLE,
 };

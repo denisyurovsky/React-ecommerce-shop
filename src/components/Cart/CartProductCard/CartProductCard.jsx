@@ -23,7 +23,7 @@ export const CartProductCard = ({ product, openModal, setModalProduct }) => {
 
   const index = findProductIndexById(products, product.id);
 
-  const checboxHandler = () => {
+  const checkboxHandler = () => {
     dispatch(selectProduct({ product }));
   };
 
@@ -38,7 +38,7 @@ export const CartProductCard = ({ product, openModal, setModalProduct }) => {
     <div className={styles.cardContainer}>
       <Checkbox
         checked={products[index] ? products[index].checked : true}
-        onChange={checboxHandler}
+        onChange={checkboxHandler}
         inputProps={{ 'aria-label': 'controlled' }}
         className={styles.checkbox}
       />

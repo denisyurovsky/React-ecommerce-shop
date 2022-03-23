@@ -216,7 +216,7 @@ export const OrderCard = ({ orderId: id }) => {
         <Box className={styles.collapseInner}>
           <CardContent className={styles.cardContent}>
             <Box className={styles.description}>
-              <Box className={styles.deliveryInforamtion}>
+              <Box className={styles.deliveryInformation}>
                 <Typography className={styles.deliveryDestination}>
                   Delivery type: &nbsp;
                   <span className={styles.deliveryValue}>

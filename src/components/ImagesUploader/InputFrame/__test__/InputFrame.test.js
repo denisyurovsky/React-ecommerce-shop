@@ -15,7 +15,7 @@ const imagesValidityCase2 = {
 };
 
 describe('InputFrame component', () => {
-  it('renders component with defualt message', () => {
+  it('renders component with default message', () => {
     render(
       <DndProvider backend={HTML5Backend}>
         <InputFrame

@@ -57,7 +57,7 @@ const expectedStateWishList = {
   },
 };
 
-it('update wishlist reques is load', () => {
+it('update wishlist request is load', () => {
   const newState = reducer(
     previousStateWishList,
     updateWishList.pending({ wishlist: [3] })
@@ -66,7 +66,7 @@ it('update wishlist reques is load', () => {
   expect(newState.updateWishlistStatus).toEqual(REQUEST_STATUS.PENDING);
 });
 
-it('update wishlist reques is success', () => {
+it('update wishlist request is success', () => {
   const newState = reducer(
     previousStateWishList,
     updateWishList.fulfilled({ wishlist: [3] })
@@ -75,7 +75,7 @@ it('update wishlist reques is success', () => {
   expect(newState).toEqual(expectedStateWishList);
 });
 
-it('update wishlist reques is failure', () => {
+it('update wishlist request is failure', () => {
   const newState = reducer(
     previousStateWishList,
     updateWishList.rejected({ wishlist: [3] })
@@ -84,7 +84,7 @@ it('update wishlist reques is failure', () => {
   expect(newState.updateWishlistStatus).toEqual(REQUEST_STATUS.REJECTED);
 });
 
-it('should reset updatewishlist status', () => {
+it('should reset update wishlist status', () => {
   const previousStateWishList = {
     updateWishlistStatus: REQUEST_STATUS.FULFILLED,
   };

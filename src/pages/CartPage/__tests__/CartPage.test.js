@@ -302,10 +302,10 @@ describe('CartPage component', () => {
         expect(title).toBeInTheDocument();
       });
 
-      const checkoboxes = await selectRender.findAllByRole('checkbox');
+      const checkboxes = await selectRender.findAllByRole('checkbox');
 
-      expect(checkoboxes.length).toEqual(4);
-      fireEvent.click(checkoboxes[1]);
+      expect(checkboxes.length).toEqual(4);
+      fireEvent.click(checkboxes[1]);
 
       await waitFor(() => {
         expect(store.getState().cart.sellers[2].products[0].checked).toEqual(
@@ -313,7 +313,7 @@ describe('CartPage component', () => {
         );
       });
 
-      fireEvent.click(checkoboxes[2]);
+      fireEvent.click(checkboxes[2]);
       await waitFor(() => {
         expect(store.getState().cart.sellers[2].products[0].checked).toEqual(
           false

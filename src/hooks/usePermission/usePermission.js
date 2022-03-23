@@ -6,11 +6,11 @@ import { getUserRole } from '../../store/user/userSlice';
 const defaultRoles = [USER_ROLE.CONSUMER, USER_ROLE.SELLER, USER_ROLE.ADMIN];
 
 export function usePermission(roles = defaultRoles) {
-  const registredRole = useSelector(getUserRole);
+  const registeredRole = useSelector(getUserRole);
 
   if (typeof roles === 'string') {
-    return roles === registredRole;
+    return roles === registeredRole;
   }
 
-  return roles.some((role) => role === registredRole);
+  return roles.some((role) => role === registeredRole);
 }

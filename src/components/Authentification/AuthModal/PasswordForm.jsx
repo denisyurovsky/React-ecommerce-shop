@@ -16,7 +16,7 @@ const PasswordForm = ({
   const [isHidden, setIsHidden] = useState(hidden);
   const [labelFocus, setLabelFocus] = useState(false);
 
-  const onInputPasswrodFocus = () => {
+  const onInputPasswordFocus = () => {
     setLabelFocus(true);
   };
 
@@ -43,7 +43,7 @@ const PasswordForm = ({
       margin="normal"
       label={label}
       InputLabelProps={{ shrink: password.length || labelFocus }}
-      onFocus={onInputPasswrodFocus}
+      onFocus={onInputPasswordFocus}
       onBlur={onInputPasswordBlur}
       value={password}
       onChange={onChange}

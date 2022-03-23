@@ -1,5 +1,5 @@
 import { Card, Container } from '@mui/material';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import useBreakPoint from '../../../hooks/useBreakPoint';
@@ -30,11 +30,11 @@ const ProfileLayout = ({ children, title }) => {
 };
 
 ProfileLayout.propTypes = {
-  children: Proptypes.oneOfType([
-    Proptypes.arrayOf(Proptypes.node),
-    Proptypes.node,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
   ]).isRequired,
-  title: Proptypes.string,
+  title: PropTypes.string,
 };
 
 export default ProfileLayout;

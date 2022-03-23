@@ -36,7 +36,7 @@ const monthsArray = [
 
 describe('formatDateWithFullMonth', () => {
   for (let i = 1; i < 13; i++) {
-    it(`format date should be with coorect name of ${i}'s month`, () => {
+    it(`format date should be with correct name of ${i}'s month`, () => {
       expect(
         formatDateWithFullMonth(`2021-${i > 9 ? i : '0' + i}-19T08:46:13.911Z`)
       ).toEqual(`19 ${monthsArray[i - 1]} 2021`);

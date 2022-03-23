@@ -98,7 +98,7 @@ exports[`CreateOrEditProductContent snapshot should take a snapshot with predefi
         </div>
       </div>
       <div
-        class="wraper MuiBox-root css-0"
+        class="wrapper MuiBox-root css-0"
         tabindex="-1"
       >
         <fieldset

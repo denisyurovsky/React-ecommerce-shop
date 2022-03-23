@@ -5,7 +5,7 @@ import renderWith from '../../../../test-utils/renderWith';
 import { PANEL } from '../../constants/constants';
 import PersonalAddressAccordion from '../PersonalAddressAccordion';
 
-describe('PersonalAddressAccordin component', () => {
+describe('PersonalAddressAccordion component', () => {
   it('should render valid snapshot', () => {
     const { asFragment } = renderWith(
       <PersonalAddressAccordion

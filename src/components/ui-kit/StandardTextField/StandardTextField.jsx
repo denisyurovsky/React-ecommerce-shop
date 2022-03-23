@@ -2,7 +2,7 @@ import { TextField } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-export const StandartedTextField = ({
+export const StandardTextField = ({
   value,
   onChange,
   labelText,
@@ -42,14 +42,14 @@ export const StandartedTextField = ({
   );
 };
 
-StandartedTextField.defaultProps = {
+StandardTextField.defaultProps = {
   autoComplete: 'on',
   error: false,
   helperText: '',
   disabled: false,
 };
 
-StandartedTextField.propTypes = {
+StandardTextField.propTypes = {
   error: PropTypes.bool,
   disabled: PropTypes.bool,
   autoComplete: PropTypes.string,

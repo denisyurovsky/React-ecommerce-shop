@@ -76,7 +76,7 @@ export const CartSellerWrapper = ({
   };
 
   return (
-    <div className={styles.cartSellerWrappe}>
+    <div>
       <Box className={styles.names}>
         <Checkbox
           checked={cart.sellers[userId] ? cart.sellers[userId].checked : true}

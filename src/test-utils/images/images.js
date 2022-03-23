@@ -19,6 +19,6 @@ export const croppedFile = new File(['(⌐□_□)'], 'cropped.png', {
 export const unCroppedFile = new File(['(⌐□_□)'], 'unCropped.png', {
   type: 'image/jpeg',
 });
-export const fileWithWrongExtention = new File(['(⌐□_□)'], 'foo.txt', {
+export const fileWithWrongExtension = new File(['(⌐□_□)'], 'foo.txt', {
   type: 'text/plain',
 });

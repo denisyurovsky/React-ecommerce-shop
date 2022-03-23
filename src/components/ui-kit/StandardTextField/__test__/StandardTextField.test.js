@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { StandartedTextField } from '../StandartedTextField';
+import { StandardTextField } from '../StandardTextField';
 
-describe('StandartedTextField component', () => {
+describe('StandardTextField component', () => {
   describe('snapshots', () => {
     it('renders a snapshot with all values', () => {
       const { asFragment } = render(
-        <StandartedTextField
+        <StandardTextField
           value="Value for tests"
           onChange={() => {}}
           labelText="Label for tests"
