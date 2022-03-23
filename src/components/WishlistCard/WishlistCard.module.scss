@@ -1,0 +1,63 @@
+@import "../../assets/styles/colors.scss";
+
+.wishlistCard {
+  border: 1px solid $grey300;
+  border-top: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  background: $grey100;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 40px);
+  margin-right: 1rem;
+}
+
+.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inputName {
+  height: 30px;
+  border: 1px solid $greyDark;
+  border-radius: 3px;
+}
+
+.button {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.icon {
+  color: $grey900;
+
+  &:hover {
+    color: $grey700;
+  }
+}
+
+.collapse {
+  margin: 1.5rem;
+}
+
+.expandIcon {
+  transform: rotate(-90deg);
+  transition: 0.3s;
+
+  &.expanded {
+    transform: rotate(0deg);
+  }
+}

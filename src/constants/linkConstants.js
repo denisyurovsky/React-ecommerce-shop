@@ -13,7 +13,7 @@ export const LINKS = {
   HOME: { url: '/', text: 'Home' },
   USERS: { url: USERS, text: 'Users' },
   PROFILE: { url: PROFILE, text: 'Profile', icon: <HomeIcon /> },
-  WHISHLIST: {
+  WISHLIST: {
     url: PROFILE + WISHLIST,
     text: 'Wishlist',
     icon: <FavoriteIcon />,
@@ -29,7 +29,7 @@ export const LINKS = {
 
 export const PROFILE_MENU = [
   LINKS.PROFILE,
-  LINKS.WHISHLIST,
+  LINKS.WISHLIST,
   LINKS.ORDERS,
   LINKS.ADDRESS_BOOK,
 ];

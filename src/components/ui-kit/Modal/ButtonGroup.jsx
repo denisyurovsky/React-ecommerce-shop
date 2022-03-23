@@ -57,7 +57,8 @@ ButtonGroup.defaultProps = {
 
 ButtonGroup.propTypes = {
   onConfirm: PropTypes.func.isRequired,
-  actionButtonLabel: PropTypes.string.isRequired,
+  actionButtonLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    .isRequired,
   cancelButtonLabel: PropTypes.string,
   onClose: PropTypes.func,
   isActionButtonDisabled: PropTypes.bool,

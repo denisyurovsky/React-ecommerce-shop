@@ -12,6 +12,7 @@ import productsReducer from '../../../store/products/productsSlice';
 import userReducer from '../../../store/user/userSlice';
 import { testCart } from '../../../test-utils/dto/cartDto';
 import { productForPDP } from '../../../test-utils/dto/productsDto';
+import users from '../../../test-utils/dto/usersDto';
 import renderWithStore, { screen } from '../../../test-utils/renderWithStore';
 import { ProductDetailsPage } from '../ProductDetailsPage';
 
@@ -36,9 +37,6 @@ const handlersFulfilled = [
     return res(ctx.status(400));
   }),
 ];
-const initialUser = {
-  user: { id: 1 },
-};
 
 const store = configureStore({
   reducer: {
@@ -50,7 +48,7 @@ const store = configureStore({
   },
   preloadedState: {
     cart: testCart,
-    user: initialUser,
+    user: users[1],
   },
 });
 

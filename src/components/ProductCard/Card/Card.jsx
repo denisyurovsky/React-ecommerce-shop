@@ -37,11 +37,9 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
     discountPrice,
     rating,
     category: { name: category },
-    isAddedToWishlist,
   } = product;
   const styles = cardShape === pageView.MODULE_VIEW ? stylesModule : stylesList;
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
-
   const containerClasses = classNames({
     [styles.container]: true,
     [styles.profileContainer]: isProfile,
@@ -54,7 +52,6 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
           productId={id}
           productName={name}
           cardShape={cardShape}
-          isAddedToWishlist={isAddedToWishlist}
         />
       </CardActions>
       <Link to={`${pathNames.PRODUCTS}/${id}`}>
@@ -107,7 +104,11 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
         </div>
       </Link>
       <CardActions className={styles.addButton}>
-        <AddToCartButton product={product} viewMode={cardShape} />
+        <AddToCartButton
+          product={product}
+          viewMode={cardShape}
+          productName={name}
+        />
       </CardActions>
     </Card>
   );
@@ -123,7 +124,6 @@ CardItem.propTypes = {
     updatedAt: PropTypes.string,
     price: PropTypes.number,
     images: PropTypes.arrayOf(PropTypes.string),
-    isAddedToWishlist: PropTypes.bool,
     category: PropTypes.shape({
       name: PropTypes.string,
     }),
@@ -133,7 +133,6 @@ CardItem.propTypes = {
 };
 
 const areEqual = (prevProps, nextProps) =>
-  prevProps.cardShape === nextProps.cardShape &&
-  prevProps.product.isAddedToWishlist === nextProps.product.isAddedToWishlist;
+  prevProps.cardShape === nextProps.cardShape;
 
 export default React.memo(CardItem, areEqual);

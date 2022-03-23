@@ -4,14 +4,9 @@ import React from 'react';
 
 import { testCart } from '../../../../test-utils/dto/cartDto';
 import cardsData from '../../../../test-utils/dto/productsDto';
+import users from '../../../../test-utils/dto/usersDto';
 import render, { screen } from '../../../../test-utils/renderWith';
 import ProfileSeller from '../ProfileSeller';
-
-const initialUser = {
-  user: {
-    id: 1,
-  },
-};
 
 describe('ProfileSeller component', () => {
   it('should get data from server', async () => {
@@ -24,7 +19,7 @@ describe('ProfileSeller component', () => {
     server.listen();
     render(<ProfileSeller profileId={3} />, {
       cart: testCart,
-      user: initialUser,
+      user: users[1],
     });
 
     expect(
@@ -51,7 +46,7 @@ describe('ProfileSeller component', () => {
     server.listen();
     render(<ProfileSeller profileId={3} />, {
       cart: testCart,
-      user: initialUser,
+      user: users[1],
     });
 
     expect(

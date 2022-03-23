@@ -102,6 +102,7 @@ AddToCartButton.propTypes = {
     price: PropTypes.number,
     id: PropTypes.number,
     category: PropTypes.shape({
+      id: PropTypes.number,
       name: PropTypes.string,
     }),
   }).isRequired,

@@ -1,14 +1,17 @@
-import { CircularProgress, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Typography } from '@mui/material';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { notificationError } from '../../../constants/constants';
 import { pageView } from '../../../pages/ProductListPage/constants/constants';
-import { getWishlist } from '../../../store/user/userSlice';
+import {
+  resetUpdateWishlistsStatusAfterTimeout,
+  getWishlistsStatus,
+} from '../../../store/user/userSlice';
+import Spinner from '../../ui-kit/Spinner/Spinner';
 import Card from '../Card/Card';
 
 import styles from './CardsContainer.module.scss';
@@ -24,8 +27,12 @@ export default function CardsContainer({
     [styles.column]: cardShape === pageView.LIST_VIEW,
     [styles.row]: cardShape === pageView.MODULE_VIEW,
   });
-  const wishlist = useSelector(getWishlist);
-  const isWished = (productId, wishlist) => new Set(wishlist).has(productId);
+  const wishlistsStatus = useSelector(getWishlistsStatus);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetUpdateWishlistsStatusAfterTimeout());
+  }, [wishlistsStatus, dispatch]);
 
   useEffect(() => {
     if (errorOccurred) {
@@ -34,11 +41,7 @@ export default function CardsContainer({
   }, [errorOccurred]);
 
   if (isLoading) {
-    return (
-      <Box className={styles.wrapper}>
-        <CircularProgress aria-label="Products preloader" />
-      </Box>
-    );
+    return <Spinner label="Products preloader" />;
   }
   if (!products || products.length === 0)
     return (
@@ -50,14 +53,7 @@ export default function CardsContainer({
   return (
     <div className={classes}>
       {products.map((product) => (
-        <Card
-          key={product.id}
-          product={{
-            ...product,
-            isAddedToWishlist: isWished(product.id, wishlist),
-          }}
-          cardShape={cardShape}
-        />
+        <Card key={product.id} product={product} cardShape={cardShape} />
       ))}
     </div>
   );

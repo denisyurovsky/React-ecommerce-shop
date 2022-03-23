@@ -1,5 +1,6 @@
 import { authStatus } from '../../constants/authConstants';
 import { REQUEST_STATUS, USER_ROLE } from '../../constants/constants';
+import { defaultWishlists } from '../../constants/wishlists/wishlists';
 
 export default {
   user: {
@@ -13,11 +14,11 @@ export default {
     amountOfTries: 0,
     addresses: [],
     role: USER_ROLE.GUEST,
-    wishlist: [],
+    wishlists: defaultWishlists,
   },
   loginStatus: authStatus.IDLE,
   registerStatus: authStatus.IDLE,
-  updateWishlistStatus: REQUEST_STATUS.IDLE,
+  updateWishlistsStatus: REQUEST_STATUS.IDLE,
   loginError: '',
   registerError: '',
   isLoading: false,

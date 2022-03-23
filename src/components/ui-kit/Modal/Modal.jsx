@@ -92,7 +92,7 @@ Modal.propTypes = {
   ]).isRequired,
   title: PropTypes.string,
   onConfirm: PropTypes.func,
-  actionButtonLabel: PropTypes.string,
+  actionButtonLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   cancelButtonLabel: PropTypes.string,
   size: PropTypes.oneOf([NORMAL, SMALL]),
   isActionButtonDisabled: PropTypes.bool,

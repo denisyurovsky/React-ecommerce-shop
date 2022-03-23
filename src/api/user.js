@@ -1,4 +1,5 @@
 import { USER_ROLE } from '../constants/constants';
+import { defaultWishlists } from '../constants/wishlists/wishlists';
 
 import { http } from './setup';
 
@@ -14,15 +15,15 @@ export const register = ({ email, password, firstName, lastName }) =>
     firstName,
     lastName,
     role: USER_ROLE.CONSUMER,
-    wishlist: [],
+    wishlist: defaultWishlists,
   });
 
-export const setWishlist = ({ currentUserId, wishlist }) => {
+export const setWishlists = ({ currentUserId, wishlists }) => {
   if (!currentUserId) {
     throw new Error('User is unauthorized');
   }
 
-  return http.patch(`users/${currentUserId}`, { wishlist });
+  return http.patch(`users/${currentUserId}`, { wishlists });
 };
 
 export const updateProfile = (profile) =>

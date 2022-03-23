@@ -1,0 +1,39 @@
+@import "../../../assets/styles/colors.scss";
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+  .title {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .wishlists {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 1px solid $greyA400;
+    border-bottom: 1px solid $greyA400;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .addButton {
+    color: $grey900;
+    text-transform: none;
+
+    .addIcon {
+      margin-right: 1rem;
+    }
+  }
+
+  .createButtonWrapper {
+    margin-top: 1rem;
+    width: 100px;
+  }
+}

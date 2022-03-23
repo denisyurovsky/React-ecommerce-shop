@@ -1,13 +1,16 @@
 import { Typography, Box, Container, Card, Rating } from '@mui/material';
 import PropTypes from 'prop-types';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { pathNames } from '../../constants/pathNames';
 import Description from '../../helpers/Description';
 import { formatDate } from '../../helpers/formatData';
 import { getRatingByProductId } from '../../store/products/productsSlice';
-import { getWishlist } from '../../store/user/userSlice';
+import {
+  getWishlistsStatus,
+  resetUpdateWishlistsStatusAfterTimeout,
+} from '../../store/user/userSlice';
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import AddToWishListButton from '../AddToWishListButton/AddToWishListButton';
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
@@ -35,16 +38,21 @@ const ProductDetailsPageContent = ({ product }) => {
     discountPrice,
   } = product;
   const updatedRating = useSelector((state) => getRatingByProductId(state, id));
-  const wishlist = useSelector(getWishlist);
-  const isWished = (productId, wishlist) => new Set(wishlist).has(productId);
+  const wishlistsStatus = useSelector(getWishlistsStatus);
+  const dispatch = useDispatch();
+
   const links = [
     { url: '/', text: 'Home' },
-    { url: '/products', text: 'Products' },
+    { url: pathNames.PRODUCTS, text: 'Products' },
     {
-      url: `/products/${id}`,
+      url: `${pathNames.PRODUCTS}/${id}`,
       text: `${name}`,
     },
   ];
+
+  useEffect(() => {
+    dispatch(resetUpdateWishlistsStatusAfterTimeout());
+  }, [wishlistsStatus, dispatch]);
 
   return (
     <Container>
@@ -67,11 +75,7 @@ const ProductDetailsPageContent = ({ product }) => {
             <Box className={styles.labelContainer}>
               <DiscountLabel price={price} discountPrice={discountPrice} />
             </Box>
-            <AddToWishListButton
-              productId={id}
-              productName={name}
-              isAddedToWishlist={isWished(id, wishlist)}
-            />
+            <AddToWishListButton productId={id} productName={name} />
           </Box>
           <Box className={styles.buy}>
             <Rating

@@ -1293,7 +1293,7 @@ exports[`ProductListPage component Render without data should render a valid sna
     class="cardsContainer"
   >
     <div
-      class="wrapper MuiBox-root css-0"
+      class="MuiContainer-root MuiContainer-maxWidthLg container css-1oqqzyl-MuiContainer-root"
     >
       <span
         aria-label="Products preloader"

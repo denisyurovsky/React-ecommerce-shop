@@ -8,6 +8,7 @@ import { testCart } from '../../../test-utils/dto/cartDto';
 import feedbackDto from '../../../test-utils/dto/feedbackDto';
 import productsDto from '../../../test-utils/dto/productsDto';
 import usersDto from '../../../test-utils/dto/usersDto';
+import { initialWishlistsDto } from '../../../test-utils/dto/wishlistsDto';
 import { handleModal } from '../../../test-utils/feedback/feedbackHandlers';
 import render, { screen } from '../../../test-utils/renderWith';
 import ProductDetailsPageContent from '../ProductDetailsPageContent';
@@ -48,7 +49,7 @@ const addFeedbackHandlers = [
 ];
 
 const initialUser = {
-  user: { id: 1 },
+  user: { id: 1, wishlists: initialWishlistsDto },
 };
 
 describe('ProductDetailsPageContent', () => {
@@ -87,7 +88,7 @@ describe('Product rating', () => {
     };
     const { getByTestId } = render(
       <ProductDetailsPageContent product={product} />,
-      { cart: testCart, user: initialUser }
+      { cart: testCart, user: usersDto[1] }
     );
 
     await screen.findByTestId('comments');

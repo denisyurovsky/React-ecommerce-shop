@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { login, register, setWishlist, updateProfile } from '../../api/user';
+import { login, register, setWishlists, updateProfile } from '../../api/user';
 import {
   ERROR,
   authStatus,
@@ -8,7 +8,14 @@ import {
   MAX_LOGIN_ATTEMPTS,
 } from '../../constants/authConstants';
 import { REQUEST_STATUS } from '../../constants/constants';
+import { UPDATE_WISHLIST_TYPE } from '../../constants/wishlists/wishlists';
 
+import {
+  checkIsProductWished,
+  checkWishlistsForSpecificProduct,
+  changeWishlistName,
+  updateWishlistsForSpecificProduct,
+} from './helpers/wishlistsHelpers';
 import initialState from './initialState';
 const { LOCKED, FULFILLED, PENDING, REJECTED, IDLE } = authStatus;
 
@@ -20,11 +27,11 @@ export const removeLockAfterTimeout = () => (dispatch) => {
   }, LOCK_TIMEOUT);
 };
 
-export const resetUpdateWishlistStatusAfterTimeout = () => (dispatch) => {
-  const { resetUpdateWishlistStatus } = userSlice.actions;
+export const resetUpdateWishlistsStatusAfterTimeout = () => (dispatch) => {
+  const { resetUpdateWishlistsStatus } = userSlice.actions;
 
   setTimeout(() => {
-    dispatch(resetUpdateWishlistStatus());
+    dispatch(resetUpdateWishlistsStatus());
   });
 };
 
@@ -46,20 +53,42 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-export const updateWishList = createAsyncThunk(
-  'user/updateWishList',
-  async (productId, { getState }) => {
+export const updateWishlists = createAsyncThunk(
+  'user/updateWishlists',
+  async (action, { getState }) => {
     const { user } = getState();
-    const { id: userId, wishlist } = user.user;
-    const wishlistSet = new Set(wishlist);
+    const { id: userId, wishlists } = user.user;
+    let newWishlists;
 
-    wishlistSet.has(productId)
-      ? wishlistSet.delete(productId)
-      : wishlistSet.add(productId);
-
-    const response = await setWishlist({
+    switch (action.type) {
+      case UPDATE_WISHLIST_TYPE.NEW:
+        newWishlists = [...wishlists, action.argument];
+        break;
+      case UPDATE_WISHLIST_TYPE.DELETE:
+        newWishlists = wishlists.filter(
+          (wishlist) => wishlist.name !== action.argument
+        );
+        break;
+      case UPDATE_WISHLIST_TYPE.RENAME:
+        newWishlists = changeWishlistName(
+          action.argument.id,
+          action.argument.newName,
+          wishlists
+        );
+        break;
+      case UPDATE_WISHLIST_TYPE.CHECK_PRODUCT:
+        newWishlists = updateWishlistsForSpecificProduct(
+          action.argument.productId,
+          action.argument.wishlistName,
+          wishlists
+        );
+        break;
+      default:
+        break;
+    }
+    const response = await setWishlists({
       currentUserId: userId,
-      wishlist: Array.from(wishlistSet),
+      wishlists: newWishlists,
     });
 
     return response.data;
@@ -89,12 +118,12 @@ export const userSlice = createSlice({
         state.registerStatus = IDLE;
       }
     },
-    resetUpdateWishlistStatus(state) {
+    resetUpdateWishlistsStatus(state) {
       if (
-        state.updateWishlistStatus === REQUEST_STATUS.REJECTED ||
-        state.updateWishlistStatus === REQUEST_STATUS.FULFILLED
+        state.updateWishlistsStatus === REQUEST_STATUS.REJECTED ||
+        state.updateWishlistsStatus === REQUEST_STATUS.FULFILLED
       ) {
-        state.updateWishlistStatus = REQUEST_STATUS.IDLE;
+        state.updateWishlistsStatus = REQUEST_STATUS.IDLE;
       }
     },
     setUser(state, action) {
@@ -152,16 +181,17 @@ export const userSlice = createSlice({
         state.registerStatus = REJECTED;
         state.registerError = ERROR.REGISTER;
       })
-      // updateWishList
-      .addCase(updateWishList.pending, (state) => {
-        state.updateWishlistStatus = REQUEST_STATUS.PENDING;
+
+      // updateWishlists
+      .addCase(updateWishlists.pending, (state) => {
+        state.updateWishlistsStatus = REQUEST_STATUS.PENDING;
       })
-      .addCase(updateWishList.fulfilled, (state, action) => {
-        state.updateWishlistStatus = REQUEST_STATUS.FULFILLED;
-        state.user.wishlist = action.payload.wishlist;
+      .addCase(updateWishlists.fulfilled, (state, action) => {
+        state.updateWishlistsStatus = REQUEST_STATUS.FULFILLED;
+        state.user.wishlists = action.payload.wishlists;
       })
-      .addCase(updateWishList.rejected, (state) => {
-        state.updateWishlistStatus = REQUEST_STATUS.REJECTED;
+      .addCase(updateWishlists.rejected, (state) => {
+        state.updateWishlistsStatus = REQUEST_STATUS.REJECTED;
       })
       // update
       .addCase(updateUser.pending, (state) => {
@@ -188,7 +218,7 @@ export const userSlice = createSlice({
 export const {
   resetBlockedState,
   resetError,
-  resetUpdateWishlistStatus,
+  resetUpdateWishlistsStatus,
   setUser,
   setLoginStatus,
 } = userSlice.actions;
@@ -199,6 +229,10 @@ export const getUserId = (state) => state.user.user.id;
 export const getLoginState = (state) => state.user.loginStatus;
 export const getRegisterState = (state) => state.user.registerStatus;
 export const getCurrentUser = (state) => state.user;
-export const getWishlist = (state) => state.user.user.wishlist;
-export const getWishlistStatus = (state) => state.user.updateWishlistStatus;
+export const getWishlists = (state) => state.user.user.wishlists;
+export const getWishlistsStatus = (state) => state.user.updateWishlistsStatus;
 export const getUser = (state) => state.user.user;
+export const getIsWished = (state, productId) =>
+  checkIsProductWished(productId, state.user.user.wishlists);
+export const getCheckedWishlists = (state, productId) =>
+  checkWishlistsForSpecificProduct(productId, state.user.user.wishlists);

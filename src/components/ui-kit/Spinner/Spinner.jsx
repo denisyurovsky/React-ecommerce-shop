@@ -5,7 +5,7 @@ import React from 'react';
 
 import styles from './Spinner.module.scss';
 
-const Spinner = ({ height, width, style, isAbsolute = false }) => {
+const Spinner = ({ height, width, style, isAbsolute = false, label = '' }) => {
   const classes = classNames({
     [styles.container]: true,
     [styles.absolute]: isAbsolute,
@@ -20,7 +20,7 @@ const Spinner = ({ height, width, style, isAbsolute = false }) => {
         ...style,
       }}
     >
-      <CircularProgress />
+      <CircularProgress aria-label={label} />
     </Container>
   );
 };
@@ -30,6 +30,7 @@ Spinner.propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   isAbsolute: PropTypes.bool,
+  label: PropTypes.string,
 };
 
 export default Spinner;

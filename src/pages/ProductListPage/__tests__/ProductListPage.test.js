@@ -5,6 +5,7 @@ import React from 'react';
 
 import categoriesData from '../../../test-utils/dto/categoriesDto';
 import cardsData from '../../../test-utils/dto/productsDto';
+import usersDto from '../../../test-utils/dto/usersDto';
 import renderWith, { screen } from '../../../test-utils/renderWith';
 import ProductListPage from '../ProductListPage';
 
@@ -14,11 +15,7 @@ const preloadedState = {
     totalPrice: 0,
     totalQuantity: 0,
   },
-  user: {
-    user: {
-      id: 1,
-    },
-  },
+  user: usersDto[0],
   categories: {
     data: [],
     isLoading: false,

@@ -1,62 +1,58 @@
-import { Typography, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getProductsByIds } from '../../api/products';
-import Card from '../../components/ProductCard/Card/Card';
 import ProfileLayout from '../../components/Profile/ProfileLayout/ProfileLayout';
-import { notificationError } from '../../constants/constants';
+import WishlistCard from '../../components/WishlistCard/WishlistCard';
 import { LINKS } from '../../constants/linkConstants';
-import { getWishlist, selectUser } from '../../store/user/userSlice';
-import { pageView } from '../ProductListPage/constants/constants';
+import {
+  getWishlists,
+  getWishlistsStatus,
+  resetUpdateWishlistsStatusAfterTimeout,
+} from '../../store/user/userSlice';
 
 import styles from './WishListPage.module.scss';
 
 export const WishListPage = () => {
-  const user = useSelector(selectUser);
-  const [products, setProducts] = useState([]);
-  const wishlist = useSelector(getWishlist);
-  const isWished = (productId, wishlist) => new Set(wishlist).has(productId);
+  const wishlists = useSelector(getWishlists);
+  const status = useSelector(getWishlistsStatus);
+  const dispatch = useDispatch();
+  const [expandedWishlistName, setExpandedWishlistName] = useState(null);
+
+  const changeExpandedWishlist = (wishlistId) => {
+    setExpandedWishlistName(wishlistId);
+  };
+
+  const checkIsNameUnique = (name, id) => {
+    const wishlistsWithoutCurrent = wishlists.filter(
+      (wishlist) => wishlist.id !== id
+    );
+
+    return !wishlistsWithoutCurrent.some((wishlist) => name === wishlist.name);
+  };
 
   useEffect(() => {
-    const wishlistIds = user.user.wishlist;
-
-    const getWishListProducts = async (wishlistIds) => {
-      try {
-        const response = await getProductsByIds(wishlistIds);
-
-        setProducts(response.data);
-      } catch (err) {
-        toast(notificationError);
-      }
-    };
-
-    getWishListProducts(wishlistIds);
-  }, [user.user.wishlist]);
+    dispatch(resetUpdateWishlistsStatusAfterTimeout());
+  }, [status, dispatch]);
 
   return (
-    <ProfileLayout title={LINKS.WHISHLIST.text}>
+    <ProfileLayout title={LINKS.WISHLIST.text}>
       <div className={styles.page}>
-        {!products || products.length === 0 ? (
-          <Typography className={styles.emptyWishList}>
-            Your Wishlist is empty
-          </Typography>
-        ) : (
-          <Box className={styles.cardsContainer}>
-            {products.map((product) => (
-              <Card
-                key={product.id}
-                isProfile
-                product={{
-                  ...product,
-                  isAddedToWishlist: isWished(product.id, wishlist),
+        <Box className={styles.cardsContainer}>
+          {wishlists.map((wishlist) => {
+            return (
+              <WishlistCard
+                wishlist={{
+                  ...wishlist,
+                  isExpanded: wishlist.id === expandedWishlistName,
                 }}
-                cardShape={pageView.MODULE_VIEW}
+                key={wishlist.id}
+                changeExpandedWishlist={changeExpandedWishlist}
+                checkIsNameUnique={checkIsNameUnique}
               />
-            ))}
-          </Box>
-        )}
+            );
+          })}
+        </Box>
       </div>
     </ProfileLayout>
   );

@@ -90,7 +90,7 @@ exports[`HomePage component snapshots renders a valid snapshot 1`] = `
         class="cardsContainer"
       >
         <div
-          class="wrapper MuiBox-root css-0"
+          class="MuiContainer-root MuiContainer-maxWidthLg container css-1oqqzyl-MuiContainer-root"
         >
           <span
             aria-label="Products preloader"

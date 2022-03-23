@@ -1,9 +1,13 @@
 import { REQUEST_STATUS } from '../../../constants/constants';
+import {
+  initialWishlistsDto,
+  wishlistsDto,
+} from '../../../test-utils/dto/wishlistsDto';
 import reducer, {
   resetBlockedState,
   resetError,
-  resetUpdateWishlistStatus,
-  updateWishList,
+  resetUpdateWishlistsStatus,
+  updateWishlists,
 } from '../userSlice';
 
 const defaultState = {
@@ -44,51 +48,51 @@ it('should reset error state', () => {
 });
 
 const previousStateWishList = {
-  updateWishlistStatus: REQUEST_STATUS.IDLE,
+  updateWishlistsStatus: REQUEST_STATUS.IDLE,
   user: {
-    wishlist: [0],
+    wishlists: initialWishlistsDto,
   },
 };
 
 const expectedStateWishList = {
-  updateWishlistStatus: REQUEST_STATUS.FULFILLED,
+  updateWishlistsStatus: REQUEST_STATUS.FULFILLED,
   user: {
-    wishlist: [3],
+    wishlists: wishlistsDto,
   },
 };
 
-it('update wishlist request is load', () => {
+it('update wishlists request is load', () => {
   const newState = reducer(
     previousStateWishList,
-    updateWishList.pending({ wishlist: [3] })
+    updateWishlists.pending({ wishlists: wishlistsDto })
   );
 
-  expect(newState.updateWishlistStatus).toEqual(REQUEST_STATUS.PENDING);
+  expect(newState.updateWishlistsStatus).toEqual(REQUEST_STATUS.PENDING);
 });
 
 it('update wishlist request is success', () => {
   const newState = reducer(
     previousStateWishList,
-    updateWishList.fulfilled({ wishlist: [3] })
+    updateWishlists.fulfilled({ wishlists: wishlistsDto })
   );
 
   expect(newState).toEqual(expectedStateWishList);
 });
 
-it('update wishlist request is failure', () => {
+it('update wishlists request is failure', () => {
   const newState = reducer(
     previousStateWishList,
-    updateWishList.rejected({ wishlist: [3] })
+    updateWishlists.rejected({ wishlists: wishlistsDto })
   );
 
-  expect(newState.updateWishlistStatus).toEqual(REQUEST_STATUS.REJECTED);
+  expect(newState.updateWishlistsStatus).toEqual(REQUEST_STATUS.REJECTED);
 });
 
-it('should reset update wishlist status', () => {
+it('should reset update wishlists status', () => {
   const previousStateWishList = {
-    updateWishlistStatus: REQUEST_STATUS.FULFILLED,
+    updateWishlistsStatus: REQUEST_STATUS.FULFILLED,
   };
-  const newState = reducer(previousStateWishList, resetUpdateWishlistStatus());
+  const newState = reducer(previousStateWishList, resetUpdateWishlistsStatus());
 
-  expect(newState.updateWishlistStatus).toEqual(REQUEST_STATUS.IDLE);
+  expect(newState.updateWishlistsStatus).toEqual(REQUEST_STATUS.IDLE);
 });

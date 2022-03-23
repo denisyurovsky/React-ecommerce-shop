@@ -1,5 +1,7 @@
 import { USER_ROLE } from '../../constants/constants';
 
+import { initialWishlistsDto, wishlistsDto } from './wishlistsDto';
+
 const users = [
   {
     user: {
@@ -10,6 +12,7 @@ const users = [
       email: 'admin@born2die.com',
       role: USER_ROLE.ADMIN,
       addresses: [1, 3],
+      wishlists: initialWishlistsDto,
     },
   },
   {
@@ -23,6 +26,7 @@ const users = [
       avatar: 'http://localhost:5000/users/images/profile1.png',
       role: USER_ROLE.SELLER,
       addresses: [2],
+      wishlists: initialWishlistsDto,
     },
   },
   {
@@ -32,6 +36,7 @@ const users = [
       lastName: 'Musk',
       role: USER_ROLE.SELLER,
       addresses: [],
+      wishlists: initialWishlistsDto,
     },
   },
   {
@@ -41,6 +46,7 @@ const users = [
       lastName: 'Doe',
       role: USER_ROLE.CONSUMER,
       addresses: [],
+      wishlists: wishlistsDto,
     },
   },
 ];

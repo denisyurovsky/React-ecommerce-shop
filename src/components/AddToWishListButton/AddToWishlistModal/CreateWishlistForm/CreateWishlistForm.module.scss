@@ -1,0 +1,19 @@
+@import "../../../../assets/styles/colors.scss";
+
+.formAddNewWishlist {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .helper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    & :first-child {
+      color: $error;
+    }
+  }
+}

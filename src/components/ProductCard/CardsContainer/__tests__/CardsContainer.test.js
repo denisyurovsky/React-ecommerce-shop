@@ -10,6 +10,7 @@ import productsReducer from '../../../../store/products/productsSlice';
 import userReducer from '../../../../store/user/userSlice';
 import { testCart } from '../../../../test-utils/dto/cartDto';
 import productsDto from '../../../../test-utils/dto/productsDto';
+import { wishlistsDto } from '../../../../test-utils/dto/wishlistsDto';
 import renderWithStore, {
   screen,
 } from '../../../../test-utils/renderWithStore';
@@ -17,26 +18,18 @@ import RouterConnected from '../../../../test-utils/RouterConnected';
 import CardsContainer from '../CardsContainer';
 
 const handlersFulfilled = rest.patch('/users/6', (req, res, ctx) =>
-  res(
-    ctx.json({
-      ...req.body,
-      id: req.body.wishlist,
-    })
-  )
+  res(ctx.json(req.body))
 );
-const handlersRejected = rest.patch('/users/6', (req, res, ctx) =>
-  res(ctx.status(404))
-);
-const preloadedWishlist = [0, 1];
-const renderWithFakeUserStore = (wishlist, products, cart) => {
+const preloadedWishlists = wishlistsDto;
+const renderWithFakeUserStore = (wishlists, products, cart) => {
   const preloadedState = {
     user: {
       user: {
         id: 6,
         role: USER_ROLE.CONSUMER,
-        wishlist: wishlist,
+        wishlists: wishlists,
       },
-      updateWishlistStatus: REQUEST_STATUS.IDLE,
+      updateWishlistsStatus: REQUEST_STATUS.IDLE,
     },
     cart: cart,
   };
@@ -60,7 +53,7 @@ describe('CardsContainer component', () => {
   describe('snapshots', () => {
     it('renders a valid snapshot with data', () => {
       const { asFragment } = renderWithFakeUserStore(
-        preloadedWishlist,
+        preloadedWishlists,
         productsDto.slice(1, 4),
         testCart
       );
@@ -80,7 +73,7 @@ describe('CardsContainer component', () => {
 describe('AddToWishListButton render', () => {
   it('consumer should see that only the product with id #2 is not added', () => {
     const { getAllByTestId } = renderWithFakeUserStore(
-      preloadedWishlist,
+      preloadedWishlists,
       productsDto.slice(0, 3),
       testCart
     );
@@ -91,7 +84,7 @@ describe('AddToWishListButton render', () => {
 
   it('consumer should see that only the product with id #2 is added', () => {
     const { getAllByTestId } = renderWithFakeUserStore(
-      preloadedWishlist,
+      preloadedWishlists,
       productsDto.slice(1, 4),
       testCart
     );
@@ -108,57 +101,30 @@ describe('AddToWishListButton, case server responds', () => {
   afterAll(() => server.close());
   it('consumer has the ability to add a product', async () => {
     renderWithFakeUserStore(
-      preloadedWishlist,
-      productsDto.slice(0, 3),
+      preloadedWishlists,
+      productsDto.slice(2, 3),
       testCart
     );
     userEvent.click(screen.getByTestId('FavoriteBorderIcon'));
-    const notification = await screen.findByRole('alert');
+    expect(screen.getByRole('presentation')).toBeInTheDocument();
+    const checkboxes = screen.getAllByRole('checkbox');
 
-    expect(notification).toHaveTextContent('was successfully added');
-    expect(screen.queryAllByTestId('FavoriteIcon')).toHaveLength(3);
+    userEvent.click(checkboxes[0]);
+    userEvent.click(screen.getByTestId('CloseIcon'));
+    expect(await screen.findByTestId('FavoriteIcon')).toBeInTheDocument();
   });
   it('consumer has the ability to remove a product', async () => {
     renderWithFakeUserStore(
-      preloadedWishlist,
-      productsDto.slice(1, 4),
+      preloadedWishlists,
+      productsDto.slice(1, 2),
       testCart
     );
     userEvent.click(screen.getByTestId('FavoriteIcon'));
-    const notification = await screen.findByRole('alert');
+    expect(screen.getByRole('presentation')).toBeInTheDocument();
+    const checkboxes = screen.getAllByRole('checkbox');
 
-    expect(notification).toHaveTextContent('was successfully removed');
-    expect(screen.queryAllByTestId('FavoriteBorderIcon')).toHaveLength(3);
-  });
-});
-
-describe("AddToWishListButton, case server doesn't respond", () => {
-  const server = setupServer(handlersRejected);
-
-  beforeAll(() => server.listen());
-  afterAll(() => server.close());
-  it('There should be a notification that the product is not added', async () => {
-    renderWithFakeUserStore(
-      preloadedWishlist,
-      productsDto.slice(0, 3),
-      testCart
-    );
-    userEvent.click(screen.getByTestId('FavoriteBorderIcon'));
-    const notification = await screen.findByRole('alert');
-
-    expect(notification).toHaveTextContent('was not added to your wishlist');
-  });
-  it('There should be a notification that the product is not removed', async () => {
-    renderWithFakeUserStore(
-      preloadedWishlist,
-      productsDto.slice(1, 4),
-      testCart
-    );
-    userEvent.click(screen.getByTestId('FavoriteIcon'));
-    const notification = await screen.findByRole('alert');
-
-    expect(notification).toHaveTextContent(
-      'was not removed from your wishlist'
-    );
+    userEvent.click(checkboxes[0]);
+    userEvent.click(screen.getByTestId('CloseIcon'));
+    expect(await screen.findByTestId('FavoriteBorderIcon')).toBeInTheDocument();
   });
 });
