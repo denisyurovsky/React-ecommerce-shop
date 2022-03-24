@@ -53,6 +53,7 @@ const FeedbackModal = ({ productId }) => {
           color="primary"
           sx={{ m: '0 auto 20px', display: 'flex', p: 2 }}
           fullWidth
+          data-cy="addFeedbackBtn"
         >
           Add new feedback
         </Button>

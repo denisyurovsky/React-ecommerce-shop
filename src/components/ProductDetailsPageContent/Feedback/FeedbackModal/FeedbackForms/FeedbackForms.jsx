@@ -76,6 +76,7 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
         }
         className={styles.checkbox}
         label="paste my name"
+        data-cy="feedbackName"
       />
       <ProductRating value={rating} onChange={handleChange} />
       <TextField
@@ -89,6 +90,7 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
         multiline
         minRows={5}
         maxRows={5}
+        data-cy="feedbackComment"
       />
       {isLoading ? (
         <LoadingButton label="Loading..." isFullWidth={true} />
@@ -98,6 +100,7 @@ const FeedbackForms = ({ sendForm, isLoading }) => {
           variant="contained"
           onClick={prepareToSend}
           disabled={!isFinished}
+          data-cy="feedbackConfirmationBtn"
         >
           Add feedback
         </Button>

@@ -34,6 +34,7 @@ const ProductRating = ({ value, onChange }) => {
             <StarRateIcon style={{ opacity: 0.55 }} fontSize="inherit" />
           }
           getLabelText={getLabelText}
+          data-cy="starRating"
         />
         <Typography component="legend" sx={{ ml: 2 }}>
           {value !== null && labels[hover !== -1 ? hover : value]}

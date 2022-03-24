@@ -12,6 +12,7 @@ exports[`CustomRating snapshot: should render a valid snapshot 1`] = `
   >
     <span
       class="MuiRating-root MuiRating-sizeMedium css-iljtu2-MuiRating-root"
+      data-cy="starRating"
     >
       <label
         class="css-dqr9h-MuiRating-label"

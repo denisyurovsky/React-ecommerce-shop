@@ -7,6 +7,7 @@ exports[`functionality tests with admin role add new feedback should sort feedba
 >
   <button
     class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButtonBase-root  css-16gyej9-MuiButtonBase-root-MuiButton-root"
+    data-cy="addFeedbackBtn"
     tabindex="0"
     type="button"
   >
@@ -380,6 +381,7 @@ exports[`functionality tests with admin role empty feedbacks section should rend
   >
     <button
       class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButtonBase-root  css-16gyej9-MuiButtonBase-root-MuiButton-root"
+      data-cy="addFeedbackBtn"
       tabindex="0"
       type="button"
     >
@@ -435,6 +437,7 @@ exports[`functionality tests with admin role full feedback section should render
   >
     <button
       class="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-fullWidth MuiButtonBase-root  css-16gyej9-MuiButtonBase-root-MuiButton-root"
+      data-cy="addFeedbackBtn"
       tabindex="0"
       type="button"
     >

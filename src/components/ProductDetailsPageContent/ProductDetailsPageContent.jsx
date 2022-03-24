@@ -92,7 +92,6 @@ const ProductDetailsPageContent = ({ product }) => {
                 <Typography variant="body1">
                   {`${author.firstName} ${author.lastName}`}
                 </Typography>
-
                 <Avatar avatar={author.avatar} />
               </Link>
             </Box>

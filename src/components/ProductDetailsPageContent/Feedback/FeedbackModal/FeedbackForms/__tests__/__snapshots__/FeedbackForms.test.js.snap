@@ -32,6 +32,7 @@ exports[`FeedbackForms snapshot: should render a valid snapshot 1`] = `
     </div>
     <label
       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd checkbox css-j204z7-MuiFormControlLabel-root"
+      data-cy="feedbackName"
     >
       <span
         class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
@@ -73,6 +74,7 @@ exports[`FeedbackForms snapshot: should render a valid snapshot 1`] = `
     >
       <span
         class="MuiRating-root MuiRating-sizeMedium css-iljtu2-MuiRating-root"
+        data-cy="starRating"
       >
         <label
           class="css-dqr9h-MuiRating-label"
@@ -262,6 +264,7 @@ exports[`FeedbackForms snapshot: should render a valid snapshot 1`] = `
     </div>
     <div
       class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-15md48e-MuiFormControl-root-MuiTextField-root"
+      data-cy="feedbackComment"
     >
       <label
         class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
@@ -304,6 +307,7 @@ exports[`FeedbackForms snapshot: should render a valid snapshot 1`] = `
     </div>
     <button
       class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root Mui-disabled  css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
+      data-cy="feedbackConfirmationBtn"
       disabled=""
       tabindex="-1"
       type="button"
