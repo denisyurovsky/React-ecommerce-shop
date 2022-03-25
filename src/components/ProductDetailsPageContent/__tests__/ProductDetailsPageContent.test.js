@@ -123,6 +123,6 @@ describe('Product rating', () => {
       screen
         .getByTestId('total-rating')
         .querySelectorAll('[data-testid="StarIcon"]')
-    ).toHaveLength(7);
+    ).toHaveLength(8);
   });
 });
