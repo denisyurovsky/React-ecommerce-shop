@@ -18,7 +18,7 @@ const fillForms = (rating, text) => {
 
 describe('FeedbackForms snapshot:', () => {
   it('should render a valid snapshot', () => {
-    const { asFragment } = render(<FeedbackForms sendForm={() => {}} />);
+    const { asFragment } = render(<FeedbackForms sendForm={jest.fn()} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -66,7 +66,7 @@ describe('Callback functionality', () => {
 
 describe('Loading state', () => {
   it('should display loading', () => {
-    render(<FeedbackForms isLoading={true} sendForm={() => {}} />);
+    render(<FeedbackForms isLoading={true} sendForm={jest.fn()} />);
 
     expect(
       screen.getByRole('button', { name: /loading/i })

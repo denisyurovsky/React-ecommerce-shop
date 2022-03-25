@@ -1,4 +1,4 @@
-import { USER_ROLE } from '../../constants/constants';
+import { Role } from '../../ts/enums/enums';
 
 import { initialWishlistsDto, wishlistsDto } from './wishlistsDto';
 
@@ -10,7 +10,7 @@ const users = [
       lastName: 'Admin',
       gender: 'Male',
       email: 'admin@born2die.com',
-      role: USER_ROLE.ADMIN,
+      role: Role.Admin,
       addresses: [1, 3],
       wishlists: initialWishlistsDto,
     },
@@ -24,7 +24,7 @@ const users = [
       dateOfBirth: '2000-01-01',
       email: 'seller1@gmail.com',
       avatar: 'http://localhost:5000/users/images/profile1.png',
-      role: USER_ROLE.SELLER,
+      role: Role.Seller,
       addresses: [2],
       wishlists: initialWishlistsDto,
     },
@@ -34,7 +34,7 @@ const users = [
       id: 2,
       firstName: 'Elon',
       lastName: 'Musk',
-      role: USER_ROLE.SELLER,
+      role: Role.Seller,
       addresses: [],
       wishlists: initialWishlistsDto,
     },
@@ -44,7 +44,7 @@ const users = [
       id: 3,
       firstName: 'Joe',
       lastName: 'Doe',
-      role: USER_ROLE.CONSUMER,
+      role: Role.Consumer,
       addresses: [],
       wishlists: wishlistsDto,
     },

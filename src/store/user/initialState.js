@@ -1,6 +1,6 @@
 import { authStatus } from '../../constants/authConstants';
-import { REQUEST_STATUS, USER_ROLE } from '../../constants/constants';
 import { defaultWishlists } from '../../constants/wishlists/wishlists';
+import { FetchStatus, Role } from '../../ts/enums/enums';
 
 export default {
   user: {
@@ -13,12 +13,12 @@ export default {
     avatar: '',
     amountOfTries: 0,
     addresses: [],
-    role: USER_ROLE.GUEST,
+    role: Role.Guest,
     wishlists: defaultWishlists,
   },
   loginStatus: authStatus.IDLE,
   registerStatus: authStatus.IDLE,
-  updateWishlistsStatus: REQUEST_STATUS.IDLE,
+  updateWishlistsStatus: FetchStatus.Idle,
   loginError: '',
   registerError: '',
   isLoading: false,

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import { USER_ROLE } from '../../constants/constants';
 import { getUserRole } from '../../store/user/userSlice';
+import { Role } from '../../ts/enums/enums';
 
-const defaultRoles = [USER_ROLE.CONSUMER, USER_ROLE.SELLER, USER_ROLE.ADMIN];
+const defaultRoles = [Role.Admin, Role.Seller, Role.Consumer];
 
 export function usePermission(roles = defaultRoles) {
   const registeredRole = useSelector(getUserRole);

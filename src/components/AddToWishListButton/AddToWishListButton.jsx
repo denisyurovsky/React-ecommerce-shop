@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { USER_ROLE } from '../../constants/constants';
 import { usePermission } from '../../hooks/usePermission/usePermission';
 import { pageView } from '../../pages/ProductListPage/constants/constants';
 import { getIsWished } from '../../store/user/userSlice';
+import { Role } from '../../ts/enums/enums';
 
 import { AddToWishlistModal } from './AddToWishlistModal/AddToWishlistModal';
 
@@ -16,7 +16,7 @@ import styles from './AddToWishListButton.module.scss';
 
 const AddToWishListButton = ({ productId, productName, cardShape }) => {
   const shape = cardShape ? cardShape : pageView.MODULE_VIEW;
-  const isShowed = usePermission([USER_ROLE.CONSUMER]);
+  const isShowed = usePermission([Role.Consumer]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isWished = useSelector((state) => getIsWished(state, productId));
 

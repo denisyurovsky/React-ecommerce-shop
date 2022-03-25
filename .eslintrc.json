@@ -19,12 +19,14 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
     "plugin:import/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:testing-library/react"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -105,6 +107,14 @@
       ],
       "rules": {
         "import/no-anonymous-default-export": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*"
+      ],
+      "rules": {
+        "@typescript-eslint/no-empty-function": "off"
       }
     }
   ]

@@ -7,8 +7,8 @@ import {
   LOCK_TIMEOUT,
   MAX_LOGIN_ATTEMPTS,
 } from '../../constants/authConstants';
-import { REQUEST_STATUS } from '../../constants/constants';
 import { UPDATE_WISHLIST_TYPE } from '../../constants/wishlists/wishlists';
+import { FetchStatus } from '../../ts/enums/enums';
 
 import {
   checkIsProductWished,
@@ -120,10 +120,10 @@ export const userSlice = createSlice({
     },
     resetUpdateWishlistsStatus(state) {
       if (
-        state.updateWishlistsStatus === REQUEST_STATUS.REJECTED ||
-        state.updateWishlistsStatus === REQUEST_STATUS.FULFILLED
+        state.updateWishlistsStatus === FetchStatus.Rejected ||
+        state.updateWishlistsStatus === FetchStatus.Fulfilled
       ) {
-        state.updateWishlistsStatus = REQUEST_STATUS.IDLE;
+        state.updateWishlistsStatus = FetchStatus.Idle;
       }
     },
     setUser(state, action) {
@@ -181,17 +181,16 @@ export const userSlice = createSlice({
         state.registerStatus = REJECTED;
         state.registerError = ERROR.REGISTER;
       })
-
-      // updateWishlists
+      // updateWishList
       .addCase(updateWishlists.pending, (state) => {
-        state.updateWishlistsStatus = REQUEST_STATUS.PENDING;
+        state.updateWishlistsStatus = FetchStatus.Pending;
       })
       .addCase(updateWishlists.fulfilled, (state, action) => {
-        state.updateWishlistsStatus = REQUEST_STATUS.FULFILLED;
+        state.updateWishlistsStatus = FetchStatus.Fulfilled;
         state.user.wishlists = action.payload.wishlists;
       })
       .addCase(updateWishlists.rejected, (state) => {
-        state.updateWishlistsStatus = REQUEST_STATUS.REJECTED;
+        state.updateWishlistsStatus = FetchStatus.Rejected;
       })
       // update
       .addCase(updateUser.pending, (state) => {

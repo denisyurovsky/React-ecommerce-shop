@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { USER_ROLE } from '../../../../constants/constants';
 import { pathNames } from '../../../../constants/pathNames';
 import { makeClassBasingOnPath } from '../../../../helpers/makeClassBasingOnPath';
 import { getUserRole } from '../../../../store/user/userSlice';
+import { Role } from '../../../../ts/enums/enums';
 
 import styles from './NavigationList.module.scss';
 
@@ -16,7 +16,7 @@ export const NavigationList = () => {
     { title: 'products', path: pathNames.PRODUCTS },
   ];
 
-  if (userRole === USER_ROLE.ADMIN || userRole === USER_ROLE.SELLER) {
+  if (userRole === Role.Admin || userRole === Role.Seller) {
     navItems.push({ title: 'admin', path: pathNames.ADMIN });
   }
 

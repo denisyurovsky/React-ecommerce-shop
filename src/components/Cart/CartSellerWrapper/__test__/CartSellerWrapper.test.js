@@ -20,8 +20,8 @@ describe('CartSellerWrapper component', () => {
         <CartSellerWrapper
           userId={1}
           products={testCart.sellers[1].products}
-          openModal={() => {}}
-          setModalProduct={() => {}}
+          openModal={jest.fn()}
+          setModalProduct={jest.fn()}
         />,
         preloadedState
       );

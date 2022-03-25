@@ -2,12 +2,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { USER_ROLE } from '../../constants/constants';
 import { usePermission } from '../../hooks/usePermission/usePermission';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
+import { Role } from '../../ts/enums/enums';
 
-const { ADMIN, SELLER, CONSUMER, GUEST } = USER_ROLE;
-const oneOfRoles = PropTypes.oneOf([ADMIN, SELLER, CONSUMER, GUEST]);
+const oneOfRoles = PropTypes.oneOf([
+  Role.Admin,
+  Role.Consumer,
+  Role.Guest,
+  Role.Seller,
+]);
 
 export const ProtectedRoutes = ({ permissionLevels }) =>
   usePermission(permissionLevels) ? <Outlet /> : <NotFoundPage />;

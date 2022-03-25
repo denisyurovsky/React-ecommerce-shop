@@ -4,7 +4,6 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { REQUEST_STATUS, USER_ROLE } from '../../../../constants/constants';
 import cartReducer from '../../../../store/cart/cartSlice';
 import productsReducer from '../../../../store/products/productsSlice';
 import userReducer from '../../../../store/user/userSlice';
@@ -15,6 +14,7 @@ import renderWithStore, {
   screen,
 } from '../../../../test-utils/renderWithStore';
 import RouterConnected from '../../../../test-utils/RouterConnected';
+import { FetchStatus, Role } from '../../../../ts/enums/enums';
 import CardsContainer from '../CardsContainer';
 
 const handlersFulfilled = rest.patch('/users/6', (req, res, ctx) =>
@@ -26,10 +26,10 @@ const renderWithFakeUserStore = (wishlists, products, cart) => {
     user: {
       user: {
         id: 6,
-        role: USER_ROLE.CONSUMER,
+        role: Role.Consumer,
         wishlists: wishlists,
       },
-      updateWishlistsStatus: REQUEST_STATUS.IDLE,
+      updateWishlistsStatus: FetchStatus.Idle,
     },
     cart: cart,
   };

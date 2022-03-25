@@ -4,23 +4,22 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { FETCH, EMPTY, ERROR } from '../../../constants/constants';
+import { EMPTY, ERROR } from '../../../constants/constants';
 import {
   fetchCommentsByProductId,
   selectAllComments,
   clearFeedbacks,
 } from '../../../store/feedback/feedbackSlice';
+import { FetchStatus } from '../../../ts/enums/enums';
 
 import CommentSection from './CommentSection/CommentSection';
 import FeedbackModal from './FeedbackModal/FeedbackModal';
-
-const { PENDING, REJECTED } = FETCH;
 
 const Feedback = ({ productId }) => {
   const dispatch = useDispatch();
   const comments = useSelector(selectAllComments);
   const status = useSelector((state) => state.feedback.status);
-  const isLoading = status === PENDING;
+  const isLoading = status === FetchStatus.Pending;
 
   useEffect(() => {
     dispatch(fetchCommentsByProductId(productId));
@@ -29,7 +28,7 @@ const Feedback = ({ productId }) => {
   }, [productId, dispatch]);
 
   useEffect(() => {
-    if (status === REJECTED) {
+    if (status === FetchStatus.Rejected) {
       toast.error(ERROR.LOAD_FEEDBACK);
     }
   }, [status]);

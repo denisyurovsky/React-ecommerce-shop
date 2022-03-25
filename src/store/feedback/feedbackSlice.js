@@ -9,9 +9,7 @@ import {
   getCommentsByUserId,
   postComment,
 } from '../../api/feedback';
-import { FETCH } from '../../constants/constants';
-
-const { IDLE, PENDING, FULFILLED, REJECTED } = FETCH;
+import { FetchStatus } from '../../ts/enums/enums';
 
 export const fetchCommentsByProductId = createAsyncThunk(
   'feedback/fetchCommentsByProductId',
@@ -55,8 +53,8 @@ export const feedbackSlice = createSlice({
   initialState: feedbackAdapter.getInitialState(),
   reducers: {
     clearFeedbacks: (state) => {
-      state.status = IDLE;
-      state.postStatus = IDLE;
+      state.status = FetchStatus.Idle;
+      state.postStatus = FetchStatus.Idle;
       feedbackAdapter.removeAll(state);
     },
   },
@@ -64,38 +62,38 @@ export const feedbackSlice = createSlice({
     builder
       // fetch comments by productId
       .addCase(fetchCommentsByProductId.pending, (state) => {
-        state.status = PENDING;
+        state.status = FetchStatus.Pending;
       })
       .addCase(fetchCommentsByProductId.fulfilled, (state, action) => {
-        state.status = FULFILLED;
+        state.status = FetchStatus.Fulfilled;
         feedbackAdapter.setAll(state, action.payload);
       })
       .addCase(fetchCommentsByProductId.rejected, (state) => {
-        state.status = REJECTED;
+        state.status = FetchStatus.Rejected;
       })
 
       // fetch comments by userId
       .addCase(fetchCommentsByUserId.pending, (state) => {
-        state.status = PENDING;
+        state.status = FetchStatus.Pending;
       })
       .addCase(fetchCommentsByUserId.fulfilled, (state, action) => {
-        state.status = FULFILLED;
+        state.status = FetchStatus.Fulfilled;
         feedbackAdapter.setAll(state, action.payload);
       })
       .addCase(fetchCommentsByUserId.rejected, (state) => {
-        state.status = REJECTED;
+        state.status = FetchStatus.Rejected;
       })
 
       // post new comment
       .addCase(postNewComment.pending, (state) => {
-        state.postStatus = PENDING;
+        state.postStatus = FetchStatus.Pending;
       })
       .addCase(postNewComment.fulfilled, (state, action) => {
-        state.postStatus = FULFILLED;
+        state.postStatus = FetchStatus.Fulfilled;
         feedbackAdapter.addOne(state, action.payload);
       })
       .addCase(postNewComment.rejected, (state) => {
-        state.postStatus = REJECTED;
+        state.postStatus = FetchStatus.Rejected;
       });
   },
 });

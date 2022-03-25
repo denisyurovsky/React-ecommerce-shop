@@ -34,7 +34,7 @@ describe('Props tests', () => {
       <DescriptionEditor
         value={emptyState}
         onChange={cb}
-        disableSubmit={() => {}}
+        disableSubmit={jest.fn()}
       />,
       { wrapper: MemoryRouter }
     );

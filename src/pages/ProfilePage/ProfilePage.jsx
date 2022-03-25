@@ -7,9 +7,9 @@ import ProfileConsumer from '../../components/Profile/ProfileConsumer/ProfileCon
 import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
 import ProfileSeller from '../../components/Profile/ProfileSeller/ProfileSeller';
 import Spinner from '../../components/ui-kit/Spinner/Spinner';
-import { USER_ROLE } from '../../constants/constants';
 import { pathNames } from '../../constants/pathNames';
 import { getUser } from '../../store/user/userSlice';
+import { Role } from '../../ts/enums/enums';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 
 import styles from './ProfilePage.module.scss';
@@ -24,8 +24,8 @@ function ProfilePage() {
 
   const { role } = profile;
   const isOwner = routeId == user.id;
-  const isSeller = !isOwner && role === USER_ROLE.SELLER;
-  const isConsumer = !isOwner && role === USER_ROLE.CONSUMER;
+  const isSeller = !isOwner && role === Role.Seller;
+  const isConsumer = !isOwner && role === Role.Consumer;
 
   useEffect(() => {
     let isMounted = true;

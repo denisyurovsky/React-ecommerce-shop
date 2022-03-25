@@ -20,8 +20,8 @@ describe('InputFrame component', () => {
       <DndProvider backend={HTML5Backend}>
         <InputFrame
           imagesValidity={imagesValidityCase1}
-          handleImageChange={() => {}}
-          handleImageDrop={() => {}}
+          handleImageChange={jest.fn()}
+          handleImageDrop={jest.fn()}
         />
       </DndProvider>
     );
@@ -32,8 +32,8 @@ describe('InputFrame component', () => {
       <DndProvider backend={HTML5Backend}>
         <InputFrame
           imagesValidity={imagesValidityCase2}
-          handleImageChange={() => {}}
-          handleImageDrop={() => {}}
+          handleImageChange={jest.fn()}
+          handleImageDrop={jest.fn()}
         />
       </DndProvider>
     );

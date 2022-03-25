@@ -484,7 +484,6 @@ describe('Cart actions', () => {
       server.close();
     });
 
-    beforeEach(() => {});
     it('Should be able to detect getCart error', async () => {
       expect(store.getState().cart.errorOccurred).toEqual(false);
       await store.dispatch(getCart());

@@ -4,12 +4,12 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { USER_ROLE } from '../../../../constants/constants';
 import productsDto from '../../../../test-utils/dto/productsDto';
 import renderWithStore, {
   screen,
 } from '../../../../test-utils/renderWithStore';
 import RouterConnected from '../../../../test-utils/RouterConnected';
+import { Role } from '../../../../ts/enums/enums';
 import { AdminCategoriesPage } from '../AdminCategoriesPage';
 
 const productsRequest = rest.get('/products/?userId=1', (req, res, ctx) => {
@@ -36,7 +36,7 @@ describe('AdminCategoriesPage tests', () => {
   it('should take snapshot', async () => {
     const { asFragment } = renderWithStore(
       <RouterConnected component={<AdminCategoriesPage />} />,
-      { role: USER_ROLE.SELLER }
+      { role: Role.Seller }
     );
 
     await waitForTable();
@@ -46,7 +46,7 @@ describe('AdminCategoriesPage tests', () => {
 
   it('should show products data', async () => {
     renderWithStore(<RouterConnected component={<AdminCategoriesPage />} />, {
-      role: USER_ROLE.SELLER,
+      role: Role.Seller,
     });
 
     await waitForTable();
@@ -56,7 +56,7 @@ describe('AdminCategoriesPage tests', () => {
 
   it('should open modal and show notification after successful category delete response', async () => {
     renderWithStore(<RouterConnected component={<AdminCategoriesPage />} />, {
-      role: USER_ROLE.SELLER,
+      role: Role.Seller,
     });
 
     await waitForTable();

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { REQUEST_STATUS, SUCCESS } from '../../../constants/constants';
+import { SUCCESS } from '../../../constants/constants';
 import {
   MODAL_TYPE,
   RUSSIA,
@@ -14,6 +14,7 @@ import {
   editAddress,
 } from '../../../store/addresses/addressesSlice';
 import { getUser } from '../../../store/user/userSlice';
+import { FetchStatus } from '../../../ts/enums/enums';
 import Modal from '../../ui-kit/Modal/Modal';
 import DeliveryAddress from '../DeliveryAddress/DeliveryAddress';
 import PersonalInformation from '../PersonalInformation/PersonalInformation';
@@ -59,7 +60,7 @@ const CreateOrEditAddressModal = ({
 
   const handleAdd = () => {
     dispatch(addAddress({ address, user })).then((res) => {
-      if (res.meta.requestStatus === REQUEST_STATUS.FULFILLED) {
+      if (res.meta.requestStatus === FetchStatus.Fulfilled) {
         toast.success(SUCCESS.ADDRESS_ADDED);
         handleCloseModal();
       }
@@ -68,7 +69,7 @@ const CreateOrEditAddressModal = ({
 
   const handleEdit = () => {
     dispatch(editAddress(address)).then((res) => {
-      if (res.meta.requestStatus === REQUEST_STATUS.FULFILLED) {
+      if (res.meta.requestStatus === FetchStatus.Fulfilled) {
         toast.success(SUCCESS.ADDRESS_EDITED);
         handleCloseModal();
       }

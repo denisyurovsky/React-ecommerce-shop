@@ -7,17 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import Modal from '../../../components/ui-kit/Modal/Modal';
-import {
-  MODAL_SIZES,
-  notificationError,
-  REQUEST_STATUS,
-} from '../../../constants/constants';
+import { MODAL_SIZES, notificationError } from '../../../constants/constants';
 import { UPDATE_WISHLIST_TYPE } from '../../../constants/wishlists/wishlists';
 import {
   getCheckedWishlists,
   getWishlistsStatus,
   updateWishlists,
 } from '../../../store/user/userSlice';
+import { FetchStatus } from '../../../ts/enums/enums';
 
 import { CreateWishlistForm } from './CreateWishlistForm/CreateWishlistForm';
 import { WishlistCheckbox } from './WishlistCheckbox/WishlistCheckbox';
@@ -87,7 +84,7 @@ export const AddToWishlistModal = ({
   };
 
   useEffect(() => {
-    if (status === REQUEST_STATUS.FULFILLED && isModalOpen) {
+    if (status === FetchStatus.Fulfilled && isModalOpen) {
       checkedWishlists.filter(
         (wishlist) => wishlist.name === updatedWishlistName
       )[0].checked
@@ -96,7 +93,7 @@ export const AddToWishlistModal = ({
             message.successRemove(productName, updatedWishlistName)
           );
     }
-    if (status === REQUEST_STATUS.REJECTED && isModalOpen) {
+    if (status === FetchStatus.Rejected && isModalOpen) {
       toast.error(notificationError);
     }
   }, [status]); // eslint-disable-line

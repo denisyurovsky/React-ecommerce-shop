@@ -42,7 +42,7 @@ describe('SearchArea component', () => {
         <SearchArea
           cards={cards}
           categories={categories}
-          setDisplayedCards={() => {}}
+          setDisplayedCards={jest.fn()}
         />
       );
       let inputElement = screen.getByDisplayValue('All categories');
@@ -70,7 +70,7 @@ describe('SearchArea component', () => {
         <SearchArea
           cards={cards}
           categories={categories}
-          setDisplayedCards={() => {}}
+          setDisplayedCards={jest.fn()}
         />
       );
       const inputElement = screen.getByPlaceholderText(

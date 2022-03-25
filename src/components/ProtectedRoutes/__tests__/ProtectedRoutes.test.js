@@ -6,17 +6,16 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, Routes } from 'react-router-dom';
 
-import { USER_ROLE } from '../../../constants/constants';
+import { Role } from '../../../ts/enums/enums';
 import { ProtectedRoutes } from '../ProtectedRoutes';
 
-const { ADMIN, SELLER, CONSUMER, GUEST } = USER_ROLE;
-const oneOfRoles = PropTypes.oneOf([ADMIN, SELLER, CONSUMER, GUEST]);
+const oneOfRoles = PropTypes.oneOf(Object.values(Role));
 
 const store = configureStore({
   reducer: {
     user: createSlice({
       name: 'user',
-      initialState: { user: { role: USER_ROLE.SELLER } },
+      initialState: { user: { role: Role.Seller } },
     }).reducer,
   },
 });
@@ -46,12 +45,12 @@ TestApp.propTypes = {
 
 describe('ProtectedRoute', () => {
   it('should show protected component', () => {
-    render(<TestApp roles={[USER_ROLE.SELLER]} />);
+    render(<TestApp roles={[Role.Seller]} />);
     expect(screen.getByText(/test page/i)).toBeInTheDocument();
   });
 
   it('should show "NotFoundPage"', () => {
-    render(<TestApp roles={USER_ROLE.GUEST} />);
+    render(<TestApp roles={Role.Guest} />);
     expect(screen.getByText(/oooops!/i)).toBeInTheDocument();
   });
 });

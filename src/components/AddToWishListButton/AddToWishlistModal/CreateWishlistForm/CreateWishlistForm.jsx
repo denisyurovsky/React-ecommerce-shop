@@ -11,8 +11,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { REQUEST_STATUS } from '../../../../constants/constants';
 import { getWishlistsStatus } from '../../../../store/user/userSlice';
+import { FetchStatus } from '../../../../ts/enums/enums';
 import LoadingButton from '../../../ui-kit/buttons/LoadingButton';
 
 import styles from './CreateWishlistForm.module.scss';
@@ -53,12 +53,12 @@ export const CreateWishlistForm = ({
   };
 
   useEffect(() => {
-    if (status === REQUEST_STATUS.FULFILLED && name) {
+    if (status === FetchStatus.Fulfilled && name) {
       toast.success(message.success(name));
       closeCreateWishlistForm(name);
       setName('');
     }
-    if (status === REQUEST_STATUS.REJECTED && name) {
+    if (status === FetchStatus.Rejected && name) {
       toast.error(message.error(name));
       closeCreateWishlistForm();
       setName('');
@@ -91,7 +91,7 @@ export const CreateWishlistForm = ({
         <span>{name.length}&nbsp;/&nbsp;150</span>
       </FormHelperText>
       <Box className={styles.createButtonWrapper}>
-        {status === REQUEST_STATUS.PENDING ? (
+        {status === FetchStatus.Pending ? (
           <LoadingButton label="" fullWidth />
         ) : (
           <Button

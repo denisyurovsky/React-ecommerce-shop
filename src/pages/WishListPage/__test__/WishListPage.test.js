@@ -7,7 +7,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { authStatus } from '../../../constants/authConstants';
-import { USER_ROLE } from '../../../constants/constants';
 import cartReducer from '../../../store/cart/cartSlice';
 import productsReducer from '../../../store/products/productsSlice';
 import userReducer from '../../../store/user/userSlice';
@@ -15,6 +14,7 @@ import testProducts from '../../../test-utils/dto/productsDto';
 import { wishlistsDto } from '../../../test-utils/dto/wishlistsDto';
 import renderWithStore from '../../../test-utils/renderWithStore';
 import RouterConnected from '../../../test-utils/RouterConnected';
+import { Role } from '../../../ts/enums/enums';
 import { WishListPage } from '../WishListPage';
 
 const { FULFILLED } = authStatus;
@@ -28,7 +28,7 @@ const initialUser = {
     id: 1,
     wishlists: wishlistsDto,
     amountOfTries: 0,
-    role: USER_ROLE.CONSUMER,
+    role: Role.Consumer,
   },
   loginStatus: FULFILLED,
 };

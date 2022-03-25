@@ -3,7 +3,6 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { USER_ROLE } from '../../../../constants/constants';
 import { categories } from '../../../../test-utils/dto/categoriesDto';
 import { productForPDP } from '../../../../test-utils/dto/productsDto';
 import renderWith, {
@@ -13,6 +12,7 @@ import renderWith, {
   getByRole,
   waitFor,
 } from '../../../../test-utils/renderWith';
+import { Role } from '../../../../ts/enums/enums';
 import { CreateOrEditProductPage } from '../CreateOrEditProductPage';
 
 const preloadedState = {
@@ -22,7 +22,7 @@ const preloadedState = {
   user: {
     user: {
       id: 1,
-      role: USER_ROLE.SELLER,
+      role: Role.Seller,
     },
   },
 };

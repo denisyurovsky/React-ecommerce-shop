@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React, { forwardRef } from 'react';
 import { useSelector } from 'react-redux';
 
-import { USER_ROLE } from '../../../../constants/constants';
 import { pathNames } from '../../../../constants/pathNames';
 import { getUserRole } from '../../../../store/user/userSlice';
+import { Role } from '../../../../ts/enums/enums';
 import { NavigationItem } from '../NavigationItem/NavigationItem';
 
 import styles from './MobileNavigation.module.scss';
@@ -17,7 +17,7 @@ const MobileNavigation = forwardRef(({ closeBurger }, ref) => {
     { title: 'PRODUCTS', path: pathNames.PRODUCTS },
   ];
 
-  if (userRole === USER_ROLE.ADMIN || userRole === USER_ROLE.SELLER) {
+  if (userRole === Role.Admin || userRole === Role.Seller) {
     navItems.push({ title: 'ADMIN', path: pathNames.ADMIN });
   }
 

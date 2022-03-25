@@ -9,7 +9,13 @@ import { pathNames } from './pathNames';
 
 const { USERS, PROFILE, WISHLIST, ADDRESSBOOK, ORDERS } = pathNames;
 
-export const LINKS = {
+interface Link {
+  url: string;
+  text: string;
+  icon?: unknown;
+}
+
+export const LINKS: Record<string, Link> = {
   HOME: { url: '/', text: 'Home' },
   USERS: { url: USERS, text: 'Users' },
   PROFILE: { url: PROFILE, text: 'Profile', icon: <HomeIcon /> },

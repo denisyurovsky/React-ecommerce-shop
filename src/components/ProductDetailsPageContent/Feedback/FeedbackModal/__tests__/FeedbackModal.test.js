@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { USER_ROLE } from '../../../../../constants/constants';
 import renderWithStore, {
   screen,
   fireEvent,
 } from '../../../../../test-utils/renderWithStore';
+import { Role } from '../../../../../ts/enums/enums';
 import FeedbackModal from '../FeedbackModal';
 
 const openModal = () => {
@@ -14,7 +14,7 @@ const openModal = () => {
 describe('FeedbackModal snapshot:', () => {
   it('should render a valid snapshot', () => {
     const { getByRole } = renderWithStore(<FeedbackModal productId={4} />, {
-      role: USER_ROLE.ADMIN,
+      role: Role.Admin,
     });
 
     openModal();
@@ -25,7 +25,7 @@ describe('FeedbackModal snapshot:', () => {
 
 describe('Closing functionality', () => {
   it('should close after close icon is pressed', () => {
-    renderWithStore(<FeedbackModal productId={4} />, { role: USER_ROLE.ADMIN });
+    renderWithStore(<FeedbackModal productId={4} />, { role: Role.Admin });
     openModal();
 
     fireEvent.click(screen.getByTestId('CloseIcon'));

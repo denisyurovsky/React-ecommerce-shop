@@ -25,8 +25,8 @@ describe('CreateOrEditProductContent snapshot', () => {
     const { asFragment } = renderWith(
       <CreateOrEditProductContent
         product={editProduct}
-        onCancel={() => {}}
-        onSubmit={() => {}}
+        onCancel={jest.fn()}
+        onSubmit={jest.fn()}
         isEditPage={false}
       />,
       preloadedState

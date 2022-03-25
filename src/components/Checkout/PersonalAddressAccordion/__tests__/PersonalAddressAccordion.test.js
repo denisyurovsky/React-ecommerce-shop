@@ -15,12 +15,12 @@ describe('PersonalAddressAccordion component', () => {
         isPersonalInformationValid={true}
         orderId={null}
         expanded={PANEL.PERSONAL_ADDRESS}
-        handleChangeAccordion={() => {}}
-        setAddress={() => {}}
-        handleChange={() => {}}
-        setIsPaymentMethodDisabled={() => {}}
-        setExpanded={() => {}}
-        setCreatedOrderId={() => {}}
+        handleChangeAccordion={jest.fn()}
+        setAddress={jest.fn()}
+        handleChange={jest.fn()}
+        setIsPaymentMethodDisabled={jest.fn()}
+        setExpanded={jest.fn()}
+        setCreatedOrderId={jest.fn()}
       />
     );
 

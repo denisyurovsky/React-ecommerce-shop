@@ -2,13 +2,14 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { ERROR, USER_ROLE } from '../../../../constants/constants';
+import { ERROR } from '../../../../constants/constants';
 import { DEFAULT_NAME } from '../../../../constants/feedbackConstants';
 import feedbackDto from '../../../../test-utils/dto/feedbackDto';
 import { handleModal } from '../../../../test-utils/feedback/feedbackHandlers';
 import renderWithStore, {
   screen,
 } from '../../../../test-utils/renderWithStore';
+import { Role } from '../../../../ts/enums/enums';
 import Feedback from '../Feedback';
 
 const waitForFeedbacks = () => screen.findByTestId('comments');
@@ -68,7 +69,7 @@ describe('access test', () => {
   describe('access denied', () => {
     it('should not show button "add new feedback"', async () => {
       const { queryByRole } = renderWithStore(<Feedback productId={0} />, {
-        role: USER_ROLE.GUEST,
+        role: Role.Guest,
       });
 
       await waitForFeedbacks();
@@ -87,21 +88,21 @@ describe('access test', () => {
     };
 
     it('consumer should be able to add feedbacks', async () => {
-      await renderWithRole(USER_ROLE.CONSUMER);
+      await renderWithRole(Role.Consumer);
       expect(
         screen.getByRole('button', { name: /add new feedback/i })
       ).toBeInTheDocument();
     });
 
     it('seller should be able to add feedbacks', async () => {
-      await renderWithRole(USER_ROLE.SELLER);
+      await renderWithRole(Role.Seller);
       expect(
         screen.getByRole('button', { name: /add new feedback/i })
       ).toBeInTheDocument();
     });
 
     it('admin should be able to add feedbacks', async () => {
-      await renderWithRole(USER_ROLE.ADMIN);
+      await renderWithRole(Role.Admin);
       expect(
         screen.getByRole('button', { name: /add new feedback/i })
       ).toBeInTheDocument();
@@ -119,7 +120,7 @@ describe('functionality tests with admin role', () => {
     afterAll(() => server.close());
 
     it('should show error notification', async () => {
-      renderWithStore(<Feedback productId={0} />, { role: USER_ROLE.ADMIN });
+      renderWithStore(<Feedback productId={0} />, { role: Role.Admin });
 
       expect(await screen.findByText(ERROR.LOAD_FEEDBACK)).toBeInTheDocument();
     });
@@ -135,7 +136,7 @@ describe('functionality tests with admin role', () => {
 
     it('should render a valid snapshot', async () => {
       const { asFragment } = renderWithStore(<Feedback productId={0} />, {
-        role: USER_ROLE.ADMIN,
+        role: Role.Admin,
       });
 
       await waitForFeedbacks();
@@ -152,7 +153,7 @@ describe('functionality tests with admin role', () => {
 
     it('should render product comments', async () => {
       const { asFragment } = renderWithStore(<Feedback productId={1} />, {
-        role: USER_ROLE.ADMIN,
+        role: Role.Admin,
       });
 
       await waitForFeedbacks();
@@ -168,7 +169,7 @@ describe('functionality tests with admin role', () => {
     afterAll(() => server.close());
 
     beforeEach(() =>
-      renderWithStore(<Feedback productId={2} />, { role: USER_ROLE.ADMIN })
+      renderWithStore(<Feedback productId={2} />, { role: Role.Admin })
     );
 
     it('should sort feedbacks in descending order by date', async () => {
@@ -223,7 +224,7 @@ describe('functionality tests with admin role', () => {
     afterAll(() => server.close());
 
     beforeEach(() =>
-      renderWithStore(<Feedback productId={2} />, { role: USER_ROLE.ADMIN })
+      renderWithStore(<Feedback productId={2} />, { role: Role.Admin })
     );
 
     it('should display error notification with failed posting', async () => {

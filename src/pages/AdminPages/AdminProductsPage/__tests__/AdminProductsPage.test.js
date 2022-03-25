@@ -3,13 +3,13 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
 
-import { USER_ROLE } from '../../../../constants/constants';
 import feedbackDto from '../../../../test-utils/dto/feedbackDto';
 import cardsData from '../../../../test-utils/dto/productsDto';
 import renderWithStore, {
   screen,
 } from '../../../../test-utils/renderWithStore';
 import RouterConnected from '../../../../test-utils/RouterConnected';
+import { Role } from '../../../../ts/enums/enums';
 import { AdminProductsPage } from '../AdminProductsPage';
 
 const productsRequest = rest.get('/products', (req, res, ctx) => {
@@ -41,7 +41,7 @@ describe('AdminProductsPage tests', () => {
   it('should take snapshot', async () => {
     const { asFragment } = renderWithStore(
       <RouterConnected component={<AdminProductsPage />} />,
-      { role: USER_ROLE.SELLER }
+      { role: Role.Seller }
     );
 
     await waitForTable();
@@ -51,7 +51,7 @@ describe('AdminProductsPage tests', () => {
 
   it('should show products data', async () => {
     renderWithStore(<RouterConnected component={<AdminProductsPage />} />, {
-      role: USER_ROLE.SELLER,
+      role: Role.Seller,
     });
 
     await waitForTable();
@@ -63,7 +63,7 @@ describe('AdminProductsPage tests', () => {
 
   it('should open modal and show notification after successful product delete response', async () => {
     renderWithStore(<RouterConnected component={<AdminProductsPage />} />, {
-      role: USER_ROLE.SELLER,
+      role: Role.Seller,
     });
 
     await waitForTable();

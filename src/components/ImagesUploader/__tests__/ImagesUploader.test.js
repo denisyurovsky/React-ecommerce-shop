@@ -34,8 +34,8 @@ describe('ImagesUploader component', () => {
       const { asFragment } = render(
         <ImagesUploader
           imageUrls={[]}
-          updateImages={() => {}}
-          disableSubmit={() => {}}
+          updateImages={jest.fn()}
+          disableSubmit={jest.fn()}
         />
       );
 
@@ -49,8 +49,8 @@ describe('ImagesUploader component', () => {
       const { asFragment } = render(
         <ImagesUploader
           imageUrls={[fakeUrls, fakeUrls, fakeUrls]}
-          updateImages={() => {}}
-          disableSubmit={() => {}}
+          updateImages={jest.fn()}
+          disableSubmit={jest.fn()}
         />
       );
 

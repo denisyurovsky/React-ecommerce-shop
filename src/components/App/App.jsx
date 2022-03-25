@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import { USER_ROLE } from '../../constants/constants';
 import { pathNames } from '../../constants/pathNames';
 import withAuthExpiration from '../../HOCs/withAuthExpiration';
 import AddressBook from '../../pages/AddressBookPage/AddressBook';
@@ -19,6 +18,7 @@ import ProductListPage from '../../pages/ProductListPage/ProductListPage';
 import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 import ProfilePrivatePage from '../../pages/ProfilePrivatePage/ProfilePrivatePage';
 import { WishListPage } from '../../pages/WishListPage/WishListPage';
+import { Role } from '../../ts/enums/enums';
 import AuthExpirationModal from '../AuthExpirationModal/AuthExpirationModal';
 import { Layout } from '../Layout/Layout';
 import { ProtectedRoutes } from '../ProtectedRoutes/ProtectedRoutes';
@@ -60,9 +60,7 @@ const App = ({ handleClose, isOpenModal }) => {
         <Route exact path={CHECKOUT} element={<CheckoutPage />} />
         <Route exact path={`${CHECKOUT}/:id`} element={<CheckoutPage />} />
         <Route exact path="/" element={<HomePage />} />
-        <Route
-          element={<ProtectedRoutes permissionLevels={USER_ROLE.CONSUMER} />}
-        >
+        <Route element={<ProtectedRoutes permissionLevels={Role.Consumer} />}>
           <Route
             exact
             path={`${PROFILE}${WISHLIST}`}
@@ -72,7 +70,7 @@ const App = ({ handleClose, isOpenModal }) => {
         </Route>
         <Route
           path="/"
-          element={<ProtectedRoutes permissionLevels={USER_ROLE.SELLER} />}
+          element={<ProtectedRoutes permissionLevels={Role.Seller} />}
         >
           <Route
             path={`${ADMIN}${PRODUCTS}${CREATE}`}
@@ -85,7 +83,7 @@ const App = ({ handleClose, isOpenModal }) => {
         </Route>
         <Route
           path={`/`}
-          element={<ProtectedRoutes permissionLevels={USER_ROLE.SELLER} />}
+          element={<ProtectedRoutes permissionLevels={Role.Seller} />}
         >
           <Route path={`${ADMIN}${PRODUCTS}`} element={<AdminProductsPage />} />
           <Route

@@ -3,12 +3,13 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { EMPTY, ERROR, FETCH } from '../../../constants/constants';
+import { EMPTY, ERROR } from '../../../constants/constants';
 import {
   clearFeedbacks,
   fetchCommentsByUserId,
   selectAllComments,
 } from '../../../store/feedback/feedbackSlice';
+import { FetchStatus } from '../../../ts/enums/enums';
 import CommentSection from '../../ProductDetailsPageContent/Feedback/CommentSection/CommentSection';
 import Spinner from '../../ui-kit/Spinner/Spinner';
 
@@ -17,7 +18,7 @@ function ProfileConsumer({ profileId }) {
   const comments = useSelector(selectAllComments);
   const status = useSelector((state) => state.feedback.status);
 
-  const isLoading = status === FETCH.PENDING;
+  const isLoading = status === FetchStatus.Pending;
 
   useEffect(() => {
     dispatch(fetchCommentsByUserId(profileId));
@@ -26,7 +27,7 @@ function ProfileConsumer({ profileId }) {
   }, [profileId, dispatch]);
 
   useEffect(() => {
-    if (status === FETCH.REJECTED) {
+    if (status === FetchStatus.Rejected) {
       toast.error(ERROR.LOAD_FEEDBACK);
     }
   }, [status]);

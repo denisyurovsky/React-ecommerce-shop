@@ -1,8 +1,8 @@
-import { REQUEST_STATUS } from '../../../constants/constants';
 import {
   initialWishlistsDto,
   wishlistsDto,
 } from '../../../test-utils/dto/wishlistsDto';
+import { FetchStatus } from '../../../ts/enums/enums';
 import reducer, {
   resetBlockedState,
   resetError,
@@ -48,14 +48,14 @@ it('should reset error state', () => {
 });
 
 const previousStateWishList = {
-  updateWishlistsStatus: REQUEST_STATUS.IDLE,
+  updateWishlistsStatus: FetchStatus.Idle,
   user: {
     wishlists: initialWishlistsDto,
   },
 };
 
 const expectedStateWishList = {
-  updateWishlistsStatus: REQUEST_STATUS.FULFILLED,
+  updateWishlistsStatus: FetchStatus.Fulfilled,
   user: {
     wishlists: wishlistsDto,
   },
@@ -67,7 +67,7 @@ it('update wishlists request is load', () => {
     updateWishlists.pending({ wishlists: wishlistsDto })
   );
 
-  expect(newState.updateWishlistsStatus).toEqual(REQUEST_STATUS.PENDING);
+  expect(newState.updateWishlistsStatus).toEqual(FetchStatus.Pending);
 });
 
 it('update wishlist request is success', () => {
@@ -85,14 +85,14 @@ it('update wishlists request is failure', () => {
     updateWishlists.rejected({ wishlists: wishlistsDto })
   );
 
-  expect(newState.updateWishlistsStatus).toEqual(REQUEST_STATUS.REJECTED);
+  expect(newState.updateWishlistsStatus).toEqual(FetchStatus.Rejected);
 });
 
 it('should reset update wishlists status', () => {
   const previousStateWishList = {
-    updateWishlistsStatus: REQUEST_STATUS.FULFILLED,
+    updateWishlistsStatus: FetchStatus.Fulfilled,
   };
   const newState = reducer(previousStateWishList, resetUpdateWishlistsStatus());
 
-  expect(newState.updateWishlistsStatus).toEqual(REQUEST_STATUS.IDLE);
+  expect(newState.updateWishlistsStatus).toEqual(FetchStatus.Idle);
 });

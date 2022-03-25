@@ -18,17 +18,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { getProductsByIds } from '../../api/products';
-import {
-  MODAL_SIZES,
-  notificationError,
-  REQUEST_STATUS,
-} from '../../constants/constants';
+import { MODAL_SIZES, notificationError } from '../../constants/constants';
 import { UPDATE_WISHLIST_TYPE } from '../../constants/wishlists/wishlists';
 import { pageView } from '../../pages/ProductListPage/constants/constants';
 import {
   getWishlistsStatus,
   updateWishlists,
 } from '../../store/user/userSlice';
+import { FetchStatus } from '../../ts/enums/enums';
 import CardsContainer from '../ProductCard/CardsContainer/CardsContainer';
 import Modal from '../ui-kit/Modal/Modal';
 
@@ -126,7 +123,7 @@ const WishlistCard = ({
   }, [isExpanded, productIds]); // eslint-disable-line
 
   useEffect(() => {
-    if (status === REQUEST_STATUS.FULFILLED) {
+    if (status === FetchStatus.Fulfilled) {
       setIsModalOpen(false);
     }
   }, [status]);
@@ -139,7 +136,7 @@ const WishlistCard = ({
         onConfirm={handleConfirmationDelete}
         cancelButtonLabel="No"
         actionButtonLabel={
-          status === REQUEST_STATUS.PENDING ? (
+          status === FetchStatus.Pending ? (
             <CircularProgress
               style={{ width: '25px', height: '25px', color: '#bdbdbd' }}
             />

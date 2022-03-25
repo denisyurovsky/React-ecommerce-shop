@@ -4,15 +4,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { FETCH } from '../../../../constants/constants';
 import { usePermission } from '../../../../hooks/usePermission/usePermission';
 import { postNewComment } from '../../../../store/feedback/feedbackSlice';
 import { setProductRating } from '../../../../store/products/productsSlice';
+import { FetchStatus } from '../../../../ts/enums/enums';
 import Modal from '../../../ui-kit/Modal/Modal';
 
 import FeedbackForms from './FeedbackForms/FeedbackForms';
-
-const { PENDING, FULFILLED, REJECTED } = FETCH;
 
 const FeedbackModal = ({ productId }) => {
   const dispatch = useDispatch();
@@ -31,17 +29,17 @@ const FeedbackModal = ({ productId }) => {
   };
 
   useEffect(() => {
-    if (postStatus === FULFILLED) {
+    if (postStatus === FetchStatus.Fulfilled) {
       toast.success('Your feedback has been added');
-    } else if (postStatus === REJECTED) {
+    } else if (postStatus === FetchStatus.Rejected) {
       toast.error(`Feedback haven't been added`);
     }
   }, [postStatus]);
 
-  const open = isOpen && postStatus !== FULFILLED;
+  const open = isOpen && postStatus !== FetchStatus.Fulfilled;
 
   useEffect(() => {
-    if (postStatus === FULFILLED) {
+    if (postStatus === FetchStatus.Fulfilled) {
       dispatch(setProductRating(productId));
     }
   }, [postStatus, productId, dispatch]);
@@ -60,7 +58,10 @@ const FeedbackModal = ({ productId }) => {
         </Button>
       )}
       <Modal isOpen={open} onClose={handleClose}>
-        <FeedbackForms sendForm={sendForm} isLoading={postStatus === PENDING} />
+        <FeedbackForms
+          sendForm={sendForm}
+          isLoading={postStatus === FetchStatus.Pending}
+        />
       </Modal>
     </>
   );

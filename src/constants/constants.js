@@ -3,27 +3,6 @@ export const notificationError =
 
 export const NUMBER_OF_CARDS_ON_HOMEPAGE = 5;
 
-export const USER_ROLE = {
-  ADMIN: 'admin',
-  SELLER: 'seller',
-  CONSUMER: 'consumer',
-  GUEST: 'guest',
-};
-
-export const FETCH = {
-  PENDING: 'loading',
-  FULFILLED: 'success',
-  REJECTED: 'failure',
-  IDLE: 'idle',
-};
-
-export const REQUEST_STATUS = {
-  PENDING: 'pending',
-  FULFILLED: 'fulfilled',
-  REJECTED: 'rejected',
-  IDLE: 'idle',
-};
-
 export const ALL_CATEGORIES = 'All Categories';
 
 export const EMPTY = {

@@ -9,10 +9,10 @@ describe('DeliveryAddressAccordion component', () => {
   it('should render valid snapshot', () => {
     const { asFragment } = renderWith(
       <DeliveryAddressAccordion
-        handleDeliveryAddressButton={() => {}}
-        handleChangeAddresses={() => {}}
-        handleEditButton={() => {}}
-        handleChangeAccordion={() => {}}
+        handleDeliveryAddressButton={jest.fn()}
+        handleChangeAddresses={jest.fn()}
+        handleEditButton={jest.fn()}
+        handleChangeAccordion={jest.fn()}
         isDeliveryAddressExpended={true}
         addressId={null}
         addresses={{ data: addressesDto }}

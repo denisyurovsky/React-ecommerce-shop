@@ -1,5 +1,5 @@
-import { USER_ROLE } from '../constants/constants';
 import { defaultWishlists } from '../constants/wishlists/wishlists';
+import { Role } from '../ts/enums/enums';
 
 import { http } from './setup';
 
@@ -14,7 +14,7 @@ export const register = ({ email, password, firstName, lastName }) =>
     password,
     firstName,
     lastName,
-    role: USER_ROLE.CONSUMER,
+    role: Role.Consumer,
     wishlist: defaultWishlists,
   });
 

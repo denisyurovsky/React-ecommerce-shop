@@ -18,7 +18,7 @@ describe('Props tests', () => {
       <PriceGroup
         value={initialValue}
         onChange={onChange}
-        disableSubmit={() => {}}
+        disableSubmit={jest.fn()}
       />
     )
   );
