@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { getOrderById } from '../../api/orders';
-import { getProductsByIds } from '../../api/products';
+import ordersApi from '../../api/orders';
+import productsApi from '../../api/products';
 import BasicBreadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import CheckoutGuestPage from '../../components/Checkout/CheckoutGuestPage/CheckoutGuestPage';
 import CheckoutUserPage from '../../components/Checkout/CheckoutUserPage/CheckoutUserPage';
@@ -57,7 +57,7 @@ const CheckoutPage = () => {
 
     if (Number.isInteger(orderId)) {
       const setFetchedData = async () => {
-        const response = await getOrderById(orderId);
+        const response = await ordersApi.getOrderById(orderId);
 
         if (
           isMounted &&
@@ -87,7 +87,7 @@ const CheckoutPage = () => {
     if (!Number.isInteger(orderId)) {
       const setFetchedData = async () => {
         const selectedProductIds = getSelectedProductIds(cart.sellers);
-        const response = await getProductsByIds(selectedProductIds);
+        const response = await productsApi.getProductsByIds(selectedProductIds);
         const products = response.data.map(
           ({ id, images, name, price, discountPrice }) => {
             return {

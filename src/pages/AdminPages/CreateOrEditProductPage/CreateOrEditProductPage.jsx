@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { createProduct, getProduct, updateProduct } from '../../../api/product';
+import productApi from '../../../api/product';
 import BasicBreadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import CreateOrEditProductContent from '../../../components/CreateOrEditProductContent/CreateOrEditProductContent';
 import { Title } from '../../../components/Title/Title';
@@ -49,7 +49,7 @@ export const CreateOrEditProductPage = () => {
   ];
 
   const getProductInfo = async (id) => {
-    const response = await getProduct(id);
+    const response = await productApi.get(id);
 
     setProduct(response);
     setIsLoading(false);
@@ -69,9 +69,9 @@ export const CreateOrEditProductPage = () => {
       setIsLoading(true);
 
       if (isEditPage) {
-        await updateProduct(productId, newProduct);
+        await productApi.update(productId, newProduct);
       } else {
-        await createProduct(newProduct);
+        await productApi.create(newProduct);
       }
 
       toast.success(

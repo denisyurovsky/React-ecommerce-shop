@@ -4,8 +4,8 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 
-import { setRating } from '../../api/feedback';
-import { getProductsByAuthorId, getSomeProducts } from '../../api/products';
+import feedbackApi from '../../api/feedback';
+import productsApi from '../../api/products';
 import {
   defaultFilters,
   NUMBER_OF_CARDS_ON_HOMEPAGE,
@@ -14,7 +14,7 @@ import {
 export const getProducts = createAsyncThunk(
   'products/getProducts',
   async (searchParams) => {
-    const response = await getSomeProducts(searchParams);
+    const response = await productsApi.getSomeProducts(searchParams);
 
     return {
       data: response.data,
@@ -26,7 +26,7 @@ export const getProducts = createAsyncThunk(
 export const getProductsByUserId = createAsyncThunk(
   'products/getProductsByUserId',
   async (userId) => {
-    const response = await getProductsByAuthorId(userId);
+    const response = await productsApi.getProductsByAuthorId(userId);
 
     return {
       data: response.data,
@@ -38,7 +38,7 @@ export const getProductsByUserId = createAsyncThunk(
 export const getHomePageProducts = createAsyncThunk(
   'products/getHomePageProducts',
   async () => {
-    const response = await getSomeProducts({
+    const response = await productsApi.getSomeProducts({
       entity: 'products',
       filters: defaultFilters,
       sort: {
@@ -67,7 +67,7 @@ export const setProductRating = createAsyncThunk(
       0
     );
 
-    const response = await setRating({ productId, rating });
+    const response = await feedbackApi.setRating({ productId, rating });
 
     return response.data;
   }

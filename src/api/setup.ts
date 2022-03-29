@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 import { ACCESS_TOKEN } from '../constants/storageConstants';
 
@@ -15,11 +15,11 @@ const requestSettings = {
 
 const http = axios.create(requestSettings);
 
-http.interceptors.request.use((config) => {
-  const token =
+http.interceptors.request.use((config: AxiosRequestConfig) => {
+  const token: string | null =
     localStorage.getItem(ACCESS_TOKEN) ?? sessionStorage.getItem(ACCESS_TOKEN);
 
-  if (token) {
+  if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
 

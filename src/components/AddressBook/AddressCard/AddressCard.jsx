@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { deleteAddress } from '../../../api/addresses';
+import addressApi from '../../../api/addresses';
 import { notificationError } from '../../../constants/constants';
 import {
   MODAL_TYPE,
@@ -56,7 +56,7 @@ const AddressCard = ({
 
   const onDeleteAddress = async () => {
     try {
-      const response = await deleteAddress(id);
+      const response = await addressApi.delete(id);
 
       if (response.status === 200) {
         dispatch(getAddressesByIds(addressIds));

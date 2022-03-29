@@ -11,7 +11,7 @@ export interface DraftUser {
   wishlists?: Wishlist[];
 }
 
-export interface RegistredUser {
+export interface RegisteredUser {
   email: string;
   firstName: string;
   lastName: string;
@@ -20,7 +20,7 @@ export interface RegistredUser {
   updatedAt: Date;
 }
 
-export interface RegistredUserWithoutId extends RegistredUser {
+export interface RegisteredUserWithoutId extends RegisteredUser {
   avatar: string | null;
   phoneNumber: string | null;
   gender: Gender;
@@ -30,6 +30,6 @@ export interface RegistredUserWithoutId extends RegistredUser {
   wishlists?: Wishlist[];
 }
 
-export interface User extends RegistredUserWithoutId {
+export interface User extends RegisteredUserWithoutId {
   id: number;
 }

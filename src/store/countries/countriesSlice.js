@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getAllCountries } from '../../api/countries';
+import countriesApi from '../../api/countries';
 
 import initialState from './initialState';
 
 export const getCountries = createAsyncThunk(
   'countries/getCountries',
   async () => {
-    const response = await getAllCountries();
+    const response = await countriesApi.get();
 
     return response.data;
   }

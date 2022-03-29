@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getSomeCities } from '../../api/cities';
+import citiesApi from '../../api/cities';
 
 import initialState from './initialState';
 
@@ -8,7 +8,7 @@ export const getCities = createAsyncThunk(
   'cities/getCities',
   async (countryCode) => {
     const response = countryCode
-      ? await getSomeCities(countryCode)
+      ? await citiesApi.get(countryCode)
       : { data: { cities: [] } };
 
     return response.data.cities;

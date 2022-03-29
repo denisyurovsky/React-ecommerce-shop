@@ -15,7 +15,7 @@ import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { getProductsByIds } from '../../../api/products';
+import productsApi from '../../../api/products';
 import { notificationError } from '../../../constants/constants';
 import { pathNames } from '../../../constants/pathNames';
 import getSelectedProductIds from '../../../helpers/getSelectedProductIds';
@@ -70,7 +70,9 @@ const PersonalAddressAccordion = ({
     } else {
       try {
         const checkedProductIds = getSelectedProductIds(cart.sellers);
-        const productsResponse = await getProductsByIds(checkedProductIds);
+        const productsResponse = await productsApi.getProductsByIds(
+          checkedProductIds
+        );
         const res = await dispatch(
           addOrder({
             productsData: productsResponse.data,

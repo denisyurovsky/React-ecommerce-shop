@@ -1,13 +1,13 @@
 const buildSearchQuery = (
-  entity,
-  filters = null,
-  sort = null,
-  text = null,
-  currentPage = null,
-  itemsPerPage = null
+  entity: string,
+  filters: any = null,
+  sort: any = null,
+  text: any = null,
+  currentPage: any = null,
+  itemsPerPage: any = null
 ) => {
   const filtersParams = filters
-    ? filters.filter((item) => {
+    ? filters.filter((item: any) => {
         return item[Object.keys(item)[0]];
       })
     : [];
@@ -29,7 +29,7 @@ const buildSearchQuery = (
     return `/${entity}`;
   }
 
-  const params = new URLSearchParams();
+  const params: any = new URLSearchParams();
 
   queryParams.forEach((item) => {
     params.append(Object.keys(item), Object.values(item));

@@ -17,7 +17,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { getProductsByIds } from '../../api/products';
+import productsApi from '../../api/products';
 import { MODAL_SIZES, notificationError } from '../../constants/constants';
 import { UPDATE_WISHLIST_TYPE } from '../../constants/wishlists/wishlists';
 import { pageView } from '../../pages/ProductListPage/constants/constants';
@@ -109,7 +109,7 @@ const WishlistCard = ({
     if (isExpanded && newProductIds.length) {
       const getWishListProducts = async (productIds) => {
         try {
-          const response = await getProductsByIds(productIds);
+          const response = await productsApi.getProductsByIds(productIds);
 
           setProducts((products) => products.concat(response.data));
           setIsLoading(false);

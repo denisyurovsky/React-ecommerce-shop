@@ -1,10 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import {
-  addSomeAddress,
-  editSomeAddress,
-  getSomeAddresses,
-} from '../../api/addresses';
+import addressApi from '../../api/addresses';
 import { updateUser } from '../user/userSlice';
 
 import initialState from './initialState';
@@ -12,7 +8,9 @@ import initialState from './initialState';
 export const getAddressesByIds = createAsyncThunk(
   'addresses/getAddressesByIds',
   async (ids) => {
-    const response = ids.length ? await getSomeAddresses(ids) : { data: [] };
+    const response = ids.length
+      ? await addressApi.getAddresses(ids)
+      : { data: [] };
 
     return response.data;
   }
@@ -21,7 +19,7 @@ export const getAddressesByIds = createAsyncThunk(
 export const addAddress = createAsyncThunk(
   'addresses/addAddress',
   async ({ address, user }, thunkAPI) => {
-    const response = await addSomeAddress(address);
+    const response = await addressApi.add(address);
 
     const newUser = {
       ...user,
@@ -37,7 +35,7 @@ export const addAddress = createAsyncThunk(
 export const editAddress = createAsyncThunk(
   'addresses/editAddress',
   async (address) => {
-    const response = await editSomeAddress(address);
+    const response = await addressApi.edit(address);
 
     return response.data;
   }

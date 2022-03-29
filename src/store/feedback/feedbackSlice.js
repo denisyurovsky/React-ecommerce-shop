@@ -4,17 +4,13 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 
-import {
-  getComments,
-  getCommentsByUserId,
-  postComment,
-} from '../../api/feedback';
+import feedbackApi from '../../api/feedback';
 import { FetchStatus } from '../../ts/enums/enums';
 
 export const fetchCommentsByProductId = createAsyncThunk(
   'feedback/fetchCommentsByProductId',
   async (productId) => {
-    const response = await getComments(productId);
+    const response = await feedbackApi.getComments(productId);
 
     return response.data;
   }
@@ -23,7 +19,7 @@ export const fetchCommentsByProductId = createAsyncThunk(
 export const fetchCommentsByUserId = createAsyncThunk(
   'feedback/fetchCommentsByUserId',
   async (userId) => {
-    const response = await getCommentsByUserId(userId);
+    const response = await feedbackApi.getCommentsByUserId(userId);
 
     return response.data;
   }
@@ -32,7 +28,7 @@ export const fetchCommentsByUserId = createAsyncThunk(
 export const postNewComment = createAsyncThunk(
   'feedback/postNewComment',
   async ({ productId, rating, comment, name, userId }) => {
-    const response = await postComment({
+    const response = await feedbackApi.postComment({
       productId,
       rating,
       comment,

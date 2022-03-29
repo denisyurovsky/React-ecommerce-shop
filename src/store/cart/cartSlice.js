@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import _ from 'lodash';
 
-import { setCart, deleteCart, calculateGuestPrice } from '../../api/cart';
+import cartApi from '../../api/cart';
 import { getUser } from '../../api/user';
 import deleteCheckedProducts from '../../helpers/deleteCheckedProducts';
 import { findProductIndexById } from '../../helpers/findProductIndexById';
@@ -13,8 +13,8 @@ import { initialState } from './initialState';
 
 const fetchCart = async (updatedCart, userId) => {
   const response = isGuest(userId)
-    ? await calculateGuestPrice(updatedCart)
-    : await setCart(updatedCart);
+    ? await cartApi.calculateGuestPrice(updatedCart)
+    : await cartApi.set(updatedCart);
 
   if (isGuest(userId)) {
     localStorage.setItem('cart', JSON.stringify(response.data.cart));
@@ -80,7 +80,7 @@ export const deleteAllProducts = createAsyncThunk(
     if (isGuest(userId)) {
       localStorage.removeItem('cart');
     } else {
-      await deleteCart();
+      await cartApi.delete();
     }
   }
 );

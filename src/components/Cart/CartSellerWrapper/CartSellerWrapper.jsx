@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { getProductsByIds } from '../../../api/products';
+import productsApi from '../../../api/products';
 import { getUser } from '../../../api/user';
 import { notificationError } from '../../../constants/constants';
 import {
@@ -36,7 +36,10 @@ export const CartSellerWrapper = ({
 
     const getSellersProducts = async (ids) => {
       try {
-        const response = await getProductsByIds(ids, abortController);
+        const response = await productsApi.getProductsByIds(
+          ids,
+          abortController
+        );
 
         setSellersProducts(response.data);
       } catch (err) {

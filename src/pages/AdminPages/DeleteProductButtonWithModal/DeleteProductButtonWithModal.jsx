@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { deleteProduct } from '../../../api/product';
+import productApi from '../../../api/product';
 import { notificationError } from '../../../constants/constants';
 import { getProductsByUserId } from '../../../store/products/productsSlice';
 
@@ -28,7 +28,7 @@ export const DeleteProductButtonWithModal = ({ productName, id }) => {
 
   const onDeleteProduct = async () => {
     try {
-      const response = await deleteProduct(id);
+      const response = await productApi.delete(id);
 
       if (response.status === 200) {
         dispatch(getProductsByUserId(authorId));

@@ -13,7 +13,7 @@ import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { Maestro, Mastercard, Visa, VisaElectron } from 'react-pay-icons';
 import { toast } from 'react-toastify';
 
-import { sendPayment } from '../../../api/payment';
+import paymentApi, { sendPayment } from '../../../api/payment';
 import { ERROR } from '../../../constants/constants';
 import { CheckoutContext } from '../../../pages/CheckoutPage/CheckoutPage';
 import Spinner from '../../ui-kit/Spinner/Spinner';
@@ -68,7 +68,7 @@ const PaymentMethodAccordion = ({
   const makePayment = async () => {
     setIsLoading(true);
     try {
-      await sendPayment({
+      await paymentApi.send({
         paymentAmount: actualPrice,
         cardNumber: cardNumber.value,
         expDate: expDate.value,

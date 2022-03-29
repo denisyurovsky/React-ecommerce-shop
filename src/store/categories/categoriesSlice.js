@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getAllCategories } from '../../api/categories';
+import categoriesApi from '../../api/categories';
 
 import initialState from './initialState';
 
 export const getCategories = createAsyncThunk(
   'categories/getCategories',
   async () => {
-    const response = await getAllCategories();
+    const response = await categoriesApi.get();
 
     return response;
   }

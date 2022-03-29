@@ -4,8 +4,8 @@ import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { getAddressById } from '../../../api/addresses';
-import { getProductsByIds } from '../../../api/products';
+import addressApi from '../../../api/addresses';
+import productsApi from '../../../api/products';
 import { notificationError } from '../../../constants/constants';
 import { pathNames } from '../../../constants/pathNames';
 import getSelectedProductIds from '../../../helpers/getSelectedProductIds';
@@ -38,7 +38,7 @@ const DeliveryAddressAccordionContainer = ({
 
   const handleEditOrder = async () => {
     try {
-      const addressResponse = await getAddressById(addressId);
+      const addressResponse = await addressApi.get(addressId);
 
       dispatch(
         editAddressOrder({
@@ -55,8 +55,10 @@ const DeliveryAddressAccordionContainer = ({
   const handleCreateOrder = async () => {
     try {
       const checkedProductIds = getSelectedProductIds(cart.sellers);
-      const productsResponse = await getProductsByIds(checkedProductIds);
-      const addressResponse = await getAddressById(addressId);
+      const productsResponse = await productsApi.getProductsByIds(
+        checkedProductIds
+      );
+      const addressResponse = await addressApi.get(addressId);
 
       const res = await dispatch(
         addOrder({

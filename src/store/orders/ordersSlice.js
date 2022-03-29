@@ -1,12 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import {
-  getUsersOrders,
-  cancelUsersOrder,
-  confirmUsersOrder,
-  addUsersOrders,
-  editUserAddressOrder,
-} from '../../api/orders';
+import ordersApi from '../../api/orders';
 import getProductQuantity from '../../helpers/getProductQuantity';
 
 import { initialState } from './initialState';
@@ -15,7 +9,7 @@ export const getOrders = createAsyncThunk(
   'orders/getOrders',
   async (payload, { getState }) => {
     const { user } = getState();
-    const response = await getUsersOrders({ userId: user.user.id });
+    const response = await ordersApi.getUsersOrders(user.user.id);
 
     return response.data;
   }
@@ -34,7 +28,7 @@ export const addOrder = createAsyncThunk(
       quantity: getProductQuantity(cart.sellers, p.id),
     }));
 
-    const response = await addUsersOrders({
+    const response = await ordersApi.addUserOrder({
       products,
       userId: user.user.id,
       status: 1,
@@ -55,7 +49,7 @@ export const editAddressOrder = createAsyncThunk(
   'orders/editAddressOrder',
   async ({ orderId, addressData, addressId }) => {
     const deliveryAddress = addressData;
-    const response = await editUserAddressOrder(
+    const response = await ordersApi.editUserAddressOrder(
       orderId,
       deliveryAddress,
       addressId
@@ -70,7 +64,7 @@ export const cancelOrder = createAsyncThunk(
   async ({ order }, { getState }) => {
     const { user } = getState();
 
-    const response = await cancelUsersOrder({
+    const response = await ordersApi.cancelUsersOrder({
       orderId: order.id,
       userId: user.user.id,
     });
@@ -84,7 +78,7 @@ export const confirmOrder = createAsyncThunk(
   async ({ order }, { getState }) => {
     const { user } = getState();
 
-    const response = await confirmUsersOrder({
+    const response = await ordersApi.confirmUsersOrder({
       orderId: order.id,
       userId: user.user.id,
     });

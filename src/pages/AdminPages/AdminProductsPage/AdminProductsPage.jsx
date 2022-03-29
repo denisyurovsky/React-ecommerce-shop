@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { getAllComments } from '../../../api/feedback';
+import feedbackApi from '../../../api/feedback';
 import { requestWithAbortControl } from '../../../api/requestWithAbortControl';
 import noImg from '../../../assets/images/noImg.png';
 import { AdminTable } from '../../../components/ui-kit/AdminTable/AdminTable';
@@ -33,7 +33,7 @@ export const AdminProductsPage = () => {
     const fetchAllComments = async () => {
       try {
         const response = await requestWithAbortControl(
-          getAllComments,
+          feedbackApi.getAllComments,
           abortController
         );
 

@@ -2,6 +2,15 @@ import { OrderStatus } from '../enums/enums';
 
 import { OrderAddress } from './addresses.model';
 
+export interface OrderActionPayload {
+  orderId: number;
+  userId: number;
+}
+
+export interface OrderConfirm extends OrderActionPayload {
+  deliveredAt: Date;
+}
+
 interface OrderProduct {
   originalProductId: number;
   name: string;
@@ -11,8 +20,7 @@ interface OrderProduct {
   quantity: number;
 }
 
-export interface Order {
-  id: number;
+export interface OrderPayload {
   userId: number | null;
   addressId: number | null;
   status: OrderStatus;
@@ -22,7 +30,11 @@ export interface Order {
   totalPrice: number;
   totalDiscountPrice: number;
   totalQuantity: number;
+  deliveredAt: string | null;
+}
+
+export interface Order extends OrderPayload {
+  id: number;
   createdAt: string;
   updatedAt: string;
-  deliveredAt: string | null;
 }

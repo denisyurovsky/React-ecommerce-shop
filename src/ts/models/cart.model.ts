@@ -12,9 +12,17 @@ interface CartItem {
   checked: boolean;
 }
 
+export interface CartDataRequest {
+  cart: {
+    sellers: Record<string, CartItem>;
+  };
+}
+
 export interface Cart {
   sellers: Record<string, CartItem>;
+  personalDiscount: number;
+  sellersDiscount: number;
+  totalDiscount: number;
   totalPrice: number;
   totalQuantity: number;
-  totalDiscount: number;
 }

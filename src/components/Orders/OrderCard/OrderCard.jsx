@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { toast } from 'react-toastify';
 
-import { getProductsByIds } from '../../../api/products';
+import productsApi from '../../../api/products';
 import noImg from '../../../assets/images/noImg.png';
 import { notificationError, BREAK_POINT } from '../../../constants/constants';
 import { orderStatus, orderState } from '../../../constants/orderStatus';
@@ -129,7 +129,7 @@ export const OrderCard = ({ orderId: id }) => {
 
   const getProductsForImages = async (imagesIds, abortController) => {
     try {
-      const response = await getProductsByIds(imagesIds, {
+      const response = await productsApi.getProductsByIds(imagesIds, {
         signal: abortController.signal,
       });
 

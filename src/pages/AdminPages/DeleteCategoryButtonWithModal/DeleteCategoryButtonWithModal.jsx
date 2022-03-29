@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { deleteCategoryAndRelatedProducts } from '../../../api/categories';
+import categoriesApi from '../../../api/categories';
 import { notificationError } from '../../../constants/constants';
 import { getProductsByUserId } from '../../../store/products/productsSlice';
 
@@ -29,7 +29,9 @@ export const DeleteCategoryButtonWithModal = ({ category, products }) => {
 
   const onDeleteCategory = async () => {
     try {
-      const response = await deleteCategoryAndRelatedProducts(category);
+      const response = await categoriesApi.deleteCategoryAndRelatedProducts(
+        category
+      );
 
       if (response.status === 200) {
         dispatch(getProductsByUserId(authorId));

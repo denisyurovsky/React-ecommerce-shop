@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getProduct } from '../../api/product';
+import productApi from '../../api/product';
 import ProductDetailsPageContent from '../../components/ProductDetailsPageContent/ProductDetailsPageContent';
 import Spinner from '../../components/ui-kit/Spinner/Spinner';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
@@ -16,7 +16,7 @@ export const ProductDetailsPage = () => {
 
   const fetchProduct = useCallback(async () => {
     try {
-      const newProduct = await getProduct(id);
+      const newProduct = await productApi.get(id);
 
       setProduct(newProduct);
       setIsLoading(false);
