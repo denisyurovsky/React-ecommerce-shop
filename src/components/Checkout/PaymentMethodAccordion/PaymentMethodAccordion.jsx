@@ -160,6 +160,7 @@ const PaymentMethodAccordion = ({
               variant="contained"
               disabled={!isValid}
               onClick={makePayment}
+              data-cy="payButton"
             >{`Pay ${actualPrice} $`}</Button>
           </>
         )}

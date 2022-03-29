@@ -21,7 +21,11 @@ export const CartFooter = () => {
         isWhite
         isUppercase
       >
-        <Button variant="contained" disabled={!cart.totalPrice}>
+        <Button
+          variant="contained"
+          disabled={!cart.totalPrice}
+          data-cy="buyNowButton"
+        >
           Buy now
         </Button>
       </Link>

@@ -78,6 +78,7 @@ exports[`DeliveryAddressAccordion component should render valid snapshot 1`] = `
               >
                 <div
                   class="MuiFormGroup-root radioGroup css-dmmspl-MuiFormGroup-root"
+                  data-cy="RadioGroupAddresses"
                   role="radiogroup"
                 >
                   <label
@@ -284,6 +285,7 @@ exports[`DeliveryAddressAccordion component should render valid snapshot 1`] = `
               </div>
               <button
                 class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root Mui-disabled button css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
+                data-cy="deliveryAddressButton"
                 disabled=""
                 tabindex="-1"
                 type="button"

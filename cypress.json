@@ -3,6 +3,8 @@
   "env": {
     "apiUrl": "http://localhost:5000",
     "consumerLogin": "consumer1@gmail.com",
-    "consumerPassword": "123456"
+    "consumerPassword": "123456",
+    "consumer2Login": "consumer2@gmail.com",
+    "consumer2Password": "123456"
   }
 }

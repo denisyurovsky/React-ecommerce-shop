@@ -72,6 +72,7 @@ const DeliveryAddressAccordion = ({
               className={styles.radioGroup}
               onChange={handleChangeAddresses}
               value={addressId}
+              data-cy="RadioGroupAddresses"
             >
               {addresses.data.length > 0 &&
                 addresses.data.map((address) => (
@@ -96,6 +97,7 @@ const DeliveryAddressAccordion = ({
             className={styles.button}
             variant="contained"
             disabled={addressId === null}
+            data-cy="deliveryAddressButton"
           >
             Proceed
           </Button>
