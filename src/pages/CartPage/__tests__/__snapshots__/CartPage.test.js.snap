@@ -37,7 +37,7 @@ exports[`CartPage component snapshots renders CartPage without data 1`] = `
           >
             <a
               class="breadcrumb"
-              href="/"
+              href="/cart"
             >
               Cart
             </a>
@@ -196,20 +196,19 @@ exports[`CartPage component snapshots renders CartPage without data 1`] = `
       class="footer"
     >
       <div
-        class="MuiBox-root css-0"
+        class="priceBox css-nen11g-MuiStack-root"
       >
-        <p
-          class="totalPrice"
+        <div
+          class="totalPrice css-m69qwo-MuiStack-root"
           data-testid="totalPrice"
         >
-          Total Price: не число $
-        </p>
-        <p
-          class="savedMoney"
-          data-testid="savedMoney"
-        >
-          You saved: не число $
-        </p>
+          <p>
+            Total: 
+          </p>
+          <p>
+            2 872 $
+          </p>
+        </div>
       </div>
       <a
         class="link white uppercase"

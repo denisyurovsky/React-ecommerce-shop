@@ -63,6 +63,73 @@ export const testCart = {
   errorOccurred: false,
 };
 
+export const cartItems = {
+  sellers: {
+    1: {
+      products: [
+        {
+          userId: 1,
+          productId: 0,
+          quantity: 1,
+          checked: true,
+          price: 724,
+          discountPrice: null,
+        },
+      ],
+      checked: true,
+    },
+    3: {
+      products: [
+        {
+          userId: 3,
+          productId: 1,
+          quantity: 1,
+          checked: true,
+          price: 891,
+          discountPrice: null,
+        },
+        {
+          userId: 3,
+          productId: 2,
+          quantity: 1,
+          checked: true,
+          price: 210,
+          discountPrice: 100,
+        },
+        {
+          userId: 3,
+          productId: 3,
+          quantity: 1,
+          checked: true,
+          price: 510,
+          discountPrice: 400,
+        },
+      ],
+      checked: true,
+    },
+    4: {
+      products: [
+        {
+          userId: 4,
+          productId: 4,
+          quantity: 1,
+          checked: true,
+          price: 757,
+          discountPrice: null,
+        },
+      ],
+      checked: true,
+    },
+  },
+  totalPrice: 3092,
+  totalDiscountPrice: 2872,
+  totalQuantity: 5,
+  sellersDiscount: 0,
+  personalDiscoun: 0,
+  isLoading: false,
+  errorOccurred: false,
+};
+
 export const checkoutCart = {
   sellers: {
     1: {

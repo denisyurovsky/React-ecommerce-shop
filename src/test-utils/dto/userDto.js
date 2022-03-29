@@ -1,10 +1,10 @@
-import { testCart } from './cartDto';
+import { cartItems } from './cartDto';
 
 export const userDto = {
   email: 'IvanIvanov@yandex.ru',
   firstName: 'Ivan',
   lastName: 'Ivanov',
-  cart: testCart,
+  cart: cartItems,
   id: 1,
 };
 

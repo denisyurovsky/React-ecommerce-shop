@@ -1,0 +1,26 @@
+.priceBox {
+  padding: 10px;
+  padding-bottom: 0;
+  margin-right: 20px;
+  max-width: 270px;
+}
+
+.totalPrice {
+  font-size: 18px;
+  font-weight: bold;
+  justify-content: space-between;
+
+  & p {
+    margin-bottom: 0;
+  }
+}
+
+.totalDiscountPrice {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.savedMoney {
+  justify-content: space-between;
+  font-size: 18px;
+}

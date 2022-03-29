@@ -13,6 +13,7 @@ import CheckoutGuestPage from '../../components/Checkout/CheckoutGuestPage/Check
 import CheckoutUserPage from '../../components/Checkout/CheckoutUserPage/CheckoutUserPage';
 import OrderCard from '../../components/Checkout/OrderCard/OrderCard';
 import { Title } from '../../components/Title/Title';
+import TotalPriceBox from '../../components/TotalPriceBox/TotalPriceBox';
 import Link from '../../components/ui-kit/Link/Link';
 import Spinner from '../../components/ui-kit/Spinner/Spinner';
 import { notificationError } from '../../constants/constants';
@@ -105,6 +106,8 @@ const CheckoutPage = () => {
             ...EMPTY_ORDER,
             userId: user.id,
             products,
+            sellersDiscount: cart.sellersDiscount,
+            personalDiscount: cart.personalDiscount,
             totalPrice: cart.totalPrice,
             totalDiscountPrice: cart.totalDiscountPrice,
             totalQuantity: getCheckedProductsQuantity(cart.sellers),
@@ -125,21 +128,6 @@ const CheckoutPage = () => {
       isMounted = false;
     };
   }, [cart, orderId, user.id]);
-
-  const ActualPrice = () => {
-    if (
-      orderedProductsInfo.totalPrice === orderedProductsInfo.totalDiscountPrice
-    ) {
-      return <>{orderedProductsInfo.totalDiscountPrice} $</>;
-    } else {
-      return (
-        <>
-          <s>{orderedProductsInfo.totalPrice} $</s>{' '}
-          {orderedProductsInfo.totalDiscountPrice}
-        </>
-      );
-    }
-  };
 
   if (isFetching) {
     return <Spinner height="90vh" />;
@@ -173,12 +161,7 @@ const CheckoutPage = () => {
                 {orderedProductsInfo.products.map((product) => (
                   <OrderCard key={uniqueId('product')} {...product} />
                 ))}
-                <Box className={styles.orderBottom}>
-                  <Typography className={styles.orderPrice}>Total:</Typography>
-                  <Typography className={styles.orderPrice}>
-                    <ActualPrice />
-                  </Typography>
-                </Box>
+                <TotalPriceBox cart={orderedProductsInfo} />
               </>
             )}
           </Box>
@@ -189,7 +172,7 @@ const CheckoutPage = () => {
               orderedProductsInfo={orderedProductsInfo}
             />
           )}
-          {user.addresses.length && (
+          {Boolean(user.addresses.length) && (
             <CheckoutUserPage
               setCreatedOrderId={setCreatedOrderId}
               orderId={orderId}

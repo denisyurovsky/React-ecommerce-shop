@@ -1,52 +1,27 @@
-import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { pathNames } from '../../../constants/pathNames';
-import { formatPrice } from '../../../helpers/formatData';
 import { selectCart } from '../../../store/cart/cartSlice';
+import TotalPriceBox from '../../TotalPriceBox/TotalPriceBox';
 import Link from '../../ui-kit/Link/Link';
 
 import styles from './CartFooter.module.scss';
 
 export const CartFooter = () => {
   const cart = useSelector(selectCart);
-  const { totalDiscountPrice, totalPrice } = cart;
-
-  const [shouldDisplayDiscount, setShouldDisplayDiscount] = useState(
-    totalDiscountPrice !== totalPrice && totalDiscountPrice !== 0
-  );
-
-  useEffect(() => {
-    setShouldDisplayDiscount(
-      totalDiscountPrice !== totalPrice && totalDiscountPrice !== 0
-    );
-  }, [totalDiscountPrice, totalPrice]);
 
   return (
     <div className={styles.footer}>
-      {shouldDisplayDiscount ? (
-        <Box>
-          <p data-testid="totalPrice" className={styles.totalPrice}>
-            Total Price: {formatPrice(totalDiscountPrice)}
-          </p>
-          <p data-testid="savedMoney" className={styles.savedMoney}>
-            You saved: {formatPrice(totalPrice - totalDiscountPrice)}
-          </p>
-        </Box>
-      ) : (
-        <p data-testid="totalPrice" className={styles.totalPrice}>
-          Total Price: {formatPrice(totalPrice)}
-        </p>
-      )}
+      <TotalPriceBox cart={cart} />
       <Link
-        style={{ width: 'unset' }}
+        style={{ width: 'unset', mb: '13px' }}
         to={pathNames.CHECKOUT}
         isWhite
         isUppercase
       >
-        <Button variant="contained" disabled={!totalPrice}>
+        <Button variant="contained" disabled={!cart.totalPrice}>
           Buy now
         </Button>
       </Link>

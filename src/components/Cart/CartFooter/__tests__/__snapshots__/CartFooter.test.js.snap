@@ -5,12 +5,21 @@ exports[`CartFooter component Snapshot without data renders a valid snapshot wit
   <div
     class="footer"
   >
-    <p
-      class="totalPrice"
-      data-testid="totalPrice"
+    <div
+      class="priceBox css-nen11g-MuiStack-root"
     >
-      Total Price: 0 $
-    </p>
+      <div
+        class="totalPrice css-m69qwo-MuiStack-root"
+        data-testid="totalPrice"
+      >
+        <p>
+          Total: 
+        </p>
+        <p>
+          0 $
+        </p>
+      </div>
+    </div>
     <a
       class="link white uppercase"
       href="/checkout"

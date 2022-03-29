@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiscountBox render correct snapshots should render correct table with only seller discount 1`] = `
+<DocumentFragment>
+  <div
+    class="container MuiBox-root css-0"
+  >
+    <table
+      class="table"
+    >
+      <tbody>
+        <tr
+          class="row"
+        >
+          <td>
+            General discounts:
+          </td>
+          <td>
+            - 1 000 $
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DiscountBox render correct snapshots should render correct table with personal discount 1`] = `
+<DocumentFragment>
+  <div
+    class="container MuiBox-root css-0"
+  >
+    <table
+      class="table"
+    >
+      <tbody>
+        <tr
+          class="row"
+        >
+          <td>
+            Personal discounts:
+          </td>
+          <td>
+            - 1 500 $
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DiscountBox render correct snapshots should render correct table with seller and personal discounts 1`] = `
+<DocumentFragment>
+  <div
+    class="container MuiBox-root css-0"
+  >
+    <p
+      class="title"
+    >
+      Discounts:
+    </p>
+    <table
+      class="table"
+    >
+      <tbody>
+        <tr
+          class="row"
+        >
+          <td>
+            General discounts:
+          </td>
+          <td>
+            - 1 000 $
+          </td>
+        </tr>
+        <tr
+          class="row"
+        >
+          <td>
+            Personal discounts:
+          </td>
+          <td>
+            - 1 500 $
+          </td>
+        </tr>
+        <tr
+          class="row"
+        >
+          <td>
+            Total discounts:
+          </td>
+          <td>
+            - 2 500 $
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DiscountBox render correct snapshots should return null if discounts equal to 0 1`] = `<DocumentFragment />`;

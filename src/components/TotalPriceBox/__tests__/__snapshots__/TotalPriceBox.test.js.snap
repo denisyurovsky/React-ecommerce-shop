@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TotalPriceBox render correct snapshots should render a valid snapshot with discounts 1`] = `
+<DocumentFragment>
+  <div
+    class="priceBox css-nen11g-MuiStack-root"
+  >
+    <div
+      class="container MuiBox-root css-0"
+    >
+      <p
+        class="title"
+      >
+        Discounts:
+      </p>
+      <table
+        class="table"
+      >
+        <tbody>
+          <tr
+            class="row"
+          >
+            <td>
+              General discounts:
+            </td>
+            <td>
+              - 200 $
+            </td>
+          </tr>
+          <tr
+            class="row"
+          >
+            <td>
+              Personal discounts:
+            </td>
+            <td>
+              - 300 $
+            </td>
+          </tr>
+          <tr
+            class="row"
+          >
+            <td>
+              Total discounts:
+            </td>
+            <td>
+              - 500 $
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="totalPrice css-m69qwo-MuiStack-root"
+      data-testid="totalPrice"
+    >
+      <p>
+        Total: 
+      </p>
+      <p>
+        500 $
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TotalPriceBox render correct snapshots should render a valid snapshot without discounts 1`] = `
+<DocumentFragment>
+  <div
+    class="priceBox css-nen11g-MuiStack-root"
+  >
+    <div
+      class="totalPrice css-m69qwo-MuiStack-root"
+      data-testid="totalPrice"
+    >
+      <p>
+        Total: 
+      </p>
+      <p>
+        1 000 $
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

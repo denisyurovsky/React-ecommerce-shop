@@ -30,15 +30,7 @@ describe('CartFooter component', () => {
       const totalPrice = screen.getByTestId('totalPrice');
 
       expect(totalPrice.textContent).toBe(
-        `Total Price: ${formatPrice(testCart.totalDiscountPrice)}`
-      );
-
-      const totalDiscountPrice = screen.getByTestId('savedMoney');
-
-      expect(totalDiscountPrice.textContent).toBe(
-        `You saved: ${formatPrice(
-          testCart.totalPrice - testCart.totalDiscountPrice
-        )}`
+        `Total:\u00A0${formatPrice(testCart.totalDiscountPrice)}`
       );
     });
   });

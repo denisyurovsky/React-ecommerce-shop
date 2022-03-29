@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
@@ -5,7 +6,7 @@ import React from 'react';
 import { testCart } from '../../../test-utils/dto/cartDto';
 import testCards from '../../../test-utils/dto/productsDto';
 import { userDto } from '../../../test-utils/dto/userDto';
-import renderWith, { fireEvent, screen } from '../../../test-utils/renderWith';
+import renderWith, { screen } from '../../../test-utils/renderWith';
 import { AddToCartButton } from '../AddToCartButton';
 
 const serverUser = {
@@ -24,7 +25,7 @@ const preloadedState = {
 };
 
 const successfulHandlers = [
-  rest.put('/cart/1', (req, res, ctx) => {
+  rest.put('/cart', (req, res, ctx) => {
     serverUser.cart = req.body.cart;
 
     return res(ctx.status(200), ctx.json(serverUser));
@@ -49,36 +50,26 @@ describe('AddToCartButton component', () => {
   describe('valid behaviour of buttons when server responds', () => {
     const server = setupServer(...successfulHandlers);
 
-    beforeAll(() => {
-      server.listen();
-    });
+    beforeAll(() => server.listen());
     afterAll(() => server.close());
-    it('reacts on + clicks correctly', async () => {
+
+    beforeEach(() => {
       renderWith(<AddToCartButton product={testCards[2]} />, preloadedState);
+    });
 
-      const addButton = await screen.findByText('+ add to cart');
+    it('reacts on + clicks correctly', async () => {
+      userEvent.click(await screen.findByText('+ add to cart'));
 
-      fireEvent.click(addButton);
-      const valueFromServer = await screen.findByText('1');
-
-      expect(valueFromServer).toBeInTheDocument();
+      expect(await screen.findByText('1')).toBeInTheDocument();
     });
 
     it('reacts on - clicks correctly', async () => {
-      renderWith(<AddToCartButton product={testCards[2]} />, preloadedState);
-
-      const addButton = await screen.findByText('+ add to cart');
-
-      fireEvent.click(addButton);
-
-      const secondAddButton = await screen.findByText('+');
-
-      fireEvent.click(secondAddButton);
+      userEvent.click(await screen.findByText('+ add to cart'));
+      userEvent.click(await screen.findByText('+'));
 
       expect(await screen.findByText('2')).toBeInTheDocument();
-      const decreaseButton = await screen.findByText('-');
 
-      fireEvent.click(decreaseButton);
+      userEvent.click(await screen.findByText('-'));
 
       expect(await screen.findByText('1')).toBeInTheDocument();
     });

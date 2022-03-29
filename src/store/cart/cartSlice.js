@@ -1,58 +1,73 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import _ from 'lodash';
 
-import { setCart } from '../../api/cart';
+import { setCart, deleteCart, calculateGuestPrice } from '../../api/cart';
 import { getUser } from '../../api/user';
 import deleteCheckedProducts from '../../helpers/deleteCheckedProducts';
 import { findProductIndexById } from '../../helpers/findProductIndexById';
 import { getCartFromStorage } from '../../helpers/getCartFromStorage';
-import getCheckedProductsQuantity from '../../helpers/getCheckedProductsQuantity';
 import { isGuest } from '../../helpers/isGuest';
 import { loginUser } from '../user/userSlice';
 
 import { initialState } from './initialState';
 
+const fetchCart = async (updatedCart, userId) => {
+  const response = isGuest(userId)
+    ? await calculateGuestPrice(updatedCart)
+    : await setCart(updatedCart);
+
+  if (isGuest(userId)) {
+    localStorage.setItem('cart', JSON.stringify(response.data.cart));
+  }
+
+  return response.data.cart;
+};
+
+const setNewCart = (state, payload) => {
+  state.sellers = payload?.sellers ?? {};
+  state.totalPrice = payload?.totalPrice ?? 0;
+  state.totalDiscountPrice = payload?.totalDiscountPrice ?? 0;
+  state.totalQuantity = payload?.totalQuantity ?? 0;
+  (state.sellersDiscount = payload?.sellersDiscount ?? 0),
+    (state.personalDiscount = payload?.personalDiscount ?? 0),
+    (state.isLoading = false);
+  state.errorOccurred = false;
+};
+
 export const getCart = createAsyncThunk(
   'cart/getCart',
-  async (payload, { getState }) => {
+  async (_, { getState }) => {
     const { user } = getState();
-
     const userId = user.user.id;
 
-    let response;
+    let cart = null;
 
     if (isGuest(userId)) {
       if (getCartFromStorage()) {
-        response = { data: { cart: getCartFromStorage() } };
+        cart = getCartFromStorage();
       } else {
-        response = {
-          data: {
-            cart: {
-              sellers: {},
-              totalQuantity: 0,
-              totalPrice: 0,
-              totalDiscountPrice: 0,
-            },
-          },
+        cart = {
+          sellers: {},
+          totalQuantity: 0,
+          totalPrice: 0,
+          totalDiscountPrice: 0,
         };
       }
     } else {
-      response = await getUser(userId);
-      if (!response.data.cart) {
-        response = {
-          data: {
-            cart: {
-              sellers: {},
-              totalQuantity: 0,
-              totalPrice: 0,
-              totalDiscountPrice: 0,
-            },
-          },
+      let response = await getUser(userId);
+
+      cart = response.data.cart;
+      if (!cart) {
+        cart = {
+          sellers: {},
+          totalQuantity: 0,
+          totalPrice: 0,
+          totalDiscountPrice: 0,
         };
       }
     }
 
-    return response.data.cart;
+    return cart;
   }
 );
 
@@ -60,40 +75,13 @@ export const deleteAllProducts = createAsyncThunk(
   'cart/deleteAllProducts',
   async (payload, { getState }) => {
     const { user } = getState();
-
     const userId = user.user.id;
 
-    const updatedCart = {
-      cart: {
-        sellers: {},
-        totalQuantity: 0,
-        totalPrice: 0,
-        totalDiscountPrice: 0,
-      },
-    };
-
-    let answer;
-
     if (isGuest(userId)) {
-      answer = {
-        data: {
-          cart: updatedCart.cart,
-        },
-      };
-      localStorage.setItem(
-        'cart',
-        JSON.stringify({
-          sellers: {},
-          totalQuantity: 0,
-          totalPrice: 0,
-          totalDiscountPrice: 0,
-        })
-      );
+      localStorage.removeItem('cart');
     } else {
-      answer = await setCart({ userId, cart: updatedCart });
+      await deleteCart();
     }
-
-    return answer.data;
   }
 );
 
@@ -101,13 +89,13 @@ export const addProduct = createAsyncThunk(
   'cart/addProduct',
   async ({ product }, { getState }) => {
     const { user, cart } = getState();
+    const { sellers } = cart;
+    const { id: productId, userId: sellerId } = product;
 
     const userId = user.user.id;
 
-    let { totalQuantity, totalPrice, totalDiscountPrice, sellers } = cart;
-    const { id: productId, userId: sellerId, actualPrice } = product;
-
     let products = [];
+    let updatedCart;
 
     if (sellers[sellerId]) {
       products = sellers[sellerId].products.slice();
@@ -115,20 +103,11 @@ export const addProduct = createAsyncThunk(
 
     const inCart = findProductIndexById(products, productId);
 
-    let updatedCart;
-
     if (inCart !== -1) {
       products[inCart] = {
         ...products[inCart],
         quantity: products[inCart].quantity + 1,
       };
-      totalQuantity = totalQuantity + 1;
-      totalPrice = products[inCart].checked
-        ? totalPrice + product.price
-        : totalPrice;
-      totalDiscountPrice = products[inCart].checked
-        ? totalDiscountPrice + actualPrice
-        : totalDiscountPrice;
     } else {
       products = [
         ...products,
@@ -141,44 +120,19 @@ export const addProduct = createAsyncThunk(
           discountPrice: product.discountPrice,
         },
       ];
-      totalQuantity = totalQuantity + 1;
-      totalPrice = totalPrice + product.price;
-      totalDiscountPrice = totalDiscountPrice + actualPrice;
     }
 
     updatedCart = {
-      cart: {
-        sellers: {
-          ...sellers,
-          [sellerId]: {
-            products: products,
-            checked: sellers[sellerId] ? sellers[sellerId].checked : true,
-          },
+      sellers: {
+        ...sellers,
+        [sellerId]: {
+          products: products,
+          checked: sellers[sellerId] ? sellers[sellerId].checked : true,
         },
-        totalPrice: totalPrice,
-        totalQuantity: totalQuantity,
-        totalDiscountPrice: totalDiscountPrice,
       },
     };
 
-    let response;
-
-    if (isGuest(userId)) {
-      localStorage.setItem(
-        'cart',
-        JSON.stringify({
-          sellers: updatedCart.cart.sellers,
-          totalQuantity: updatedCart.cart.totalQuantity,
-          totalPrice: updatedCart.cart.totalPrice,
-          totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
-        })
-      );
-      response = { data: { cart: updatedCart.cart } };
-    } else {
-      response = await setCart({ userId, cart: updatedCart });
-    }
-
-    return response.data;
+    return await fetchCart(updatedCart, userId);
   }
 );
 
@@ -186,11 +140,10 @@ export const decreaseProduct = createAsyncThunk(
   'cart/decreaseProduct',
   async ({ product }, { getState }) => {
     const { user, cart } = getState();
+    const { sellers } = cart;
+    const { id: productId, userId: sellerId } = product;
 
     const userId = user.user.id;
-    const { totalPrice, totalQuantity, sellers, totalDiscountPrice } = cart;
-    const { id: productId, userId: sellerId, actualPrice } = product;
-
     const products = sellers[sellerId].products.slice();
 
     const cartPosition = findProductIndexById(products, productId);
@@ -199,89 +152,6 @@ export const decreaseProduct = createAsyncThunk(
 
     if (products[cartPosition].quantity == 1) {
       updatedCart = {
-        cart: {
-          sellers: {
-            ...sellers,
-            [sellerId]: {
-              products: products.filter((item) => item.productId !== productId),
-              checked: sellers[sellerId].checked,
-            },
-          },
-          totalQuantity: totalQuantity - 1,
-          totalPrice: products[cartPosition].checked
-            ? totalPrice - product.price
-            : totalPrice,
-          totalDiscountPrice: products[cartPosition].checked
-            ? totalDiscountPrice - actualPrice
-            : totalDiscountPrice,
-        },
-      };
-
-      if (updatedCart.cart.sellers[sellerId].products.length == 0) {
-        delete updatedCart.cart.sellers[sellerId];
-      }
-    } else {
-      products[cartPosition] = {
-        ...products[cartPosition],
-        quantity: products[cartPosition].quantity - 1,
-      };
-      updatedCart = {
-        cart: {
-          sellers: {
-            ...sellers,
-            [sellerId]: {
-              products: products,
-              checked: sellers[sellerId].checked,
-            },
-          },
-          totalQuantity: totalQuantity - 1,
-          totalPrice: products[cartPosition].checked
-            ? totalPrice - product.price
-            : totalPrice,
-          totalDiscountPrice: products[cartPosition].checked
-            ? totalDiscountPrice - actualPrice
-            : totalDiscountPrice,
-        },
-      };
-    }
-
-    let response;
-
-    if (isGuest(userId)) {
-      localStorage.setItem(
-        'cart',
-        JSON.stringify({
-          sellers: sellers,
-          totalQuantity: updatedCart.cart.totalQuantity,
-          totalPrice: updatedCart.cart.totalPrice,
-          totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
-        })
-      );
-      response = { data: { cart: updatedCart.cart } };
-    } else {
-      response = await setCart({ userId, cart: updatedCart });
-    }
-
-    return response.data;
-  }
-);
-
-export const deleteProduct = createAsyncThunk(
-  'cart/deleteProduct',
-  async ({ product }, { getState }) => {
-    const { user, cart } = getState();
-
-    const userId = user.user.id;
-
-    const { id: productId, userId: sellerId, actualPrice } = product;
-    const { totalPrice, totalQuantity, sellers, totalDiscountPrice } = cart;
-
-    const products = sellers[sellerId].products.slice();
-
-    const cartPosition = findProductIndexById(products, productId);
-
-    const updatedCart = {
-      cart: {
         sellers: {
           ...sellers,
           [sellerId]: {
@@ -289,38 +159,56 @@ export const deleteProduct = createAsyncThunk(
             checked: sellers[sellerId].checked,
           },
         },
-        totalQuantity: totalQuantity - products[cartPosition].quantity,
-        totalPrice: products[cartPosition].checked
-          ? totalPrice - products[cartPosition].quantity * product.price
-          : totalPrice,
-        totalDiscountPrice: products[cartPosition].checked
-          ? totalDiscountPrice - products[cartPosition].quantity * actualPrice
-          : totalDiscountPrice,
+      };
+
+      if (updatedCart.sellers[sellerId].products.length == 0) {
+        delete updatedCart.sellers[sellerId];
+      }
+    } else {
+      products[cartPosition] = {
+        ...products[cartPosition],
+        quantity: products[cartPosition].quantity - 1,
+      };
+      updatedCart = {
+        sellers: {
+          ...sellers,
+          [sellerId]: {
+            products: products,
+            checked: sellers[sellerId].checked,
+          },
+        },
+      };
+    }
+
+    return await fetchCart(updatedCart, userId);
+  }
+);
+
+export const deleteProduct = createAsyncThunk(
+  'cart/deleteProduct',
+  async ({ product }, { getState }) => {
+    const { user, cart } = getState();
+    const { id: productId, userId: sellerId } = product;
+    const { sellers } = cart;
+
+    const userId = user.user.id;
+    const products = sellers[sellerId].products.slice();
+
+    const updatedCart = {
+      sellers: {
+        ...sellers,
+        [sellerId]: {
+          products: products.filter((item) => item.productId !== productId),
+          checked: sellers[sellerId].checked,
+        },
       },
     };
 
-    if (updatedCart.cart.sellers[sellerId].products.length == 0) {
-      delete updatedCart.cart.sellers[sellerId];
+    if (updatedCart.sellers[sellerId].products.length == 0) {
+      delete updatedCart.sellers[sellerId];
     }
 
-    let response;
-
-    if (userId == null) {
-      localStorage.setItem(
-        'cart',
-        JSON.stringify({
-          sellers: updatedCart.cart.sellers,
-          totalQuantity: updatedCart.cart.totalQuantity,
-          totalPrice: updatedCart.cart.totalPrice,
-          totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
-        })
-      );
-      response = { data: { cart: updatedCart.cart } };
-    } else {
-      response = await setCart({ userId, cart: updatedCart });
-    }
-
-    return response.data;
+    return await fetchCart(updatedCart, userId);
   }
 );
 
@@ -332,31 +220,11 @@ export const deleteSelectedProducts = createAsyncThunk(
 
     const cartProducts = _.cloneDeep(cart);
 
-    const updatedTotalQuantity =
-      cartProducts.totalQuantity -
-      getCheckedProductsQuantity(cartProducts.sellers);
-
     const updatedCart = {
       sellers: deleteCheckedProducts(cartProducts.sellers),
-      totalPrice: 0,
-      totalDiscountPrice: 0,
-      totalQuantity: updatedTotalQuantity,
     };
 
-    let answer;
-
-    if (isGuest(userId)) {
-      answer = {
-        data: {
-          cart: updatedCart,
-        },
-      };
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
-    } else {
-      answer = await setCart({ userId, cart: { cart: updatedCart } });
-    }
-
-    return answer.data;
+    return await fetchCart(updatedCart, userId);
   }
 );
 
@@ -365,8 +233,8 @@ export const selectProduct = createAsyncThunk(
   async ({ product }, { getState }) => {
     const { user, cart } = getState();
 
-    const { totalQuantity, totalPrice, sellers, totalDiscountPrice } = cart;
-    const { id: productId, userId: sellerId, actualPrice } = product;
+    const { sellers } = cart;
+    const { id: productId, userId: sellerId } = product;
     const userId = user.user.id;
 
     const products = cart.sellers[sellerId].products.slice();
@@ -378,43 +246,16 @@ export const selectProduct = createAsyncThunk(
     };
 
     const updatedCart = {
-      cart: {
-        sellers: {
-          ...sellers,
-          [sellerId]: {
-            products: products,
-            checked: sellers[sellerId].checked,
-          },
+      sellers: {
+        ...sellers,
+        [sellerId]: {
+          products: products,
+          checked: sellers[sellerId].checked,
         },
-        totalQuantity: totalQuantity,
-        totalPrice: products[cartPosition].checked
-          ? totalPrice + product.price * products[cartPosition].quantity
-          : totalPrice - product.price * products[cartPosition].quantity,
-        totalDiscountPrice: products[cartPosition].checked
-          ? totalDiscountPrice + actualPrice * products[cartPosition].quantity
-          : totalDiscountPrice - actualPrice * products[cartPosition].quantity,
       },
     };
 
-    let response;
-
-    if (isGuest(userId)) {
-      localStorage.setItem(
-        'cart',
-        JSON.stringify({
-          sellers: updatedCart.cart.sellers,
-          totalQuantity: updatedCart.cart.totalQuantity,
-          totalPrice: updatedCart.cart.totalPrice,
-          totalDiscountPrice: updatedCart.cart.totalDiscountPrice,
-        })
-      );
-
-      response = { data: { cart: updatedCart.cart } };
-    } else {
-      response = await setCart({ userId, cart: updatedCart });
-    }
-
-    return response.data;
+    return await fetchCart(updatedCart, userId);
   }
 );
 
@@ -422,13 +263,10 @@ export const selectSellersProducts = createAsyncThunk(
   'cart/selectSellersProducts',
   async ({ sellerId }, { getState }) => {
     const { cart, user } = getState();
+    const { sellers } = cart;
 
     const userId = user.user.id;
-
     const sellerChecked = cart.sellers[sellerId].checked;
-
-    const { totalQuantity, sellers, totalPrice, totalDiscountPrice } = cart;
-
     const products = cart.sellers[sellerId].products.slice();
 
     const newProducts = products.map((product) => {
@@ -439,52 +277,14 @@ export const selectSellersProducts = createAsyncThunk(
       }
     });
 
-    const newSellers = { ...sellers };
-
-    newSellers[sellerId] = { products: newProducts, checked: !sellerChecked };
-
     const updatedCart = {
-      cart: {
-        sellers: newSellers,
-        totalQuantity: totalQuantity,
-        totalPrice:
-          totalPrice +
-          newProducts.reduce((prev, current, index) => {
-            const difference =
-              products[index].checked == current.checked
-                ? 0
-                : current.price * current.quantity;
-
-            return prev + (sellerChecked ? -difference : difference);
-          }, 0),
-        totalDiscountPrice:
-          totalDiscountPrice +
-          newProducts.reduce((prev, current, index) => {
-            const actualPrice =
-              current.discountPrice === null
-                ? current.price
-                : current.discountPrice;
-
-            const difference =
-              products[index].checked == current.checked
-                ? 0
-                : actualPrice * current.quantity;
-
-            return prev + (sellerChecked ? -difference : difference);
-          }, 0),
+      sellers: {
+        ...sellers,
+        [sellerId]: { products: newProducts, checked: !sellerChecked },
       },
     };
 
-    let response;
-
-    if (isGuest(userId)) {
-      localStorage.setItem('cart', JSON.stringify(updatedCart.cart));
-      response = { data: { cart: updatedCart.cart } };
-    } else {
-      response = await setCart({ userId, cart: updatedCart });
-    }
-
-    return response.data;
+    return await fetchCart(updatedCart, userId);
   }
 );
 
@@ -497,13 +297,8 @@ export const cartSlice = createSlice({
       .addCase(getCart.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getCart.fulfilled, (state, action) => {
-        state.sellers = action.payload.sellers;
-        state.totalPrice = action.payload.totalPrice;
-        state.totalDiscountPrice = action.payload.totalDiscountPrice;
-        state.totalQuantity = action.payload.totalQuantity;
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(getCart.fulfilled, (state, { payload }) => {
+        setNewCart(state, payload);
       })
       .addCase(getCart.rejected, (state) => {
         state.isLoading = false;
@@ -512,13 +307,8 @@ export const cartSlice = createSlice({
       .addCase(addProduct.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(addProduct.fulfilled, (state, action) => {
-        state.sellers = action.payload.cart.sellers;
-        state.totalQuantity = action.payload.cart.totalQuantity;
-        state.totalDiscountPrice = action.payload.cart.totalDiscountPrice;
-        state.totalPrice = action.payload.cart.totalPrice;
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(addProduct.fulfilled, (state, { payload }) => {
+        setNewCart(state, payload);
       })
       .addCase(addProduct.rejected, (state) => {
         state.isLoading = false;
@@ -527,13 +317,8 @@ export const cartSlice = createSlice({
       .addCase(decreaseProduct.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(decreaseProduct.fulfilled, (state, action) => {
-        state.sellers = action.payload.cart.sellers;
-        state.totalQuantity = action.payload.cart.totalQuantity;
-        state.totalDiscountPrice = action.payload.cart.totalDiscountPrice;
-        state.totalPrice = action.payload.cart.totalPrice;
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(decreaseProduct.fulfilled, (state, { payload }) => {
+        setNewCart(state, payload);
       })
       .addCase(decreaseProduct.rejected, (state) => {
         state.isLoading = false;
@@ -542,17 +327,8 @@ export const cartSlice = createSlice({
       .addCase(deleteProduct.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteProduct.fulfilled, (state, action) => {
-        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
-          action.payload.cart;
-
-        state.sellers = sellers;
-        state.totalPrice = totalPrice;
-        state.totalQuantity = totalQuantity;
-        state.totalDiscountPrice = totalDiscountPrice;
-
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(deleteProduct.fulfilled, (state, { payload }) => {
+        setNewCart(state, payload);
       })
       .addCase(deleteProduct.rejected, (state) => {
         state.isLoading = false;
@@ -561,16 +337,8 @@ export const cartSlice = createSlice({
       .addCase(selectProduct.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(selectProduct.fulfilled, (state, action) => {
-        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
-          action.payload.cart;
-
-        state.sellers = sellers;
-        state.totalPrice = totalPrice;
-        state.totalQuantity = totalQuantity;
-        state.totalDiscountPrice = totalDiscountPrice;
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(selectProduct.fulfilled, (state, { payload }) => {
+        setNewCart(state, payload);
       })
       .addCase(selectProduct.rejected, (state) => {
         state.isLoading = false;
@@ -579,16 +347,8 @@ export const cartSlice = createSlice({
       .addCase(deleteAllProducts.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteAllProducts.fulfilled, (state, action) => {
-        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
-          action.payload.cart;
-
-        state.sellers = sellers;
-        state.totalPrice = totalPrice;
-        state.totalQuantity = totalQuantity;
-        state.totalDiscountPrice = totalDiscountPrice;
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(deleteAllProducts.fulfilled, (state) => {
+        setNewCart(state);
       })
       .addCase(deleteAllProducts.rejected, (state) => {
         state.isLoading = false;
@@ -597,16 +357,8 @@ export const cartSlice = createSlice({
       .addCase(selectSellersProducts.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(selectSellersProducts.fulfilled, (state, action) => {
-        const { sellers, totalPrice, totalQuantity, totalDiscountPrice } =
-          action.payload.cart;
-
-        state.sellers = sellers;
-        state.totalPrice = totalPrice;
-        state.totalQuantity = totalQuantity;
-        state.totalDiscountPrice = totalDiscountPrice;
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(selectSellersProducts.fulfilled, (state, { payload }) => {
+        setNewCart(state, payload);
       })
       .addCase(selectSellersProducts.rejected, (state, action) => {
         state.errorMessage = action.error.message;
@@ -617,13 +369,8 @@ export const cartSlice = createSlice({
         state.isLoading = true;
         state.errorOccurred = false;
       })
-      .addCase(deleteSelectedProducts.fulfilled, (state, action) => {
-        state.sellers = action.payload.cart.sellers;
-        state.totalQuantity = action.payload.cart.totalQuantity;
-        state.totalPrice = action.payload.cart.totalPrice;
-        state.totalDiscountPrice = action.payload.cart.totalDiscountPrice;
-        state.isLoading = false;
-        state.errorOccurred = false;
+      .addCase(deleteSelectedProducts.fulfilled, (state, { payload }) => {
+        setNewCart(state, payload);
       })
       .addCase(deleteSelectedProducts.rejected, (state, action) => {
         state.errorMessage = action.error.message;

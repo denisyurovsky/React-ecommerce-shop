@@ -1,157 +1,30 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { fireEvent, render, waitFor, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import React from 'react';
-import { Provider } from 'react-redux';
 
-import cartReducer from '../../../store/cart/cartSlice';
-import userReducer from '../../../store/user/userSlice';
+import { cartItems } from '../../../test-utils/dto/cartDto';
 import testProducts from '../../../test-utils/dto/productsDto';
-import renderWith from '../../../test-utils/renderWith';
-import renderWithStore from '../../../test-utils/renderWithStore';
-import RouterConnected from '../../../test-utils/RouterConnected';
+import { userDto as serverUser } from '../../../test-utils/dto/userDto';
+import renderWith, { waitFor, screen } from '../../../test-utils/renderWith';
 import { CartPage } from '../CartPage';
 
-let initialCart = {
-  sellers: {
-    1: {
-      products: [
-        {
-          userId: 1,
-          productId: testProducts[0].id,
-          price: testProducts[0].price,
-          quantity: 1,
-          checked: true,
-        },
-      ],
-      checked: true,
-    },
-    2: {
-      products: [
-        {
-          userId: 2,
-          productId: testProducts[1].id,
-          price: testProducts[1].price,
-          quantity: 1,
-          checked: true,
-        },
-      ],
-      checked: true,
-    },
-    3: {
-      products: [
-        {
-          userId: 3,
-          productId: testProducts[2].id,
-          price: testProducts[2].price,
-          quantity: 1,
-          checked: true,
-        },
-      ],
-      checked: true,
-    },
-  },
-  totalQuantity: 3,
-  totalPrice:
-    testProducts[0].price + testProducts[1].price + testProducts[2].price,
-  isLoading: false,
-  errorOccurred: false,
-};
-
-let serverUser = {
-  id: 1,
-  cart: {
-    sellers: {
-      1: {
-        products: [
-          {
-            userId: 1,
-            productId: testProducts[0].id,
-            price: testProducts[0].price,
-            quantity: 1,
-            checked: true,
-          },
-        ],
-        checked: true,
-      },
-      2: {
-        products: [
-          {
-            userId: 2,
-            productId: testProducts[1].id,
-            price: testProducts[1].price,
-            quantity: 1,
-            checked: true,
-          },
-        ],
-        checked: true,
-      },
-      3: {
-        products: [
-          {
-            userId: 3,
-            productId: testProducts[2].id,
-            price: testProducts[2].price,
-            quantity: 1,
-            checked: true,
-          },
-        ],
-        checked: true,
-      },
-    },
-    totalQuantity: 3,
-    totalPrice:
-      testProducts[0].price + testProducts[1].price + testProducts[2].price,
-    isLoading: false,
-    errorOccurred: false,
-  },
-  isLoading: false,
-  errorOccurred: false,
-};
-
-const initialUser = {
-  user: { id: 0 },
-};
-
 const stateForTests = {
-  user: initialUser,
-  cart: initialCart,
+  user: { user: { id: 0 } },
+  cart: cartItems,
 };
-
-const store = configureStore({
-  reducer: {
-    cart: cartReducer,
-    user: userReducer,
-  },
-  preloadedState: stateForTests,
-});
 
 const handlersFulfilled = [
-  rest.put(`/cart/:userId`, (req, res, ctx) => {
-    const { userId } = req.params;
-
-    serverUser = {
-      id: userId,
-      cart: req.body.cart,
-      isLoading: false,
-      errorOccurred: false,
-    };
-
-    return res(ctx.json({ id: userId, cart: req.body.cart }), ctx.status(200));
-  }),
-  rest.get('/users/:0', (req, res, ctx) => {
-    return res(
-      ctx.json({
-        ...serverUser,
-        firstName: `My firstName`,
-        lastName: `My lastName`,
-      }),
-      ctx.status(200)
-    );
+  rest.delete('/cart', (req, res, ctx) => res(ctx.json({}))),
+  rest.put(`/cart`, (req, res, ctx) => {
+    return res(ctx.json({ id: 0, cart: req.body.cart }), ctx.status(200));
   }),
   rest.get('/users/:userId', (req, res, ctx) => {
     const { userId } = req.params;
+
+    if (Number(userId) === 0) {
+      return res(ctx.json(serverUser));
+    }
 
     return res(
       ctx.json({
@@ -177,164 +50,83 @@ const handlersFulfilled = [
 
 const serverFulfilled = setupServer(...handlersFulfilled);
 
+beforeAll(() => serverFulfilled.listen());
+afterAll(() => serverFulfilled.close());
+
+const awaitCart = async () => {
+  await waitFor(() => {
+    expect(screen.queryAllByTestId('cartDeleteButton')).toHaveLength(5);
+  });
+};
+
 describe('CartPage component', () => {
   beforeEach(() => serverFulfilled.listen());
   afterEach(() => serverFulfilled.close());
 
   describe('snapshots', () => {
     it('renders CartPage without data', () => {
-      const { asFragment } = renderWithStore(
-        <RouterConnected component={<CartPage />} />,
-        { store }
-      );
+      const { asFragment } = renderWith(<CartPage />, stateForTests, '/cart', [
+        '/cart',
+      ]);
 
       expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('Operations with products in cart', () => {
+    beforeEach(async () => {
+      renderWith(<CartPage />, stateForTests, '/cart', ['/cart']);
+      await awaitCart();
+    });
+
     it('should be able to add products', async () => {
-      const addRender = renderWith(<CartPage />, stateForTests);
-      const title = await addRender.findByText('Incredible Plastic Table');
+      userEvent.click(screen.queryAllByText('+')[0]);
 
-      await waitFor(() => {
-        expect(title).toBeInTheDocument();
-      });
-
-      const decreaseButtons = await addRender.findAllByText('-');
-
-      await waitFor(() => {
-        expect(decreaseButtons.length).toEqual(3);
-      });
-
-      let addButtons = await addRender.findAllByText('+');
-
-      expect(addButtons.length).toEqual(3);
-      addButtons = await addRender.findAllByText('+');
-
-      fireEvent.click(addButtons[0]);
-      addButtons = await addRender.findAllByText('+');
       expect(screen.getByTestId('SaveIcon')).toBeInTheDocument();
-
-      const quantity = await addRender.findByText('2');
-
-      expect(quantity).toBeInTheDocument();
+      expect(await screen.findByText('2')).toBeInTheDocument();
     });
 
     it('should be able to decrease products', async () => {
-      const decreaseRender = renderWith(<CartPage />, stateForTests);
+      userEvent.click(screen.queryAllByText('-')[0]);
 
-      const title = await decreaseRender.findByText('Incredible Plastic Table');
-
-      await waitFor(() => {
-        expect(title).toBeInTheDocument();
-      });
-
-      const decreaseButtons = await decreaseRender.findAllByText('-');
-
-      await waitFor(() => {
-        expect(decreaseButtons.length).toEqual(3);
-      });
-
-      let secondTitle = await decreaseRender.findByText(
-        'Intelligent Cotton Pants'
-      );
-
-      expect(secondTitle).toBeInTheDocument();
-
-      fireEvent.click(decreaseButtons[0]);
       expect(screen.getByTestId('SaveIcon')).toBeInTheDocument();
-      const testButton = await screen.findAllByText('1');
-
-      expect(testButton).toHaveLength(2);
-
-      secondTitle = await decreaseRender.findByText('Incredible Rubber Cheese');
-      const allQuantities = await decreaseRender.findAllByText('1');
-
-      expect(allQuantities.length).toEqual(3);
+      await waitFor(() => {
+        expect(screen.queryAllByTestId('cartDeleteButton')).toHaveLength(4);
+      });
     });
 
     it('should be able to delete products', async () => {
-      const deleteRender = renderWithStore(
-        <RouterConnected component={<CartPage />} />,
-        { store }
-      );
-
-      const title = await deleteRender.findByText('Incredible Plastic Table');
+      userEvent.click(screen.queryAllByTestId('cartDeleteButton')[0]);
+      userEvent.click(await screen.findByText('Yes'));
 
       await waitFor(() => {
-        expect(title).toBeInTheDocument();
-      });
-
-      const allQuantities = await deleteRender.findAllByText('1');
-
-      expect(allQuantities.length).toEqual(3);
-
-      const deleteButtons = await deleteRender.findAllByTestId(
-        'cartDeleteButton'
-      );
-
-      expect(deleteButtons.length).toEqual(3);
-      fireEvent.click(deleteButtons[0]);
-      expect(await deleteRender.findByText('No')).toBeInTheDocument();
-      fireEvent.click(await deleteRender.findByText('No'));
-      expect(deleteRender.queryByText('Yes')).toBe(null);
-      fireEvent.click(deleteButtons[0]);
-      const agreeButton = await deleteRender.findByText('Yes');
-
-      fireEvent.click(agreeButton);
-
-      await waitFor(() => {
-        expect(Object.keys(store.getState().cart.sellers).length).toBe(2);
+        expect(screen.queryAllByTestId('cartDeleteButton')).toHaveLength(4);
       });
     });
 
     it('should be able to select products', async () => {
-      const selectRender = render(
-        <Provider store={store}>
-          <RouterConnected component={<CartPage />} />
-        </Provider>
-      );
-
-      const title = await selectRender.findByText('Incredible Plastic Table');
+      userEvent.click(screen.queryAllByRole('checkbox')[1]);
 
       await waitFor(() => {
-        expect(title).toBeInTheDocument();
-      });
-
-      const checkboxes = await selectRender.findAllByRole('checkbox');
-
-      expect(checkboxes.length).toEqual(4);
-      fireEvent.click(checkboxes[1]);
-
-      await waitFor(() => {
-        expect(store.getState().cart.sellers[2].products[0].checked).toEqual(
-          false
-        );
-      });
-
-      fireEvent.click(checkboxes[2]);
-      await waitFor(() => {
-        expect(store.getState().cart.sellers[2].products[0].checked).toEqual(
-          false
-        );
+        expect(
+          screen.queryAllByTestId('CheckBoxOutlineBlankIcon')
+        ).toHaveLength(1);
       });
     });
 
     it('should be able to delete all products', async () => {
-      const deleteAll = renderWith(<CartPage />, stateForTests);
+      userEvent.click(screen.getByText('Empty cart'));
 
-      const deleteAllButton = await deleteAll.findByText('Empty cart');
+      const confirmButton = await screen.findByText('Yes');
 
-      fireEvent.click(deleteAllButton);
+      expect(confirmButton).toBeInTheDocument();
+      userEvent.click(confirmButton);
 
-      expect(await deleteAll.findByText('Yes')).toBeInTheDocument();
-
-      const confirmButton = await deleteAll.findByText('Yes');
-
-      fireEvent.click(confirmButton);
-
-      expect(await deleteAll.findByText('searching')).toBeInTheDocument();
+      await waitFor(() => {
+        expect(
+          screen.getByText('searching', { exact: false })
+        ).toBeInTheDocument();
+      });
     });
   });
 });
