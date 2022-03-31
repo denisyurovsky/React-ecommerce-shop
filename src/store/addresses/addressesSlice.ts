@@ -1,43 +1,57 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import addressApi from '../../api/addresses';
+import { Address } from '../../ts/models/addresses.model';
+import { User } from '../../ts/models/user.model';
+import { RootState } from '../store';
 import { updateUser } from '../user/userSlice';
 
 import initialState from './initialState';
 
+interface UserWithAddress {
+  address: Address;
+  user: User;
+}
+interface SomeAddresses {
+  data: Address[];
+}
+interface SomeAddress {
+  data: Address;
+}
+
 export const getAddressesByIds = createAsyncThunk(
   'addresses/getAddressesByIds',
-  async (ids) => {
-    const response = ids.length
+  async (ids: number[]) => {
+    const { data }: SomeAddresses = ids.length
       ? await addressApi.getAddresses(ids)
       : { data: [] };
 
-    return response.data;
+    return data;
   }
 );
 
 export const addAddress = createAsyncThunk(
   'addresses/addAddress',
-  async ({ address, user }, thunkAPI) => {
-    const response = await addressApi.add(address);
+  async ({ address, user }: UserWithAddress, thunkAPI) => {
+    const { data }: SomeAddress = await addressApi.add(address);
 
     const newUser = {
       ...user,
-      addresses: [...user.addresses, response.data.id],
+      addresses: [...user.addresses, data.id],
     };
 
     thunkAPI.dispatch(updateUser(newUser));
 
-    return response.data;
+    return data;
   }
 );
 
 export const editAddress = createAsyncThunk(
   'addresses/editAddress',
-  async (address) => {
-    const response = await addressApi.edit(address);
+  async (address: Address) => {
+    const { data }: SomeAddress = await addressApi.edit(address);
 
-    return response.data;
+    return data;
   }
 );
 
@@ -63,7 +77,7 @@ export const addressesSlice = createSlice({
         return newState;
       })
       .addCase(getAddressesByIds.rejected, (state, action) => {
-        state.errorMessage = action.error.message;
+        state.errorMessage = action.error.message || '';
         state.isLoading = false;
         state.errorOccurred = true;
       })
@@ -83,7 +97,7 @@ export const addressesSlice = createSlice({
         return newState;
       })
       .addCase(addAddress.rejected, (state, action) => {
-        state.errorMessage = action.error.message;
+        state.errorMessage = action.error.message || '';
         state.isLoading = false;
         state.errorOccurred = true;
       })
@@ -106,12 +120,12 @@ export const addressesSlice = createSlice({
         return newState;
       })
       .addCase(editAddress.rejected, (state, action) => {
-        state.errorMessage = action.error.message;
+        state.errorMessage = action.error.message || '';
         state.isLoading = false;
         state.errorOccurred = true;
       });
   },
 });
 
-export const selectAddresses = (state) => state.addresses;
+export const selectAddresses = (state: RootState) => state.addresses;
 export default addressesSlice.reducer;

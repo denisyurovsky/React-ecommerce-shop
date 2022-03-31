@@ -1,5 +1,7 @@
+import { Address } from '../../ts/models/addresses.model';
+
 const initialState = {
-  data: [],
+  data: [] as Address[],
   isLoading: false,
   errorOccurred: false,
   errorMessage: '',

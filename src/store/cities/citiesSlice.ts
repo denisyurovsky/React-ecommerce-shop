@@ -1,17 +1,24 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import citiesApi from '../../api/cities';
+import { RootState } from '../store';
 
 import initialState from './initialState';
 
+interface CitiesData {
+  data: {
+    cities: string[];
+  };
+}
+
 export const getCities = createAsyncThunk(
   'cities/getCities',
-  async (countryCode) => {
-    const response = countryCode
+  async (countryCode: string) => {
+    const { data }: CitiesData = countryCode
       ? await citiesApi.get(countryCode)
       : { data: { cities: [] } };
 
-    return response.data.cities;
+    return data.cities;
   }
 );
 
@@ -37,12 +44,12 @@ export const citesSlice = createSlice({
         return newState;
       })
       .addCase(getCities.rejected, (state, action) => {
-        state.errorMessage = action.error.message;
+        state.errorMessage = action.error.message || '';
         state.isLoading = false;
         state.errorOccurred = true;
       });
   },
 });
 
-export const selectCities = (state) => state.cities;
+export const selectCities = (state: RootState) => state.cities;
 export default citesSlice.reducer;

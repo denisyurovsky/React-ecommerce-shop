@@ -9,6 +9,7 @@ import {
 } from '../../constants/authConstants';
 import { UPDATE_WISHLIST_TYPE } from '../../constants/wishlists/wishlists';
 import { FetchStatus } from '../../ts/enums/enums';
+import { User } from '../../ts/models/user.model';
 
 import {
   checkIsProductWished,
@@ -97,7 +98,7 @@ export const updateWishlists = createAsyncThunk(
 
 export const updateUser = createAsyncThunk(
   'user/updateUser',
-  async (profile) => {
+  async (profile: User) => {
     const response = await updateProfile(profile);
 
     return response.data;
