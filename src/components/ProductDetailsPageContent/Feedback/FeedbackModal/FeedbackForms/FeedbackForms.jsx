@@ -8,7 +8,7 @@ import {
   MIN_COMMENT_LENGTH,
   DEFAULT_NAME,
 } from '../../../../../constants/feedbackConstants.js';
-import { getUser } from '../../../../../store/user/userSlice.js';
+import { getUser } from '../../../../../store/user/userSlice';
 import LoadingButton from '../../../../ui-kit/buttons/LoadingButton.jsx';
 
 import ProductRating from './ProductRating';

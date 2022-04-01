@@ -5,16 +5,10 @@ import { RootState } from '../store';
 
 import initialState from './initialState';
 
-interface CitiesData {
-  data: {
-    cities: string[];
-  };
-}
-
 export const getCities = createAsyncThunk(
   'cities/getCities',
   async (countryCode: string) => {
-    const { data }: CitiesData = countryCode
+    const { data } = countryCode
       ? await citiesApi.get(countryCode)
       : { data: { cities: [] } };
 

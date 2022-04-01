@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { Dispatch } from 'react';
 
 import { login, register, setWishlists, updateProfile } from '../../api/user';
 import {
@@ -10,6 +11,8 @@ import {
 import { UPDATE_WISHLIST_TYPE } from '../../constants/wishlists/wishlists';
 import { FetchStatus } from '../../ts/enums/enums';
 import { User } from '../../ts/models/user.model';
+import { Wishlist } from '../../ts/models/wishlist.model';
+import { RootState } from '../store';
 
 import {
   checkIsProductWished,
@@ -18,28 +21,38 @@ import {
   updateWishlistsForSpecificProduct,
 } from './helpers/wishlistsHelpers';
 import initialState from './initialState';
+import {
+  WishlistAction,
+  DispatchedAction,
+  LoginArgs,
+  RegArgs,
+  LoginResponse,
+} from './userSliceTypes';
+
 const { LOCKED, FULFILLED, PENDING, REJECTED, IDLE } = authStatus;
 
-export const removeLockAfterTimeout = () => (dispatch) => {
-  const { resetBlockedState } = userSlice.actions;
+export const removeLockAfterTimeout =
+  () => (dispatch: Dispatch<DispatchedAction>) => {
+    const { resetBlockedState } = userSlice.actions;
 
-  setTimeout(() => {
-    dispatch(resetBlockedState());
-  }, LOCK_TIMEOUT);
-};
+    setTimeout(() => {
+      dispatch(resetBlockedState());
+    }, LOCK_TIMEOUT);
+  };
 
-export const resetUpdateWishlistsStatusAfterTimeout = () => (dispatch) => {
-  const { resetUpdateWishlistsStatus } = userSlice.actions;
+export const resetUpdateWishlistsStatusAfterTimeout =
+  () => (dispatch: Dispatch<DispatchedAction>) => {
+    const { resetUpdateWishlistsStatus } = userSlice.actions;
 
-  setTimeout(() => {
-    dispatch(resetUpdateWishlistsStatus());
-  });
-};
+    setTimeout(() => {
+      dispatch(resetUpdateWishlistsStatus());
+    });
+  };
 
 export const loginUser = createAsyncThunk(
   'user/loginUser',
-  async ({ password, email, isKeep }) => {
-    const response = await login({ email, password });
+  async ({ password, email, isKeep }: LoginArgs) => {
+    const response: LoginResponse = await login({ email, password });
 
     return { data: response.data, isKeep };
   }
@@ -47,8 +60,13 @@ export const loginUser = createAsyncThunk(
 
 export const registerUser = createAsyncThunk(
   'user/registerUser',
-  async ({ email, password, firstName, lastName }) => {
-    const response = await register({ email, password, firstName, lastName });
+  async ({ email, password, firstName, lastName }: RegArgs) => {
+    const response: LoginResponse = await register({
+      email,
+      password,
+      firstName,
+      lastName,
+    });
 
     return response.data;
   }
@@ -56,8 +74,8 @@ export const registerUser = createAsyncThunk(
 
 export const updateWishlists = createAsyncThunk(
   'user/updateWishlists',
-  async (action, { getState }) => {
-    const { user } = getState();
+  async (action: WishlistAction, { getState }) => {
+    const { user } = getState() as RootState;
     const { id: userId, wishlists } = user.user;
     let newWishlists;
 
@@ -67,7 +85,7 @@ export const updateWishlists = createAsyncThunk(
         break;
       case UPDATE_WISHLIST_TYPE.DELETE:
         newWishlists = wishlists.filter(
-          (wishlist) => wishlist.name !== action.argument
+          (wishlist: Wishlist) => wishlist.name !== action.argument
         );
         break;
       case UPDATE_WISHLIST_TYPE.RENAME:
@@ -230,16 +248,17 @@ export const {
   setLoginStatus,
 } = userSlice.actions;
 export default userSlice.reducer;
-export const selectUser = (state) => state.user;
-export const getUserRole = (state) => state.user.user.role;
-export const getUserId = (state) => state.user.user.id;
-export const getLoginState = (state) => state.user.loginStatus;
-export const getRegisterState = (state) => state.user.registerStatus;
-export const getCurrentUser = (state) => state.user;
-export const getWishlists = (state) => state.user.user.wishlists;
-export const getWishlistsStatus = (state) => state.user.updateWishlistsStatus;
-export const getUser = (state) => state.user.user;
-export const getIsWished = (state, productId) =>
+export const selectUser = (state: RootState) => state.user;
+export const getUserRole = (state: RootState) => state.user.user.role;
+export const getUserId = (state: RootState) => state.user.user.id;
+export const getLoginState = (state: RootState) => state.user.loginStatus;
+export const getRegisterState = (state: RootState) => state.user.registerStatus;
+export const getCurrentUser = (state: RootState) => state.user;
+export const getWishlists = (state: RootState) => state.user.user.wishlists;
+export const getWishlistsStatus = (state: RootState) =>
+  state.user.updateWishlistsStatus;
+export const getUser = (state: RootState) => state.user.user;
+export const getIsWished = (state: RootState, productId: number) =>
   checkIsProductWished(productId, state.user.user.wishlists);
-export const getCheckedWishlists = (state, productId) =>
+export const getCheckedWishlists = (state: RootState, productId: number) =>
   checkWishlistsForSpecificProduct(productId, state.user.user.wishlists);

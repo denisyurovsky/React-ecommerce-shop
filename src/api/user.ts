@@ -18,7 +18,7 @@ export interface Register {
 }
 
 export interface SetWishlists {
-  currentUserId: string;
+  currentUserId: number | null;
   wishlists: number[];
 }
 

@@ -8,7 +8,7 @@ import initialState from './initialState';
 export const getCategories = createAsyncThunk(
   'categories/getCategories',
   async () => {
-    const response: string[] = await categoriesApi.get();
+    const response = await categoriesApi.get();
 
     return response;
   }

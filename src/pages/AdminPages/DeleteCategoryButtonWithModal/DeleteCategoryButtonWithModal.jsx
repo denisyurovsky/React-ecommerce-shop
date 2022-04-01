@@ -16,6 +16,8 @@ import categoriesApi from '../../../api/categories';
 import { notificationError } from '../../../constants/constants';
 import { getProductsByUserId } from '../../../store/products/productsSlice';
 
+const { deleteCategoryAndRelatedProducts } = categoriesApi;
+
 export const DeleteCategoryButtonWithModal = ({ category, products }) => {
   const [open, setOpen] = useState(false);
 

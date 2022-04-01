@@ -1,20 +1,21 @@
 import { authStatus } from '../../constants/authConstants';
 import { defaultWishlists } from '../../constants/wishlists/wishlists';
 import { FetchStatus, Role } from '../../ts/enums/enums';
+import { Wishlist } from '../../ts/models/wishlist.model';
 
 export default {
   user: {
-    id: null,
+    id: null as number | null,
     firstName: '',
     lastName: '',
     gender: '',
-    dateOfBirth: null,
+    dateOfBirth: null as Date | null,
     email: '',
-    avatar: '',
+    avatar: '' as string,
     amountOfTries: 0,
-    addresses: [],
+    addresses: [1],
     role: Role.Guest,
-    wishlists: defaultWishlists,
+    wishlists: defaultWishlists as Wishlist[],
   },
   loginStatus: authStatus.IDLE,
   registerStatus: authStatus.IDLE,

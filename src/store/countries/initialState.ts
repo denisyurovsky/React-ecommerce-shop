@@ -1,5 +1,7 @@
+import { Countries } from '../../ts/models/countries.model';
+
 const initialState = {
-  data: [],
+  data: [] as Countries[],
   isLoading: false,
   errorOccurred: false,
   errorMessage: '',

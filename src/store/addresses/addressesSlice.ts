@@ -12,17 +12,11 @@ interface UserWithAddress {
   address: Address;
   user: User;
 }
-interface SomeAddresses {
-  data: Address[];
-}
-interface SomeAddress {
-  data: Address;
-}
 
 export const getAddressesByIds = createAsyncThunk(
   'addresses/getAddressesByIds',
   async (ids: number[]) => {
-    const { data }: SomeAddresses = ids.length
+    const { data } = ids.length
       ? await addressApi.getAddresses(ids)
       : { data: [] };
 
@@ -33,7 +27,7 @@ export const getAddressesByIds = createAsyncThunk(
 export const addAddress = createAsyncThunk(
   'addresses/addAddress',
   async ({ address, user }: UserWithAddress, thunkAPI) => {
-    const { data }: SomeAddress = await addressApi.add(address);
+    const { data } = await addressApi.add(address);
 
     const newUser = {
       ...user,
@@ -49,7 +43,7 @@ export const addAddress = createAsyncThunk(
 export const editAddress = createAsyncThunk(
   'addresses/editAddress',
   async (address: Address) => {
-    const { data }: SomeAddress = await addressApi.edit(address);
+    const { data } = await addressApi.edit(address);
 
     return data;
   }

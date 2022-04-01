@@ -20,16 +20,16 @@ export interface RegisteredUser {
   updatedAt: Date;
 }
 
-export interface RegisteredUserWithoutId extends RegisteredUser {
-  avatar: string | null;
-  phoneNumber: string | null;
+export interface RegistredUserWithoutId extends RegisteredUser {
+  avatar: string;
+  phoneNumber: string;
   gender: Gender;
   dateOfBirth: Date | null;
-  addresses: number[] | [];
+  addresses: number[];
   cart?: Cart;
   wishlists?: Wishlist[];
 }
 
-export interface User extends RegisteredUserWithoutId {
+export interface User extends RegistredUserWithoutId {
   id: number;
 }
