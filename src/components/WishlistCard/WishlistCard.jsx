@@ -129,7 +129,7 @@ const WishlistCard = ({
   }, [status]);
 
   return (
-    <Box className={styles.wishlistCard}>
+    <Box className={styles.wishlistCard} data-cy="wishlistCard">
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
@@ -162,6 +162,7 @@ const WishlistCard = ({
           onClick={handleExpandClick}
           aria-expanded={isExpanded}
           data-testid="show more"
+          data-cy="expandBtn"
         >
           <ExpandMoreIcon />
         </IconButton>
@@ -215,6 +216,7 @@ const WishlistCard = ({
         timeout="auto"
         unmountOnExit
         className={styles.collapse}
+        data-cy="productCards"
       >
         <CardsContainer
           cardShape={pageView.MODULE_VIEW}

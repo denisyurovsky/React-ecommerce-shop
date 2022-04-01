@@ -39,6 +39,7 @@ const AddToWishListButton = ({ productId, productName, cardShape }) => {
         aria-label="wish"
         component="span"
         onClick={handleClick}
+        data-cy="addToWishlists"
       >
         {isWished ? (
           <FavoriteIcon className={styles.added} />

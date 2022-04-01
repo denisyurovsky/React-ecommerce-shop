@@ -116,6 +116,7 @@ export const AddToWishlistModal = ({
             className={styles.addButton}
             onClick={handleAddWishlistButtonClick}
             data-testid="addButton"
+            data-cy="addWishlistBtn"
           >
             <AddIcon className={styles.addIcon} />
             <Typography>Add new wishlist</Typography>

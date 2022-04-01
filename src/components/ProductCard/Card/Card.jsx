@@ -46,7 +46,7 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
   });
 
   return (
-    <Card className={containerClasses}>
+    <Card className={containerClasses} data-cy="productCard">
       <CardActions className={styles.price}>
         <AddToWishListButton
           productId={id}
@@ -68,7 +68,9 @@ const CardItem = ({ product, cardShape = pageView.MODULE_VIEW, isProfile }) => {
             </Box>
           </Box>
           <CardContent className={styles.description}>
-            <div className={styles.title}>{name}</div>
+            <div className={styles.title} data-cy="productName">
+              {name}
+            </div>
             <Typography
               className={styles.category}
               variant="subtitle2"

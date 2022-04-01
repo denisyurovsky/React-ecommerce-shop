@@ -221,6 +221,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with o
           >
             <div
               class="wishlistCard MuiBox-root css-0"
+              data-cy="wishlistCard"
             >
               <div
                 class="header"
@@ -228,6 +229,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with o
                 <button
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium expandIcon css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                  data-cy="expandBtn"
                   data-testid="show more"
                   expand="false"
                   tabindex="0"
@@ -517,6 +519,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with s
           >
             <div
               class="wishlistCard MuiBox-root css-0"
+              data-cy="wishlistCard"
             >
               <div
                 class="header"
@@ -524,6 +527,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with s
                 <button
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium expandIcon css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                  data-cy="expandBtn"
                   data-testid="show more"
                   expand="false"
                   tabindex="0"
@@ -583,6 +587,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with s
             </div>
             <div
               class="wishlistCard MuiBox-root css-0"
+              data-cy="wishlistCard"
             >
               <div
                 class="header"
@@ -590,6 +595,7 @@ exports[`WishListPage component snapshots renders a WishListPage snapshot with s
                 <button
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium expandIcon css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                  data-cy="expandBtn"
                   data-testid="show more"
                   expand="false"
                   tabindex="0"

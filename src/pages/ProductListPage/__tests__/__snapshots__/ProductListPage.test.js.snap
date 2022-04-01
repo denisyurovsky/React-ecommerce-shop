@@ -312,6 +312,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+        data-cy="productCard"
       >
         <div
           class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
@@ -341,6 +342,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
             >
               <div
                 class="title"
+                data-cy="productName"
               >
                 Intelligent Cotton Pants
               </div>
@@ -600,6 +602,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
       </div>
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+        data-cy="productCard"
       >
         <div
           class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
@@ -629,6 +632,7 @@ exports[`ProductListPage component Render with data should render a valid snapsh
             >
               <div
                 class="title"
+                data-cy="productName"
               >
                 Incredible Plastic Table
               </div>

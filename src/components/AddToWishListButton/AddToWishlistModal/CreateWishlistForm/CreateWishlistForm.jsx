@@ -95,6 +95,7 @@ export const CreateWishlistForm = ({
           <LoadingButton label="" fullWidth />
         ) : (
           <Button
+            data-cy="createBtn"
             className={styles.createButton}
             disabled={!isNameValid}
             onClick={handleCreateButtonClick}

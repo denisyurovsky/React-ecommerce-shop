@@ -7,6 +7,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+      data-cy="productCard"
     >
       <div
         class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
@@ -14,6 +15,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         <span
           aria-label="wish"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium container module css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          data-cy="addToWishlists"
           role="button"
           tabindex="0"
         >
@@ -58,6 +60,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
           >
             <div
               class="title"
+              data-cy="productName"
             >
               Incredible Plastic Table
             </div>
@@ -317,6 +320,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
     </div>
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+      data-cy="productCard"
     >
       <div
         class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
@@ -324,6 +328,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         <span
           aria-label="wish"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium container module css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          data-cy="addToWishlists"
           role="button"
           tabindex="0"
         >
@@ -368,6 +373,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
           >
             <div
               class="title"
+              data-cy="productName"
             >
               Incredible Rubber Cheese
             </div>
@@ -627,6 +633,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
     </div>
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root container css-bhp9pd-MuiPaper-root-MuiCard-root"
+      data-cy="productCard"
     >
       <div
         class="MuiCardActions-root MuiCardActions-spacing price css-1t6e9jv-MuiCardActions-root"
@@ -634,6 +641,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
         <span
           aria-label="wish"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium container module css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          data-cy="addToWishlists"
           role="button"
           tabindex="0"
         >
@@ -678,6 +686,7 @@ exports[`CardsContainer component snapshots renders a valid snapshot with data 1
           >
             <div
               class="title"
+              data-cy="productName"
             >
               Incredible Metal Shoes
             </div>
