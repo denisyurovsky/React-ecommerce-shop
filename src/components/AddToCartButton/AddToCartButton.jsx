@@ -81,6 +81,7 @@ export const AddToCartButton = ({
   ) : (
     <div className={styles.bigButtonContainer}>
       <Button
+        data-cy="addToCartButton"
         variant="contained"
         className={styles.bigButton}
         onClick={addHandler}

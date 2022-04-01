@@ -300,6 +300,7 @@ exports[`Card component snapshots renders a valid snapshot with default shape 1`
       >
         <button
           class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
+          data-cy="addToCartButton"
           tabindex="0"
           type="button"
         >
@@ -628,6 +629,7 @@ exports[`Card component snapshots renders a valid snapshot with default shape wi
       >
         <button
           class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
+          data-cy="addToCartButton"
           tabindex="0"
           type="button"
         >
@@ -945,6 +947,7 @@ exports[`Card component snapshots renders a valid snapshot with list shape 1`] =
       >
         <button
           class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
+          data-cy="addToCartButton"
           tabindex="0"
           type="button"
         >
@@ -1273,6 +1276,7 @@ exports[`Card component snapshots renders a valid snapshot with list shape with 
       >
         <button
           class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root bigButton css-sghohy-MuiButtonBase-root-MuiButton-root"
+          data-cy="addToCartButton"
           tabindex="0"
           type="button"
         >

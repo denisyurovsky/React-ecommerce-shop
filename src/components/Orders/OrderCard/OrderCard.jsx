@@ -171,7 +171,7 @@ export const OrderCard = ({ orderId: id }) => {
   });
 
   return (
-    <Card className={styles.card}>
+    <Card data-cy="orderCard" className={styles.card}>
       <CardActions className={styles.collapseButton}>
         <Box className={styles.outerInformation}>
           <Box className={styles.dateInformation}>
@@ -187,6 +187,7 @@ export const OrderCard = ({ orderId: id }) => {
           </Box>
           <Box>
             <Typography
+              data-cy="orderCardStatus"
               className={classNames(
                 styles.deliveryMark,
                 styles[`deliveryMark${status}`]

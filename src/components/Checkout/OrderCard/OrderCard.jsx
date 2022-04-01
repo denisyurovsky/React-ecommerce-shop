@@ -9,7 +9,7 @@ import styles from './OrderCard.module.scss';
 
 const OrderCard = ({ images, name, price, discountPrice, quantity }) => {
   return (
-    <Card className={styles.card}>
+    <Card data-cy="orderCard" className={styles.card}>
       <CardMedia
         component="img"
         image={images.length ? images[0] : noImg}

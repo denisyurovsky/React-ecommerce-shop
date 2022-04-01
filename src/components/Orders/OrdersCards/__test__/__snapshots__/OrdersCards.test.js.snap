@@ -4,6 +4,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
 <DocumentFragment>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -30,6 +31,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -62,6 +64,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -88,6 +91,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark2 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for delivery
           </p>
@@ -120,6 +124,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -146,6 +151,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark3 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Delivered
           </p>
@@ -178,6 +184,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -204,6 +211,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark4 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Cancelled
           </p>
@@ -236,6 +244,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -262,6 +271,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -294,6 +304,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -320,6 +331,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -352,6 +364,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -378,6 +391,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -410,6 +424,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -436,6 +451,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark3 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Delivered
           </p>
@@ -468,6 +484,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -494,6 +511,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark4 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Cancelled
           </p>
@@ -526,6 +544,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -552,6 +571,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -584,6 +604,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -610,6 +631,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -642,6 +664,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -668,6 +691,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -700,6 +724,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -726,6 +751,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -758,6 +784,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -784,6 +811,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -816,6 +844,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -842,6 +871,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
@@ -874,6 +904,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
   </div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root card css-bhp9pd-MuiPaper-root-MuiCard-root"
+    data-cy="orderCard"
   >
     <div
       class="MuiCardActions-root MuiCardActions-spacing collapseButton css-1t6e9jv-MuiCardActions-root"
@@ -900,6 +931,7 @@ exports[`OrdersCards component snapshots with orders and without orders Renders 
         >
           <p
             class="MuiTypography-root MuiTypography-body1 deliveryMark deliveryMark1 css-ahj2mt-MuiTypography-root"
+            data-cy="orderCardStatus"
           >
             Waiting for payment
           </p>
